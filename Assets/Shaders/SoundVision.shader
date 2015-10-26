@@ -30,7 +30,7 @@
 		
 			for (int i = 0; i < 3; i++) {
 			float t = _Time.y;
-			float speed = 5;
+			float speed = 15;
 			float w = 25;
 			float dist = distance(_SoundSources[i], IN.worldPos);
 
