@@ -1,49 +1,49 @@
 ﻿Shader "Custom/Sound Vision" {
 	Properties
-    	{
+	{
 
-		}
-    SubShader {
-      	Tags { "RenderType" = "Opaque" }
-      
-		Lighting Off
-      	CGPROGRAM
-      	#pragma surface surf Lambert
-      	
-      	struct Input {
-          float3 worldPos;
-		};
-      
-
-      	float3 _SoundSources[3];
-      	float3 _Colors[3];
-
-      	
-      	half4 LightingNone (SurfaceOutput s, fixed4 color) {
-      		half4 c;
-      		c.rgb = s.Albedo;
-      		c.a = s.Alpha;
-      		return c;
-      	}
-
-		void surf (Input IN, inout SurfaceOutput o) {
-		
-			for (int i = 0; i < 3; i++) {
-			float t = _Time.y;
-			float speed = 15;
-			float w = 25;
-			float dist = distance(_SoundSources[i], IN.worldPos);
-
-			if (fmod(dist, w) < fmod(speed*t, w) && fmod(dist, w) > fmod(speed*t,w)- 5) {
-				o.Emission += (fmod(dist, w) - fmod(speed*t, w) + 5.0) * _Colors[i] / 5.0 ;
-			} else 
-			if (fmod(dist, w) < fmod(speed*t, w) + w && fmod(dist, w) > fmod(speed*t,w) - 5+ w ){
-				o.Emission += (fmod(dist, w) - (fmod(speed*t, w) + w) + 5.0) * _Colors[i] / 5.0 ;
-			}
-			}
-		}
-		ENDCG
 	}
-	Fallback "Diffuse"
+	SubShader{
+		Tags{ "RenderType" = "Opaque" }
+
+		Lighting Off
+		CGPROGRAM
+#pragma surface surf None
+
+	struct Input {
+		float3 worldPos;
+		float3 worldNormal;
+		float4 color : COLOR;
+	};
+
+	float _N;
+	float3 _SoundSource[100];
+	float4 _Colors[100];
+
+
+	half4 LightingNone(SurfaceOutput s, fixed3 lightDir, fixed atten) {
+		half4 c;
+		c.rgb = s.Albedo;
+		c.a = atten;
+		return c;
+	}
+
+	void surf(Input IN, inout SurfaceOutput o) {
+
+
+		float speed = 25;
+		for (int i = 0; i < _N; i++) {
+
+				float dist = distance(_SoundSource[i], IN.worldPos);
+
+				o.Emission += clamp((_Colors[i].xyz / pow(abs(dist - speed*_Colors[i].w), 2)),0,1)/ (pow(dist,1.5)/5);
+
+		}
+
+
+	}
+	ENDCG
+	}
+		Fallback "Diffuse"
 }
-		  	
+

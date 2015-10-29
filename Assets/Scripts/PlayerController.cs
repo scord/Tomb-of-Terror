@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    public Camera camera;
+    public Camera cam;
     bool turned;
     // Use this for initialization
     void Start () {
@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour {
 
         if (moveVertical == 1.0)
         {
-            transform.position = transform.position + camera.transform.forward * 2 * Time.deltaTime;
+            transform.position = transform.position + cam.transform.forward * 2 * Time.deltaTime;
         }
 
         if ((moveHorizontal == 1.0 || moveHorizontal == -1.0) && turned == false)
