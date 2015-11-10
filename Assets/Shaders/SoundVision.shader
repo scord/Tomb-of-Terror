@@ -35,8 +35,8 @@
 		for (int i = 0; i < _N; i++) {
 
 				float dist = distance(_SoundSource[i], IN.worldPos);
-
-				o.Emission += clamp((_Colors[i].xyz / pow(abs(dist - speed*_Colors[i].w), 2)),0,1)/ (pow(dist,1.5)/5);
+				float dist2 = dist - speed*_Colors[i].w;
+				o.Emission += clamp((_Colors[i].xyz / pow(abs(dist - speed*_Colors[i].w), 2)),0,1)  / (pow(dist,1.5)/5);
 
 		}
 
