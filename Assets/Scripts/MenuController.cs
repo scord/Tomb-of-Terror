@@ -21,20 +21,35 @@ public class MenuController : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if (selected == 1)
+            if (selected == 0)
             {
-                
-                manager.JoinGame(1);
+                manager.JoinGame(1, false);
+            }
+            else if (selected == 1)
+            {
+                Debug.Log("Player 2 Joining");
+                manager.JoinGame(2, false);
             }
             else if (selected == 2)
             {
-                Debug.Log("Player 2 Joining");
-                manager.JoinGame(2);
+                Debug.Log("Host Joining");
+                manager.JoinGame(3, false);
             }
-            else if (selected == 0)
+        } else if (Input.GetButtonDown("Fire2"))
+        {
+            if (selected == 0)
+            {
+                manager.JoinGame(1, true);
+            }
+            else if (selected == 1)
+            {
+                Debug.Log("Player 2 Joining");
+                manager.JoinGame(2, true);
+            }
+            else if (selected == 2)
             {
                 Debug.Log("Host Joining");
-                manager.CreateGame();
+                manager.JoinGame(3, true);
             }
         }
         if (!pressed && Input.GetAxis("Vertical") > 0)

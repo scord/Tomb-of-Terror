@@ -158,7 +158,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &841569454
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!114 &841569456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_OnlineScene: main
   m_SpawnPrefabs:
   - {fileID: 135414, guid: aabb4d67b8daa524bb92cb1f7153f174, type: 2}
-  - {fileID: 128420, guid: c3967de543490034ba0e0223ffd09e89, type: 2}
+  - {fileID: 145862, guid: c3967de543490034ba0e0223ffd09e89, type: 2}
   - {fileID: 128420, guid: 6d2e2bf24d336954bb8de2fd9e03c4eb, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -250,7 +250,7 @@ MonoBehaviour:
   matchName: default
   matchSize: 4
   player1: {fileID: 135414, guid: aabb4d67b8daa524bb92cb1f7153f174, type: 2}
-  player2: {fileID: 128420, guid: c3967de543490034ba0e0223ffd09e89, type: 2}
+  player2: {fileID: 145862, guid: c3967de543490034ba0e0223ffd09e89, type: 2}
   player3: {fileID: 128420, guid: 6d2e2bf24d336954bb8de2fd9e03c4eb, type: 2}
   playerSpawnPos: {x: 7, y: 7, z: 7}
 --- !u!1 &888571058
@@ -350,7 +350,7 @@ GameObject:
   - 222: {fileID: 892540476}
   - 114: {fileID: 892540475}
   m_Layer: 5
-  m_Name: Server button
+  m_Name: Mummy Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,7 +387,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Create server
+  m_Text: Play as Mummy
 --- !u!222 &892540476
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -422,7 +422,7 @@ GameObject:
   - 222: {fileID: 916044655}
   - 114: {fileID: 916044654}
   m_Layer: 5
-  m_Name: Player 2 Button
+  m_Name: Spectator Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,7 +476,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Join as player 2
+  m_Text: 'Spectate
 
 '
 --- !u!222 &916044655
@@ -485,66 +485,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 916044652}
---- !u!1 &1025467980
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1025467982}
-  - 108: {fileID: 1025467981}
-  m_Layer: 0
-  m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &1025467981
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1025467980}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_Type: 1
-  m_Color: {r: 1, g: .956862748, b: .839215696, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_Strength: 1
-    m_Bias: .0500000007
-    m_NormalBias: .400000006
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_BounceIntensity: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
---- !u!4 &1025467982
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1025467980}
-  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381676, w: .875426054}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
 --- !u!1 &1611066010
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +496,7 @@ GameObject:
   - 222: {fileID: 1611066013}
   - 114: {fileID: 1611066012}
   m_Layer: 5
-  m_Name: Player 1 Button
+  m_Name: Raider Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -610,7 +550,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Join as player 1
+  m_Text: Play as Raider
 --- !u!222 &1611066013
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -650,7 +590,7 @@ RectTransform:
   - {fileID: 1611066011}
   - {fileID: 916044653}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 567.5, y: 270}

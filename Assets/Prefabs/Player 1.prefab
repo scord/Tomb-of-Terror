@@ -31,6 +31,7 @@ GameObject:
   - 114: {fileID: 11496302}
   - 114: {fileID: 11441262}
   - 114: {fileID: 11484746}
+  - 54: {fileID: 5410284}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -190,6 +191,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103162}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5410284
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135414}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!82 &8248930
 AudioSource:
   m_ObjectHideFlags: 1
@@ -505,6 +521,10 @@ Prefab:
       propertyPath: cam
       value: 
       objectReference: {fileID: 2001426}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135414}
