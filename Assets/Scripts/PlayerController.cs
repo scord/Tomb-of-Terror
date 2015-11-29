@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour {
 
     public Camera cam;
     bool turned;
+	public SoundVision test;
     // Use this for initialization
     void Start () {
 	    turned = false;
