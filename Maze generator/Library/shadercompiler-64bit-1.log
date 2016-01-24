@@ -1,9 +1,0 @@
-Base path: C:/Program Files/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-5204
-Cmd: getPlatforms
-Cmd: compileSnippet
-  error: 2 plat 1 at (35): 'vert': function return value missing semantics\nCompiling Vertex program
-  api=1 type=0 insize=2732 outsize=0 kw= pd= ok=0
-Cmd: compileSnippet
-  error: 2 plat 1 at (46): 'frag': input parameter 'i' missing semantics\nCompiling Fragment program
-  api=1 type=1 insize=2732 outsize=0 kw= pd= ok=0
