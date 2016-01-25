@@ -4,8 +4,8 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	public Maze mazePrefab;
-	public Player mummyPrefab;
-	public Player adventurerPrefab;
+	public Player mummySpawn;
+	public Player adventurerSpawn;
 	public Prize prizePrefab;
 
 
@@ -37,10 +37,10 @@ public class GameManager : MonoBehaviour {
 		mazeInstance.Generate();
 
 			// adventurer = Instantiate(adventurerPrefab) as Player;
-			// adventurer.SetLocation(mazeInstance.GetCell(new IntVector2(mazeInstance.size.x-1, mazeInstance.size.z-1), true));
+			adventurerSpawn.SetLocation(mazeInstance.GetCell(new IntVector2(mazeInstance.size.x-1, mazeInstance.size.z-1), true));
 
 			// mummy = Instantiate(mummyPrefab) as Player;
-			// mummy.SetLocation(mazeInstance.GetCell(new IntVector2(0, 0)));
+			mummySpawn.SetLocation(mazeInstance.GetCell(new IntVector2(0, 0), true));
 
 			// treasure = Instantiate(prizePrefab) as Prize;
 			// treasure.SetLocation(mazeInstance.GetCell(new IntVector2(mazeInstance.size.x-1, 0),false));

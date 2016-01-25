@@ -65,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -652,6 +653,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 851353260}
+  - 114: {fileID: 851353261}
   m_Layer: 0
   m_Name: RaiderSpawner
   m_TagString: Untagged
@@ -1322,6 +1324,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1697052434}
+  - 114: {fileID: 1697052435}
   m_Layer: 0
   m_Name: MummySpawner
   m_TagString: Untagged
@@ -1336,11 +1339,22 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1697052433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 3.24699998, z: -.5}
+  m_LocalPosition: {x: -1.5, y: 2, z: -.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1697052435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697052433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3600e88177c95428d89c35333f5412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1817565093
 Prefab:
   m_ObjectHideFlags: 0
@@ -1350,15 +1364,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 0172c2bf294624fbfa4d0d6b61485e50, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.1000004
+      value: .150000572
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0172c2bf294624fbfa4d0d6b61485e50, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.96000004
+      value: .0439999104
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0172c2bf294624fbfa4d0d6b61485e50, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.2999992
+      value: 1.38960266
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0172c2bf294624fbfa4d0d6b61485e50, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1569,8 +1583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 11468736, guid: bd65dd76a41d6c64a82bbb835e1d4f8a, type: 2}
-  mummyPrefab: {fileID: 0}
-  adventurerPrefab: {fileID: 0}
+  mummySpawn: {fileID: 1697052435}
+  adventurerSpawn: {fileID: 851353261}
   prizePrefab: {fileID: 0}
 --- !u!4 &2123493107
 Transform:

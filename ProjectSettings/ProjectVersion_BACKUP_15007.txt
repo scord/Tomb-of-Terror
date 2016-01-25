@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+m_EditorVersion: 5.1.1f1
+=======
+m_EditorVersion: 5.2.1f1
+>>>>>>> origin/maze
+m_StandardAssetsVersion: 0
