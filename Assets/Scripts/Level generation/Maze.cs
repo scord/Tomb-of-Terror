@@ -71,7 +71,7 @@ public class Maze : MonoBehaviour {
 		while( activeTopCells.Count > 0){
 			c++;	
 			DoNextGenerationStep(activeTopCells, true);
-			Debug.Log(activeTopCells.Count);
+			//Debug.Log(activeTopCells.Count);
 		}
 
 

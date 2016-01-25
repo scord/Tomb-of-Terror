@@ -65,7 +65,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -85,6 +84,9 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!127 &5
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!1 &176735519
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +671,91 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &1098669285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1098669290}
+  - 20: {fileID: 1098669289}
+  - 124: {fileID: 1098669288}
+  - 92: {fileID: 1098669287}
+  - 81: {fileID: 1098669286}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1098669286
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1098669285}
+  m_Enabled: 1
+--- !u!92 &1098669287
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1098669285}
+  m_Enabled: 1
+--- !u!124 &1098669288
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1098669285}
+  m_Enabled: 1
+--- !u!20 &1098669289
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1098669285}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: .300000012
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
+--- !u!4 &1098669290
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1098669285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.23159266, y: 1.85005569, z: -5.7750001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!4 &1212802225 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0172c2bf294624fbfa4d0d6b61485e50, type: 3}
@@ -1249,7 +1336,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1697052433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 2, z: -.5}
+  m_LocalPosition: {x: -1.5, y: 3.24699998, z: -.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1263,15 +1350,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 0172c2bf294624fbfa4d0d6b61485e50, type: 3}
       propertyPath: m_LocalPosition.x
-      value: .150000572
+      value: 21.1000004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0172c2bf294624fbfa4d0d6b61485e50, type: 3}
       propertyPath: m_LocalPosition.y
-      value: .0439999104
+      value: -4.96000004
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0172c2bf294624fbfa4d0d6b61485e50, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.38960266
+      value: 22.2999992
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0172c2bf294624fbfa4d0d6b61485e50, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1464,7 +1551,7 @@ GameObject:
   - 4: {fileID: 2123493107}
   - 114: {fileID: 2123493106}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

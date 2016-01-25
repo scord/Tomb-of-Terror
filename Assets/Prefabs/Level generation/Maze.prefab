@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 8
-    z: 6
+    x: 15
+    z: 15
   floorSize:
     x: 0
     z: 0
@@ -68,13 +68,13 @@ MonoBehaviour:
   roomSettings:
   - floorMaterial: {fileID: 2100000, guid: bf450754c18909347a462294b3b24b14, type: 2}
     wallMaterial: {fileID: 2100000, guid: 359cf4099f213bf4eb53ab295d7f7e3c, type: 2}
-    cellPrefab: {fileID: 11443490, guid: 024ecb26f5994734e988d40d14338757, type: 2}
+    cellPrefab: {fileID: 11401098, guid: b12486cd1dd48814c8526f214bf27ca8, type: 2}
   - floorMaterial: {fileID: 2100000, guid: a9bfffdf341bd174e92eaee54a96f1cb, type: 2}
     wallMaterial: {fileID: 2100000, guid: 8c016f89ba74dae4097400be80e5c911, type: 2}
-    cellPrefab: {fileID: 11443490, guid: 024ecb26f5994734e988d40d14338757, type: 2}
+    cellPrefab: {fileID: 11401098, guid: b12486cd1dd48814c8526f214bf27ca8, type: 2}
   - floorMaterial: {fileID: 2100000, guid: 7779a4d67587eb0459dd9f851a4071dc, type: 2}
     wallMaterial: {fileID: 2100000, guid: 834e1c2b80be8284190214801f806907, type: 2}
-    cellPrefab: {fileID: 11443490, guid: 024ecb26f5994734e988d40d14338757, type: 2}
+    cellPrefab: {fileID: 11401098, guid: b12486cd1dd48814c8526f214bf27ca8, type: 2}
   topRoomSettings:
   - floorMaterial: {fileID: 2100000, guid: a9bfffdf341bd174e92eaee54a96f1cb, type: 2}
     wallMaterial: {fileID: 2100000, guid: 8c016f89ba74dae4097400be80e5c911, type: 2}
@@ -277,11 +277,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 8c016f89ba74dae4097400be80e5c911, type: 2}
     - target: {fileID: 0}
       propertyPath: size.x
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: size.z
-      value: 6
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: doorPrefab
@@ -313,17 +313,17 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: roomSettings.Array.data[0].cellPrefab
       value: 
-      objectReference: {fileID: 11443490, guid: 024ecb26f5994734e988d40d14338757,
+      objectReference: {fileID: 11401098, guid: b12486cd1dd48814c8526f214bf27ca8,
         type: 2}
     - target: {fileID: 0}
       propertyPath: roomSettings.Array.data[1].cellPrefab
       value: 
-      objectReference: {fileID: 11443490, guid: 024ecb26f5994734e988d40d14338757,
+      objectReference: {fileID: 11401098, guid: b12486cd1dd48814c8526f214bf27ca8,
         type: 2}
     - target: {fileID: 0}
       propertyPath: roomSettings.Array.data[2].cellPrefab
       value: 
-      objectReference: {fileID: 11443490, guid: 024ecb26f5994734e988d40d14338757,
+      objectReference: {fileID: 11401098, guid: b12486cd1dd48814c8526f214bf27ca8,
         type: 2}
     - target: {fileID: 0}
       propertyPath: topRoomSettings.Array.data[0].floorMaterial

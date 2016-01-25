@@ -36,6 +36,17 @@ public class SoundVision : MonoBehaviour
 
     }
 
+	public void CreateSound(Vector3 position)
+	{
+		Shader.SetGlobalInt("_CurrentWave", count);
+		time[count] = 0;
+		active[count] = 1;
+		Shader.SetGlobalVector("_SoundSource" + count, position);
+		count = (count + 1) % n;
+		audioSource.time = 0.5f;
+		audioSource.Play();
+	}
+
     // Update is called once per frame
     void Update()
     {
@@ -59,10 +70,6 @@ public class SoundVision : MonoBehaviour
             }
             Shader.SetGlobalVector("_Colors" + i, active[i] * (new Vector4(0.5f, 1.0f, 1.0f, time[i])));
         }
-
-
-
-
     }
 
     void OnPostRender()

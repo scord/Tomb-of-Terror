@@ -16,10 +16,12 @@ public class GameManager : MonoBehaviour {
 	private Maze mazeInstance;
 	private Creator god;
 
-
+	private bool gameOver = false;
 
 	private void Start () {
 		BeginGame();
+
+
 	}
 	
 	private void Update () {

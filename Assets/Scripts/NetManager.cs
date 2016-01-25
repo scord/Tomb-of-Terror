@@ -6,6 +6,7 @@ using UnityEngine.Networking.NetworkSystem;
 public class NetManager : NetworkManager
 {
     public GameObject player1;
+	public GameManager gameManager;
     public GameObject player2;
     public GameObject player3;
     GameObject chosenPlayer;

@@ -4,6 +4,8 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 
     public Camera cam;
+	public SoundVision soundVision;
+
     bool turned;
 	// public SoundVision test;
     // Use this for initialization
@@ -31,4 +33,10 @@ public class PlayerController : MonoBehaviour {
             turned = false;
         }
     }
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.name == "Explorer") {
+			Debug.Log("MUMMY WINS");
+		}
+	}
 }
