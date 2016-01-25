@@ -650,6 +650,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 851353260}
+  - 114: {fileID: 851353261}
   m_Layer: 0
   m_Name: RaiderSpawner
   m_TagString: Untagged
@@ -669,6 +670,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &851353261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 851353259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3600e88177c95428d89c35333f5412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1212802225 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0172c2bf294624fbfa4d0d6b61485e50, type: 3}
@@ -1235,6 +1247,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1697052434}
+  - 114: {fileID: 1697052435}
   m_Layer: 0
   m_Name: MummySpawner
   m_TagString: Untagged
@@ -1254,6 +1267,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1697052435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697052433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3600e88177c95428d89c35333f5412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1817565093
 Prefab:
   m_ObjectHideFlags: 0
@@ -1482,8 +1506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mazePrefab: {fileID: 11468736, guid: bd65dd76a41d6c64a82bbb835e1d4f8a, type: 2}
-  mummyPrefab: {fileID: 0}
-  adventurerPrefab: {fileID: 0}
+  mummySpawn: {fileID: 1697052435}
+  adventurerSpawn: {fileID: 851353261}
   prizePrefab: {fileID: 0}
 --- !u!4 &2123493107
 Transform:
