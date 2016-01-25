@@ -40,11 +40,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 8
-    z: 6
+    x: 12
+    z: 12
   floorSize:
     x: 0
     z: 0
+  roomHeight: 1.62
   nrOfFloors: 0
   prefabsWall: []
   topPrefab:
@@ -277,11 +278,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 9602e5f51a183e640be6528d34cc78b2, type: 2}
     - target: {fileID: 0}
       propertyPath: size.x
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: size.z
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: doorPrefab
@@ -379,6 +380,10 @@ Prefab:
       propertyPath: topRoomSettings.Array.data[1].floorMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 82332add0fbd3fa4182d758f5cdbb770, type: 2}
+    - target: {fileID: 0}
+      propertyPath: roomHeight
+      value: 1.62
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
