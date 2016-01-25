@@ -6,6 +6,8 @@ public class Maze : MonoBehaviour {
 
 	public IntVector2 size;
 	public IntVector2 floorSize;
+
+	public float roomHeight = 3f;
 	public int nrOfFloors;
 
 
@@ -77,41 +79,6 @@ public class Maze : MonoBehaviour {
 
 	}
 
-	private void DoNextGenerationStepTop (List<MazeCell> activeTopCells) {
-		// int currentIndex = activeTopCells.Count - 1;
-		// MazeCell currentTopCell = activeTopCells[currentIndex];
-
-		// if (currentTopCell.IsFullyInitialized) {
-		// 	activeTopCells.RemoveAt(currentIndex);
-		// 	return;
-		// }
-
-		// MazeDirection direction = currentTopCell.RandomUninitializedDirection;
-		// IntVector2 coordinates = currentTopCell.coordinates + direction.ToIntVector2();
-		// if (ContainsCoordinates(coordinates)) {
-	 //    	Debug.Log("containsCoordinates");
-		// 	MazeCell neighbor = GetTopCell(coordinates);
-		// 	if (neighbor == null) {
-		// 		Debug.Log("neighbor == null");
-		// 		neighbor = CreateTopCell(coordinates);
-		// 		CreatePassage(currentTopCell, coordinates, direction, );
-		// 		activeTopCells.Add(neighbor);
-		// 	}
-		// 	else if (currentTopCell.room.settingsIndex == neighbor.room.settingsIndex) {
-		// 		CreatePassageInSameRoom(currentTopCell, neighbor, direction);
-		// 		Debug.Log("Same room Passage");
-		// 	}
-		// 	else {
-		// 		CreateWall(currentTopCell, neighbor, direction);
-		// 		Debug.Log("Wall");
-		// 	}
-		// }
-		// else {
-		// 	CreateWall(currentTopCell, null, direction);
-		// 	Debug.Log("OuterWall");
-		// }
-	}
-
 	private void DoFirstGenerationStep (List<MazeCell> activeCells, bool top) {
 		
 		MazeCell newCell = Initialize(CreateRoom(-1, top), RandomCoordinates, top);
@@ -159,7 +126,7 @@ public class Maze : MonoBehaviour {
 		newCell.coordinates = coordinates;
 		newCell.name = "Top Cell " + coordinates.x + ", " + coordinates.z;
 		newCell.transform.parent = transform;
-		newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0.5f, 2f, coordinates.z - size.z * 0.5f + 0.5f);
+		newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0.5f, roomHeight, coordinates.z - size.z * 0.5f + 0.5f);
 		return newCell;
 	}
 
@@ -193,10 +160,10 @@ public class Maze : MonoBehaviour {
 
 	private void CreateWall (MazeCell cell, MazeCell otherCell, MazeDirection direction) {
 		MazeWall wall = Instantiate(wallPrefabs[Random.Range(0, wallPrefabs.Length)]) as MazeWall;
-		wall.Initialize(cell, otherCell, direction);
+		wall.Initialize(cell, otherCell, direction, roomHeight);
 		if (otherCell != null) {
 			wall = Instantiate(wallPrefabs[Random.Range(0, wallPrefabs.Length)]) as MazeWall;
-			wall.Initialize(otherCell, cell, direction.GetOpposite());
+			wall.Initialize(otherCell, cell, direction.GetOpposite(), roomHeight);
 		}
 	}
 
@@ -230,7 +197,7 @@ public class Maze : MonoBehaviour {
 		else{
 			topCells[coordinates.x, coordinates.z] = newCell;
 			newCell.name = "Top Cell " + coordinates.x + ", " + coordinates.z;
-			newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0.5f, 2f, coordinates.z - size.z * 0.5f + 0.5f);
+			newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0.5f, roomHeight, coordinates.z - size.z * 0.5f + 0.5f);
 
 		}
 		return newCell;
