@@ -18,11 +18,10 @@
             
             struct fragmentInput {
                 float4 pos : SV_POSITION;
-                float3 worldPos;
-                float2 uv : TEXCOORD0;
-                float3 normal : TEXCOORD1;      // Normal needed for rim lighting
-                float3 viewDir : TEXCOORD2;     // as is view direction.
-                float dist;
+                float3 worldPos : TEXCOORD0;
+                float2 uv : TEXCOORD1;
+                float3 normal : TEXCOORD2;      // Normal needed for rim lighting
+                float3 viewDir : TEXCOORD3;     // as is view direction.
             };
            
             sampler2D _MainTex;
