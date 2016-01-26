@@ -5,16 +5,10 @@ using System.Collections.Generic;
 public class Maze : MonoBehaviour {
 
 	public IntVector2 size;
-	public IntVector2 floorSize;
 
 	public float roomHeight = 3f;
-	public int nrOfFloors;
 
-
-	public MazeWall[] prefabsWall;
-	public MazeCell[] topPrefab;
-
-	public MazeCell cellPrefab;
+	// public MazeCell cellPrefab;
 	public MazePassage passagePrefab;
 	public MazeDoor doorPrefab;
 
@@ -118,16 +112,6 @@ public class Maze : MonoBehaviour {
 		else {
 			CreateWall(currentCell, null, direction);
 		}
-	}
-
-	private MazeCell CreateTopCell(IntVector2 coordinates){
-		MazeCell newCell = Instantiate(topPrefab[0]) as MazeCell;
-		topCells[coordinates.x, coordinates.z] = newCell;
-		newCell.coordinates = coordinates;
-		newCell.name = "Top Cell " + coordinates.x + ", " + coordinates.z;
-		newCell.transform.parent = transform;
-		newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0.5f, roomHeight, coordinates.z - size.z * 0.5f + 0.5f);
-		return newCell;
 	}
 
 	private MazeCell CreatePassage (MazeCell cell, IntVector2 coordinates, MazeDirection direction, bool top) {
