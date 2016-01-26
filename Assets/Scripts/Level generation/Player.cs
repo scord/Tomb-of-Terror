@@ -7,12 +7,12 @@ public class Player : MonoBehaviour {
 	private MazeDirection currentDirection;
 
 	public void SetLocation (MazeCell cell) {
-		if (currentCell != null) {
-			currentCell.OnPlayerExited();
-		}
+		// if (currentCell != null) {
+		// 	currentCell.OnPlayerExited();
+		// }
 		currentCell = cell;
 		transform.localPosition = cell.transform.localPosition;
-		currentCell.OnPlayerEntered();
+		// currentCell.OnPlayerEntered();
 	}
 
 	public MazeCell GetCell(){

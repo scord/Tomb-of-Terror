@@ -10,6 +10,5 @@ public class MazeWall : MazeCellEdge {
 		Vector3 scaleV = new Vector3(1.0f, height, 0.05f);
 
 		wall.localScale = scaleV;
-		// Debug.Log(wall.localScale);
 	}
 }
