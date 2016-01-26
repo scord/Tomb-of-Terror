@@ -42,7 +42,19 @@ MonoBehaviour:
   size:
     x: 15
     z: 12
+<<<<<<< HEAD
   roomHeight: 3
+=======
+  floorSize:
+    x: 0
+    z: 0
+  roomHeight: 1.62
+  nrOfFloors: 0
+  prefabsWall: []
+  topPrefab:
+  - {fileID: 11454574, guid: 8ef10768686a9a745996d98036679e9e, type: 2}
+  cellPrefab: {fileID: 11401098, guid: b12486cd1dd48814c8526f214bf27ca8, type: 2}
+>>>>>>> parent of b49e855... cleaning up
   passagePrefab: {fileID: 11410498, guid: f2126d7ca474b794199add353734b75a, type: 2}
   doorPrefab: {fileID: 11433936, guid: fe82c67dbc6004044bd5b60b4e052a5e, type: 2}
   doorProbability: .100000001
@@ -363,11 +375,15 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 612fb4ea5d8eb6c48ab9262077319f0a, type: 2}
     - target: {fileID: 0}
       propertyPath: roomHeight
+<<<<<<< HEAD
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: floorSize.x
       value: 31
+=======
+      value: 1.62
+>>>>>>> parent of b49e855... cleaning up
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
