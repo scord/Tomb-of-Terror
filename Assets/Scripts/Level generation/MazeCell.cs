@@ -50,33 +50,4 @@ public class MazeCell : MonoBehaviour {
 	public void Hide () {
 		gameObject.SetActive(false);
 	}
-
-	public void OnPlayerEntered () {
-		room.Show();
-		for (int i = 0; i < edges.Length; i++) {
-			edges[i].OnPlayerEntered();
-		}
-	}
-	
-	public void OnPlayerExited () {
-		room.Hide();
-		for (int i = 0; i < edges.Length; i++) {
-			edges[i].OnPlayerExited();
-		}
-	}
-
-
-	// public MazeCell (MazeRoom room, IntVector2 coordinates) {
-
-	// 	MazeCell newCell = Instantiate(room.settings.cellPrefab) as MazeCell;
-	// 	cells[coordinates.x, coordinates.z] = newCell;
-	// 	newCell.coordinates = coordinates;
-	// 	newCell.name = "Maze Cell " + coordinates.x + ", " + coordinates.z;
-	// 	newCell.transform.parent = transform;
-	// 	newCell.transform.localPosition = new Vector3(coordinates.x - size.x * 0.5f + 0.5f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
-
-	// 	newCell.transform.GetChild(0).GetComponent<Renderer>().material = room.settings.floorMaterial;
-	// 	room.Add(newCell);
-	// 	return newCell;
-	// }
 }

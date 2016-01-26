@@ -15,9 +15,6 @@ public class Maze : MonoBehaviour {
 	[Range(0f, 1f)]
 	public float doorProbability;
 
-	[Range(0f, 1f)]
-	public float floorProbability;
-
 	public MazeWall[] wallPrefabs;
 	public MazeRoomSettings[] roomSettings;
 	public MazeRoomSettings[] topRoomSettings;	
@@ -55,15 +52,16 @@ public class Maze : MonoBehaviour {
 		cells = new MazeCell[size.x, size.z];
 		List<MazeCell> activeCells = new List<MazeCell>();
 		DoFirstGenerationStep(activeCells, false);
-		while (activeCells.Count > 0) {
-			// yield return delay;
+		int c = 0;
+		while (activeCells.Count > 0 ) {
+			c++;
 			DoNextGenerationStep(activeCells, false);
 		}
 
 		topCells = new MazeCell[size.x, size.z];
 		List<MazeCell> activeTopCells = new List<MazeCell>();
 		DoFirstGenerationStep(activeTopCells, true);
-		int c = 0;
+	    c = 0;
 		while( activeTopCells.Count > 0){
 			c++;	
 			DoNextGenerationStep(activeTopCells, true);
@@ -81,12 +79,7 @@ public class Maze : MonoBehaviour {
 
 	private void DoNextGenerationStep (List<MazeCell> activeCells, bool top) {
 
-		for(int i=0; i<activeCells.Count-1; i++){
-			if(activeCells[i].IsFullyInitialized){
-				activeCells.RemoveAt(i);
-				i--;
-			}
-		}
+
 
 		int currentIndex = activeCells.Count - 1;
 		MazeCell currentCell = activeCells[currentIndex];
@@ -112,12 +105,18 @@ public class Maze : MonoBehaviour {
 		else {
 			CreateWall(currentCell, null, direction);
 		}
+		for(int i=0; i<activeCells.Count-1; i++){
+			if(activeCells[i].IsFullyInitialized){
+				activeCells.RemoveAt(i);
+				i--;
+			}
+		}
 	}
 
 	private MazeCell CreatePassage (MazeCell cell, IntVector2 coordinates, MazeDirection direction, bool top) {
 		MazePassage prefab = Random.value < doorProbability ? doorPrefab : passagePrefab;
 		MazePassage passage = Instantiate(prefab) as MazePassage;
-			MazeCell otherCell;
+		MazeCell otherCell;
 		if (passage is MazeDoor) {
 			otherCell = Initialize(CreateRoom(cell.room.settingsIndex, top), coordinates, top);
 			passage.Initialize(cell, otherCell, direction);
