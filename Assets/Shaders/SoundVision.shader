@@ -27,6 +27,7 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _Colors[100];  
+            
             float3 _SoundSource[100]; 
             int _CurrentWave;
             float _N;

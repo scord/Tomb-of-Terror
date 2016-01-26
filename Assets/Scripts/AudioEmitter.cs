@@ -10,10 +10,10 @@ public class AudioEmitter : MonoBehaviour {
 		Debug.Log ("TEST");
 	}
 
-	void OnCollisionEnter(Collision other)
+	void OnCollisionEnter(Collision collision)
 	{
 		Debug.Log ("SOUND");
-		soundVision.CreateSound (transform.position);
+		soundVision.CreateSound (transform.position, collision.relativeVelocity.magnitude);
 	}
 
 	void onTriggerStay(Collider other)

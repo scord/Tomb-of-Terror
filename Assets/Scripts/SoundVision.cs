@@ -33,15 +33,15 @@ public class SoundVision : MonoBehaviour
             time[i] = 0.0f;
             active[i] = 0;
         }
-
     }
 
-	public void CreateSound(Vector3 position)
+	public void CreateSound(Vector3 position, float volume)
 	{
 		Shader.SetGlobalInt("_CurrentWave", count);
 		time[count] = 0;
 		active[count] = 1;
 		Shader.SetGlobalVector("_SoundSource" + count, position);
+		Shader.SetGlobalFloat ("_Volume" + count, volume);
 		count = (count + 1) % n;
 		audioSource.time = 0.5f;
 		audioSource.Play();

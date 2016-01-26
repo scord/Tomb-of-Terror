@@ -24,7 +24,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,13 +40,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size:
-    x: 12
-    z: 12
+    x: 20
+    z: 20
   floorSize:
     x: 0
     z: 0
-  roomHeight: 1.62
-  nrOfFloors: 0
+  roomHeight: 2
+  nrOfFloors: 1
   prefabsWall: []
   topPrefab:
   - {fileID: 11454574, guid: 8ef10768686a9a745996d98036679e9e, type: 2}
@@ -278,11 +278,11 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 9602e5f51a183e640be6528d34cc78b2, type: 2}
     - target: {fileID: 0}
       propertyPath: size.x
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: size.z
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: doorPrefab
@@ -350,7 +350,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: nrOfFloors
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: passagePrefab
@@ -382,7 +382,19 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 82332add0fbd3fa4182d758f5cdbb770, type: 2}
     - target: {fileID: 0}
       propertyPath: roomHeight
-      value: 1.62
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
