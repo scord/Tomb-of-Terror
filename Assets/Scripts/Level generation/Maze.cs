@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-public class Maze : MonoBehaviour {
+using UnityEngine.Networking;
+public class Maze : NetworkBehaviour {
 
 	public IntVector2 size;
+
+    [SyncVar]
+    public int seed = 42;
 
 	public float roomHeight = 3f;
 
@@ -48,6 +51,7 @@ public class Maze : MonoBehaviour {
 	}
 
 	public void Generate () {
+        Random.seed = seed;
 		// WaitForSeconds delay = new WaitForSeconds(generationStepDelay);
 		cells = new MazeCell[size.x, size.z];
 		List<MazeCell> activeCells = new List<MazeCell>();
@@ -68,7 +72,7 @@ public class Maze : MonoBehaviour {
 			//Debug.Log(activeTopCells.Count);
 		}
 
-
+        transform.localScale = new Vector3(3, 3, 3);
 	}
 
 	private void DoFirstGenerationStep (List<MazeCell> activeCells, bool top) {

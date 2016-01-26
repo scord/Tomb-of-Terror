@@ -13,9 +13,7 @@ public class GameManager : MonoBehaviour {
 	private bool gameOver = false;
 
 	private void Start () {
-		BeginGame();
-
-
+        BeginGame();
 	}
 	
 	private void Update () {
@@ -24,7 +22,8 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	private void BeginGame () {
+
+	public void BeginGame () {
 		mazeInstance = Instantiate(mazePrefab) as Maze;
 		mazeInstance.Generate();
 

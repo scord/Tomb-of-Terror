@@ -1,35 +1,55 @@
-Initialize engine version: 5.2.2f1 (3757309da7e7)
+Initialize engine version: 5.3.1f1 (cc9cbbcc37b4)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: AMD Radeon (TM) R5 M330 (ID=0x6660)
+    Renderer: AMD Radeon (TM) R9 390 Series (ID=0x67b1)
     Vendor:   ATI
-    VRAM:     2039 MB
+    VRAM:     8170 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Paul Cristian\Desktop\Tomb-of-Terror-master\Tomb-of-Terror-master\test_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Paul Cristian\Desktop\Tomb-of-Terror-master\Tomb-of-Terror-master\test_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Paul Cristian\Desktop\Tomb-of-Terror-master\Tomb-of-Terror-master\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Paul Cristian\Desktop\Tomb-of-Terror-master\Tomb-of-Terror-master\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Paul Cristian\Desktop\Tomb-of-Terror-master\Tomb-of-Terror-master\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Paul Cristian\Desktop\Tomb-of-Terror-master\Tomb-of-Terror-master\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Paul Cristian\Desktop\Tomb-of-Terror-master\Tomb-of-Terror-master\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Paul Cristian\Desktop\Tomb-of-Terror-master\Tomb-of-Terror-master\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Paul Cristian\Desktop\Tomb-of-Terror-master\Tomb-of-Terror-master\test_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.335 seconds
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+Platform assembly: C:\Users\Sam\Development\Unity\Tomb of Terror\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Sam\Development\Unity\Tomb of Terror\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Sam\Development\Unity\Tomb of Terror\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Sam\Development\Unity\Tomb of Terror\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Sam\Development\Unity\Tomb of Terror\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Sam\Development\Unity\Tomb of Terror\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Sam\Development\Unity\Tomb of Terror\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Sam\Development\Unity\Tomb of Terror\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.096 seconds
+Platform assembly: C:\Users\Sam\Development\Unity\Tomb of Terror\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Sam\Development\Unity\Tomb of Terror\test_Data\Managed\System.dll (this message is harmless)
+desktop: 2560x1440 60Hz; virtual: 2560x1440 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-Platform assembly: C:\Users\Paul Cristian\Desktop\Tomb-of-Terror-master\Tomb-of-Terror-master\test_Data\Managed\System.dll (this message is harmless)
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 548 -> priority: 1 
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 15.434144 ms
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 321.
-Total: 0.600858 ms (FindLiveObjects: 0.047042 ms CreateObjectMapping: 0.054740 ms MarkObjects: 0.480686 ms  DeleteObjects: 0.017533 ms)
-
-Player 1
+UnloadTime: 0.473676 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 19a8 -> priority: 1 
+  Thread -> id: d28 -> priority: 1 
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+The prefab 'Player 3' has multiple NetworkIdentity components. There can only be one NetworkIdentity on a prefab, and it must be on the root object.
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
 
+UnloadTime: 4.658333 ms
+The prefab 'Player 3' has multiple NetworkIdentity components. There can only be one NetworkIdentity on a prefab, and it must be on the root object.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 11182.
+Total: 1.773094 ms (FindLiveObjects: 0.494882 ms CreateObjectMapping: 0.141029 ms MarkObjects: 1.121341 ms  DeleteObjects: 0.011241 ms)
+
+Mummy
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Explorer
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:64517}
+Explorer
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:64518}

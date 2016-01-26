@@ -41,11 +41,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size:
     x: 15
-    z: 12
-  roomHeight: 3
+    z: 15
+  seed: 42
+  roomHeight: 2
   passagePrefab: {fileID: 11410498, guid: f2126d7ca474b794199add353734b75a, type: 2}
   doorPrefab: {fileID: 11433936, guid: fe82c67dbc6004044bd5b60b4e052a5e, type: 2}
-  doorProbability: .100000001
+  doorProbability: 0.1
   wallPrefabs:
   - {fileID: 11474632, guid: 15b85812e58b83942aa25968c511f015, type: 2}
   roomSettings:
@@ -263,7 +264,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: size.z
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: doorPrefab
@@ -363,7 +364,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 612fb4ea5d8eb6c48ab9262077319f0a, type: 2}
     - target: {fileID: 0}
       propertyPath: roomHeight
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: floorSize.x
