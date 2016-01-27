@@ -10,10 +10,12 @@ public class Maze : NetworkBehaviour {
     public int seed = 42;
 
 	public float roomHeight = 3f;
+	private float levelScale = 3;
 
 	// public MazeCell cellPrefab;
 	public MazePassage passagePrefab;
 	public MazeDoor doorPrefab;
+	public Material defaultMaterial;
 
 	[Range(0f, 1f)]
 	public float doorProbability;
@@ -72,7 +74,14 @@ public class Maze : NetworkBehaviour {
 			//Debug.Log(activeTopCells.Count);
 		}
 
-        transform.localScale = new Vector3(3, 3, 3);
+		//rescale maze
+        transform.localScale = new Vector3(levelScale, levelScale, levelScale);
+
+        // generate roof
+        GameObject rooftop = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        rooftop.transform.position = new Vector3(0, 2*roomHeight*levelScale, 0);
+        rooftop.transform.localScale = new Vector3(size.x*levelScale, 0.1f, size.z*levelScale);
+        rooftop.GetComponent<Renderer>().material = defaultMaterial;
 	}
 
 	private void DoFirstGenerationStep (List<MazeCell> activeCells, bool top) {
