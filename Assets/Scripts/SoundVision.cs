@@ -10,6 +10,7 @@ public class SoundVision : MonoBehaviour
     float[] time;
     int[] active;
     int count = 0;
+	float maxVolume = 50;
 
     // Use this for initialization
     void Start()
@@ -37,6 +38,14 @@ public class SoundVision : MonoBehaviour
 
 	public void CreateSound(Vector3 position, float volume)
 	{
+		// cap at maxVolume
+		if (volume > maxVolume) {
+			volume = maxVolume;
+		}
+
+		// normalise between 0 and 1
+		volume = volume / maxVolume;
+
 		Shader.SetGlobalInt("_CurrentWave", count);
 		time[count] = 0;
 		active[count] = 1;
