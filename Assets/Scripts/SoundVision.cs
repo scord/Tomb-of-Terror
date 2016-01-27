@@ -65,6 +65,7 @@ public class SoundVision : MonoBehaviour
             time[count] = 0;
             active[count] = 1;
             Shader.SetGlobalVector("_SoundSource" + count, transform.position);
+			Shader.SetGlobalFloat ("_Volume" + count, 1);
             count = (count + 1) % n;
             audioSource.time = 0.5f;
             audioSource.Play();
