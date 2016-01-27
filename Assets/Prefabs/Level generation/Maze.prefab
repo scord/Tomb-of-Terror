@@ -42,11 +42,15 @@ MonoBehaviour:
   size:
     x: 15
     z: 15
-  seed: 42
+  seed: 1
   roomHeight: 2
   passagePrefab: {fileID: 11410498, guid: f2126d7ca474b794199add353734b75a, type: 2}
-  doorPrefab: {fileID: 11433936, guid: fe82c67dbc6004044bd5b60b4e052a5e, type: 2}
-  doorProbability: 0.1
+  bottom_doorPrefab: {fileID: 11433936, guid: fe82c67dbc6004044bd5b60b4e052a5e, type: 2}
+  top_doorPrefab:
+  - {fileID: 11433936, guid: fe82c67dbc6004044bd5b60b4e052a5e, type: 2}
+  - {fileID: 11468134, guid: 3f5f1f73d255b8140abe448496ee1637, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: d1b8b47ac917081469305111fec17ce1, type: 2}
+  doorProbability: .100000001
   wallPrefabs:
   - {fileID: 11474632, guid: 15b85812e58b83942aa25968c511f015, type: 2}
   roomSettings:
@@ -84,6 +88,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: roomSettings.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: top_doorPrefab.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: topRoomSettings.Array.size
@@ -370,6 +378,34 @@ Prefab:
       propertyPath: floorSize.x
       value: 31
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: defaultMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: d1b8b47ac917081469305111fec17ce1, type: 2}
+    - target: {fileID: 0}
+      propertyPath: bottom_doorPrefab
+      value: 
+      objectReference: {fileID: 11433936, guid: fe82c67dbc6004044bd5b60b4e052a5e,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: top_doorPrefab
+      value: 
+      objectReference: {fileID: 11468134, guid: 3f5f1f73d255b8140abe448496ee1637,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: seed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: top_doorPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 11433936, guid: fe82c67dbc6004044bd5b60b4e052a5e,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: top_doorPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 11468134, guid: 3f5f1f73d255b8140abe448496ee1637,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}

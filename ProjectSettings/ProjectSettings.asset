@@ -495,7 +495,7 @@ PlayerSettings:
   WebGL::template: APPLICATION:Default
   additionalIl2CppArgs::additionalIl2CppArgs: 
   firstStreamedSceneWithResources: 0
-  cloudProjectId: 116748b0-05b6-4435-8bb1-07a3b805c951
-  projectName: Tomb of Terror
-  organizationId: wkyname
+  cloudProjectId: 
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
