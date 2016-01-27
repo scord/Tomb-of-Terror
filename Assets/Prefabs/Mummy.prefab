@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2001426}
-  soundVision: {fileID: 0}
+  soundVision: {fileID: 11428894}
   audio_source: {fileID: 0}
 --- !u!114 &11428894
 MonoBehaviour:
@@ -621,6 +621,10 @@ Prefab:
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: soundVision
+      value: 
+      objectReference: {fileID: 11428894}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135414}

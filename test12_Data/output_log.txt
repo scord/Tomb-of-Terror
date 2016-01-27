@@ -19,19 +19,19 @@ Loading C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\Unity
 Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.UI.dll (this message is harmless)
 Loading C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.131 seconds
+- Completed reload, in  0.141 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
 Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\System.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 15d0 -> priority: 1 
+  Thread -> id: 1464 -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 12.081751 ms
+UnloadTime: 10.599809 ms
 
 Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 11193.
-Total: 5.978038 ms (FindLiveObjects: 2.818716 ms CreateObjectMapping: 0.354968 ms MarkObjects: 2.760238 ms  DeleteObjects: 0.043088 ms)
+Total: 5.496881 ms (FindLiveObjects: 2.795633 ms CreateObjectMapping: 0.301107 ms MarkObjects: 2.360642 ms  DeleteObjects: 0.038472 ms)
 
 Mummy
  

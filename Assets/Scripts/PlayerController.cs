@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     void Start () {
 	    turned = false;
 
+      // soundVision = GetComponent<SoundVision>();
         audio_source = GetComponent<AudioSource>();
         audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
     }
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour {
                 audio_source.pitch = Random.Range(0.8f, 1);
                 audio_source.volume = Random.Range(0.8f, 1.1f);
                 audio_source.Play();
+                soundVision.CreateSound(transform.position, 10);
             }
         }
 
