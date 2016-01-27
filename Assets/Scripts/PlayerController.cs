@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
                 audio_source.pitch = Random.Range(0.8f, 1);
                 audio_source.volume = Random.Range(0.8f, 1.1f);
                 audio_source.Play();
-                soundVision.CreateSound(transform.position, 10);
+                soundVision.CreateSound(transform.position, 15);
             }
         }
 
