@@ -29,7 +29,7 @@ public class NetManager : NetworkManager
     {
         chosenPlayerIndex = playerId; 
         NetworkManager.singleton.networkPort = 7777;
-        NetworkManager.singleton.networkAddress = "172.23.255.254";
+        NetworkManager.singleton.networkAddress = "localhost";
         if (host)
             NetworkManager.singleton.StartHost();
         else
