@@ -27,7 +27,7 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _Colors[100];  
-            
+            float _Volume[100];
             float3 _SoundSource[100]; 
             int _CurrentWave;
             float _N;
@@ -47,7 +47,7 @@
             {
             	//float dist = distance(_SoundSource[_CurrentWave], i.worldPos);
                 half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));      
-                half4 base_color = _Colors[_CurrentWave] * pow(falloff, 1);                                                                                                            	                                                                                                             //for rim lighting.
+                half4 base_color = _Volume[_CurrentWave]*_Colors[_CurrentWave] * pow(falloff, 1);                                                                                                            	                                                                                                             //for rim lighting.
          		half4 color = 0;
              //   return clamp((base_color / abs(dist - 25*_Colors[_CurrentWave].w)),0,1);
              	//if (distance(_SoundSource[_CurrentWave], i.worldPos) < 5*_Colors[_CurrentWave].w)
@@ -62,7 +62,7 @@
                 for (int x = 0; x < _N; x++) {
                 	dist = distance(_SoundSource[x], i.worldPos);
 					float dist2 = dist - 25*_Colors[x].w;
-					color += clamp((_Colors[x] / (pow(abs(dist - 25*_Colors[x].w), 2))),0,1)  / (pow(dist,2)/10);
+					color += _Volume[x]*clamp((_Colors[x] / (pow(abs(dist - 25*_Colors[x].w), 2))),0,1)  / (pow(dist,2)/10);
 				}
 			
 				
