@@ -20,7 +20,7 @@ Material:
           name: _MainTex
         second:
           m_Texture: {fileID: 2800000, guid: 987c676a3fac2524b871781701f8fbb8, type: 3}
-          m_Scale: {x: 3.6400001, y: 1}
+          m_Scale: {x: 0.4, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -55,7 +55,7 @@ Material:
           name: _EmissionMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 3.6400001, y: 1}
+          m_Scale: {x: 0.4, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -97,15 +97,15 @@ Material:
       data:
         first:
           name: _Cutoff
-        second: .5
+        second: 0.5
       data:
         first:
           name: _Shininess
-        second: .59773016
+        second: 0.59773016
       data:
         first:
           name: _Parallax
-        second: .0401492529
+        second: 0.040149253
       data:
         first:
           name: _ZWrite
@@ -113,7 +113,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .150000006
+        second: 0.15
       data:
         first:
           name: _BumpScale
@@ -145,15 +145,15 @@ Material:
       data:
         first:
           name: _ShadeRange
-        second: .0199999996
+        second: 0.02
       data:
         first:
           name: _ShadingStrength
-        second: .731343269
+        second: 0.73134327
       data:
         first:
           name: _RMS
-        second: .31943509
+        second: 0.3194351
     m_Colors:
       data:
         first:
@@ -162,11 +162,11 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .701492548, g: .701492548, b: .701492548, a: 1}
+        second: {r: 0.70149255, g: 0.70149255, b: 0.70149255, a: 1}
       data:
         first:
           name: _SpecColor
-        second: {r: .343283594, g: .343283594, b: .343283594, a: 1}
+        second: {r: 0.3432836, g: 0.3432836, b: 0.3432836, a: 1}
       data:
         first:
           name: _EmissionColorUI
@@ -174,7 +174,7 @@ Material:
       data:
         first:
           name: _ReflectColor
-        second: {r: 1, g: 1, b: 1, a: .5}
+        second: {r: 1, g: 1, b: 1, a: 0.5}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6

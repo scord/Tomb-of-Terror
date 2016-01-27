@@ -13,6 +13,7 @@ public class AudioEmitter : MonoBehaviour {
 	void OnCollisionEnter(Collision collision)
 	{
 		Debug.Log ("SOUND");
+		Debug.Log (collision.relativeVelocity.magnitude);
 		soundVision.CreateSound (transform.position, collision.relativeVelocity.magnitude);
 	}
 
