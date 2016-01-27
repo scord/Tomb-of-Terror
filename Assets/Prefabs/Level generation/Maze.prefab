@@ -48,7 +48,7 @@ MonoBehaviour:
   bottom_doorPrefab: {fileID: 11433936, guid: fe82c67dbc6004044bd5b60b4e052a5e, type: 2}
   top_doorPrefab:
   - {fileID: 11433936, guid: fe82c67dbc6004044bd5b60b4e052a5e, type: 2}
-  - {fileID: 11468134, guid: 3f5f1f73d255b8140abe448496ee1637, type: 2}
+  - {fileID: 11468134, guid: 94a9f67c20510c24e8e56af4b32038a5, type: 2}
   defaultMaterial: {fileID: 2100000, guid: d1b8b47ac917081469305111fec17ce1, type: 2}
   doorProbability: .100000001
   wallPrefabs:
@@ -404,7 +404,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: top_doorPrefab.Array.data[1]
       value: 
-      objectReference: {fileID: 11468134, guid: 3f5f1f73d255b8140abe448496ee1637,
+      objectReference: {fileID: 11468134, guid: 94a9f67c20510c24e8e56af4b32038a5,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
