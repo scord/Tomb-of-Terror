@@ -82,6 +82,8 @@ public class Maze : NetworkBehaviour {
         rooftop.transform.position = new Vector3(0, 2*roomHeight*levelScale, 0);
         rooftop.transform.localScale = new Vector3(size.x*levelScale, 0.1f, size.z*levelScale);
         rooftop.GetComponent<Renderer>().material = defaultMaterial;
+        rooftop.name = "Ceiling";
+        rooftop.transform.parent = this.transform;
 	}
 
 	private void DoFirstGenerationStep (List<MazeCell> activeCells, bool top) {
