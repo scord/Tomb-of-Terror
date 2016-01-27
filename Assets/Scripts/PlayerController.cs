@@ -3,6 +3,14 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
+
+    //[SerializeField] private Camera m_Camera;
+    //[SerializeField] private SoundVision m_SoundsVision;
+    [SerializeField] private bool is_Walking;
+    [SerializeField] private float m_Speed = 2.0f;
+    private Vector3 m_MoveDirection = Vector3.zero;
+    private Vector2 m_Input;
+
     public Camera cam;
 	public SoundVision soundVision;
 
@@ -19,9 +27,10 @@ public class PlayerController : MonoBehaviour {
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
 
+        Vector3 moveDirection = transform.forward*moveVertical + transform.right*moveHorizontal;
         if (moveVertical == 1.0)
         {
-            transform.position = transform.position + cam.transform.forward * 2 * Time.deltaTime;
+            transform.position = transform.position + cam.transform.forward * m_Speed * Time.deltaTime;
         }
 
         if ((moveHorizontal == 1.0 || moveHorizontal == -1.0) && turned == false)
