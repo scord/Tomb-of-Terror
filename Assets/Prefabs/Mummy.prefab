@@ -32,6 +32,7 @@ GameObject:
   - 114: {fileID: 11441262}
   - 114: {fileID: 11484746}
   - 54: {fileID: 5457292}
+  - 81: {fileID: 8170880}
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Mummy
@@ -207,6 +208,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!81 &8170880
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135414}
+  m_Enabled: 1
 --- !u!82 &8248930
 AudioSource:
   m_ObjectHideFlags: 1
