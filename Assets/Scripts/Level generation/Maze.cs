@@ -14,7 +14,8 @@ public class Maze : NetworkBehaviour {
 
 	// public MazeCell cellPrefab;
 	public MazePassage passagePrefab;
-	public MazeDoor doorPrefab;
+	public MazeDoor bottom_doorPrefab;
+	public MazeDoor[] top_doorPrefab;
 	public Material defaultMaterial;
 
 	[Range(0f, 1f)]
@@ -47,9 +48,6 @@ public class Maze : NetworkBehaviour {
 			return cells[coordinates.x, coordinates.z];
 			
 		}
-	}
-	public MazeCell GetTopCell(IntVector2 coordinates){
-		return topCells[coordinates.x, coordinates.z];
 	}
 
 	public void Generate () {
@@ -84,6 +82,7 @@ public class Maze : NetworkBehaviour {
         rooftop.GetComponent<Renderer>().material = defaultMaterial;
         rooftop.name = "Ceiling";
         rooftop.transform.parent = this.transform;
+
 	}
 
 	private void DoFirstGenerationStep (List<MazeCell> activeCells, bool top) {
@@ -129,7 +128,36 @@ public class Maze : NetworkBehaviour {
 	}
 
 	private MazeCell CreatePassage (MazeCell cell, IntVector2 coordinates, MazeDirection direction, bool top) {
-		MazePassage prefab = Random.value < doorProbability ? doorPrefab : passagePrefab;
+		MazePassage prefab = Random.value < doorProbability ? bottom_doorPrefab : passagePrefab;
+		if(top){
+			bool sameRoom = Random.value < doorProbability ? false : true;
+			if(sameRoom)
+				prefab = passagePrefab;	
+			else {
+				bool stairs = true;
+				if(cell.emptyCheck()){
+
+					IntVector2 tempLoc = new IntVector2(cell.coordinates.x, cell.coordinates.z);
+					MazeCell tempCell = GetCell( tempLoc, false);
+					tempCell = neighborCell(tempCell, direction.GetOpposite());
+
+					if(null != tempCell)
+						for(int i=0; i<2 && stairs; i++){
+							if(tempCell == null || tempCell.wallCheck(direction.GetOpposite()))
+								stairs = false;
+							tempCell = neighborCell(tempCell, direction.GetOpposite());
+
+						}
+					else stairs = false;
+				}
+				else
+				 stairs = false;
+					
+			prefab = stairs ? top_doorPrefab[1] : top_doorPrefab[0];
+			if(stairs) Debug.Log("Stairs");
+			}
+		}
+
 		MazePassage passage = Instantiate(prefab) as MazePassage;
 		MazeCell otherCell;
 		if (passage is MazeDoor) {
@@ -141,6 +169,7 @@ public class Maze : NetworkBehaviour {
 			passage.Initialize(cell, otherCell, direction);
 		}
 		passage.Initialize(otherCell, cell, direction.GetOpposite());
+		cell.wallCheck(direction);
 		return otherCell;
 	}
 
@@ -199,6 +228,21 @@ public class Maze : NetworkBehaviour {
 
 		}
 		return newCell;
+	}
+
+	private MazeCell neighborCell(MazeCell cell, MazeDirection direction){
+		MazeCell neighbor;
+		IntVector2 dirVec = direction.ToIntVector2();
+		
+		// Debug.Log( "direction x: " + dirVec.x + " direction z: " + dirVec.z);
+		// Debug.Log("cell .x: " + cell.coordinates.x + "cell .z: " +cell.coordinates.z);
+		
+		IntVector2 neighborCoordinates = cell.coordinates + direction.ToIntVector2();
+		if(ContainsCoordinates(neighborCoordinates))
+		    neighbor = GetCell(neighborCoordinates, false);
+		else
+		    neighbor = null;
+		return neighbor;
 	}
 }
 

@@ -50,4 +50,16 @@ public class MazeCell : MonoBehaviour {
 	public void Hide () {
 		gameObject.SetActive(false);
 	}
+
+	public bool emptyCheck() {
+		if(null == this.transform.Find("Floor"))
+			return true;
+		return false;
+	}
+
+	public bool wallCheck(MazeDirection direction){
+		if(this.edges[(int)direction] is MazeWall)
+			return true;
+		return false;
+	}
 }
