@@ -6,6 +6,7 @@ using System;
 public class HeartRateManager : MonoBehaviour {
 	Thread thread;
 	bool programActive = true;
+	public int HeartRate;
 	// Use this for initialization
 	void Start () {
 
@@ -20,11 +21,10 @@ public class HeartRateManager : MonoBehaviour {
 		Debug.Log ("Thread started");
 
 		while (programActive) {
-
-			Debug.Log(path+"/Resources/HR.txt");
-			string text = System.IO.File.ReadAllText(path+"/Resources/HR.txt");
-			int hr = Convert.ToInt32(text);
-
+			Debug.Log("before");
+			string text = System.IO.File.ReadAllText(path+"/Scripts/HR.txt");
+			HeartRate = Convert.ToInt32(text);
+			Debug.Log("after "+HeartRate);
 			System.Threading.Thread.Sleep(350);
 		}
 		Debug.Log ("Thread stopped");
