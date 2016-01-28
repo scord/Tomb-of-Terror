@@ -124,7 +124,11 @@ GameObject:
   - 54: {fileID: 5457292}
   - 81: {fileID: 8170880}
   - 82: {fileID: 8287154}
+<<<<<<< HEAD
   - 114: {fileID: 11487486}
+=======
+  - 95: {fileID: 9548732}
+>>>>>>> maze
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Mummy
@@ -1204,6 +1208,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145932}
   m_Enabled: 1
+--- !u!95 &9548732
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b9323eac8159fc84796a6771fe88fe13, type: 3}
+  m_Controller: {fileID: 9100000, guid: 21d7c019a677f5646b2570395b0ff237, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9559272
 Animator:
   serializedVersion: 3
@@ -1250,7 +1271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 055c60687fbff0749a949ccc17313595, type: 3}
   audioSource: {fileID: 8248930}
+  heartRateManager: {fileID: 0}
   n: 64
+  beatInterval: 0
 --- !u!114 &11441262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1567,6 +1590,14 @@ Prefab:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 21d7c019a677f5646b2570395b0ff237, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: b9323eac8159fc84796a6771fe88fe13, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135414}

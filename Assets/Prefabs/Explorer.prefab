@@ -514,7 +514,11 @@ GameObject:
   - 114: {fileID: 11445766}
   - 54: {fileID: 5435444}
   - 81: {fileID: 8109700}
+<<<<<<< HEAD
   - 114: {fileID: 11459194}
+=======
+  - 95: {fileID: 9506778}
+>>>>>>> maze
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Explorer
@@ -609,6 +613,21 @@ GameObject:
   m_Layer: 0
   m_Name: R_pointer_finger1
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &158756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 450296}
+  m_Layer: 0
+  m_Name: Heart
+  m_TagString: ExplorerHeart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1242,7 +1261,7 @@ Transform:
   m_Children:
   - {fileID: 425156}
   m_Father: {fileID: 480056}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &418416
 Transform:
   m_ObjectHideFlags: 1
@@ -1465,7 +1484,7 @@ Transform:
   - {fileID: 413362}
   - {fileID: 473734}
   m_Father: {fileID: 480056}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &440636
 Transform:
   m_ObjectHideFlags: 1
@@ -1490,7 +1509,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 480056}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &441332
 Transform:
   m_ObjectHideFlags: 1
@@ -1600,6 +1619,18 @@ Transform:
   - {fileID: 475056}
   m_Father: {fileID: 404160}
   m_RootOrder: 0
+--- !u!4 &450296
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0140000004, y: .698000014, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 480056}
+  m_RootOrder: 1
 --- !u!4 &453316
 Transform:
   m_ObjectHideFlags: 1
@@ -1804,6 +1835,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 480526}
+  - {fileID: 450296}
   - {fileID: 415808}
   - {fileID: 440818}
   - {fileID: 437268}
@@ -2113,6 +2145,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160634}
   m_Enabled: 1
+--- !u!95 &9506778
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 4f12bde86c790b846ac98b19a2056620, type: 3}
+  m_Controller: {fileID: 9100000, guid: f08b0c2e916907e4fbee8db6223a3896, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9545646
 Animator:
   serializedVersion: 3
@@ -2461,6 +2510,14 @@ Prefab:
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f08b0c2e916907e4fbee8db6223a3896, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 4f12bde86c790b846ac98b19a2056620, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 145862}

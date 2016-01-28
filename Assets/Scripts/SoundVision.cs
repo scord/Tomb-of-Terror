@@ -6,11 +6,14 @@ public class SoundVision : MonoBehaviour
 
     public Shader shader;
     public AudioSource audioSource;
+	public HeartRateManager heartRateManager;
     public int n = 10; //number of possible simultaneous waves
     float[] time;
     int[] active;
     int count = 0;
 	float maxVolume = 50;
+	float timer = 0;
+	public float beatInterval;
 
     // Use this for initialization
     void Start()
@@ -27,6 +30,7 @@ public class SoundVision : MonoBehaviour
         Shader.SetGlobalInt("_CurrentWave", 0);
 
         //Shader.SetGlobalVector("_RimColor", new Vector4(0.0f, 0.8f, 1.0f, 1.0f));
+		heartRateManager = GameObject.Find ("HeartRate").GetComponent<HeartRateManager> ();
 
         for (int i = 0; i < n; i++)
         {
@@ -59,6 +63,20 @@ public class SoundVision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		float dtime = Time.deltaTime;
+		beatInterval = 60.0f / heartRateManager.HeartRate;
+
+		timer += dtime;
+		if (timer > beatInterval) {
+			if (GameObject.FindGameObjectWithTag("ExplorerHeart"))
+			{
+				Vector3 explorerPosition = GameObject.FindGameObjectWithTag("ExplorerHeart").transform.position;
+				CreateSound (explorerPosition, 15);
+			}
+			timer = 0;
+		}
+
+
         if (Input.GetButtonDown("Fire1"))
         {
             Shader.SetGlobalInt("_CurrentWave", count);
