@@ -2,11 +2,15 @@
 using System.Collections;
 using System.Threading;
 using System;
+using UnityEngine.Networking;
 
-public class HeartRateManager : MonoBehaviour {
+public class HeartRateManager : NetworkBehaviour {
 	Thread thread;
 	bool programActive = true;
+
+	[SyncVar]
 	public int HeartRate;
+
 	// Use this for initialization
 	void Start () {
 
