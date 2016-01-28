@@ -8,6 +8,7 @@ public class HeartRateManager : NetworkBehaviour {
 	Thread thread;
 	bool programActive = true;
 
+	System.Diagnostics.Process HRProcess;
 
 	[SyncVar]
 	public int HeartRate;
