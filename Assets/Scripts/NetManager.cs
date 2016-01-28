@@ -5,6 +5,7 @@ using UnityEngine.Networking.NetworkSystem;
 
 public class NetManager : NetworkManager
 {
+    [SerializeField] private string m_Host = "localhost";
     public GameObject player1;
 	public GameManager gameManager;
     public GameObject player2;
@@ -29,7 +30,7 @@ public class NetManager : NetworkManager
     {
         chosenPlayerIndex = playerId; 
         NetworkManager.singleton.networkPort = 7777;
-        NetworkManager.singleton.networkAddress = "localhost";
+        NetworkManager.singleton.networkAddress = m_Host;
         if (host)
             NetworkManager.singleton.StartHost();
         else
