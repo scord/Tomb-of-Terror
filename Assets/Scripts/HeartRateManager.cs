@@ -10,7 +10,7 @@ public class HeartRateManager : NetworkBehaviour {
 
 	System.Diagnostics.Process HRProcess;
 
-	[SyncVar]
+	//[SyncVar]
 	public int HeartRate;
 	
 	// Use this for initialization
@@ -21,8 +21,8 @@ public class HeartRateManager : NetworkBehaviour {
 		HRProcess = new System.Diagnostics.Process();
 		HRProcess.StartInfo.FileName = path+"/Scripts/dist/bglib_test_hr_collector.exe";
  
-        HRProcess.StartInfo.RedirectStandardOutput = true;
-		HRProcess.StartInfo.UseShellExecute = true;
+		HRProcess.StartInfo.UseShellExecute = false;
+		HRProcess.StartInfo.RedirectStandardOutput = true;
 		HRProcess.StartInfo.CreateNoWindow = true;
 		HRProcess.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
 		
@@ -36,19 +36,15 @@ public class HeartRateManager : NetworkBehaviour {
 		string path = ob.ToString();
 
 		Debug.Log ("Thread started");
-
+        String text;
 		while (programActive) {
-			Debug.Log("before");
-			string text = HRProcess.StandardOutput.ReadLine();
+            text = HRProcess.StandardOutput.ReadLine();
 			HeartRate = Convert.ToInt32(text);
-			Debug.Log("after "+HeartRate);
-			System.Threading.Thread.Sleep(350);
 		}
 		Debug.Log ("Thread stopped");
 	}
 
 	public void OnDisable(){
-		HRProcess.CloseMainWindow();
             // Free resources associated with process.
         HRProcess.Close();
 		Debug.Log ("Heart Rate Disabled");
