@@ -124,11 +124,8 @@ GameObject:
   - 54: {fileID: 5457292}
   - 81: {fileID: 8170880}
   - 82: {fileID: 8287154}
-<<<<<<< HEAD
   - 114: {fileID: 11487486}
-=======
   - 95: {fileID: 9548732}
->>>>>>> maze
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Mummy
@@ -1002,7 +999,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -1076,7 +1072,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -1146,7 +1141,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -1254,7 +1248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_Walking: 0
-  m_Speed: 3
+  m_Speed: 2
   cam: {fileID: 2001426}
   soundVision: {fileID: 11428894}
   audio_source: {fileID: 0}
@@ -1280,7 +1274,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135414}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
   m_Name: 
@@ -1598,6 +1592,10 @@ Prefab:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: b9323eac8159fc84796a6771fe88fe13, type: 3}
+    - target: {fileID: 0}
+      propertyPath: CharacterCam
+      value: 
+      objectReference: {fileID: 2001426}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135414}

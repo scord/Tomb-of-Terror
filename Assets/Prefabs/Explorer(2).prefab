@@ -575,6 +575,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &160928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 485274}
+  m_Layer: 0
+  m_Name: Heart
+  m_TagString: ExplorerHeart
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &161814
 GameObject:
   m_ObjectHideFlags: 1
@@ -1245,7 +1260,7 @@ Transform:
   m_Children:
   - {fileID: 400270}
   m_Father: {fileID: 449332}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &424644
 Transform:
   m_ObjectHideFlags: 1
@@ -1436,7 +1451,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 449332}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &447100
 Transform:
   m_ObjectHideFlags: 1
@@ -1499,6 +1514,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 460808}
+  - {fileID: 485274}
   - {fileID: 424392}
   - {fileID: 481292}
   - {fileID: 446918}
@@ -1882,7 +1898,19 @@ Transform:
   - {fileID: 454162}
   - {fileID: 416264}
   m_Father: {fileID: 449332}
-  m_RootOrder: 2
+  m_RootOrder: 3
+--- !u!4 &485274
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .0140000004, y: .698000014, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 449332}
+  m_RootOrder: 1
 --- !u!4 &486276
 Transform:
   m_ObjectHideFlags: 1
@@ -1976,7 +2004,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2050,7 +2077,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -2120,7 +2146,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1

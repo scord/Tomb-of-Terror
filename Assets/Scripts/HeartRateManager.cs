@@ -10,7 +10,7 @@ public class HeartRateManager : NetworkBehaviour {
 
 	System.Diagnostics.Process HRProcess;
 
-	//[SyncVar]
+	[SyncVar]
 	public int HeartRate;
 	
 	// Use this for initialization

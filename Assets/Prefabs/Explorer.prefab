@@ -514,11 +514,8 @@ GameObject:
   - 114: {fileID: 11445766}
   - 54: {fileID: 5435444}
   - 81: {fileID: 8109700}
-<<<<<<< HEAD
   - 114: {fileID: 11459194}
-=======
   - 95: {fileID: 9506778}
->>>>>>> maze
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Explorer
@@ -2026,7 +2023,7 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
+  m_SubsetIndices:
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
   m_ReflectionProbeUsage: 1
@@ -2159,7 +2156,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9545646
@@ -2176,7 +2173,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &10822804
@@ -2220,8 +2217,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_SceneId:
     m_Value: 0
   m_AssetId:
@@ -2252,8 +2249,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 089a019e2f03f1943962df51c22ef584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   is_Walking: 0
   m_Speed: 5
   cam: {fileID: 2062640}
@@ -2268,8 +2265,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37436a259ac919244b723ac1c4cb234c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   CharacterCam: {fileID: 2062640}
 --- !u!114 &11459194
 MonoBehaviour:
@@ -2280,8 +2277,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9adb6384d98bf01448aac2bb2d9947cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   myTransform: {fileID: 480056}
   lerpRate: 25
   threshold: .5
@@ -2294,8 +2291,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_TransformSyncMode: 1
   m_SendInterval: .0909090936
   m_SyncRotationAxis: 7
@@ -2349,7 +2346,7 @@ SkinnedMeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 2100000, guid: 9b54c67ef6474439394aaa77722a794e, type: 2}
-  m_SubsetIndices: 
+  m_SubsetIndices:
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
   m_ReflectionProbeUsage: 1
@@ -2476,7 +2473,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: CharacterCam
-      value: 
+      value:
       objectReference: {fileID: 2062640}
     - target: {fileID: 0}
       propertyPath: lerpRate
@@ -2484,7 +2481,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: myTransform
-      value: 
+      value:
       objectReference: {fileID: 480056}
     - target: {fileID: 0}
       propertyPath: m_Speed
@@ -2512,11 +2509,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Controller
-      value: 
+      value:
       objectReference: {fileID: 9100000, guid: f08b0c2e916907e4fbee8db6223a3896, type: 2}
     - target: {fileID: 0}
       propertyPath: m_Avatar
-      value: 
+      value:
       objectReference: {fileID: 9000000, guid: 4f12bde86c790b846ac98b19a2056620, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
