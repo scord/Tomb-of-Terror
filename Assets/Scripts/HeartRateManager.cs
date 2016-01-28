@@ -7,10 +7,11 @@ using UnityEngine.Networking;
 public class HeartRateManager : NetworkBehaviour {
 	Thread thread;
 	bool programActive = true;
-	
+
+
 	[SyncVar]
 	public int HeartRate;
-	System.Diagnostics.Process HRProcess;
+	
 	// Use this for initialization
 	void Start () {
 
