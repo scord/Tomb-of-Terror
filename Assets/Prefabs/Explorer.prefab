@@ -514,6 +514,7 @@ GameObject:
   - 114: {fileID: 11445766}
   - 54: {fileID: 5435444}
   - 81: {fileID: 8109700}
+  - 95: {fileID: 9506778}
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Explorer
@@ -2004,6 +2005,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2077,6 +2079,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -2138,6 +2141,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160634}
   m_Enabled: 1
+--- !u!95 &9506778
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 4f12bde86c790b846ac98b19a2056620, type: 3}
+  m_Controller: {fileID: 9100000, guid: f08b0c2e916907e4fbee8db6223a3896, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9545646
 Animator:
   serializedVersion: 3
@@ -2446,6 +2466,14 @@ Prefab:
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f08b0c2e916907e4fbee8db6223a3896, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 4f12bde86c790b846ac98b19a2056620, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 145862}
