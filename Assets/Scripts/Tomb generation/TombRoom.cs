@@ -6,7 +6,7 @@ public class TombRoom : NetworkBehaviour {
 
 	public IntVector2 size;
 	public TombCell CellPrefab;
-	public TombPassage[] passages;
+	public List<TombPassage> passages = new List<TombPassage>();
 
 	private TombCell[,] cells;
 
@@ -33,6 +33,10 @@ public class TombRoom : NetworkBehaviour {
 		newCell.name = "TombCell " + coordinates.x + ", " + coordinates.z;
 		newCell.transform.localPosition = new Vector3(coordinates.x + 0.5f, 0, coordinates.z + 0.5f);
 		return newCell;
+	}
+
+	public TombCell GetCell(IntVector2 coordinates){
+		return cells[coordinates.x, coordinates.z];
 	}
 }
 
