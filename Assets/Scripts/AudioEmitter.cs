@@ -7,19 +7,21 @@ public class AudioEmitter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("TEST");
+		
 	}
 
 	void OnCollisionEnter(Collision collision)
 	{
-		Debug.Log ("SOUND");
-		Debug.Log (collision.relativeVelocity.magnitude);
-		soundVision.CreateSound (transform.position, collision.relativeVelocity.magnitude);
+        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.pitch = Random.Range(0.8f, 1);
+        Debug.Log("TEST");
+        audioSource.volume = Random.Range(collision.relativeVelocity.magnitude/5 - 0.1f, collision.relativeVelocity.magnitude/5);
+        gameObject.GetComponent<AudioSource>().Play();
 	}
 
 	void onTriggerStay(Collider other)
 	{
-		Debug.Log ("SOUND");
+	
 	}
 	
 	// Update is called once per frame
