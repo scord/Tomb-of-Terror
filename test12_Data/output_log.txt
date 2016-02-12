@@ -1,0 +1,39 @@
+Initialize engine version: 5.2.2f1 (3757309da7e7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon(TM) R5 Graphics (ID=0x9851)
+    Vendor:   ATI
+    VRAM:     1006 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.141 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Simon\Documents\GitHub\Tomb-of-Terror\test12_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1464 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 10.599809 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 11193.
+Total: 5.496881 ms (FindLiveObjects: 2.795633 ms CreateObjectMapping: 0.301107 ms MarkObjects: 2.360642 ms  DeleteObjects: 0.038472 ms)
+
+Mummy
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
+

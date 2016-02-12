@@ -6,8 +6,9 @@ using UnityEngine.Networking.NetworkSystem;
 public class NetManager : NetworkManager
 {
     public GameObject player1;
+	public GameManager gameManager;
     public GameObject player2;
-    public GameObject player3;
+   
     GameObject chosenPlayer;
     public Vector3 playerSpawnPos;
     int chosenPlayerIndex;
@@ -39,9 +40,11 @@ public class NetManager : NetworkManager
     // Called when server is started
     public override void OnStartServer()
     {
+        
         NetworkServer.RegisterHandler(playerMsgType, OnPlayerResponse);
         base.OnStartServer();
     }
+    Maze maze;
 
     // Called when a client sends a message
     void OnPlayerResponse(NetworkMessage netMsg)
