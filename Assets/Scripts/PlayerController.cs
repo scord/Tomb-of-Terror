@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         
         float moveVertical = Input.GetAxis("Vertical");
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        float lookHorizontal = Input.GetAxis("RightH");
+        float lookVertical = Input.GetAxis("RightV");
 
         if (moveVertical == 1.0)
         {
@@ -48,16 +49,20 @@ public class PlayerController : MonoBehaviour {
             else
                 Throw();
 
-        if ((moveHorizontal == 1.0 || moveHorizontal == -1.0) && turned == false)
+        if ((lookHorizontal == 1.0 || lookHorizontal == -1.0) && turned == false)
         {
-            transform.Rotate(new Vector3(0.0f, moveHorizontal * 30, 0.0f));
-            turned = true;
-        } else if (moveHorizontal != 1.0 && moveHorizontal != -1.0)
+            transform.Rotate(lookHorizontal * Vector3.up);
+       //     turned = true;
+        } /*else if (moveHorizontal != 1.0 && moveHorizontal != -1.0)
         {
             turned = false;
+        }*/
+        if ((lookVertical == 1.0 || lookVertical == -1.0) && turned == false)
+        {
+            
         }
 
-        if (carrying)
+            if (carrying)
         {
             carriedObject.transform.position = cam.transform.position + cam.transform.TransformDirection(Vector3.forward)*2;
         }

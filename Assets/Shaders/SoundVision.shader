@@ -74,12 +74,15 @@
 
 				float dist = distance(_EchoSource, i.worldPos);
 				float4 base_color = float4(0,0.5,1,1)*pow(falloff, 2);
-				if (_EchoTime > 0 && dist < speed*_EchoTime)
+
+				if (_EchoTime > 0.1 && dist < speed*_EchoTime)
+				{
 					color += base_color / (dist*_EchoTime);
 
-				float dist2 = dist - speed * _EchoTime;
-				color += clamp((float4(0,0.5,1,1) / (pow(abs(dist - speed * _EchoTime), 2))), 0, 1) / (pow(dist, 2) / 10);
-								
+					float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
+					//color += clamp((float4(0,0.5,1,1) / (pow(abs(dist - speed * _EchoTime), 2))), 0, 1) / (pow(dist, 2) / 20);
+					color += (float4(0, 0.5, 1, 1) / (abs(dist2)))*(1 - smoothstep(0, 15, dist));
+				}
               /*  for (int x = 0; x < _N; x++) {
                 	float dist = distance(_SoundSource[x], i.worldPos);
 					float t = 15 * _Colors[x].w;

@@ -21,7 +21,7 @@ public class SoundVision : MonoBehaviour
     public float timer = 0;
     public Texture2D waves;
     public Stack freeWaves;
-    
+    public int stacksize = 0;
     ArrayList prevPositions;
     ArrayList volume;
     ArrayList counts;
@@ -48,14 +48,20 @@ public class SoundVision : MonoBehaviour
         prevPositions = new ArrayList();
         counts = new ArrayList();
         volume = new ArrayList();
+        for (int i = 0; i < maxWaves; i++)
+        {
+            freeWaves.Push(i);
+        }
         for (int i = 0; i < sources.Count; i++)
         {
             prevPositions.Add(((AudioSource)sources[i]).transform.position);
-            counts.Add(i);
-            freeWaves.Push(i);
-            Shader.SetGlobalVector("_SoundSource" + i, ((AudioSource)sources[i]).transform.position);
+            int j = (int)freeWaves.Pop();
+            Debug.Log(j);
+            counts.Add(j);
+            
+            Shader.SetGlobalVector("_SoundSource" + j, ((AudioSource)sources[i]).transform.position);
             volume.Add(1f);
-            Shader.SetGlobalVector("_Volume" + i, new Vector2((float)volume[i],0f));
+            Shader.SetGlobalVector("_Volume" + j, new Vector2((float)volume[i],0f));
         }
 
 
@@ -127,7 +133,6 @@ public class SoundVision : MonoBehaviour
     public void EchoLocate()
     {
         echoLocation = true;
-        Debug.Log(transform.position);
         Shader.SetGlobalVector("_EchoSource", transform.position);
         Shader.SetGlobalFloat("_EchoTime", 0);
     }
@@ -153,7 +158,7 @@ public class SoundVision : MonoBehaviour
 
         if (timer > 1/75.0f)
         {
-            releaseWaves();
+            
             timer = 0;
             for (int x = 0; x < sources.Count; x++)
             {
@@ -179,7 +184,14 @@ public class SoundVision : MonoBehaviour
                 level = level*10;
 
                 Color c = new Color(level*averageFreq*4, level*(1-averageFreq*4), level, 1);
+            
+                
+                if (level > 0 && freeWaves.Contains(counts[x]))
+                    counts[x] = freeWaves.Pop();
+
                 wave[(int)counts[x]] = AddColor(wave[(int)counts[x]], (c + (Color)wave[(int)counts[x]][0]) / 2);
+                Shader.SetGlobalVector("_SoundSource" + counts[x], ((AudioSource)sources[x]).transform.position);
+                Shader.SetGlobalVector("_Volume" + (int)counts[x], new Vector2((float)volume[x], 0));
             }
  
             for (int i = 0; i < maxWaves; i++)
@@ -201,7 +213,7 @@ public class SoundVision : MonoBehaviour
             for (int x = 0; x < sources.Count; x++)
             {
                 
-                if ((Vector3)prevPositions[x] != ((AudioSource)sources[x]).transform.position)
+                if (Vector3.Magnitude((Vector3)prevPositions[x] - ((AudioSource)sources[x]).transform.position) > 0.1)
                 {
                     if (freeWaves.Count > 0)
                         counts[x] = (int)freeWaves.Pop();
@@ -212,6 +224,8 @@ public class SoundVision : MonoBehaviour
 
                 prevPositions[x] = ((AudioSource)sources[x]).transform.position;
             }
+            releaseWaves();
+            stacksize = freeWaves.Count;
         }
     }
 
