@@ -40,9 +40,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7948ecb05e39b9b428165deb8a677d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size:
-    x: 10
-    z: 10
+  roomCount: 3
+  roomPrefab: {fileID: 0}
+  CellPrefab: {fileID: 0}
 --- !u!114 &11495078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,6 +89,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: size.z
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: roomCount
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

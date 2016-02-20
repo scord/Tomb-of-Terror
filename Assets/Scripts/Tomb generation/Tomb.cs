@@ -6,6 +6,7 @@ public class Tomb : NetworkBehaviour {
 
 	public int roomCount;
 	public TombRoom roomPrefab;
+	public TombCell CellPrefab;
 
 	private TombRoom[] rooms;
 	private List<TombPassage> passages = new List<TombPassage>();
@@ -89,23 +90,43 @@ public class Tomb : NetworkBehaviour {
 	}
 
 	private void createPassage(TombRoom room1, TombRoom room2, string axis){
+		IntVector2 passBeg;
+		IntVector2 passEnd;
 		switch (axis){
 			case "X": 
-				IntVector2 passEnd = new IntVector2(0, room2.size.z/2);
-				IntVector2 passBeg = new IntVector2(room1.size.x-1, room1.size.z/2);
-				Debug.Log("0 si " +  room2.size.z/2 + " cu " + (room1.size.x-1) + " si " + room1.size.z/2);
+				passBeg = new IntVector2(room1.size.x-1, room1.size.z/2);
+				passEnd = new IntVector2(0, room2.size.z/2);
+				// Debug.Log("0 si " +  room2.size.z/2 + " cu " + (room1.size.x-1) + " si " + room1.size.z/2);
 				GeneratePath(room1.GetCell(passBeg), room2.GetCell(passEnd));
 				break;
 
 			case "Z": 
-				Debug.Log("Z axis");
+				// passBeg = new IntVector2(room1.size.z-1, room1.size.x/2);
+				// passEnd = new IntVector2(0, room2.size.x/2);
+				// GeneratePath(room1.GetCell(passBeg), room2.GetCell(passEnd));
 				break;
 		}
 	}
 
 	// creates pathway between 2 cells
 	private void GeneratePath(TombCell cell1, TombCell cell2){
-
+		bool direction =true;
+		List<TombCell> path = new List<TombCell>();
+		IntVector2 tempCell = new IntVector2((int)cell1.transform.position.x, (int)cell1.transform.position.z);
+		IntVector2 finalCell = new IntVector2((int)cell2.transform.position.x, (int)cell2.transform.position.z);
+		Debug.Log(tempCell.x + "si " +  tempCell.z + " cu " + finalCell.x + " si " + finalCell.z);
+		while(tempCell.x != finalCell.x || finalCell.z !=tempCell.z  ){
+			direction =  Random.Range(0, 2) ==1 ? true : false;
+			if(direction)
+				if(tempCell.x < finalCell.x)	tempCell.x++;
+				else tempCell.x--;				
+			else{
+				if(tempCell.z < finalCell.z) tempCell.z++;
+				else tempCell.z--;
+			}
+			if(tempCell.x != finalCell.x || tempCell.z != finalCell.z)
+				CreateCell(tempCell);
+		}
 	}
 
 	private TombPassage ConnectRooms(TombRoom room1, TombRoom room2){
@@ -115,6 +136,15 @@ public class Tomb : NetworkBehaviour {
 		room1.passages.Add(passage);
 		room2.passages.Add(passage);
 		return passage;
+	}
+
+	public TombCell CreateCell(IntVector2 coordinates){
+		TombCell newCell = Instantiate(CellPrefab) as TombCell;
+
+		newCell.transform.parent = transform;
+		newCell.name = "TombCell " + coordinates.x + ", " + coordinates.z;
+		newCell.transform.localPosition = new Vector3(coordinates.x + 0.5f, 0, coordinates.z + 0.5f);
+		return newCell;
 	}
 }
 
