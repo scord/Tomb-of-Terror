@@ -22,8 +22,10 @@ public class PlayerController : MonoBehaviour {
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
+    private float wheelDirection;
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 moveCamera = Vector3.zero;
+    private Light torchIntensity;
 void Update() {
         CharacterController controller = GetComponent<CharacterController>();
         if (controller.isGrounded) {
@@ -40,6 +42,15 @@ void Update() {
         }
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
+        torchIntensity = GetComponentsInChildren<Light>()[0];
+        wheelDirection = Input.GetAxis("Mouse ScrollWheel");
+        if (wheelDirection > 0)
+            torchIntensity.intensity += 0.20f;
+        else if (wheelDirection <  0)
+                torchIntensity.intensity -= 0.20f;
+
+
+
     }
 
 	void OnTriggerEnter(Collider other) {
