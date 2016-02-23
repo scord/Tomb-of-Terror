@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
     public Camera cam;
 	public SoundVision soundVision;
     public AudioSource audio_source;
+    public Animator animator;
 
     bool turned;
 	// public SoundVision test;
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour {
       // soundVision = GetComponent<SoundVision>();
         // audio_source = GetComponent<AudioSource>();
         // audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
+        animator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -26,7 +28,14 @@ public class PlayerController : MonoBehaviour {
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 moveCamera = Vector3.zero;
     private Light torchIntensity;
-void Update() {
+    void Update() {
+        bool move = false;
+        float moveVertical = Input.GetAxis("Vertical");
+        float moveHorizontal = Input.GetAxis("Horizontal");
+
+        if (moveHorizontal == 1.0 || moveVertical == 1.0)
+            move = true;
+
         CharacterController controller = GetComponent<CharacterController>();
         if (controller.isGrounded) {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -49,8 +58,7 @@ void Update() {
         else if (wheelDirection <  0)
                 torchIntensity.intensity -= 0.20f;
 
-
-
+        animator.SetBool("Movement", move);
     }
 
 	void OnTriggerEnter(Collider other) {
