@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &162082
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 417346}
+  - 33: {fileID: 3363250}
+  - 65: {fileID: 6584532}
+  - 114: {fileID: 11438598}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Interaction
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &166784
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +49,7 @@ GameObject:
   - 4: {fileID: 459918}
   - 198: {fileID: 19852064}
   - 199: {fileID: 19962912}
+  - 114: {fileID: 11407582}
   m_Layer: 0
   m_Name: Torch Flame (1)
   m_TagString: Untagged
@@ -54,6 +73,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &417346
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40, y: 94, z: -126}
+  m_LocalScale: {x: 531.459351, y: 106.291893, z: 531.459412}
+  m_Children: []
+  m_Father: {fileID: 440620}
+  m_RootOrder: 1
 --- !u!4 &440620
 Transform:
   m_ObjectHideFlags: 1
@@ -61,10 +92,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -86.0981979, y: 1.99000001, z: -102.959999}
+  m_LocalPosition: {x: 9.64999962, y: 2, z: -79.6605606}
   m_LocalScale: {x: .00999999978, y: .00999999978, z: .00999999978}
   m_Children:
   - {fileID: 459918}
+  - {fileID: 417346}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &459918
@@ -123,6 +155,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166784}
   m_Mesh: {fileID: 4300000, guid: 014caf7b90f01724d9e8a3d0f88fa2e9, type: 3}
+--- !u!33 &3363250
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162082}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &5495588
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -162,6 +201,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 376.765381, y: 181.893524, z: 376.765411}
   m_Center: {x: 0, y: -46.4066162, z: 0}
+--- !u!65 &6584532
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162082}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9590440
 Animator:
   serializedVersion: 3
@@ -211,6 +262,29 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11407582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ecf92719fd332940a055fb4b4e1c228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11438598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de1ba310198ef94eaf0c9d435b59663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 11407582}
 --- !u!198 &19852064
 ParticleSystem:
   m_ObjectHideFlags: 1

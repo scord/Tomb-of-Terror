@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
     public Camera cam;
 	public SoundVision soundVision;
     public AudioSource audio_source;
+    private InteractScript trig;
 
     bool turned;
 	// public SoundVision test;
@@ -26,6 +27,9 @@ public class PlayerController : MonoBehaviour {
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 moveCamera = Vector3.zero;
     private Light torchIntensity;
+
+    private bool onTrigger = false;
+
 void Update() {
         CharacterController controller = GetComponent<CharacterController>();
         if (controller.isGrounded) {
@@ -50,12 +54,33 @@ void Update() {
                 torchIntensity.intensity -= 0.20f;
 
 
+        if(onTrigger){
+            if(Input.GetKeyDown(KeyCode.E)){
+                trig.Interact();
+            }
+        }
 
     }
 
-	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.name == "Explorer") {
-			Debug.Log("MUMMY WINS");
-		}
-	}
+	// void OnTriggerEnter(Collider other) {
+	// 	if (other.gameObject.name == "Explorer") {
+	// 		Debug.Log("MUMMY WINS");
+	// 	}
+	// }
+    void OnTriggerEnter(Collider other){
+
+        if(other.tag.Equals("Interaction")){
+            trig = (InteractScript) other.GetComponent(typeof(InteractScript));
+            onTrigger = true;
+            trig.PreInteract();
+        }
+    }
+
+
+    void OnTriggerExit(Collider other){
+        if(other.tag.Equals("Interaction")){
+            onTrigger =false;
+            trig.EndInteract();
+        }
+    }
 }

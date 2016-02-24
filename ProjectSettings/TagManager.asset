@@ -7,6 +7,8 @@ TagManager:
   - Mummy
   - Explorer
   - ExplorerHeart
+  - Interaction
+  - Hints
   layers:
   - Default
   - TransparentFX
