@@ -1,211 +1,165 @@
 fileFormatVersion: 2
 guid: 4f12bde86c790b846ac98b19a2056620
-timeCreated: 1453983729
+timeCreated: 1456317104
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: chin_joint1
-    100004: chin_joint2
-    100006: clavicle_joint
-    100008: clavicle_joint1
-    100010: clavicle_joint2
-    100012: hat_joint
-    100014: joint1
-    100016: L_ankle_joint
-    100018: L_elbow
-    100020: L_hand_joint
-    100022: L_joint5
-    100024: L_jpointer_finger3
-    100026: L_knee_joint
-    100028: L_leg_joint
-    100030: L_middle_finger1
-    100032: L_middle_finger2
-    100034: L_middle_finger3
-    100036: L_pinky_joint1
-    100038: L_pinky_joint2
-    100040: L_pinky_joint3
-    100042: L_pointer_finger1
-    100044: L_pointer_finger2
-    100046: L_ring_joint1
-    100048: L_ring_joint2
-    100050: L_ring_joint3
-    100052: L_shoulder
-    100054: L_thumb_joint1
-    100056: L_thumb_joint2
-    100058: L_thumb_joint3
-    100060: L_toes_joint
-    100062: L_wrist
-    100064: Mesh
-    100066: neck_joint
-    100068: R_ankle_joint
-    100070: R_elbow
-    100072: R_hand_joint
-    100074: R_joint5
-    100076: R_jpointer_finger3
-    100078: R_knee_joint
-    100080: R_leg_joint
-    100082: R_middle_finger1
-    100084: R_middle_finger2
-    100086: R_middle_finger3
-    100088: R_pinky_joint1
-    100090: R_pinky_joint2
-    100092: R_pinky_joint3
-    100094: R_pointer_finger1
-    100096: R_pointer_finger2
-    100098: R_ring_joint1
-    100100: R_ring_joint2
-    100102: R_ring_joint3
-    100104: R_shoulder
-    100106: R_thumb_joint1
-    100108: R_thumb_joint2
-    100110: R_thumb_joint3
-    100112: R_toes_joint
-    100114: R_wrist
-    100116: root_joint
-    100118: spine_joint1
-    100120: spine_joint2
-    100122: spine_joint3
-    100124: spine_joint4
-    100126: spine_joint5
-    100128: adventurer_L_armIK
-    100130: adventurer_L_leg
-    100132: adventurer_R_armIK
-    100134: adventurer_R_leg1
-    100136: adventurer_root_joint
-    100138: clavicle_joint1 1
-    100140: clavicle_joint2 1
-    100142: joint1 1
-    100144: L_ankleIK
-    100146: L_ankleIK 1
-    100148: L_armIK
-    100150: L_elbow 1
-    100152: L_foot_controller
-    100154: L_foot_controller 1
-    100156: L_knee_joint 1
-    100158: L_leg
-    100160: L_leg_joint 1
-    100162: L_shoulder 1
-    100164: R_ankleIK
-    100166: R_ankleIK 1
-    100168: R_armIK
-    100170: R_elbow 1
-    100172: R_foot_controller
-    100174: R_foot_controller 1
-    100176: R_knee_joint 1
-    100178: R_leg1
-    100180: R_leg_joint 1
-    100182: R_shoulder 1
-    100184: spine_joint1 1
-    100186: spine_joint2 1
-    100188: spine_joint3 1
-    100190: spine_joint4 1
-    100192: spine_joint5 1
+    100002: adventurer
+    100004: adventurer_mesh
+    100006: adventurer_rig
+    100008: chin_joint1
+    100010: chin_joint2
+    100012: clavicle_joint
+    100014: clavicle_joint1
+    100016: clavicle_joint2
+    100018: hat_joint
+    100020: joint1
+    100022: L_ankle_joint
+    100024: L_ankleIK
+    100026: L_armIK
+    100028: L_elbow
+    100030: L_foot_controller
+    100032: L_hand_joint
+    100034: L_joint5
+    100036: L_jpointer_finger3
+    100038: L_knee_joint
+    100040: L_leg
+    100042: L_leg_joint
+    100044: L_middle_finger1
+    100046: L_middle_finger2
+    100048: L_middle_finger3
+    100050: L_pinky_joint1
+    100052: L_pinky_joint2
+    100054: L_pinky_joint3
+    100056: L_pointer_finger1
+    100058: L_pointer_finger2
+    100060: L_ring_joint1
+    100062: L_ring_joint2
+    100064: L_ring_joint3
+    100066: L_shoulder
+    100068: L_thumb_joint1
+    100070: L_thumb_joint2
+    100072: L_thumb_joint3
+    100074: L_toes_joint
+    100076: L_wrist
+    100078: left
+    100080: neck_joint
+    100082: R_ankle_joint
+    100084: R_ankleIK
+    100086: R_armIK
+    100088: R_elbow
+    100090: R_foot_controller
+    100092: R_hand_joint
+    100094: R_joint5
+    100096: R_jpointer_finger3
+    100098: R_knee_joint
+    100100: R_leg1
+    100102: R_leg_joint
+    100104: R_middle_finger1
+    100106: R_middle_finger2
+    100108: R_middle_finger3
+    100110: R_pinky_joint1
+    100112: R_pinky_joint2
+    100114: R_pinky_joint3
+    100116: R_pointer_finger1
+    100118: R_pointer_finger2
+    100120: R_ring_joint1
+    100122: R_ring_joint2
+    100124: R_ring_joint3
+    100126: R_shoulder
+    100128: R_thumb_joint1
+    100130: R_thumb_joint2
+    100132: R_thumb_joint3
+    100134: R_toes_joint
+    100136: R_wrist
+    100138: root_joint
+    100140: spine_joint1
+    100142: spine_joint2
+    100144: spine_joint3
+    100146: spine_joint4
+    100148: spine_joint5
     400000: //RootNode
-    400002: chin_joint1
-    400004: chin_joint2
-    400006: clavicle_joint
-    400008: clavicle_joint1
-    400010: clavicle_joint2
-    400012: hat_joint
-    400014: joint1
-    400016: L_ankle_joint
-    400018: L_elbow
-    400020: L_hand_joint
-    400022: L_joint5
-    400024: L_jpointer_finger3
-    400026: L_knee_joint
-    400028: L_leg_joint
-    400030: L_middle_finger1
-    400032: L_middle_finger2
-    400034: L_middle_finger3
-    400036: L_pinky_joint1
-    400038: L_pinky_joint2
-    400040: L_pinky_joint3
-    400042: L_pointer_finger1
-    400044: L_pointer_finger2
-    400046: L_ring_joint1
-    400048: L_ring_joint2
-    400050: L_ring_joint3
-    400052: L_shoulder
-    400054: L_thumb_joint1
-    400056: L_thumb_joint2
-    400058: L_thumb_joint3
-    400060: L_toes_joint
-    400062: L_wrist
-    400064: Mesh
-    400066: neck_joint
-    400068: R_ankle_joint
-    400070: R_elbow
-    400072: R_hand_joint
-    400074: R_joint5
-    400076: R_jpointer_finger3
-    400078: R_knee_joint
-    400080: R_leg_joint
-    400082: R_middle_finger1
-    400084: R_middle_finger2
-    400086: R_middle_finger3
-    400088: R_pinky_joint1
-    400090: R_pinky_joint2
-    400092: R_pinky_joint3
-    400094: R_pointer_finger1
-    400096: R_pointer_finger2
-    400098: R_ring_joint1
-    400100: R_ring_joint2
-    400102: R_ring_joint3
-    400104: R_shoulder
-    400106: R_thumb_joint1
-    400108: R_thumb_joint2
-    400110: R_thumb_joint3
-    400112: R_toes_joint
-    400114: R_wrist
-    400116: root_joint
-    400118: spine_joint1
-    400120: spine_joint2
-    400122: spine_joint3
-    400124: spine_joint4
-    400126: spine_joint5
-    400128: adventurer_L_armIK
-    400130: adventurer_L_leg
-    400132: adventurer_R_armIK
-    400134: adventurer_R_leg1
-    400136: adventurer_root_joint
-    400138: clavicle_joint1 1
-    400140: clavicle_joint2 1
-    400142: joint1 1
-    400144: L_ankleIK
-    400146: L_ankleIK 1
-    400148: L_armIK
-    400150: L_elbow 1
-    400152: L_foot_controller
-    400154: L_foot_controller 1
-    400156: L_knee_joint 1
-    400158: L_leg
-    400160: L_leg_joint 1
-    400162: L_shoulder 1
-    400164: R_ankleIK
-    400166: R_ankleIK 1
-    400168: R_armIK
-    400170: R_elbow 1
-    400172: R_foot_controller
-    400174: R_foot_controller 1
-    400176: R_knee_joint 1
-    400178: R_leg1
-    400180: R_leg_joint 1
-    400182: R_shoulder 1
-    400184: spine_joint1 1
-    400186: spine_joint2 1
-    400188: spine_joint3 1
-    400190: spine_joint4 1
-    400192: spine_joint5 1
-    4300000: Mesh
+    400002: adventurer
+    400004: adventurer_mesh
+    400006: adventurer_rig
+    400008: chin_joint1
+    400010: chin_joint2
+    400012: clavicle_joint
+    400014: clavicle_joint1
+    400016: clavicle_joint2
+    400018: hat_joint
+    400020: joint1
+    400022: L_ankle_joint
+    400024: L_ankleIK
+    400026: L_armIK
+    400028: L_elbow
+    400030: L_foot_controller
+    400032: L_hand_joint
+    400034: L_joint5
+    400036: L_jpointer_finger3
+    400038: L_knee_joint
+    400040: L_leg
+    400042: L_leg_joint
+    400044: L_middle_finger1
+    400046: L_middle_finger2
+    400048: L_middle_finger3
+    400050: L_pinky_joint1
+    400052: L_pinky_joint2
+    400054: L_pinky_joint3
+    400056: L_pointer_finger1
+    400058: L_pointer_finger2
+    400060: L_ring_joint1
+    400062: L_ring_joint2
+    400064: L_ring_joint3
+    400066: L_shoulder
+    400068: L_thumb_joint1
+    400070: L_thumb_joint2
+    400072: L_thumb_joint3
+    400074: L_toes_joint
+    400076: L_wrist
+    400078: left
+    400080: neck_joint
+    400082: R_ankle_joint
+    400084: R_ankleIK
+    400086: R_armIK
+    400088: R_elbow
+    400090: R_foot_controller
+    400092: R_hand_joint
+    400094: R_joint5
+    400096: R_jpointer_finger3
+    400098: R_knee_joint
+    400100: R_leg1
+    400102: R_leg_joint
+    400104: R_middle_finger1
+    400106: R_middle_finger2
+    400108: R_middle_finger3
+    400110: R_pinky_joint1
+    400112: R_pinky_joint2
+    400114: R_pinky_joint3
+    400116: R_pointer_finger1
+    400118: R_pointer_finger2
+    400120: R_ring_joint1
+    400122: R_ring_joint2
+    400124: R_ring_joint3
+    400126: R_shoulder
+    400128: R_thumb_joint1
+    400130: R_thumb_joint2
+    400132: R_thumb_joint3
+    400134: R_toes_joint
+    400136: R_wrist
+    400138: root_joint
+    400140: spine_joint1
+    400142: spine_joint2
+    400144: spine_joint3
+    400146: spine_joint4
+    400148: spine_joint5
+    4300000: adventurer_mesh
     7400000: walking
     7400002: idle
-    7400004: walk
     9500000: //RootNode
-    11100000: //RootNode
-    13700000: Mesh
+    13700000: adventurer_mesh
   materials:
     importMaterials: 1
     materialName: 0
@@ -216,13 +170,10 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
-      improve retargeting quality.\n\t'spine_joint1' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 0
+    animationCompression: 1
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -230,16 +181,16 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: walk
+      name: walking
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 45
+      lastFrame: 46
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -255,219 +206,167 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: adventurer_L_armIK
+      - path: adventurer
         weight: 1
-      - path: adventurer_L_leg
+      - path: adventurer/adventurer_mesh
         weight: 1
-      - path: adventurer_L_leg/L_foot_controller 1
+      - path: adventurer/adventurer_rig
         weight: 1
-      - path: adventurer_L_leg/L_foot_controller 1/L_ankleIK 1
+      - path: adventurer/adventurer_rig/L_armIK
         weight: 1
-      - path: adventurer_R_armIK
+      - path: adventurer/adventurer_rig/L_leg
         weight: 1
-      - path: adventurer_R_leg1
+      - path: adventurer/adventurer_rig/L_leg/L_foot_controller
         weight: 1
-      - path: adventurer_R_leg1/R_foot_controller 1
+      - path: adventurer/adventurer_rig/L_leg/L_foot_controller/L_ankleIK
         weight: 1
-      - path: adventurer_R_leg1/R_foot_controller 1/R_ankleIK 1
+      - path: adventurer/adventurer_rig/R_armIK
         weight: 1
-      - path: adventurer_root_joint
+      - path: adventurer/adventurer_rig/R_leg1
         weight: 1
-      - path: adventurer_root_joint/joint1
+      - path: adventurer/adventurer_rig/R_leg1/R_foot_controller
         weight: 1
-      - path: adventurer_root_joint/joint1/L_leg_joint
+      - path: adventurer/adventurer_rig/R_leg1/R_foot_controller/R_ankleIK
         weight: 1
-      - path: adventurer_root_joint/joint1/L_leg_joint/L_knee_joint
+      - path: adventurer/adventurer_rig/root_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1
         weight: 1
-      - path: adventurer_root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint/L_toes_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1/L_leg_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint/L_toes_joint/L_joint5
+      - path: adventurer/adventurer_rig/root_joint/joint1/L_leg_joint/L_knee_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/R_leg_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/R_leg_joint/R_knee_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint/L_toes_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint/L_toes_joint/L_joint5
         weight: 1
-      - path: adventurer_root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint/R_toes_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1/R_leg_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint/R_toes_joint/R_joint5
+      - path: adventurer/adventurer_rig/root_joint/joint1/R_leg_joint/R_knee_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1
+      - path: adventurer/adventurer_rig/root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2
+      - path: adventurer/adventurer_rig/root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint/R_toes_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3
+      - path: adventurer/adventurer_rig/root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint/R_toes_joint/R_joint5
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/chin_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/chin_joint1/chin_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/hat_joint
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/chin_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/chin_joint1/chin_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/hat_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1/R_middle_finger2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1/R_middle_finger2/R_middle_finger3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1/R_pinky_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1/R_middle_finger2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1/R_pinky_joint2/R_pinky_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1/R_middle_finger2/R_middle_finger3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1/R_pointer_finger2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1/R_pinky_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1/R_pointer_finger2/R_jpointer_finger3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1/R_pinky_joint2/R_pinky_joint3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1/R_ring_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1/R_pointer_finger2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1/R_ring_joint2/R_ring_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1/R_pointer_finger2/R_jpointer_finger3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1/R_thumb_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1/R_ring_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1/R_thumb_joint2/R_thumb_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1/R_ring_joint2/R_ring_joint3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1/R_thumb_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1/R_thumb_joint2/R_thumb_joint3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1/L_middle_finger2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1/L_middle_finger2/L_middle_finger3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1/L_pinky_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1/L_middle_finger2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1/L_pinky_joint2/L_pinky_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1/L_middle_finger2/L_middle_finger3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1/L_pointer_finger2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1/L_pinky_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1/L_pointer_finger2/L_jpointer_finger3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1/L_pinky_joint2/L_pinky_joint3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1/L_ring_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1/L_pointer_finger2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1/L_ring_joint2/L_ring_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1/L_pointer_finger2/L_jpointer_finger3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1/L_thumb_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1/L_ring_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1/L_thumb_joint2/L_thumb_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1/L_ring_joint2/L_ring_joint3
         weight: 1
-      - path: L_armIK
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1
         weight: 1
-      - path: L_leg
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1/L_thumb_joint2
         weight: 1
-      - path: L_leg/L_foot_controller
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1/L_thumb_joint2/L_thumb_joint3
         weight: 1
-      - path: L_leg/L_foot_controller/L_ankleIK
-        weight: 1
-      - path: Mesh
-        weight: 1
-      - path: R_armIK
-        weight: 1
-      - path: R_leg1
-        weight: 1
-      - path: R_leg1/R_foot_controller
-        weight: 1
-      - path: R_leg1/R_foot_controller/R_ankleIK
-        weight: 1
-      - path: root_joint
-        weight: 1
-      - path: root_joint/joint1 1
-        weight: 1
-      - path: root_joint/joint1 1/L_leg_joint 1
-        weight: 1
-      - path: root_joint/joint1 1/L_leg_joint 1/L_knee_joint 1
-        weight: 1
-      - path: root_joint/joint1 1/R_leg_joint 1
-        weight: 1
-      - path: root_joint/joint1 1/R_leg_joint 1/R_knee_joint 1
-        weight: 1
-      - path: root_joint/spine_joint1 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint1 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint1 1/R_shoulder 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint1 1/R_shoulder 1/R_elbow 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint2 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint2 1/L_shoulder 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint2 1/L_shoulder 1/L_elbow 1
+      - path: left
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
       name: idle
       takeName: Take 001
-      firstFrame: 47
-      lastFrame: 55
+      firstFrame: 50
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -483,205 +382,153 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: adventurer_L_armIK
+      - path: adventurer
         weight: 1
-      - path: adventurer_L_leg
+      - path: adventurer/adventurer_mesh
         weight: 1
-      - path: adventurer_L_leg/L_foot_controller 1
+      - path: adventurer/adventurer_rig
         weight: 1
-      - path: adventurer_L_leg/L_foot_controller 1/L_ankleIK 1
+      - path: adventurer/adventurer_rig/L_armIK
         weight: 1
-      - path: adventurer_R_armIK
+      - path: adventurer/adventurer_rig/L_leg
         weight: 1
-      - path: adventurer_R_leg1
+      - path: adventurer/adventurer_rig/L_leg/L_foot_controller
         weight: 1
-      - path: adventurer_R_leg1/R_foot_controller 1
+      - path: adventurer/adventurer_rig/L_leg/L_foot_controller/L_ankleIK
         weight: 1
-      - path: adventurer_R_leg1/R_foot_controller 1/R_ankleIK 1
+      - path: adventurer/adventurer_rig/R_armIK
         weight: 1
-      - path: adventurer_root_joint
+      - path: adventurer/adventurer_rig/R_leg1
         weight: 1
-      - path: adventurer_root_joint/joint1
+      - path: adventurer/adventurer_rig/R_leg1/R_foot_controller
         weight: 1
-      - path: adventurer_root_joint/joint1/L_leg_joint
+      - path: adventurer/adventurer_rig/R_leg1/R_foot_controller/R_ankleIK
         weight: 1
-      - path: adventurer_root_joint/joint1/L_leg_joint/L_knee_joint
+      - path: adventurer/adventurer_rig/root_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1
         weight: 1
-      - path: adventurer_root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint/L_toes_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1/L_leg_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint/L_toes_joint/L_joint5
+      - path: adventurer/adventurer_rig/root_joint/joint1/L_leg_joint/L_knee_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/R_leg_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/R_leg_joint/R_knee_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint/L_toes_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1/L_leg_joint/L_knee_joint/L_ankle_joint/L_toes_joint/L_joint5
         weight: 1
-      - path: adventurer_root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint/R_toes_joint
+      - path: adventurer/adventurer_rig/root_joint/joint1/R_leg_joint
         weight: 1
-      - path: adventurer_root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint/R_toes_joint/R_joint5
+      - path: adventurer/adventurer_rig/root_joint/joint1/R_leg_joint/R_knee_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1
+      - path: adventurer/adventurer_rig/root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2
+      - path: adventurer/adventurer_rig/root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint/R_toes_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3
+      - path: adventurer/adventurer_rig/root_joint/joint1/R_leg_joint/R_knee_joint/R_ankle_joint/R_toes_joint/R_joint5
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/chin_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/chin_joint1/chin_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/hat_joint
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/chin_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/chin_joint1/chin_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint/neck_joint/hat_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1/R_middle_finger2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1/R_middle_finger2/R_middle_finger3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1/R_pinky_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1/R_middle_finger2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1/R_pinky_joint2/R_pinky_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_middle_finger1/R_middle_finger2/R_middle_finger3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1/R_pointer_finger2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1/R_pinky_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1/R_pointer_finger2/R_jpointer_finger3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pinky_joint1/R_pinky_joint2/R_pinky_joint3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1/R_ring_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1/R_pointer_finger2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1/R_ring_joint2/R_ring_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_pointer_finger1/R_pointer_finger2/R_jpointer_finger3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1/R_thumb_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1/R_ring_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1/R_thumb_joint2/R_thumb_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_ring_joint1/R_ring_joint2/R_ring_joint3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1/R_thumb_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint1/R_shoulder/R_elbow/R_wrist/R_hand_joint/R_thumb_joint1/R_thumb_joint2/R_thumb_joint3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1/L_middle_finger2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1/L_middle_finger2/L_middle_finger3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1/L_pinky_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1/L_middle_finger2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1/L_pinky_joint2/L_pinky_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_middle_finger1/L_middle_finger2/L_middle_finger3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1/L_pointer_finger2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1/L_pinky_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1/L_pointer_finger2/L_jpointer_finger3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pinky_joint1/L_pinky_joint2/L_pinky_joint3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1/L_ring_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1/L_pointer_finger2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1/L_ring_joint2/L_ring_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_pointer_finger1/L_pointer_finger2/L_jpointer_finger3
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1/L_thumb_joint2
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1/L_ring_joint2
         weight: 1
-      - path: adventurer_root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1/L_thumb_joint2/L_thumb_joint3
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_ring_joint1/L_ring_joint2/L_ring_joint3
         weight: 1
-      - path: L_armIK
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1
         weight: 1
-      - path: L_leg
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1/L_thumb_joint2
         weight: 1
-      - path: L_leg/L_foot_controller
+      - path: adventurer/adventurer_rig/root_joint/spine_joint1/spine_joint2/spine_joint3/spine_joint4/spine_joint5/clavicle_joint2/L_shoulder/L_elbow/L_wrist/L_hand_joint/L_thumb_joint1/L_thumb_joint2/L_thumb_joint3
         weight: 1
-      - path: L_leg/L_foot_controller/L_ankleIK
-        weight: 1
-      - path: Mesh
-        weight: 1
-      - path: R_armIK
-        weight: 1
-      - path: R_leg1
-        weight: 1
-      - path: R_leg1/R_foot_controller
-        weight: 1
-      - path: R_leg1/R_foot_controller/R_ankleIK
-        weight: 1
-      - path: root_joint
-        weight: 1
-      - path: root_joint/joint1 1
-        weight: 1
-      - path: root_joint/joint1 1/L_leg_joint 1
-        weight: 1
-      - path: root_joint/joint1 1/L_leg_joint 1/L_knee_joint 1
-        weight: 1
-      - path: root_joint/joint1 1/R_leg_joint 1
-        weight: 1
-      - path: root_joint/joint1 1/R_leg_joint 1/R_knee_joint 1
-        weight: 1
-      - path: root_joint/spine_joint1 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint1 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint1 1/R_shoulder 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint1 1/R_shoulder 1/R_elbow 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint2 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint2 1/L_shoulder 1
-        weight: 1
-      - path: root_joint/spine_joint1 1/spine_joint2 1/spine_joint3 1/spine_joint4
-          1/spine_joint5 1/clavicle_joint2 1/L_shoulder 1/L_elbow 1
+      - path: left
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -707,921 +554,12 @@ ModelImporter:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
-    human:
-    - boneName: adventurer_root_joint
-      humanName: Hips
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_leg_joint
-      humanName: LeftUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_leg_joint
-      humanName: RightUpperLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_knee_joint
-      humanName: LeftLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_knee_joint
-      humanName: RightLowerLeg
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_ankle_joint
-      humanName: LeftFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_ankle_joint
-      humanName: RightFoot
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: spine_joint2
-      humanName: Spine
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: spine_joint4
-      humanName: Chest
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: clavicle_joint
-      humanName: Neck
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: neck_joint
-      humanName: Head
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: clavicle_joint2
-      humanName: LeftShoulder
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: clavicle_joint1
-      humanName: RightShoulder
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_shoulder
-      humanName: LeftUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_shoulder
-      humanName: RightUpperArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_elbow
-      humanName: LeftLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_elbow
-      humanName: RightLowerArm
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_wrist
-      humanName: LeftHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_wrist
-      humanName: RightHand
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_toes_joint
-      humanName: LeftToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_toes_joint
-      humanName: RightToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: hat_joint
-      humanName: RightEye
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: chin_joint1
-      humanName: Jaw
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_thumb_joint1
-      humanName: Left Thumb Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_thumb_joint2
-      humanName: Left Thumb Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_thumb_joint3
-      humanName: Left Thumb Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_pointer_finger1
-      humanName: Left Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_pointer_finger2
-      humanName: Left Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_jpointer_finger3
-      humanName: Left Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_middle_finger1
-      humanName: Left Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_middle_finger2
-      humanName: Left Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_middle_finger3
-      humanName: Left Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_ring_joint1
-      humanName: Left Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_ring_joint2
-      humanName: Left Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_ring_joint3
-      humanName: Left Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_pinky_joint1
-      humanName: Left Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_pinky_joint2
-      humanName: Left Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: L_pinky_joint3
-      humanName: Left Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_thumb_joint1
-      humanName: Right Thumb Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_thumb_joint2
-      humanName: Right Thumb Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_thumb_joint3
-      humanName: Right Thumb Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_pointer_finger1
-      humanName: Right Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_pointer_finger2
-      humanName: Right Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_jpointer_finger3
-      humanName: Right Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_middle_finger1
-      humanName: Right Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_middle_finger2
-      humanName: Right Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_middle_finger3
-      humanName: Right Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_ring_joint1
-      humanName: Right Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_ring_joint2
-      humanName: Right Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_ring_joint3
-      humanName: Right Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_pinky_joint1
-      humanName: Right Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_pinky_joint2
-      humanName: Right Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: R_pinky_joint3
-      humanName: Right Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    skeleton:
-    - name: adventurer(Clone)
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: adventurer_L_armIK
-      position: {x: -.00496383104, y: .0226987004, z: .00443135714}
-      rotation: {x: -.206146553, y: .502848268, z: .520822585, w: .65832454}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: adventurer_L_leg
-      position: {x: -.00218223641, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_foot_controller 1
-      position: {x: 2.55004335e-18, y: .00164889253, z: -.00303352345}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_ankleIK 1
-      position: {x: 6.60929634e-18, y: .000507225806, z: -.00333162071}
-      rotation: {x: -.401388615, y: -.582140207, z: .401388615, w: .582140207}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: adventurer_R_armIK
-      position: {x: .006343544, y: .02002679, z: -.00114111893}
-      rotation: {x: .753142238, y: -.613011479, z: .237777472, w: -.021344712}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: adventurer_R_leg1
-      position: {x: .00217999984, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: R_foot_controller 1
-      position: {x: 2.55004335e-18, y: .00164889253, z: -.00303352345}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: R_ankleIK 1
-      position: {x: 5.77662946e-18, y: -.000170383151, z: .00463326462}
-      rotation: {x: .535204232, y: .462121695, z: -.535204232, w: -.462121695}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_armIK
-      position: {x: -.00496383104, y: .0226987004, z: .00443135714}
-      rotation: {x: -.206146553, y: .502848268, z: .520822585, w: .65832454}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_leg
-      position: {x: -.00218223641, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_foot_controller
-      position: {x: 2.55004335e-18, y: .00164889253, z: -.00303352345}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_ankleIK
-      position: {x: 6.60929634e-18, y: .000507225806, z: -.00333162071}
-      rotation: {x: -.401388615, y: -.582140207, z: .401388615, w: .582140207}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: Mesh
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: R_armIK
-      position: {x: .006343544, y: .02002679, z: -.00114111893}
-      rotation: {x: .753142238, y: -.613011479, z: .237777472, w: -.021344712}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: R_leg1
-      position: {x: .00217999984, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: R_foot_controller
-      position: {x: 2.55004335e-18, y: .00164889253, z: -.00303352345}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: R_ankleIK
-      position: {x: 5.77662946e-18, y: -.000170383151, z: .00463326462}
-      rotation: {x: .535204232, y: .462121695, z: -.535204232, w: -.462121695}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: root_joint
-      position: {x: 7.80625983e-20, y: .0200744998, z: -.000644133019}
-      rotation: {x: .65855968, y: -.257486254, z: -.65855968, w: .257486254}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: joint1 1
-      position: {x: -3.76115986e-06, y: .000682649959, z: 1.52790987e-19}
-      rotation: {x: .705156028, y: .709052205, z: 8.65952752e-17, w: -2.38570779e-19}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_leg_joint 1
-      position: {x: -.000106500614, y: .000995444716, z: -.00218223641}
-      rotation: {x: -5.38626034e-17, y: 2.01195327e-18, z: .875680149, w: -.482891679}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_knee_joint 1
-      position: {x: -.0088899117, y: -7.25114383e-18, z: 4.16333609e-18}
-      rotation: {x: .998581827, y: .0532382391, z: -1.3693128e-16, w: 6.86196346e-17}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: R_leg_joint 1
-      position: {x: -.000106500614, y: .000995444716, z: .00217999984}
-      rotation: {x: -3.35935219e-17, y: -1.28993308e-17, z: .954658031, w: -.297704697}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: R_knee_joint 1
-      position: {x: -.0088899117, y: -7.25114383e-18, z: 1.9428903e-18}
-      rotation: {x: 1, y: 2.97539773e-05, z: -9.371867e-17, w: 6.12351286e-17}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: spine_joint1 1
-      position: {x: -.000588620896, y: 6.661338e-18, z: 5.93368965e-20}
-      rotation: {x: .92706126, y: .374520272, z: .0156756453, w: .0068051694}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: spine_joint2 1
-      position: {x: -.00133124855, y: 3.330669e-18, z: 1.19831794e-19}
-      rotation: {x: 0, y: -0, z: -.0731081143, w: .997324049}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: spine_joint3 1
-      position: {x: -.00137420965, y: -2.220446e-18, z: 1.43491189e-19}
-      rotation: {x: 0, y: -0, z: -.0526990034, w: .998610497}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: spine_joint4 1
-      position: {x: -.000887776143, y: 0, z: 1.00697788e-19}
-      rotation: {x: .999641538, y: .0267733913, z: -1.63939742e-18, w: -6.12103926e-17}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: spine_joint5 1
-      position: {x: -.00540422974, y: 0, z: -5.89075743e-19}
-      rotation: {x: 0, y: -0, z: -.282316983, w: .959321201}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: clavicle_joint1 1
-      position: {x: -.000720340235, y: .00129798439, z: -.000847623975}
-      rotation: {x: .390942842, y: .58920598, z: -.390942842, w: .58920598}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: R_shoulder 1
-      position: {x: .0028775658, y: -.000382499973, z: .00214497}
-      rotation: {x: .155201539, y: .0307218283, z: .571133256, w: .805465996}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: R_elbow 1
-      position: {x: .00541909784, y: -1.35622204e-05, z: 1.40115571e-05}
-      rotation: {x: .0265733227, y: .265653402, z: .0115335053, w: .963633299}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: clavicle_joint2 1
-      position: {x: -.000720357057, y: .0012979774, z: .000847623567}
-      rotation: {x: .58920598, y: -.390942842, z: -.58920598, w: -.390942842}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_shoulder 1
-      position: {x: -.00287756138, y: .000382486876, z: -.00214496558}
-      rotation: {x: -.0307402033, y: .184853092, z: .566026986, w: .802806199}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_elbow 1
-      position: {x: -.00541910948, y: 1.35650271e-05, z: -1.40181201e-05}
-      rotation: {x: .0238023698, y: .394466549, z: .0175835937, w: .918433666}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: adventurer_root_joint
-      position: {x: 7.80625983e-20, y: .0200744998, z: -.000644133019}
-      rotation: {x: -.65855968, y: .257486254, z: .65855968, w: -.257486254}
-      scale: {x: 1, y: .999999881, z: 1}
-      transformModified: 1
-    - name: spine_joint1
-      position: {x: -.000588620896, y: 6.661338e-18, z: 5.93368965e-20}
-      rotation: {x: .920986652, y: .389594316, z: 0, w: 0}
-      scale: {x: .999999821, y: .999999821, z: .999999762}
-      transformModified: 1
-    - name: spine_joint2
-      position: {x: -.00133124855, y: 3.330669e-18, z: 1.19831794e-19}
-      rotation: {x: -2.98023188e-08, y: -2.98023188e-08, z: .0731081888, w: -.99732399}
-      scale: {x: 1.00000012, y: 1, z: 1.00000012}
-      transformModified: 1
-    - name: spine_joint3
-      position: {x: -.00137420965, y: -2.220446e-18, z: 1.43491189e-19}
-      rotation: {x: 0, y: 0, z: -.0526988804, w: .998610497}
-      scale: {x: .99999994, y: 1.00000012, z: 1.00000012}
-      transformModified: 1
-    - name: spine_joint4
-      position: {x: -.000887776143, y: 0, z: 1.00697788e-19}
-      rotation: {x: -.999641538, y: -.0267733, z: 1.49011594e-08, w: 0}
-      scale: {x: 1, y: 1, z: 1.00000012}
-      transformModified: 1
-    - name: spine_joint5
-      position: {x: -.00540422974, y: 0, z: -5.89075743e-19}
-      rotation: {x: 1.49011594e-08, y: -5.96046377e-08, z: .282317013, w: -.959321141}
-      scale: {x: 1, y: .999999762, z: 1}
-      transformModified: 1
-    - name: clavicle_joint
-      position: {x: -.00190297281, y: 0, z: -3.87443623e-18}
-      rotation: {x: .99421525, y: .107406393, z: 0, w: 0}
-      scale: {x: 1.00000024, y: 1.00000036, z: 1.00000024}
-      transformModified: 1
-    - name: neck_joint
-      position: {x: -.00168587908, y: 1.110223e-18, z: 2.28807505e-18}
-      rotation: {x: 2.98023188e-08, y: 2.98023188e-08, z: .175013617, w: -.984566092}
-      scale: {x: .999999583, y: .999999821, z: 1.00000012}
-      transformModified: 1
-    - name: hat_joint
-      position: {x: -.00461318763, y: -4.440892e-18, z: 7.14032645e-18}
-      rotation: {x: -.540163934, y: .456314534, z: -.540163875, w: -.456314594}
-      scale: {x: 1, y: 1.00000024, z: .999999881}
-      transformModified: 1
-    - name: chin_joint1
-      position: {x: .00036908075, y: -.000562960864, z: -7.27742439e-19}
-      rotation: {x: -8.94069601e-08, y: 3.72528985e-09, z: -.832697809, w: -.553727746}
-      scale: {x: .999999702, y: .999999881, z: 1}
-      transformModified: 1
-    - name: chin_joint2
-      position: {x: -.0011874137, y: 0, z: -1.01520156e-18}
-      rotation: {x: 1.86264479e-08, y: -5.58793403e-08, z: .832697809, w: -.553727806}
-      scale: {x: .999999821, y: .999999821, z: 1.00000024}
-      transformModified: 1
-    - name: clavicle_joint1
-      position: {x: -.000720340235, y: .00129798439, z: -.000847623975}
-      rotation: {x: -.466133624, y: -.665493786, z: .30504176, w: -.4967767}
-      scale: {x: 1, y: .999999881, z: .999999642}
-      transformModified: 1
-    - name: R_shoulder
-      position: {x: .0028775658, y: -.000382499973, z: .00214497}
-      rotation: {x: .103876933, y: -.157194734, z: .00871196575, w: .982050657}
-      scale: {x: 1.00000012, y: 1.00000024, z: 1.00000036}
-      transformModified: 1
-    - name: R_elbow
-      position: {x: .00541909784, y: -1.35622204e-05, z: 1.40115571e-05}
-      rotation: {x: .0279624872, y: .0282317549, z: -.00769209769, w: .999180675}
-      scale: {x: 1, y: .999999821, z: 1}
-      transformModified: 1
-    - name: R_wrist
-      position: {x: .00513965217, y: -3.05363237e-08, z: -2.48128768e-10}
-      rotation: {x: -5.23868893e-10, y: -1.49011594e-08, z: -.421678305, w: .906745493}
-      scale: {x: .999999642, y: 1.00000012, z: .999999881}
-      transformModified: 1
-    - name: R_hand_joint
-      position: {x: .00088789186, y: .000881193904, z: .000103077102}
-      rotation: {x: -.537578046, y: -.353687644, z: -.395786017, w: -.655185759}
-      scale: {x: 1.00000012, y: .999999821, z: .999999464}
-      transformModified: 1
-    - name: R_middle_finger1
-      position: {x: .000851994089, y: 8.99998132e-10, z: 1.71105086e-08}
-      rotation: {x: -.00594620034, y: -.0385444984, z: .022427531, w: .998987556}
-      scale: {x: 1, y: 1.00000012, z: 1.00000012}
-      transformModified: 1
-    - name: R_middle_finger2
-      position: {x: .00057839771, y: -5.43104277e-12, z: 3.02320551e-08}
-      rotation: {x: -1.72247962e-06, y: -.0206654537, z: 6.82845121e-06, w: -.999786496}
-      scale: {x: 1.00000036, y: 1, z: .99999994}
-      transformModified: 1
-    - name: R_middle_finger3
-      position: {x: .000670381763, y: 5.62933877e-09, z: -1.45124552e-08}
-      rotation: {x: -.496416032, y: -.503558576, z: -.496416152, w: .503558397}
-      scale: {x: .999999642, y: .999999762, z: .999999702}
-      transformModified: 1
-    - name: R_pointer_finger1
-      position: {x: .000739327574, y: -.000546507712, z: 7.09537335e-06}
-      rotation: {x: -.000858028943, y: -.029897932, z: .0280963313, w: .999157667}
-      scale: {x: 1.00000036, y: 1.00000048, z: 1.00000036}
-      transformModified: 1
-    - name: R_pointer_finger2
-      position: {x: .000655035954, y: 4.88326579e-09, z: -7.84010368e-09}
-      rotation: {x: 2.13272742e-07, y: -.0252749771, z: -6.86570593e-06, w: -.999680519}
-      scale: {x: 1.00000012, y: 1, z: .999999881}
-      transformModified: 1
-    - name: R_jpointer_finger3
-      position: {x: .000767201069, y: -5.78046722e-09, z: 6.43826255e-08}
-      rotation: {x: -.496416003, y: -.503558397, z: -.496416152, w: .503558517}
-      scale: {x: .999999762, y: .999999523, z: .999999762}
-      transformModified: 1
-    - name: R_ring_joint1
-      position: {x: .000839175773, y: .000509973674, z: 6.06196454e-06}
-      rotation: {x: .0148993451, y: .0508723855, z: -.0190024059, w: -.998413265}
-      scale: {x: 1.00000012, y: 1.00000012, z: .999999881}
-      transformModified: 1
-    - name: R_ring_joint2
-      position: {x: .000511896505, y: 4.38944575e-10, z: 1.78035808e-08}
-      rotation: {x: -8.95000539e-07, y: .0293398574, z: 2.73808701e-06, w: .999569476}
-      scale: {x: 1.00000036, y: 1.00000024, z: .999999821}
-      transformModified: 1
-    - name: R_ring_joint3
-      position: {x: .000736879592, y: -6.02871753e-09, z: -5.30248911e-09}
-      rotation: {x: -.496416211, y: -.503558457, z: -.496415973, w: .503558278}
-      scale: {x: 1.00000024, y: .999999881, z: .99999994}
-      transformModified: 1
-    - name: R_pinky_joint1
-      position: {x: .00057963992, y: .000933258038, z: -.000145867918}
-      rotation: {x: .0235559512, y: .0594717115, z: -.0171972737, w: -.997803867}
-      scale: {x: .999999762, y: .99999994, z: 1}
-      transformModified: 1
-    - name: R_pinky_joint2
-      position: {x: .000502140669, y: -3.16230153e-09, z: 5.31229212e-08}
-      rotation: {x: 5.57396163e-07, y: .0298067685, z: -6.26220844e-06, w: .999555707}
-      scale: {x: 1.00000024, y: 1.00000036, z: 1.00000012}
-      transformModified: 1
-    - name: R_pinky_joint3
-      position: {x: .000746674021, y: 6.65431799e-09, z: -1.89177705e-08}
-      rotation: {x: -.496416211, y: -.503558457, z: -.496416032, w: .503558457}
-      scale: {x: .999999642, y: .999999881, z: .999999523}
-      transformModified: 1
-    - name: R_thumb_joint1
-      position: {x: -.00011039729, y: -.000800143229, z: -.00086713332}
-      rotation: {x: -.0598308407, y: -.0611959696, z: -.326859415, w: .941189826}
-      scale: {x: 1.00000012, y: 1.00000024, z: 1.00000012}
-      transformModified: 1
-    - name: R_thumb_joint2
-      position: {x: .000591096003, y: -8.88741136e-10, z: 1.23742581e-08}
-      rotation: {x: -1.49011559e-08, y: 0, z: -1.19209247e-07, w: 1}
-      scale: {x: .99999994, y: .99999994, z: .99999994}
-      transformModified: 1
-    - name: R_thumb_joint3
-      position: {x: .000657739874, y: 3.07250292e-09, z: -3.8397733e-08}
-      rotation: {x: .496416032, y: .503558517, z: .496416122, w: -.503558457}
-      scale: {x: 1, y: .99999994, z: .999999762}
-      transformModified: 1
-    - name: clavicle_joint2
-      position: {x: -.000720357057, y: .0012979774, z: .000847623567}
-      rotation: {x: .665494144, y: -.466133207, z: -.496776253, w: -.305042237}
-      scale: {x: 1, y: 1.00000012, z: 1}
-      transformModified: 1
-    - name: L_shoulder
-      position: {x: -.00287756138, y: .000382486876, z: -.00214496558}
-      rotation: {x: .103857368, y: -.157192394, z: .00870851893, w: .98205322}
-      scale: {x: .999999583, y: 1, z: 1}
-      transformModified: 1
-    - name: L_elbow
-      position: {x: -.00541910948, y: 1.35650271e-05, z: -1.40181201e-05}
-      rotation: {x: .0279636718, y: .0282299817, z: -.0076784757, w: .999180794}
-      scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    - name: L_wrist
-      position: {x: -.00513968291, y: -8.96475694e-09, z: 8.61215599e-10}
-      rotation: {x: -5.77419854e-08, y: -2.99332825e-08, z: -.421678364, w: .906745434}
-      scale: {x: .999999881, y: 1.00000024, z: 1.00000024}
-      transformModified: 1
-    - name: L_hand_joint
-      position: {x: -.000887927832, y: -.000881122309, z: -.000103080893}
-      rotation: {x: .537578166, y: .353687674, z: .395786047, w: .655185699}
-      scale: {x: 1.00000012, y: .999999821, z: .999999702}
-      transformModified: 1
-    - name: L_middle_finger1
-      position: {x: -.000851956836, y: -3.330669e-18, z: 1.3322676e-17}
-      rotation: {x: -.00594484527, y: -.0385876223, z: .0224229582, w: .998986006}
-      scale: {x: .999999583, y: .99999994, z: 1}
-      transformModified: 1
-    - name: L_middle_finger2
-      position: {x: -.000578487641, y: -3.84389809e-09, z: -2.35896591e-09}
-      rotation: {x: 4.10247196e-07, y: .0207000803, z: 5.91575554e-06, w: .999785721}
-      scale: {x: 1, y: 1.00000012, z: .999999881}
-      transformModified: 1
-    - name: L_middle_finger3
-      position: {x: -.000670284848, y: 3.84389809e-09, z: 2.35896591e-09}
-      rotation: {x: -.496415943, y: -.503558397, z: -.496416152, w: .503558457}
-      scale: {x: 1.00000024, y: 1.00000012, z: .999999762}
-      transformModified: 1
-    - name: L_pointer_finger1
-      position: {x: -.000739344337, y: .000546503987, z: -7.07733534e-06}
-      rotation: {x: -.000858572719, y: -.0298960991, z: .0280983802, w: .999157667}
-      scale: {x: .999999881, y: .999999881, z: 1}
-      transformModified: 1
-    - name: L_pointer_finger2
-      position: {x: -.000655040436, y: 1.60404412e-09, z: -1.40039189e-08}
-      rotation: {x: -2.93366469e-07, y: .025204815, z: -2.33203059e-06, w: .999682367}
-      scale: {x: .99999994, y: 1.00000012, z: 1}
-      transformModified: 1
-    - name: L_jpointer_finger3
-      position: {x: -.000767232676, y: -1.60404412e-09, z: 1.40039189e-08}
-      rotation: {x: -.496416032, y: -.503558457, z: -.496416152, w: .503558517}
-      scale: {x: .999999762, y: .999999881, z: .999999583}
-      transformModified: 1
-    - name: L_ring_joint1
-      position: {x: -.000839183631, y: -.000509972684, z: -6.03149329e-06}
-      rotation: {x: -.0149007207, y: -.0509060472, z: .0190016273, w: .998411536}
-      scale: {x: .999999464, y: 1, z: .999999642}
-      transformModified: 1
-    - name: L_ring_joint2
-      position: {x: -.000511940452, y: -8.75978283e-12, z: -2.78389178e-09}
-      rotation: {x: 1.05705048e-07, y: .0293545742, z: 6.25848372e-07, w: .999569118}
-      scale: {x: 1.00000012, y: 1, z: .999999762}
-      transformModified: 1
-    - name: L_ring_joint3
-      position: {x: -.000736831978, y: 8.75978283e-12, z: 2.78389178e-09}
-      rotation: {x: -.496415943, y: -.503558397, z: -.496416181, w: .503558397}
-      scale: {x: 1, y: 1, z: .999999881}
-      transformModified: 1
-    - name: L_pinky_joint1
-      position: {x: -.000579687417, y: -.000933266885, z: .000145924598}
-      rotation: {x: -.0235581752, y: -.0595523976, z: .0171954632, w: .997798979}
-      scale: {x: 1, y: 1, z: 1.00000012}
-      transformModified: 1
-    - name: L_pinky_joint2
-      position: {x: -.000502149109, y: 2.66159406e-09, z: 8.92723939e-09}
-      rotation: {x: 3.25962701e-09, y: .0298941508, z: -2.21654636e-06, w: .999553144}
-      scale: {x: 1.00000012, y: 1, z: .999999762}
-      transformModified: 1
-    - name: L_pinky_joint3
-      position: {x: -.000746623322, y: -2.66159406e-09, z: -8.92723939e-09}
-      rotation: {x: -.496416152, y: -.503558517, z: -.496416122, w: .503558338}
-      scale: {x: .999999762, y: .999999702, z: .999999821}
-      transformModified: 1
-    - name: L_thumb_joint1
-      position: {x: .000110367924, y: .000800139445, z: .000867202587}
-      rotation: {x: -.0598465502, y: -.0612075999, z: -.326863617, w: .941186607}
-      scale: {x: .999999821, y: 1, z: 1.00000012}
-      transformModified: 1
-    - name: L_thumb_joint2
-      position: {x: -.000591062882, y: 3.43554185e-10, z: 1.00024842e-08}
-      rotation: {x: 2.98023153e-08, y: 0, z: 5.96046306e-08, w: 1}
-      scale: {x: 1.00000012, y: .999999881, z: .99999994}
-      transformModified: 1
-    - name: L_thumb_joint3
-      position: {x: -.000657709548, y: -3.43554185e-10, z: -1.00024842e-08}
-      rotation: {x: -.496416032, y: -.503558517, z: -.496416062, w: .503558338}
-      scale: {x: 1, y: 1, z: .999999821}
-      transformModified: 1
-    - name: joint1
-      position: {x: -3.76115986e-06, y: .000682649959, z: 1.52790987e-19}
-      rotation: {x: -.705156088, y: -.709052205, z: 0, w: 2.98023224e-08}
-      scale: {x: .999999881, y: .99999994, z: .999999762}
-      transformModified: 1
-    - name: L_leg_joint
-      position: {x: -.000106500614, y: .000995444716, z: -.00218223641}
-      rotation: {x: -2.98023188e-08, y: -2.98023188e-08, z: -.938401461, w: .345546931}
-      scale: {x: 1.00000036, y: .999999881, z: .999999881}
-      transformModified: 1
-    - name: L_knee_joint
-      position: {x: -.0088899117, y: -7.25114383e-18, z: 4.16333609e-18}
-      rotation: {x: -.986544728, y: -.163491756, z: 0, w: 0}
-      scale: {x: .999999821, y: .999999821, z: 1}
-      transformModified: 1
-    - name: L_ankle_joint
-      position: {x: -.00879464857, y: -3.10998176e-18, z: 0}
-      rotation: {x: .802062869, y: .597239673, z: 3.72528994e-08, w: 2.235174e-08}
-      scale: {x: 1, y: 1.00000024, z: 1.00000012}
-      transformModified: 1
-    - name: L_toes_joint
-      position: {x: -.00297289342, y: 0, z: 1.27249805e-18}
-      rotation: {x: 1.49011594e-08, y: 2.98023188e-08, z: -.26230517, w: .964985013}
-      scale: {x: 1, y: .99999994, z: .99999994}
-      transformModified: 1
-    - name: L_joint5
-      position: {x: -.00312861265, y: 1.35308426e-18, z: 2.03574774e-18}
-      rotation: {x: -.00897124968, y: -.707049847, z: -.00897124968, w: .707049847}
-      scale: {x: 1.00000024, y: 1, z: 1.00000012}
-      transformModified: 1
-    - name: R_leg_joint
-      position: {x: -.000106500614, y: .000995444716, z: .00217999984}
-      rotation: {x: 2.98023188e-08, y: -2.98023188e-08, z: -.938401401, w: .34554711}
-      scale: {x: 1.00000036, y: 1.00000024, z: 1.00000012}
-      transformModified: 1
-    - name: R_knee_joint
-      position: {x: -.0088899117, y: -7.25114383e-18, z: 1.9428903e-18}
-      rotation: {x: -.986544728, y: -.163491532, z: 0, w: 0}
-      scale: {x: .999999702, y: .999999702, z: .999999881}
-      transformModified: 1
-    - name: R_ankle_joint
-      position: {x: -.00879464857, y: -3.10998176e-18, z: 0}
-      rotation: {x: .802062869, y: .597239673, z: 0, w: -3.72528994e-08}
-      scale: {x: 1.00000024, y: 1.00000012, z: 1.00000024}
-      transformModified: 1
-    - name: R_toes_joint
-      position: {x: -.00297289342, y: 0, z: 1.27249805e-18}
-      rotation: {x: -1.49011594e-08, y: 2.32830616e-10, z: -.26230514, w: .964985073}
-      scale: {x: .999999821, y: 1.00000012, z: .999999762}
-      transformModified: 1
-    - name: R_joint5
-      position: {x: -.00312861265, y: 1.35308426e-18, z: 2.03574774e-18}
-      rotation: {x: -.00897126831, y: -.707049906, z: -.00897126831, w: .707049906}
-      scale: {x: 1.00000012, y: 1, z: 1.00000012}
-      transformModified: 1
+    human: []
+    skeleton: []
     armTwist: .5
     foreArmTwist: .5
     upperLegTwist: .5
@@ -1632,7 +570,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 3
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
