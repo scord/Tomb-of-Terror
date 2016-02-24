@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
     public Camera cam;
 	public SoundVision soundVision;
     public AudioSource audio_source;
+    public Animator animator;
     GameObject carriedObject;
     bool carrying = false;
     bool turned;
@@ -14,8 +15,8 @@ public class PlayerController : MonoBehaviour {
     void Start () {
 	    turned = false;
 
-  
-       audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
+        animator = GetComponent<Animator>();
+        audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
     }
 	
 	// Update is called once per frame
@@ -23,10 +24,11 @@ public class PlayerController : MonoBehaviour {
         
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
+        bool move = false;
 
         if (moveVertical == 1.0)
         {
-            transform.position = transform.position + cam.transform.forward * 2 * Time.deltaTime;
+            transform.position = transform.position + cam.transform.forward * Time.deltaTime;
             if (audio_source.isPlaying == false)// add more logic later such as, onground/jumping etc etc
             {
                // AudioSource.PlayClipAtPoint(footstep_Sound1, transform.position);
@@ -36,6 +38,11 @@ public class PlayerController : MonoBehaviour {
                 audio_source.Play();
             }
         }
+
+        if (moveHorizontal == 1.0 || moveVertical == 1.0)
+            move = true;
+
+        animator.SetBool("Movement", move);
 
         if (Input.GetButton("Fire1"))
         {

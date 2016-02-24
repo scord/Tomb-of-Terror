@@ -35,6 +35,18 @@ ModelImporter:
     100054: spine2_joint
     100056: spine3_joint
     100058: spine4_joint
+    100060: joint1
+    100062: joint2
+    100064: joint3
+    100066: L_ankleIK
+    100068: L_armIK
+    100070: L_footContour
+    100072: L_group1
+    100074: locator1
+    100076: R_ankleIK
+    100078: R_armIK
+    100080: R_footContour
+    100082: R_group2
     400000: chin_joint
     400002: hat_joint
     400004: head_joint
@@ -65,6 +77,18 @@ ModelImporter:
     400054: spine2_joint
     400056: spine3_joint
     400058: spine4_joint
+    400060: joint1
+    400062: joint2
+    400064: joint3
+    400066: L_ankleIK
+    400068: L_armIK
+    400070: L_footContour
+    400072: L_group1
+    400074: locator1
+    400076: R_ankleIK
+    400078: R_armIK
+    400080: R_footContour
+    400082: R_group2
     4300000: Mummy
     7400000: walking
     7400002: idle
@@ -94,7 +118,7 @@ ModelImporter:
       name: walking
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 121
+      lastFrame: 45
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -119,6 +143,30 @@ ModelImporter:
       - path: Mummy
         weight: 1
       - path: skeleton_rig
+        weight: 1
+      - path: skeleton_rig/joint1
+        weight: 1
+      - path: skeleton_rig/joint1/joint2
+        weight: 1
+      - path: skeleton_rig/joint1/joint2/joint3
+        weight: 1
+      - path: skeleton_rig/L_armIK
+        weight: 1
+      - path: skeleton_rig/L_group1
+        weight: 1
+      - path: skeleton_rig/L_group1/L_footContour
+        weight: 1
+      - path: skeleton_rig/L_group1/L_footContour/L_ankleIK
+        weight: 1
+      - path: skeleton_rig/locator1
+        weight: 1
+      - path: skeleton_rig/R_armIK
+        weight: 1
+      - path: skeleton_rig/R_group2
+        weight: 1
+      - path: skeleton_rig/R_group2/R_footContour
+        weight: 1
+      - path: skeleton_rig/R_group2/R_footContour/R_ankleIK
         weight: 1
       - path: skeleton_rig/spine1_joint
         weight: 1
@@ -179,14 +227,14 @@ ModelImporter:
     - serializedVersion: 16
       name: idle
       takeName: Take 001
-      firstFrame: 121
-      lastFrame: 122
+      firstFrame: 47
+      lastFrame: 55
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -205,6 +253,30 @@ ModelImporter:
       - path: Mummy
         weight: 1
       - path: skeleton_rig
+        weight: 1
+      - path: skeleton_rig/joint1
+        weight: 1
+      - path: skeleton_rig/joint1/joint2
+        weight: 1
+      - path: skeleton_rig/joint1/joint2/joint3
+        weight: 1
+      - path: skeleton_rig/L_armIK
+        weight: 1
+      - path: skeleton_rig/L_group1
+        weight: 1
+      - path: skeleton_rig/L_group1/L_footContour
+        weight: 1
+      - path: skeleton_rig/L_group1/L_footContour/L_ankleIK
+        weight: 1
+      - path: skeleton_rig/locator1
+        weight: 1
+      - path: skeleton_rig/R_armIK
+        weight: 1
+      - path: skeleton_rig/R_group2
+        weight: 1
+      - path: skeleton_rig/R_group2/R_footContour
+        weight: 1
+      - path: skeleton_rig/R_group2/R_footContour/R_ankleIK
         weight: 1
       - path: skeleton_rig/spine1_joint
         weight: 1
