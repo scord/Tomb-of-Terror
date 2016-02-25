@@ -63,6 +63,8 @@ public class Stats : MonoBehaviour
 
 		// get initial starting_point from the first read in BTScript - TBC //
 		heartRateManager = GameObject.Find ("HeartRate").GetComponent<HeartRateManager> ();
+		if (heartRateManager == null)
+			Debug.Log ("null heart rate");
 		starting_point = heartRateManager.HeartRate;
 		signal = starting_point;
 
@@ -92,6 +94,7 @@ public class Stats : MonoBehaviour
 		// if(timer % 4 == 0)
 		{
 			signal = heartRateManager.HeartRate;
+			Debug.Log ("signal " + signal);
 		}
 
 		log.Add(signal);
@@ -218,7 +221,7 @@ public class Stats : MonoBehaviour
 	void onApplicationQuit() {
 
 		AverageRate(true);
-		Range ();
+		GetRange ();
 		log.Clear ();
 		partials.Clear ();
 		timer = 0.0;
