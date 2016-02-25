@@ -12,7 +12,6 @@ public class PlayerCameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 			moveCamera = new Vector3(-Input.GetAxis("Mouse Y"), 0, 0 );
-
             transform.Rotate(moveCamera);
 	}
 }
