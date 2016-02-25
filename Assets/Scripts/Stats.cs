@@ -185,7 +185,7 @@ public class Stats : MonoBehaviour
 	}
 
 	// Print range of HR values reached throughout the game
-	void Range() {
+	void GetRange() {
 
 		Console.WriteLine ("Your starting point was: %d", starting_point);
 		Console.WriteLine ("Minimum reached: %d", min);
@@ -194,18 +194,24 @@ public class Stats : MonoBehaviour
 	}
 
 	// Function to access the log of HR measurements saved
-	List<int> RetrieveLog() {
+	List<int> GetLog() {
 		return log;
 	}
 
 	// Function to access the current HR measurement
-	int RetrieveHR() {
+	int GetHR() {
 		return signal;
 	}
 
 	// Function to access the times when a spike in the HR occurred
-	List<double> RetrieveTimes() {
+	List<double> GetTimes() {
 		return times;
+	}
+
+	void OnGui() {
+
+		GUI.Label (new Rect (10, 10, 100, 30), "Signal " + signal);
+
 	}
 
 	// Clear data log & output statistics
