@@ -6,7 +6,7 @@ public class InteractScript : MonoBehaviour {
 
 	private Text info;
 	public TargetInteract targetObject;
-	// public GameObject handle;
+	public bool withKey;
 
 	private string infoText;
 
@@ -16,8 +16,10 @@ public class InteractScript : MonoBehaviour {
 	}
 
 	public void PreInteract(){
-		info.text = targetObject.GetText();
-		info.enabled = true;
+		if(withKey){
+			info.text = targetObject.GetText();
+			info.enabled = true;
+		}
 	}
 
 	public void EndInteract(){

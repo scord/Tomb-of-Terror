@@ -3,37 +3,39 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
-    public Camera cam;
-	public SoundVision soundVision;
-    public AudioSource audio_source;
     private InteractScript trig;
-    public Animator animator;
-
-
-    bool turned;
-	// public SoundVision test;
-    // Use this for initialization
-    void Start () {
-	    // turned = false;
-
-      // soundVision = GetComponent<SoundVision>();
-        // audio_source = GetComponent<AudioSource>();
-        // audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
-        animator = GetComponent<Animator>();
-    }
-	
-	// Update is called once per frame
-    public float speed = 6.0F;
-    public float jumpSpeed = 8.0F;
-    public float gravity = 20.0F;
-    private float wheelDirection;
+    private CharacterController controller;
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 moveCamera = Vector3.zero;
     private Light torchIntensity;
     private bool onTrigger = false;
+    private float wheelDirection;
+
+    public Camera cam;
+	public SoundVision soundVision;
+    public AudioSource audio_source;
+    public Animator animator;
+    public float speed = 6.0F;
+    public float jumpSpeed = 8.0F;
+    public float gravity = 20.0F;
+
+    bool turned;
+    // public SoundVision test;
+    // Use this for initialization
+    void Start () {
+        // turned = false;
+
+        // soundVision = GetComponent<SoundVision>();
+        // audio_source = GetComponent<AudioSource>();
+        // audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
+        animator = GetComponent<Animator>();
+        torchIntensity = GetComponentsInChildren<Light>()[0];
+        controller = GetComponent<CharacterController>();
+    }
+    
 
 
-
+    // Update is called once per frame
     void Update() {
         bool move = false;
         float moveVertical = Input.GetAxis("Vertical");
@@ -44,7 +46,6 @@ public class PlayerController : MonoBehaviour {
 
         animator.SetBool("Movement", move);
 
-        CharacterController controller = GetComponent<CharacterController>();
         if (controller.isGrounded) {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveCamera = new Vector3(0, Input.GetAxis("Mouse X"), 0 );
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour {
         }
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
-        torchIntensity = GetComponentsInChildren<Light>()[0];
+        
         wheelDirection = Input.GetAxis("Mouse ScrollWheel");
         if (wheelDirection > 0)
             torchIntensity.intensity += 0.20f;
@@ -67,8 +68,8 @@ public class PlayerController : MonoBehaviour {
                 torchIntensity.intensity -= 0.20f;
 
 
-
-        if(onTrigger){
+        // deal with in-game interactions
+        if(onTrigger && trig.withKey){
             if(Input.GetKeyDown(KeyCode.E)){
                 trig.Interact();
             }
@@ -82,14 +83,16 @@ public class PlayerController : MonoBehaviour {
         if(other.tag.Equals("Interaction")){
             trig = (InteractScript) other.GetComponent(typeof(InteractScript));
             onTrigger = true;
-            trig.PreInteract();
+            if(trig.withKey)
+                trig.PreInteract();
+            else trig.Interact();
         }
     }
 
     void OnTriggerStay(Collider other){
         if(other.tag.Equals("Interaction") && !onTrigger){
             onTrigger = true;
-            trig.PreInteract();
+            trig.PreInteract(); 
         }
     }
 
