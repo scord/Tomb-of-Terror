@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour
 {
@@ -21,19 +22,18 @@ public class Stats : MonoBehaviour
 
 	public HeartRateManager heartRateManager;
 	private int starting_point; 	// presumably the resting state HR of the player
-	public int signal;				// incoming signal coming from BTScript every S seconds (sampled heart rate)
+	private int signal;				// incoming signal coming from BTScript every S seconds (sampled heart rate)
 	private int[] spikes;			// spikes in the five heart rate zones
 	public int max_hr = 200;		// average maximum rate for 20 year-olds
 	private Zone[] zones;			// heart rate zones (very light, light, moderate, hard, maximum)
 	private List<int> log;			// record of sampled HR measurements
 	private List<int> partials; 	// record of partial average HR computed along the way
-	private int max = 0, min = 240; // variables to hold minimum and maximum BPM
+	private int max, min; 			// variables to hold minimum and maximum BPM
+	private int average;
 
 	// PARAMETERS //
 	public int relevance = 5;		// relevant spike iff new signal is at least 5 points above the previous signal
 	public int refresh_time = 300;  // compute average HR so far - every 5 minutes (300 seconds)
-
-	//private int[] benchmarks; 	// HR measurements taken during intro
 
 	double timer;					// time in seconds
 	private List<double> times; 	// times at which spikes occurred
@@ -60,6 +60,7 @@ public class Stats : MonoBehaviour
 		times = new List<double> ();
 		spikes = new int[5];
 		zones = new Zone[5];
+		average = 0;
 
 		// get initial starting_point from the first read in BTScript - TBC //
 		heartRateManager = GameObject.Find ("HeartRate").GetComponent<HeartRateManager> ();
@@ -67,12 +68,11 @@ public class Stats : MonoBehaviour
 			Debug.Log ("null heart rate");
 		starting_point = heartRateManager.HeartRate;
 		signal = starting_point;
+		min = starting_point;
+		max = starting_point;
 
 		// add first reading to the log//
 		log.Add (starting_point);
-
-		// fetch benchmark values - TBC //
-		// benchmarks[0] = myObject.GetComponent<MyScript>().MyFunction();
 
 		// initialise spikes with 0 //
 		for (int i = 0; i < 5; i++)
@@ -90,11 +90,9 @@ public class Stats : MonoBehaviour
 
 		int prev = signal; 
 
-		// update incoming signal with data from BTScript, then update record of spikes (if necessary) --> read every 4 seconds
 		// if(timer % 4 == 0)
 		{
 			signal = heartRateManager.HeartRate;
-			Debug.Log ("signal " + signal);
 		}
 
 		log.Add(signal);
@@ -114,6 +112,10 @@ public class Stats : MonoBehaviour
 		// precompute a partial average rate so far to avoid later overflow --> every 5 minutes//
 		if(timer % refresh_time == 0)
 			AverageRate(false);
+		
+		// TESTING PURPOSES //
+		if(Input.GetKey ("l"))
+			SceneManager.LoadScene ("Scenes/endgame");
 	}
 
 	// calculate HR based on user input - age
@@ -179,49 +181,49 @@ public class Stats : MonoBehaviour
 			for (int i = 0; i < partials.Count; i++)
 				avg += partials [i];
 
-			avg = avg / partials.Count;
+			average = avg / partials.Count;
 
-			Console.WriteLine("Average heart rate through the game: ", avg);
+			Console.WriteLine("Average heart rate through the game: ", average);
 
 		}
 
 	}
 
-	// Print range of HR values reached throughout the game
-	void GetRange() {
+	public int GetStartPoint() {
+		return starting_point;
+	}
 
-		Console.WriteLine ("Your starting point was: %d", starting_point);
-		Console.WriteLine ("Minimum reached: %d", min);
-		Console.WriteLine ("Maximum reached: %d", max);
+	public int GetAverage() {
+		return average;
+	}
 
+	// Range
+	public int GetMin() {
+		return min;
+	}
+	public int GetMax() {
+		return max;
 	}
 
 	// Function to access the log of HR measurements saved
-	List<int> GetLog() {
+	public List<int> GetLog() {
 		return log;
 	}
 
 	// Function to access the current HR measurement
-	int GetHR() {
+	public int GetHR() {
 		return signal;
 	}
 
 	// Function to access the times when a spike in the HR occurred
-	List<double> GetTimes() {
+	public List<double> GetTimes() {
 		return times;
-	}
-
-	void OnGui() {
-
-		GUI.Label (new Rect (10, 10, 100, 30), "Signal " + signal);
-
 	}
 
 	// Clear data log & output statistics
 	void onApplicationQuit() {
 
 		AverageRate(true);
-		GetRange ();
 		log.Clear ();
 		partials.Clear ();
 		timer = 0.0;
