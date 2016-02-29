@@ -16,7 +16,7 @@ public class SoundVision : MonoBehaviour
 	float maxVolume = 50;
     public int maxLength = 64;
 
-    ArrayList sources;
+    public ArrayList sources;
 
     public float timer = 0;
     public Texture2D waves;
@@ -42,7 +42,7 @@ public class SoundVision : MonoBehaviour
 
         sources = new ArrayList();
         sources.AddRange(FindObjectsOfType<AudioSource>());
-
+        Debug.Log(sources.Count);
         wave = new Color[maxWaves][];
      
         prevPositions = new ArrayList();
@@ -56,7 +56,7 @@ public class SoundVision : MonoBehaviour
         {
             prevPositions.Add(((AudioSource)sources[i]).transform.position);
             int j = (int)freeWaves.Pop();
-            Debug.Log(j);
+ 
             counts.Add(j);
             
             Shader.SetGlobalVector("_SoundSource" + j, ((AudioSource)sources[i]).transform.position);
@@ -181,7 +181,7 @@ public class SoundVision : MonoBehaviour
                     level = level - (averageFreq - 0.6f) * 100;
                 if (level < 0)
                     level = 0;
-                level = level*10;
+                level = level*20;
 
                 Color c = new Color(level*averageFreq*4, level*(1-averageFreq*4), level, 1);
             
