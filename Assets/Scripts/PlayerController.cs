@@ -32,15 +32,11 @@ public class PlayerController : MonoBehaviour {
         float lookHorizontal = Input.GetAxis("RightH");
         float lookVertical = Input.GetAxis("RightV");
 
-        if(Input.GetKey(KeyCode.D))
-            lookHorizontal = 1; 
-        if(Input.GetKey(KeyCode.A))
-            lookHorizontal = -1;
 
         if (moveVertical == 1.0)
         {
             move = true;
-            transform.position = transform.position + cam.transform.forward * 5 * Time.deltaTime;
+
             if (audio_source.isPlaying == false)// add more logic later such as, onground/jumping etc etc
             {
                // AudioSource.PlayClipAtPoint(footstep_Sound1, transform.position);
@@ -53,20 +49,6 @@ public class PlayerController : MonoBehaviour {
 
         animator.SetBool("Movement", move);
 
-
-
-        if ((lookHorizontal == 1.0 || lookHorizontal == -1.0) && turned == false)
-        {
-            transform.Rotate(lookHorizontal * Vector3.up);
-       //     turned = true;
-        } /*else if (moveHorizontal != 1.0 && moveHorizontal != -1.0)
-        {
-            turned = false;
-        }*/
-        if ((lookVertical == 1.0 || lookVertical == -1.0) && turned == false)
-        {
-            
-        }
 
             if (carrying)
         {

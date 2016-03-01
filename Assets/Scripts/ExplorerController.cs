@@ -13,7 +13,7 @@ public class ExplorerController : PlayerController {
 	protected override void Start(){
 		base.Start();
 		onTrigger = false;
-		torchIntensity = GetComponentsInChildren<Light>()[0];
+	//	torchIntensity = GetComponentsInChildren<Light>()[0];
 	}
 	
 	protected override void Update(){
