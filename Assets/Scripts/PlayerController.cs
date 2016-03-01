@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 	virtual protected void Update () {
 
 
-        move = true;
+        move = false;
         
         float moveVertical = Input.GetAxis("Vertical");
         float lookHorizontal = Input.GetAxis("RightH");
