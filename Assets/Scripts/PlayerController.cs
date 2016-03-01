@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     protected bool carrying;
     protected bool turned;
     protected bool move;
+    public GameObject model;
 	// public SoundVision test;
     // Use this for initialization
 
@@ -18,15 +19,15 @@ public class PlayerController : MonoBehaviour {
     virtual protected void Start () {
 	    turned = false;
         carrying = false;
-       animator = GetComponent<Animator>();
-       audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
+        animator = GetComponent<Animator>();
+        audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
     }
 	
 	// Update is called once per frame
 	virtual protected void Update () {
 
 
-        move = true;
+        move = false;
         
         float moveVertical = Input.GetAxis("Vertical");
         float lookHorizontal = Input.GetAxis("RightH");
