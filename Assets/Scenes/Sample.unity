@@ -122,8 +122,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11483624, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
+      propertyPath: mat
+      value: 
+      objectReference: {fileID: 2100000, guid: 1d1e30de3c81f7149b9ed7af03973cfc, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
   m_IsPrefabParent: 0
@@ -3724,7 +3740,7 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 399296825}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &407614730
 GameObject:
   m_ObjectHideFlags: 0

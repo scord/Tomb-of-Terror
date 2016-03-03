@@ -29,6 +29,7 @@
             float4 _Colors[50];  
             float2 _Volume[64];
             float3 _SoundSource[64]; 
+			sampler2D _CameraDepthNormalsTexture;
 			float3 _EchoSource;
 			float _EchoTime;
 			sampler2D _Waves;
@@ -48,6 +49,8 @@
            
             half4 frag (fragmentInput i) : COLOR
             {
+
+
             	//float dist = distance(_SoundSource[_CurrentWave], i.worldPos);
                 half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));      
                                                                                                                         	                                                                                                             //for rim lighting.
@@ -73,15 +76,19 @@
 				}
 
 				float dist = distance(_EchoSource, i.worldPos);
-				float4 base_color = float4(0,0.5,1,1)*pow(falloff, 2);
+				float4 base_color = float4(0,0.85,1,1)*pow(falloff, 2);
 
 				if (_EchoTime > 0.1 && dist < speed*_EchoTime)
 				{
 					color += base_color / (dist*_EchoTime);
 
+					half4 base_color = float4(0, 0.85, 1, 1) * pow(falloff, 1);
+
 					float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
 					//color += clamp((float4(0,0.5,1,1) / (pow(abs(dist - speed * _EchoTime), 2))), 0, 1) / (pow(dist, 2) / 20);
-					color += (float4(0, 0.5, 1, 1) / (abs(dist2)))*(1 - smoothstep(0, 15, dist));
+					color += float4(0, 0.85, 1, 1) / abs(dist2);
+
+					color += base_color * (1-smoothstep(0, 8, _EchoTime));
 				}
               /*  for (int x = 0; x < _N; x++) {
                 	float dist = distance(_SoundSource[x], i.worldPos);
@@ -97,8 +104,9 @@
 					color += _Volume[x].x*_Colors[x] * (1-smoothstep(0, 0.1, d));
 				}*/
 			
-				
-				return color;
+				fixed4 col = tex2D(_MainTex, i.uv);
+		
+				return color*(col.x+col.y+col.z)/3.0f;
   
             }
             ENDCG

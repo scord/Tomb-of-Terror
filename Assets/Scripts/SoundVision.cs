@@ -26,6 +26,7 @@ public class SoundVision : MonoBehaviour
     ArrayList volume;
     ArrayList counts;
     Color[][] wave;
+    public Material mat;
     // Use this for initialization
 
     void AddSource(AudioSource source)
@@ -35,9 +36,12 @@ public class SoundVision : MonoBehaviour
         volume.Add(1f);
 
     }
+
+
     void Start()
     {
-        gameObject.GetComponent<Camera>().SetReplacementShader(shader, "");
+      //GetComponent<Camera>().depthTextureMode = DepthTextureMode.DepthNormals;
+        GetComponent<Camera>().SetReplacementShader(shader, "");
         freeWaves = new Stack();
 
         sources = new ArrayList();
@@ -146,7 +150,7 @@ public class SoundVision : MonoBehaviour
 
         if (echoLocation)
         {
-            if (echoTime > 5)
+            if (echoTime > 8)
             {
                 echoLocation = false;
                 echoTime = 0;
