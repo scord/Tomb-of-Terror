@@ -13,20 +13,26 @@ public class ExplorerController : PlayerController {
 	protected override void Start(){
 		base.Start();
 		onTrigger = false;
-		torchIntensity = GetComponentsInChildren<Light>()[0];
+		//torchIntensity = GetComponentsInChildren<Light>()[0];
 	}
 	
 	protected override void Update(){
 		base.Update();
 		wheelDirection = Input.GetAxis("Mouse ScrollWheel");
-        if (wheelDirection > 0)
-            torchIntensity.intensity += 0.20f;
-        else if (wheelDirection <  0)
-                torchIntensity.intensity -= 0.20f;
-	
+      //  if (wheelDirection > 0)
+      //      torchIntensity.intensity += 0.20f;
+      //  else if (wheelDirection <  0)
+      //          torchIntensity.intensity -= 0.20f;
+
+        if (Input.GetButtonDown("Fire2"))
+            if (!carrying)
+                PickUp();
+            else
+                Throw();
+
 
         // deal with in-game interactions
-        if(onTrigger && trig.withKey){
+        if (onTrigger && trig.withKey){
             if(Input.GetKeyDown(KeyCode.E)){
                 trig.Interact();
             }

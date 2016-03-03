@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour {
         carriedObject.GetComponent<Rigidbody>().isKinematic = false;
         carrying = false;
         carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 100);
+        carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
     }
 
     protected void PickUp()

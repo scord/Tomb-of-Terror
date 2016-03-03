@@ -33,7 +33,7 @@ public class IKHandler : MonoBehaviour {
     {
         animator.SetLookAtWeight(lookIKweight, bodyWeight, headWeight, eyesWeight, clampWeight);
         lookPos = cam.transform.position + Quaternion.Euler(cam.transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y - lookObject.transform.localRotation.eulerAngles.y, cam.transform.rotation.eulerAngles.z)*Vector3.forward*5;
-
+        
         animator.SetLookAtPosition(lookPos);
     }
 }
