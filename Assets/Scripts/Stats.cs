@@ -165,7 +165,7 @@ public class Stats : MonoBehaviour
 
 		int avg = 0;
 
-		// check if the the call comes from ApplicationQuit
+		// check if the the call requests the final value
 		if (flag == false) {
 
 			for (int i = 0; i < log.Count; i++)
@@ -194,6 +194,7 @@ public class Stats : MonoBehaviour
 	}
 
 	public int GetAverage() {
+		AverageRate (true);
 		return average;
 	}
 
@@ -223,7 +224,6 @@ public class Stats : MonoBehaviour
 	// Clear data log & output statistics
 	void onApplicationQuit() {
 
-		AverageRate(true);
 		log.Clear ();
 		partials.Clear ();
 		timer = 0.0;
