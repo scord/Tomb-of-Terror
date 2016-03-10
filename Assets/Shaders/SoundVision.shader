@@ -4,7 +4,8 @@
 	}
 
 	CGINCLUDE
-#include "UnityCG.cginc"
+	#include "UnityCG.cginc"
+
 	struct fragmentInput {
 		float4 pos : SV_POSITION;
 		float3 worldPos : TEXCOORD0;
@@ -40,112 +41,86 @@
 	ENDCG
 
 	SubShader{
-		Tags{ "Queue" = "Transparent" }
+		Tags{ "Queue" = "Transparent" "RenderType" = "Transparent" "IgnoreProjector" = "True" }
 
 		
-
 		Pass {
-		ZWrite Off
-		Blend SrcAlpha OneMinusSrcAlpha
-		
-		Cull Back
-       
+
+			ZWrite Off
+			Blend SrcAlpha OneMinusSrcAlpha
+			ZTest Less
             CGPROGRAM
 
             #pragma vertex vert
             #pragma fragment frag
-            
-            
-            
-           
+                  
             half4 frag (fragmentInput i) : COLOR
-            {
-
-
-
-
-                half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));      
-                                                                                                                        	                                                                                                             //for rim lighting.
+            {                                                                                 	                                                                                                             //for rim lighting.
          		half4 color = 0;
 
 				float speed = 20.0f;
 				for (int x = 0; x < _N; x++)
 				{
 					half dist = distance(_SoundSource[x], i.worldPos);
+					half atten = distance(_WorldSpaceCameraPos, i.worldPos);
 					half4 blur = half4(0, 0, 0, 0);
 	
 					float w = (dist / speed)*64.0f - floor((dist / speed)*64.0f);
 					blur += lerp(tex2D(_Waves, fixed2(dist / speed, (x) / 64.0f)).rgba, tex2D(_Waves, fixed2(dist / speed + 1/64.0f, (x) / 64.0f)).rgba,w);
 					blur.a = (blur.r + blur.g + blur.b) / 3.0f;
-					half4 base_color = blur * pow(falloff, 1);
-					color += pow(base_color,2) / (2*pow(dist/5,2));
-					color += blur;
+					color += blur / (dist/5);
 				}
 				return color;
-
-  
             }
             ENDCG
         }
 
-		Pass{
-				Blend SrcAlpha OneMinusSrcAlpha
+		Pass {
+
+			Blend SrcAlpha OneMinusSrcAlpha
 			ZWrite On                   // and if the depth is ok, it renders the main texture.
-			Cull Back
+			ZTest Less
 			CGPROGRAM
 
-#pragma vertex vert
-#pragma fragment frag
-#include "UnityCG.cginc"
+			#pragma vertex vert
+			#pragma fragment frag
+			#include "UnityCG.cginc"
 
 
-		half4 frag(fragmentInput i) : COLOR
-		{
+			half4 frag(fragmentInput i) : COLOR
+			{
 
-			half a = sin(_Time * 20)*sin(i.worldPos.x / 5) + cos(_Time * 10)*cos(i.worldPos.z / 5) + sin(_Time * 20)*cos(i.worldPos.z / 5);
-		half4 ambientColor = half4(0, 0.85, 1, 1)*a / 80.0f + half4(0, 0.85, 1, 1) / 80.0f;
+				half a = sin(_Time * 20)*sin(i.worldPos.x / 5) + cos(_Time * 10)*cos(i.worldPos.z / 5) + sin(_Time * 20)*cos(i.worldPos.z / 5);
+				half4 ambientColor = half4(0, 0.85, 1, 1)*a / 80.0f + half4(0, 0.85, 1, 1) / 80.0f;
 
-
-
+				half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));
 	
-		half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));
+				half4 color = 0;
+				color += ambientColor;
+
+				float speed = 20.0f;
+
+				float dist = distance(_EchoSource, i.worldPos);
+				float4 base_color = float4(0,0.85,1,1)*pow(falloff, 2);
+
+				if (_EchoTime > 0.1 && dist < speed*_EchoTime)
+				{
+					color += base_color / (dist*_EchoTime);
+
+					float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
+
+					color += float4(0, 0.85, 1, 1) / abs(dist2);
+
+					color += base_color * (1 - smoothstep(0, 8, _EchoTime)) / pow(dist,2);
+				}
 	
-		half4 color = 0;
-		color += ambientColor;
+				//fixed4 col = tex2D(_MainTex, i.uv);
 
-		float speed = 20.0f;
-
-
-		float dist = distance(_EchoSource, i.worldPos);
-		float4 base_color = float4(0,0.85,1,1)*pow(falloff, 2);
-
-		if (_EchoTime > 0.1 && dist < speed*_EchoTime)
-		{
-			color += base_color / (dist*_EchoTime);
-
-			half4 base_color = float4(0, 0.85, 1, 1) * pow(falloff, 1);
-
-			float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
-
-			color += float4(0, 0.85, 1, 1) / abs(dist2);
-
-			color += base_color * (1 - smoothstep(0, 8, _EchoTime));
-		}
-	
-		fixed4 col = tex2D(_MainTex, i.uv);
-
-		return color;//*(col.x + col.y + col.z) / 3.0f;
-
-		}
+				return color;//*(col.x + col.y + col.z) / 3.0f;
+			}
 			ENDCG
-		}
-         
-           
-        }
-      
-		
-		
-	
-		Fallback "Diffuse"
+		}    
+    }
+	Fallback "Diffuse"
 }
 
