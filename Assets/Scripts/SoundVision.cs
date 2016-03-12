@@ -77,9 +77,13 @@ public class SoundVision : MonoBehaviour
 
         for (int i = 0; i < waveSources.Count; i++)
         {
-            Color c = waveSources[i].GetCurrentColor(); 
+            float distance = Vector3.Distance(transform.position, waveSources[i].audioSource.transform.position);
+            Color c;
+
+            c = waveSources[i].GetCurrentColor();
+
             waveSources[i] = waves.getFreeWave(waveSources[i]);
-            waves.colors[waveSources[i].index] = waves.AddColor(waves.colors[waveSources[i].index], (c + (Color)waves.colors[waveSources[i].index][0]) / 2);
+            waves.colors[waveSources[i].index] = waves.AddColor(waves.colors[waveSources[i].index], c);
         }
 
 
@@ -98,6 +102,7 @@ public class SoundVision : MonoBehaviour
         public Stack<int> free;
         public int numWaves;
         int waveLength;
+        List<int> enabled;
 
         public Waves(int numWaves, int waveLength)
         {
@@ -112,7 +117,7 @@ public class SoundVision : MonoBehaviour
             }
 
             colors = new Color[numWaves][];
-
+            enabled = new List<int>();
             texture = new Texture2D(waveLength, numWaves);
             texture.wrapMode = (TextureWrapMode)WrapMode.Clamp;
             texture.filterMode = FilterMode.Point;
@@ -123,6 +128,7 @@ public class SoundVision : MonoBehaviour
                 {
                     colors[i][j] = (Color.black);
                 }
+                enabled.Add(0);
             }
 
             Shader.SetGlobalFloat("_N", numWaves);
@@ -135,6 +141,7 @@ public class SoundVision : MonoBehaviour
             else return source;
 
             source.index = free.Pop();
+            enabled[source.index] = 1;
             source.SendToShader();
 
             return source;
@@ -159,6 +166,8 @@ public class SoundVision : MonoBehaviour
 
         public void SendToShader()
         {
+            for (int i = 0; i < numWaves; i++)
+                Shader.SetGlobalInt("_Enabled"+i, enabled[i]);
             Shader.SetGlobalTexture("_Waves", texture);
         }
 
@@ -179,6 +188,7 @@ public class SoundVision : MonoBehaviour
                 if (empty && !free.Contains(i))
                 {
                     free.Push(i);
+                    enabled[i] = 0;
                 }
             }
         }

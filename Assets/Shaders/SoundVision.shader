@@ -18,6 +18,7 @@
 	float4 _MainTex_ST;
 	float4 _Colors[50];
 	float2 _Volume[64];
+	int _Enabled[64];
 	float3 _SoundSource[64];
 	sampler2D _CameraDepthNormalsTexture;
 	float3 _EchoSource;
@@ -103,20 +104,21 @@
 				float dist = distance(_EchoSource, i.worldPos);
 				float4 base_color = float4(0,0.85,1,1)*pow(falloff, 2);
 
-				if (_EchoTime > 0.1 && dist < speed*_EchoTime)
-				{
-					color += base_color / (dist*_EchoTime);
+				float enabled = max(0, sign(speed*_EchoTime - dist));
 
-					float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
 
-					color += float4(0, 0.85, 1, 1) / abs(dist2);
+				color += base_color / (dist*_EchoTime);
 
-					color += base_color * (1 - smoothstep(0, 8, _EchoTime)) / pow(dist,2);
-				}
+				float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
+
+				color += float4(0, 0.85, 1, 1) / abs(dist2);
+
+				color += base_color * (1 - smoothstep(0, 8, _EchoTime)) / pow(dist,2);
+			
 	
 				//fixed4 col = tex2D(_MainTex, i.uv);
 
-				return color;//*(col.x + col.y + col.z) / 3.0f;
+				return enabled*color;//*(col.x + col.y + col.z) / 3.0f;
 			}
 			ENDCG
 		}    
