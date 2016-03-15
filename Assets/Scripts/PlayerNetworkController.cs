@@ -4,14 +4,14 @@ using UnityEngine.Networking;
 
 public class PlayerNetworkController : NetworkBehaviour {
 
-    [SerializeField] Camera cam;
+    [SerializeField] private Camera m_Camera;
 
 	// Use this for initialization
 	void Start () {
 	    if (isLocalPlayer)
         {
             GetComponent<PlayerController>().enabled = true;
-            cam.enabled = true;
+            m_Camera.enabled = true;
         }
 	}
 

@@ -104,6 +104,10 @@ GameObject:
   - 82: {fileID: 8287154}
   - 95: {fileID: 9548732}
   - 114: {fileID: 11408162}
+  - 114: {fileID: 11445006}
+  - 114: {fileID: 11456094}
+  - 114: {fileID: 11443864}
+  - 114: {fileID: 11473554}
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Mummy
@@ -943,7 +947,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145932}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
@@ -1180,7 +1184,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135414}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d633c359a14e3aa4cae91093f31b4254, type: 3}
   m_Name: 
@@ -1207,6 +1211,75 @@ MonoBehaviour:
   timer: 0
   waves: {fileID: 0}
   stacksize: 0
+--- !u!114 &11443864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b5ae375b110b54291291bfcb3e45e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Transform: {fileID: 498852}
+--- !u!114 &11445006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 170
+    i1: 187
+    i2: 77
+    i3: 103
+    i4: 184
+    i5: 218
+    i6: 165
+    i7: 36
+    i8: 187
+    i9: 146
+    i10: 203
+    i11: 31
+    i12: 113
+    i13: 83
+    i14: 241
+    i15: 116
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &11456094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37436a259ac919244b723ac1c4cb234c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 2001426}
+--- !u!114 &11473554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb46cef17fbd2146b262cf3515e362e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 498852}
+  camTransform: {fileID: 480938}
 --- !u!114 &11485946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1377,7 +1450,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: cam
@@ -1459,6 +1532,22 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2001426}
+    - target: {fileID: 0}
+      propertyPath: m_Transform
+      value: 
+      objectReference: {fileID: 498852}
+    - target: {fileID: 0}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 498852}
+    - target: {fileID: 0}
+      propertyPath: camTransform
+      value: 
+      objectReference: {fileID: 480938}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 135414}

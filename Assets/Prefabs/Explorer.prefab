@@ -482,6 +482,10 @@ GameObject:
   - 81: {fileID: 8109700}
   - 95: {fileID: 9506778}
   - 114: {fileID: 11471984}
+  - 114: {fileID: 11441202}
+  - 114: {fileID: 11479154}
+  - 114: {fileID: 11452892}
+  - 114: {fileID: 11460500}
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Explorer
@@ -2068,7 +2072,7 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160634}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
@@ -2137,7 +2141,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 62.3199997
   m_Drag: .0599999987
-  m_AngularDrag: .0500000007
+  m_AngularDrag: .5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -2353,13 +2357,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a39e7d2acb3bac40b23a42da0a2d6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11471984
+--- !u!114 &11441202
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145862}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 195
+    i1: 150
+    i2: 125
+    i3: 229
+    i4: 67
+    i5: 73
+    i6: 0
+    i7: 52
+    i8: 186
+    i9: 14
+    i10: 2
+    i11: 35
+    i12: 255
+    i13: 208
+    i14: 158
+    i15: 137
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &11452892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b5ae375b110b54291291bfcb3e45e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Transform: {fileID: 480056}
+--- !u!114 &11460500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb46cef17fbd2146b262cf3515e362e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 480056}
+  camTransform: {fileID: 415808}
+--- !u!114 &11471984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145862}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5ec31df531bf7b49a96e0f278d37c81, type: 3}
   m_Name: 
@@ -2368,6 +2429,18 @@ MonoBehaviour:
   soundVision: {fileID: 0}
   audio_source: {fileID: 8299338}
   animator: {fileID: 0}
+--- !u!114 &11479154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37436a259ac919244b723ac1c4cb234c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 2062640}
 --- !u!124 &12431474
 Behaviour:
   m_ObjectHideFlags: 1
@@ -3635,11 +3708,99 @@ Prefab:
       objectReference: {fileID: 9000000, guid: 4f12bde86c790b846ac98b19a2056620, type: 3}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i0
+      value: 195
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i1
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i2
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i3
+      value: 229
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i4
+      value: 67
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i5
+      value: 73
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i7
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i8
+      value: 186
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i9
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i10
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i11
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i12
+      value: 255
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i13
+      value: 208
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i14
+      value: 158
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AssetId.i15
+      value: 137
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalPlayerAuthority
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 2062640}
+    - target: {fileID: 0}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2062640}
+    - target: {fileID: 0}
+      propertyPath: m_Transform
+      value: 
+      objectReference: {fileID: 480056}
+    - target: {fileID: 0}
+      propertyPath: camTransform
+      value: 
+      objectReference: {fileID: 415808}
+    - target: {fileID: 0}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 480056}
+    - target: {fileID: 0}
+      propertyPath: m_AngularDrag
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
