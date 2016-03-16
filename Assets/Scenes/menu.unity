@@ -211,10 +211,10 @@ MonoBehaviour:
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: menu
-  m_OnlineScene: main
+  m_OnlineScene: Sample 1
   m_SpawnPrefabs:
-  - {fileID: 135414, guid: aabb4d67b8daa524bb92cb1f7153f174, type: 2}
-  - {fileID: 145862, guid: c3967de543490034ba0e0223ffd09e89, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 128420, guid: 6d2e2bf24d336954bb8de2fd9e03c4eb, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -255,9 +255,9 @@ MonoBehaviour:
   matchMaker: {fileID: 0}
   matchName: default
   matchSize: 4
-  player1: {fileID: 135414, guid: aabb4d67b8daa524bb92cb1f7153f174, type: 2}
+  player1: {fileID: 175566, guid: 7a7d4f871c0d3c84ab8ada270509fa50, type: 2}
   gameManager: {fileID: 0}
-  player2: {fileID: 145862, guid: c3967de543490034ba0e0223ffd09e89, type: 2}
+  player2: {fileID: 151886, guid: 1d27472f813dd374b89cf9ffd1319fe4, type: 2}
   playerSpawnPos: {x: 7, y: 7, z: 7}
 --- !u!1 &888571058
 GameObject:

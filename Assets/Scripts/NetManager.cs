@@ -58,7 +58,7 @@ public class NetManager : NetworkManager
         } else
         {
             chosenPlayer = player2;
-            spawnPos = GameObject.Find("RaiderSpawner").transform.position;
+            spawnPos = GameObject.Find("ExplorerSpawner").transform.position;
         }
 
         GameObject player = (GameObject)Instantiate(chosenPlayer, spawnPos, Quaternion.identity);

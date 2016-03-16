@@ -21,6 +21,7 @@ public class MenuController : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire1"))
         {
+ 
             if (selected == 0)
             {
                 manager.JoinGame(1, false);

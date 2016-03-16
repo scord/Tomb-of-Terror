@@ -16,6 +16,7 @@ public class SoundVision : MonoBehaviour
 	float maxVolume = 50;
     public int maxLength = 64;
     public int numfree = 0;
+    public Color color = new Color(0, 0.85f, 1, 1);
 
     Waves waves;
     // Use this for initialization
@@ -39,13 +40,16 @@ public class SoundVision : MonoBehaviour
 
         foreach (AudioSource source in FindObjectsOfType<AudioSource>())
         {
-            int i = waves.free.Pop();
+            if (source.gameObject.layer != LayerMask.NameToLayer("Ignore Sound Vision"))
+            {
+                int i = waves.free.Pop();
 
-            WaveSource waveSource = new WaveSource(source, i);
-            waveSources.Add(waveSource);
+                WaveSource waveSource = new WaveSource(source, i);
+                waveSources.Add(waveSource);
 
- 
-            waveSource.SendToShader();
+
+                waveSource.SendToShader();
+            }
         }
     }
 
@@ -56,6 +60,7 @@ public class SoundVision : MonoBehaviour
     public void EchoLocate()
     {
         echoLocation = true;
+        Shader.SetGlobalColor("_EchoColor", color);
         Shader.SetGlobalVector("_EchoSource", transform.position);
         Shader.SetGlobalFloat("_EchoTime", 0);
     }
@@ -72,6 +77,7 @@ public class SoundVision : MonoBehaviour
                 echoTime = 0;
             }
             echoTime += dtime;
+            
             Shader.SetGlobalFloat("_EchoTime", echoTime);
         }
 
@@ -80,7 +86,7 @@ public class SoundVision : MonoBehaviour
             float distance = Vector3.Distance(transform.position, waveSources[i].audioSource.transform.position);
             Color c;
 
-            c = waveSources[i].GetCurrentColor();
+            c = waveSources[i].GetCurrentColor(color);
 
             waveSources[i] = waves.getFreeWave(waveSources[i]);
             waves.colors[waveSources[i].index] = waves.AddColor(waves.colors[waveSources[i].index], c);
@@ -228,7 +234,7 @@ public class SoundVision : MonoBehaviour
             Shader.SetGlobalVector("_Volume" + index, new Vector2(volume, 0f));
         }
 
-        public Color GetCurrentColor()
+        public Color GetCurrentColor(Color baseColor)
         {
             float[] spectrum = new float[64];
 
@@ -251,7 +257,9 @@ public class SoundVision : MonoBehaviour
                 level = 0;
             level = level * 20;
 
-            return new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1);
+            //return new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1);
+            
+            return baseColor*(new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1));
         }
         public float GetDeltaMovement()
         {
