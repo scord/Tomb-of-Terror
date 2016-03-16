@@ -10,37 +10,36 @@ public class PlayerController : MonoBehaviour {
     protected bool carrying;
     protected bool turned;
     protected bool move;
+    public GameObject model;
 	// public SoundVision test;
     // Use this for initialization
 
     public Animator animator;
 
     virtual protected void Start () {
+        GetComponent<OVRPlayerController>().enabled = true;
+        GetComponent<OVRSceneSampleController>().enabled = true;
 	    turned = false;
         carrying = false;
-       animator = GetComponent<Animator>();
-       audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
+        animator = GetComponent<Animator>();
+        audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
     }
 	
 	// Update is called once per frame
 	virtual protected void Update () {
 
 
-        move = true;
+        move = false;
         
         float moveVertical = Input.GetAxis("Vertical");
         float lookHorizontal = Input.GetAxis("RightH");
         float lookVertical = Input.GetAxis("RightV");
 
-        if(Input.GetKey(KeyCode.D))
-            lookHorizontal = 1; 
-        if(Input.GetKey(KeyCode.A))
-            lookHorizontal = -1;
 
         if (moveVertical == 1.0)
         {
             move = true;
-            transform.position = transform.position + cam.transform.forward * 5 * Time.deltaTime;
+
             if (audio_source.isPlaying == false)// add more logic later such as, onground/jumping etc etc
             {
                // AudioSource.PlayClipAtPoint(footstep_Sound1, transform.position);
@@ -54,20 +53,6 @@ public class PlayerController : MonoBehaviour {
         animator.SetBool("Movement", move);
 
 
-
-        if ((lookHorizontal == 1.0 || lookHorizontal == -1.0) && turned == false)
-        {
-            transform.Rotate(lookHorizontal * Vector3.up);
-       //     turned = true;
-        } /*else if (moveHorizontal != 1.0 && moveHorizontal != -1.0)
-        {
-            turned = false;
-        }*/
-        if ((lookVertical == 1.0 || lookVertical == -1.0) && turned == false)
-        {
-            
-        }
-
             if (carrying)
         {
             carriedObject.transform.position = cam.transform.position + cam.transform.TransformDirection(Vector3.forward)*2;
@@ -80,6 +65,7 @@ public class PlayerController : MonoBehaviour {
         carriedObject.GetComponent<Rigidbody>().isKinematic = false;
         carrying = false;
         carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 100);
+        carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
     }
 
     protected void PickUp()

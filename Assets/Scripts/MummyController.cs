@@ -11,15 +11,10 @@ public class MummyController : PlayerController {
 
 	protected override void Update(){
 		base.Update();
-	    if (Input.GetButton("Fire1")){
+	    if (Input.GetButtonDown("Fire1")){
             gameObject.GetComponent<AudioSource>().Play();
             soundVision.EchoLocate();
         }
 
-        if (Input.GetButton("Fire2"))
-            if (!carrying)
-                PickUp();
-            else
-                Throw();
 	}
 }

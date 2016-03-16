@@ -8,10 +8,10 @@ public class Player_SyncPosition : NetworkBehaviour {
   [SyncVar (hook = "SyncPositionValues")] private Vector3 syncPos;
   [SerializeField] Transform m_Transform;
 
-  private float lerpRate = 15;
+  private float lerpRate = 10;
 
   private Vector3 lastPos;
-  private float threshold = 0.5f;
+  private float threshold = 0.3f;
 	// Use this for initialization
 	void Start () {
     lastPos = m_Transform.position;
