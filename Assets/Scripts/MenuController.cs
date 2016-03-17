@@ -31,6 +31,7 @@ public class MenuController : MonoBehaviour {
         ip = transform.FindChild("IPAddressInput").GetComponent<InputField>().text;
         Debug.Log(ip);
 
+
         manager.JoinGame(playerID, true, ip);
     }
     void Update () {

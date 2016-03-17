@@ -287,9 +287,15 @@ MonoBehaviour:
   matchMaker: {fileID: 0}
   matchName: default
   matchSize: 4
+<<<<<<< HEAD
   player1: {fileID: 175566, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
   gameManager: {fileID: 0}
   player2: {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
+=======
+  player1: {fileID: 175566, guid: 7a7d4f871c0d3c84ab8ada270509fa50, type: 2}
+  gameManager: {fileID: 0}
+  player2: {fileID: 151886, guid: 1d27472f813dd374b89cf9ffd1319fe4, type: 2}
+>>>>>>> refs/remotes/origin/sound-vision
   playerSpawnPos: {x: 7, y: 7, z: 7}
 --- !u!1 &847303616
 GameObject:
