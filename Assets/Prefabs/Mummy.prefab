@@ -585,7 +585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &177486
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,6 +1909,7 @@ MonoBehaviour:
   maxWaves: 64
   maxLength: 64
   numfree: 0
+  color: {r: 0, g: 0.85, b: 1, a: 1}
 --- !u!114 &11485234
 MonoBehaviour:
   m_ObjectHideFlags: 1
