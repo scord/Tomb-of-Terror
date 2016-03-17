@@ -579,6 +579,7 @@ GameObject:
   - 114: {fileID: 11434420}
   - 114: {fileID: 11462078}
   - 114: {fileID: 11478874}
+  - 114: {fileID: 11464012}
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Untagged
@@ -830,7 +831,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 487956}
-  - {fileID: 453256}
   m_Father: {fileID: 428344}
   m_RootOrder: 1
 --- !u!4 &418756
@@ -892,6 +892,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.734, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 480210}
   - {fileID: 428344}
   m_Father: {fileID: 450408}
   m_RootOrder: 1
@@ -974,9 +975,8 @@ Transform:
   - {fileID: 435460}
   - {fileID: 442294}
   - {fileID: 471364}
-  - {fileID: 480210}
   m_Father: {fileID: 421038}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &430924
 Transform:
   m_ObjectHideFlags: 1
@@ -1101,7 +1101,7 @@ Transform:
   m_GameObject: {fileID: 175566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.4, y: 5.8, z: -91.1}
-  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 419166}
   - {fileID: 421038}
@@ -1139,14 +1139,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100576}
-  m_LocalRotation: {x: 0.5331777, y: -0.46687925, z: 0.5076254, w: -0.48996115}
-  m_LocalPosition: {x: -0.020334244, y: -0.13373452, z: -0.11831856}
-  m_LocalScale: {x: 45.99176, y: 45.99176, z: 45.991695}
+  m_LocalRotation: {x: 0.95526326, y: 0.29575682, z: 0.000000044703473, w: -0.000000029802315}
+  m_LocalPosition: {x: -0.0022672568, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 418756}
   - {fileID: 424936}
-  m_Father: {fileID: 414558}
-  m_RootOrder: 1
+  m_Father: {fileID: 487862}
+  m_RootOrder: 0
 --- !u!4 &463480
 Transform:
   m_ObjectHideFlags: 1
@@ -1277,13 +1277,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0040245, y: -1.644, z: -0.039512}
-  m_LocalScale: {x: 45.9917, y: 45.99177, z: 45.99177}
+  m_LocalPosition: {x: 0.0040244972, y: -1.644, z: -0.11}
+  m_LocalScale: {x: 45.991703, y: 45.991776, z: 45.991776}
   m_Children:
   - {fileID: 410720}
   - {fileID: 497386}
-  m_Father: {fileID: 428344}
-  m_RootOrder: 6
+  m_Father: {fileID: 421038}
+  m_RootOrder: 0
 --- !u!4 &485562
 Transform:
   m_ObjectHideFlags: 1
@@ -1296,7 +1296,7 @@ Transform:
   m_Children:
   - {fileID: 421756}
   m_Father: {fileID: 487862}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &487862
 Transform:
   m_ObjectHideFlags: 1
@@ -1307,6 +1307,7 @@ Transform:
   m_LocalPosition: {x: -0.0066588656, y: 0, z: 1.1710894e-18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 453256}
   - {fileID: 495096}
   - {fileID: 485562}
   m_Father: {fileID: 452736}
@@ -1337,7 +1338,7 @@ Transform:
   m_Children:
   - {fileID: 422604}
   m_Father: {fileID: 487862}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &497386
 Transform:
   m_ObjectHideFlags: 1
@@ -1367,7 +1368,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.47
   far clip plane: 200
   field of view: 90
   orthographic: 0
@@ -1713,6 +1714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2046702}
+  m_Listener: {fileID: 8158126}
 --- !u!114 &11447016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1770,6 +1772,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Transform: {fileID: 450408}
+--- !u!114 &11464012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0421283a4974b1147bb31ff4dceb83f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ikWeight: 1
+  lookIKweight: 1
+  bodyWeight: 0
+  headWeight: 1
+  eyesWeight: 0
+  clampWeight: 0
+  lookPos: {x: 0, y: 0, z: 0}
+  lookObject: {fileID: 126280}
+  cam: {fileID: 2046702}
 --- !u!114 &11465676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1811,7 +1833,7 @@ MonoBehaviour:
   gain: 0
   useInvSqr: 0
   near: 1
-  far: 10
+  far: 1000
   disableRfl: 0
 --- !u!114 &11468728
 MonoBehaviour:

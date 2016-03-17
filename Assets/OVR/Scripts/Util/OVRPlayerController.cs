@@ -232,11 +232,13 @@ public class OVRPlayerController : MonoBehaviour
 
 		if (OVRInput.Get(OVRInput.Button.DpadDown))
 		{
-			moveBack  = true;
-			dpad_move = true;
-		}
+            /*moveBack  = true;
+			dpad_move = true;*/
+            OVRManager.display.RecenterPose();
 
-		MoveScale = 1.0f;
+        }
+
+        MoveScale = 1.0f;
 
 		if ( (moveForward && moveLeft) || (moveForward && moveRight) ||
 			 (moveBack && moveLeft)    || (moveBack && moveRight) )
@@ -264,10 +266,11 @@ public class OVRPlayerController : MonoBehaviour
 			MoveThrottle += ort * (transform.lossyScale.z * moveInfluence * Vector3.forward);
 		if (moveBack)
 			MoveThrottle += ort * (transform.lossyScale.z * moveInfluence * BackAndSideDampen * Vector3.back);
+        /*
 		if (moveLeft)
 			MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.left);
 		if (moveRight)
-			MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.right);
+			MoveThrottle += ort * (transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.right);*/
 
 		Vector3 euler = transform.rotation.eulerAngles;
 
@@ -305,6 +308,12 @@ public class OVRPlayerController : MonoBehaviour
 		moveInfluence *= 1.0f + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
 #endif
 
+        if (Input.GetButtonDown("ResetHMD"))
+        {
+            ResetOrientation();
+        }
+
+
 		Vector2 primaryAxis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
 
 		if(primaryAxis.y > 0.0f)
@@ -312,7 +321,7 @@ public class OVRPlayerController : MonoBehaviour
 
 		if(primaryAxis.y < 0.0f)
             MoveThrottle += ort * (Mathf.Abs(primaryAxis.y) * transform.lossyScale.z * moveInfluence * BackAndSideDampen * Vector3.back);
-
+        /*
 		if(primaryAxis.x < 0.0f)
             MoveThrottle += ort * (Mathf.Abs(primaryAxis.x) * transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.left);
 
@@ -322,7 +331,7 @@ public class OVRPlayerController : MonoBehaviour
 		Vector2 secondaryAxis = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
 
 		euler.y += secondaryAxis.x * rotateInfluence;
-
+        */
 		transform.rotation = Quaternion.Euler(euler);
 	}
 

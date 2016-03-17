@@ -681,7 +681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &142582
 GameObject:
   m_ObjectHideFlags: 1
@@ -2868,7 +2868,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.2
+  near clip plane: 0.5
   far clip plane: 800
   field of view: 90
   orthographic: 0
@@ -3165,7 +3165,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -3338,9 +3338,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enableSpatialization: 1
   gain: 0
-  useInvSqr: 0
+  useInvSqr: 1
   near: 1
-  far: 10
+  far: 100
   disableRfl: 0
 --- !u!114 &11413358
 MonoBehaviour:
@@ -3758,7 +3758,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151886}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0421283a4974b1147bb31ff4dceb83f5, type: 3}
   m_Name: 
@@ -3770,7 +3770,7 @@ MonoBehaviour:
   eyesWeight: 0
   clampWeight: 0
   lookPos: {x: 0, y: 0, z: 0}
-  lookObject: {fileID: 183854}
+  lookObject: {fileID: 126388}
   cam: {fileID: 2095840}
 --- !u!114 &11475996
 MonoBehaviour:
@@ -3784,6 +3784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2095840}
+  m_Listener: {fileID: 8153660}
 --- !u!114 &11476460
 MonoBehaviour:
   m_ObjectHideFlags: 1
