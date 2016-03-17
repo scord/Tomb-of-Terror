@@ -1744,7 +1744,13 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9b54c67ef6474439394aaa77722a794e, type: 2}
+  - {fileID: 2100000, guid: 3839ac64a405f7f4e95c533538ee45fa, type: 2}
+  - {fileID: 2100000, guid: 1f12a158b397de349870be0cd1034170, type: 2}
+  - {fileID: 2100000, guid: 9ee88ac03fd86234d82fbc934ee901be, type: 2}
+  - {fileID: 2100000, guid: 65f913e27f02b274e8edb89809c79ab5, type: 2}
+  - {fileID: 2100000, guid: cb05dc48f9fd98841ba18983a961e1ab, type: 2}
+  - {fileID: 2100000, guid: fa79671cf8ec41e4d9b6608a6116dc16, type: 2}
+  - {fileID: 2100000, guid: 63cb4ded1155ba844ab3ac851630dee4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -2277,90 +2283,6 @@ Transform:
   - {fileID: 1675777153}
   m_Father: {fileID: 1236313089}
   m_RootOrder: 0
---- !u!1 &815031520
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 156330, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 815031521}
-  - 33: {fileID: 815031524}
-  - 23: {fileID: 815031523}
-  - 95: {fileID: 815031522}
-  m_Layer: 0
-  m_Name: torch
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &815031521
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 484632, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 815031520}
-  m_LocalRotation: {x: 0.20503406, y: -0.004957216, z: 0.023656648, w: 0.9784564}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
-  m_Children: []
-  m_Father: {fileID: 1341717011}
-  m_RootOrder: 0
---- !u!95 &815031522
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9546384, guid: 7458cd3439bdf704bb55dc786499cbe0,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 815031520}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 441e8e99d13bbb14a8288c6a60d6cedc, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!23 &815031523
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2323544, guid: 7458cd3439bdf704bb55dc786499cbe0,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 815031520}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: bed0b92ef00354b4886db3f6ee158d19, type: 2}
-  - {fileID: 2100000, guid: d9710e31bbbc6754c85fbfcf713b148d, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &815031524
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3349192, guid: 7458cd3439bdf704bb55dc786499cbe0,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 815031520}
-  m_Mesh: {fileID: 4300000, guid: 441e8e99d13bbb14a8288c6a60d6cedc, type: 3}
 --- !u!1 &858469433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,7 +2430,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1341717011}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!199 &925975350
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -5071,7 +4993,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1341717011}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!108 &1240156746
 Light:
   m_ObjectHideFlags: 0
@@ -5406,7 +5328,6 @@ Transform:
   m_LocalPosition: {x: 0.00118, y: 0.00154, z: -0.00439}
   m_LocalScale: {x: 0.019718185, y: 0.019718183, z: 0.01971818}
   m_Children:
-  - {fileID: 815031521}
   - {fileID: 925975349}
   - {fileID: 1240156745}
   m_Father: {fileID: 1978332737}
