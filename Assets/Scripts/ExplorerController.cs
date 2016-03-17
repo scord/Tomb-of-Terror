@@ -11,6 +11,7 @@ public class ExplorerController : PlayerController {
 
 
 	protected override void Start(){
+        GetComponent<IKHandler>().enabled = true;
 		base.Start();
 		onTrigger = false;
 		//torchIntensity = GetComponentsInChildren<Light>()[0];

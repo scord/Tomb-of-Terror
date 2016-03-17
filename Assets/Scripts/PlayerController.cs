@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour {
     public Animator animator;
 
     virtual protected void Start () {
+        GetComponent<OVRPlayerController>().enabled = true;
+        GetComponent<OVRSceneSampleController>().enabled = true;
 	    turned = false;
         carrying = false;
         animator = GetComponent<Animator>();
