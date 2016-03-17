@@ -116,9 +116,9 @@
 				color += base_color * (1 - smoothstep(0, 8, _EchoTime)) ;
 			
 	
-				fixed4 col = tex2D(_MainTex, i.uv);
+			
 
-				return enabled*color*col;
+				return enabled*color;
 			}
 			ENDCG
 		}    

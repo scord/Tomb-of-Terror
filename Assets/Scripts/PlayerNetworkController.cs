@@ -10,11 +10,11 @@ public class PlayerNetworkController : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	    if (isLocalPlayer)
+	    if (!isLocalPlayer)
         {
 
-            GetComponent<PlayerController>().enabled = true;
-            m_Camera.enabled = true;
+            GetComponent<PlayerController>().enabled = false;
+            m_Camera.enabled = false;
 
         }
 	}
