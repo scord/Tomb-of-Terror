@@ -25,11 +25,11 @@ public class NetManager : NetworkManager
     
 
     // Called from the MenuController, starts game as a player/client
-    public void JoinGame(int playerId, bool host)
+    public void JoinGame(int playerId, bool host, string ip)
     {
         chosenPlayerIndex = playerId; 
         NetworkManager.singleton.networkPort = 7777;
-        NetworkManager.singleton.networkAddress = "localhost";
+        NetworkManager.singleton.networkAddress = ip;
         if (host)
             NetworkManager.singleton.StartHost();
         else
@@ -58,7 +58,7 @@ public class NetManager : NetworkManager
         } else
         {
             chosenPlayer = player2;
-            spawnPos = GameObject.Find("RaiderSpawner").transform.position;
+            spawnPos = GameObject.Find("ExplorerSpawner").transform.position;
         }
 
         GameObject player = (GameObject)Instantiate(chosenPlayer, spawnPos, Quaternion.identity);

@@ -1,236 +1,273 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class SoundVision : MonoBehaviour
 {
 
     public Shader shader;
-    public AudioSource audioSource;
 	public HeartRateManager heartRateManager;
-    int maxWaves = 64; //number of possible simultaneous waves
+    public int maxWaves = 64; //number of possible simultaneous waves
 
     bool echoLocation = false;
     private float echoTime = 0;
 
 	float maxVolume = 50;
     public int maxLength = 64;
+    public int numfree = 0;
+    public Color color = new Color(0, 0.85f, 1, 1);
 
-    ArrayList sources;
-
-    public float timer = 0;
-    public Texture2D waves;
-    public Stack freeWaves;
-    public int stacksize = 0;
-    ArrayList prevPositions;
-    ArrayList volume;
-    ArrayList counts;
-    Color[][] wave;
+    Waves waves;
     // Use this for initialization
+    List<WaveSource> waveSources;
 
-    void AddSource(AudioSource source)
-    {
-        sources.Add(source);
-        counts.Add(sources.Count - 1);
-        volume.Add(1f);
-
-    }
     void Start()
     {
-        gameObject.GetComponent<Camera>().SetReplacementShader(shader, "");
-        freeWaves = new Stack();
-
-        sources = new ArrayList();
-        sources.AddRange(FindObjectsOfType<AudioSource>());
-
-        wave = new Color[maxWaves][];
      
-        prevPositions = new ArrayList();
-        counts = new ArrayList();
-        volume = new ArrayList();
-        for (int i = 0; i < maxWaves; i++)
-        {
-            freeWaves.Push(i);
-        }
-        for (int i = 0; i < sources.Count; i++)
-        {
-            prevPositions.Add(((AudioSource)sources[i]).transform.position);
-            int j = (int)freeWaves.Pop();
-            Debug.Log(j);
-            counts.Add(j);
-            
-            Shader.SetGlobalVector("_SoundSource" + j, ((AudioSource)sources[i]).transform.position);
-            volume.Add(1f);
-            Shader.SetGlobalVector("_Volume" + j, new Vector2((float)volume[i],0f));
-        }
-
-
-        waves = new Texture2D(maxLength, maxWaves);
-        waves.wrapMode = (TextureWrapMode)WrapMode.Clamp;
-        waves.filterMode = FilterMode.Point;
-        for (int i = 0; i < maxWaves; i++)
-        {
-            wave[i] = new Color[maxLength];
-            for (int j = 0; j < maxLength; j++)
-            {
-                wave[i][j] = (Color.black);
-            }
-        }
-
-        
-
-        Shader.SetGlobalFloat("_N", maxWaves);
-        Shader.SetGlobalInt("_CurrentWave", 0);
+        GetComponent<Camera>().SetReplacementShader(shader, "");
+        waves = new Waves(maxWaves, maxLength);
+        GetAudioSources();
+   
     }
 
     // Update is called once per frame
 
-    Texture2D updateTexture(Texture2D tex, int rowIndex, Color[] data)
+
+    void GetAudioSources()
     {
-   
-        for (int i = 0; i < tex.width; i++)
+        waveSources = new List<WaveSource>();
+
+        foreach (AudioSource source in FindObjectsOfType<AudioSource>())
         {
-            tex.SetPixel(i, rowIndex, (Color)data[i]);
-        }
-
-        return tex;
-    }
-
-    void releaseWaves()
-    {
-
-        for (int i = 0; i < maxWaves; i++)
-        {
-            bool empty = true;
-            for (int j = 0; j < maxLength; j++)
+            if (source.gameObject.layer != LayerMask.NameToLayer("Ignore Sound Vision"))
             {
-                if ((Color)wave[i][j] != Color.black)
-                {
-                    empty = false;
-                    break;
-                }
-            }
+                int i = waves.free.Pop();
 
-            if (empty && !freeWaves.Contains(i))
-            {
-                freeWaves.Push(i);
+                WaveSource waveSource = new WaveSource(source, i);
+                waveSources.Add(waveSource);
+
+
+                waveSource.SendToShader();
             }
         }
-        
     }
 
-    Color[] AddColor(Color[] wave, Color color)
-    {
-        for (int i = wave.Length-1; i > 0; i--)
-        {
-            wave[i] = wave[i - 1];
-        }
-        wave[0] = color;
+    
 
-        return wave;
-    }
+    
 
     public void EchoLocate()
     {
         echoLocation = true;
+        Shader.SetGlobalColor("_EchoColor", color);
         Shader.SetGlobalVector("_EchoSource", transform.position);
         Shader.SetGlobalFloat("_EchoTime", 0);
     }
     
-    void Update()
+    void FixedUpdate()
     {
 		float dtime = Time.deltaTime;
 
-
-        timer += dtime;
-
         if (echoLocation)
         {
-            if (echoTime > 5)
+            if (echoTime > 8)
             {
                 echoLocation = false;
                 echoTime = 0;
             }
             echoTime += dtime;
+            
             Shader.SetGlobalFloat("_EchoTime", echoTime);
         }
 
-
-        if (timer > 1/75.0f)
+        for (int i = 0; i < waveSources.Count; i++)
         {
-            
-            timer = 0;
-            for (int x = 0; x < sources.Count; x++)
-            {
-                float[] spectrum = new float[64];
+            float distance = Vector3.Distance(transform.position, waveSources[i].audioSource.transform.position);
+            Color c;
 
-                ((AudioSource)sources[x]).GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
-                float summedFreq = 0;
-                float level = 0;
-                for (int i = 0; i < spectrum.Length; i++)
+            c = waveSources[i].GetCurrentColor(color);
+
+            waveSources[i] = waves.getFreeWave(waveSources[i]);
+            waves.colors[waveSources[i].index] = waves.AddColor(waves.colors[waveSources[i].index], c);
+        }
+
+
+        waves.UpdateTexture(waveSources);
+        waves.SendToShader();
+
+        waves.release();
+    }
+
+    
+
+    struct Waves
+    {
+        public Texture2D texture;
+        public Color[][] colors;
+        public Stack<int> free;
+        public int numWaves;
+        int waveLength;
+        List<int> enabled;
+
+        public Waves(int numWaves, int waveLength)
+        {
+            this.numWaves = numWaves;
+            this.waveLength = waveLength;
+
+            free = new Stack<int>();
+
+            for (int i = 0; i < numWaves; i++)
+            {
+                free.Push(i);
+            }
+
+            colors = new Color[numWaves][];
+            enabled = new List<int>();
+            texture = new Texture2D(waveLength, numWaves);
+            texture.wrapMode = (TextureWrapMode)WrapMode.Clamp;
+            texture.filterMode = FilterMode.Point;
+            for (int i = 0; i < numWaves; i++)
+            {
+                colors[i] = new Color[waveLength];
+                for (int j = 0; j < waveLength; j++)
                 {
-                    summedFreq += spectrum[i] * i;
-                    level += spectrum[i];
- 
+                    colors[i][j] = (Color.black);
+                }
+                enabled.Add(0);
+            }
+
+            Shader.SetGlobalFloat("_N", numWaves);
+        }
+
+        public WaveSource getFreeWave(WaveSource source)
+        {
+            if (free.Contains(source.index)) { }
+            else if (source.GetDeltaMovement() > 0.5f && free.Count > 0) source.deltaMovement = 0;
+            else return source;
+
+            source.index = free.Pop();
+            enabled[source.index] = 1;
+            source.SendToShader();
+
+            return source;
+        }
+
+        public void UpdateTexture(List<WaveSource> sources)
+        {
+            List<int> currentWaves = new List<int>();
+            foreach (WaveSource source in sources)
+            {
+                currentWaves.Add(source.index);
+            }
+            for (int i = 0; i < numWaves; i++)
+            {
+                if (!currentWaves.Contains(i))
+                    colors[i] = AddColor(colors[i], new Color(0, 0, 0, 1));
+
+                texture.SetPixels(0, i, texture.width, 1, colors[i]);
+            }
+            texture.Apply(true);
+        }
+
+        public void SendToShader()
+        {
+            for (int i = 0; i < numWaves; i++)
+                Shader.SetGlobalInt("_Enabled"+i, enabled[i]);
+            Shader.SetGlobalTexture("_Waves", texture);
+        }
+
+        public void release()
+        {
+            for (int i = 0; i < numWaves; i++)
+            {
+                bool empty = true;
+                for (int j = 0; j < waveLength; j++)
+                {
+                    if (colors[i][j] != Color.black)
+                    {
+                        empty = false;
+                        break;
+                    }
                 }
 
-                float averageFreq = ((summedFreq / level))/(spectrum.Length - 4);
-                if (averageFreq < 0.011)
-                    level = level - (0.011f - averageFreq)*100;
-                if (averageFreq > 0.6)
-                    level = level - (averageFreq - 0.6f) * 100;
-                if (level < 0)
-                    level = 0;
-                level = level*10;
-
-                Color c = new Color(level*averageFreq*4, level*(1-averageFreq*4), level, 1);
-            
-                
-                if (level > 0 && freeWaves.Contains(counts[x]))
-                    counts[x] = freeWaves.Pop();
-
-                wave[(int)counts[x]] = AddColor(wave[(int)counts[x]], (c + (Color)wave[(int)counts[x]][0]) / 2);
-                Shader.SetGlobalVector("_SoundSource" + counts[x], ((AudioSource)sources[x]).transform.position);
-                Shader.SetGlobalVector("_Volume" + (int)counts[x], new Vector2((float)volume[x], 0));
-            }
- 
-            for (int i = 0; i < maxWaves; i++)
-            {
-                if (!counts.Contains(i))
+                if (empty && !free.Contains(i))
                 {
-                    wave[i] = AddColor(wave[i], new Color(0, 0, 0, 1));
-        
+                    free.Push(i);
+                    enabled[i] = 0;
                 }
-
-                waves = updateTexture(waves, i, wave[i]);       
             }
-            waves.Apply(true);
+        }
 
-            
-            
-            Shader.SetGlobalTexture("_Waves", waves);
-
-            for (int x = 0; x < sources.Count; x++)
+        public Color[] AddColor(Color[] wave, Color color)
+        {
+            for (int i = wave.Length - 1; i > 0; i--)
             {
-                
-                if (Vector3.Magnitude((Vector3)prevPositions[x] - ((AudioSource)sources[x]).transform.position) > 0.1)
-                {
-                    if (freeWaves.Count > 0)
-                        counts[x] = (int)freeWaves.Pop();
-
-                    Shader.SetGlobalVector("_SoundSource" + counts[x], ((AudioSource)sources[x]).transform.position);
-                    Shader.SetGlobalVector("_Volume" + (int)counts[x], new Vector2((float)volume[x],0));
-                }
-
-                prevPositions[x] = ((AudioSource)sources[x]).transform.position;
+                wave[i] = wave[i - 1];
             }
-            releaseWaves();
-            stacksize = freeWaves.Count;
+            wave[0] = color;
+
+            return wave;
         }
     }
 
-    void OnPostRender()
+    struct WaveSource
     {
+        public AudioSource audioSource;
+        Vector3 prevPosition;
+        public float deltaMovement;
+        public int index;
+        float volume;
+
+        public WaveSource(AudioSource audioSource, int i)
+        {
+            this.audioSource = audioSource;
+            index = i;
+            deltaMovement = 0.1f;
+            prevPosition = audioSource.transform.position;
+            volume = 1f;
+        }
+
+        public void SendToShader()
+        {
+            Shader.SetGlobalVector("_SoundSource" + index, audioSource.transform.position);
+            Shader.SetGlobalVector("_Volume" + index, new Vector2(volume, 0f));
+        }
+
+        public Color GetCurrentColor(Color baseColor)
+        {
+            float[] spectrum = new float[64];
+
+            audioSource.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+            float summedFreq = 0;
+            float level = 0;
+            for (int i = 0; i < spectrum.Length; i++)
+            {
+                summedFreq += spectrum[i] * i;
+                level += spectrum[i];
+
+            }
+
+            float averageFreq = ((summedFreq / level)) / (spectrum.Length - 4);
+            if (averageFreq < 0.011)
+                level = level - (0.011f - averageFreq) * 100;
+            if (averageFreq > 0.6)
+                level = level - (averageFreq - 0.6f) * 100;
+            if (level < 0)
+                level = 0;
+            level = level * 20;
+
+            //return new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1);
+            
+            return baseColor*(new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1));
+        }
+        public float GetDeltaMovement()
+        {
+            
+            deltaMovement += Vector3.Distance(audioSource.transform.position, prevPosition);
+            prevPosition = audioSource.transform.position;
+            return deltaMovement;
+        }
 
     }
 
