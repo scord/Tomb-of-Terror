@@ -21,7 +21,7 @@ public class Stats : MonoBehaviour
 	// History of the heart rate data //
 
 	public HeartRateManager heartRateManager;
-	public HRBaseline baseline; 
+//	public HRBaseline baseline; 
 	private int starting_point; 	// presumably the resting state HR of the player
 	private int signal;				// incoming signal coming from BTScript every S seconds (sampled heart rate)
 	private int[] spikes;			// spikes in the five heart rate zones
@@ -38,7 +38,6 @@ public class Stats : MonoBehaviour
 
 	double timer;					// time in seconds
 	private List<double> times; 	// times at which spikes occurred
-	//public int age;				// user input relevant for computing personalised maximum HR
 
 	// Make sure there is only one instance of this objects (stats), and that it's in every scene. 
 	// data persistence reference code: http://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/persistence-data-saving-loading
@@ -90,8 +89,8 @@ public class Stats : MonoBehaviour
 		// start timer for data collection //
 		timer = 0.0;
 
-		InvokeRepeating("UpdateLog", 0, 1.0F);
-		InvokeRepeating("UpdateAvg", 0, refresh_time);
+		InvokeRepeating("UpdateLog", 8, 1.0F);	// start collecting HR measurements after 8 seconds; player might be nervous at first
+		InvokeRepeating("UpdateAvg", 8, refresh_time);
 	}
 
 	void UpdateLog() {
@@ -127,11 +126,6 @@ public class Stats : MonoBehaviour
 		if(Input.GetKey ("l"))
 			SceneManager.LoadScene ("Scenes/endgame");
 	}
-
-	// calculate HR based on user input - age
-	//  void calculateMaxHR() {
-	//	  max_hr = 206.9 - 0.67 * age;
-	//  }
 
 	// compute HR zones
 	/*void calculateZones() {
