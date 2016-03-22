@@ -118,11 +118,6 @@ public class Stats : MonoBehaviour
 			SceneManager.LoadScene ("Scenes/endgame");
 	}
 
-	// calculate HR based on user input - age
-	//  void calculateMaxHR() {
-	//	  max_hr = 206.9 - 0.67 * age;
-	//  }
-
 	// compute HR zones
 	/*void calculateZones() {
 
