@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour {
     protected void PickUp()
     {
         RaycastHit hit = new RaycastHit();
-        if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 4))
+        if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16))
         {
             if (hit.collider.gameObject.tag == "PickUp")
             {
