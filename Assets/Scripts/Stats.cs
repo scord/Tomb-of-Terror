@@ -34,7 +34,7 @@ public class Stats : MonoBehaviour
 
 	// PARAMETERS //
 	public int relevance = 5;		// relevant spike iff new signal is at least 5 points above the previous signal
-	public float refresh_time = 300.0;  // compute average HR so far - every 5 minutes (300 seconds)
+	public float refresh_time = 300.0F;  // compute average HR so far - every 5 minutes (300 seconds)
 
 	double timer;					// time in seconds
 	private List<double> times; 	// times at which spikes occurred
@@ -73,12 +73,9 @@ public class Stats : MonoBehaviour
 		max = starting_point;
 
 		// Load relevant data from Intro Scene // 
-		baseline = GameObject.Find ("HeartRateListener").GetComponent<HRBaseline> ();
-		if (baseline == null)
-			Debug.Log ("null baseline");
-		int s = baseline.parameters.num_spikes;
-		int t = baseline.parameters.time;
-
+//		baseline = GameObject.Find ("HeartRateListener").GetComponent<HRBaseline> ();
+//		if (baseline == null)
+//			Debug.Log ("null baseline");
 
 		// add first reading to the log//
 		log.Add (starting_point);
