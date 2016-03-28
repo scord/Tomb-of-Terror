@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour {
         carrying = false;
         carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 100);
         carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
+        carriedObject.GetComponent<Object_SyncPosition>().Throw();
     }
 
     protected void PickUp()
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour {
                 carriedObject = hit.collider.gameObject;
                 carriedObject.GetComponent<Rigidbody>().isKinematic = true;
                 carrying = true;
+                carriedObject.GetComponent<Object_SyncPosition>().PickUp("something");
             }
         }
     }

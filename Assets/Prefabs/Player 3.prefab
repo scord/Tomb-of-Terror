@@ -47,7 +47,6 @@ GameObject:
   - 20: {fileID: 2027388}
   - 124: {fileID: 12462134}
   - 92: {fileID: 9239168}
-  - 114: {fileID: 11414742}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -304,38 +303,6 @@ MonoBehaviour:
     i15: 235
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &11414742
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 174728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 109
-    i1: 46
-    i2: 43
-    i3: 242
-    i4: 77
-    i5: 51
-    i6: 105
-    i7: 84
-    i8: 187
-    i9: 141
-    i10: 226
-    i11: 253
-    i12: 158
-    i13: 3
-    i14: 196
-    i15: 235
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!114 &11465018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,6 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2027388}
+  m_Listener: {fileID: 0}
 --- !u!114 &11477398
 MonoBehaviour:
   m_ObjectHideFlags: 1
