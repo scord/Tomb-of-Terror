@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     protected bool turned;
     protected bool move;
     public GameObject model;
+    public GameObject player_tag;
 	// public SoundVision test;
     // Use this for initialization
 
@@ -24,6 +25,10 @@ public class PlayerController : MonoBehaviour {
         carrying = false;
         animator = GetComponent<Animator>();
         audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
+        if (player_tag == null)
+        {
+            player_tag = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 	
 	// Update is called once per frame
@@ -83,7 +88,25 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-	void OnTriggerEnter(Collider other) {
-		
-	}
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("OUTSIDE");
+        if (other.gameObject.tag == "Prize")
+        {
+            Debug.Log("WAS HERE");
+        }
+    }
+
+
+    void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("WAS HERE");
+        if (col.gameObject.tag == "Prize")
+        {
+            //mummy wins
+            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), "dafgsgagfsd");
+            //wait a few seconds
+            //application.loadscene(menu); or something
+        }
+    }
 }

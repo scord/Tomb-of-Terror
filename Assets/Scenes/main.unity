@@ -632,6 +632,7 @@ GameObject:
   - 33: {fileID: 798891008}
   - 135: {fileID: 798891007}
   - 23: {fileID: 798891006}
+  - 114: {fileID: 798891009}
   m_Layer: 0
   m_Name: Sphere (1)
   m_TagString: Untagged
@@ -696,6 +697,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 798891004}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &798891009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798891004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a609d3e4e14d7c4383502c729fd8ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &851353259
 GameObject:
   m_ObjectHideFlags: 0
