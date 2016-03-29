@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Prize : MonoBehaviour {
     string message = "Player Wins";
@@ -22,7 +23,8 @@ public class Prize : MonoBehaviour {
             Debug.Log("Trigger worked");
             showText = true;
             //currently menu is set to secene 0;
-            Application.LoadLevel(0);
+            //Application.LoadLevel(0);
+			SceneManager.LoadScene ("Scenes/endgame")
         }
     }
 
