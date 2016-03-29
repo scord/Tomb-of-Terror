@@ -24,7 +24,7 @@ public class Prize : MonoBehaviour {
             showText = true;
             //currently menu is set to secene 0;
             //Application.LoadLevel(0);
-			SceneManager.LoadScene ("Scenes/endgame")
+			SceneManager.LoadScene ("Scenes/endgame");
         }
     }
 
