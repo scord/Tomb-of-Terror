@@ -10,6 +10,9 @@ public class HeartRateManager : NetworkBehaviour {
 
 	System.Diagnostics.Process HRProcess;
 
+  public delegate void HRDelegate(int newHR);
+  public event HRDelegate EventHRUpdate;
+
 	//[SyncVar]
 	public int HeartRate;
 	
@@ -19,7 +22,7 @@ public class HeartRateManager : NetworkBehaviour {
 		object path = Application.dataPath;
 		
 		HRProcess = new System.Diagnostics.Process();
-		HRProcess.StartInfo.FileName = path+"/Scripts/dist/bglib_test_hr_collector.exe";
+		HRProcess.StartInfo.FileName = path+"/Scripts/HR/bglib_test_hr_collector.exe";
  
 		HRProcess.StartInfo.UseShellExecute = false;
 		HRProcess.StartInfo.RedirectStandardOutput = true;
@@ -33,27 +36,29 @@ public class HeartRateManager : NetworkBehaviour {
 	}
 
 	void ProcessData(object ob){
-		string path = ob.ToString();
+		//string path = ob.ToString();
 
-		Debug.Log ("Thread started");
-        String text;
+		Debug.Log ("Thread started " + ob);
+    String text;
 		while (programActive) {
-            text = HRProcess.StandardOutput.ReadLine();
+      text = HRProcess.StandardOutput.ReadLine();
 			HeartRate = Convert.ToInt32(text);
+			Debug.Log("My heart rate is: " + HeartRate);
 		}
 		Debug.Log ("Thread stopped");
 	}
 
 	public void OnDisable(){
             // Free resources associated with process.
-        HRProcess.Close();
+    HRProcess.Close();
 		Debug.Log ("Heart Rate Disabled");
 		programActive = false;   
-
 	}
 
 	 
 	void Update () {
-
+		if (EventHRUpdate != null) {
+			EventHRUpdate(HeartRate);
+		}
 	}
 }

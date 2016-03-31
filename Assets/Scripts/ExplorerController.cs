@@ -3,13 +3,13 @@ using System.Collections;
 
 public class ExplorerController : PlayerController {
 	
-	private Light torchIntensity;
+	//private Light torchIntensity;
+
 
 	//private float wheelDirection;
 
 
-	protected override void Start(){
-        
+	protected override void Start(){    
 		base.Start();
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
 	}
@@ -36,6 +36,5 @@ public class ExplorerController : PlayerController {
             }
         }*/
 	}
-
 
 }

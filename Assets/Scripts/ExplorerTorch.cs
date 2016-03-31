@@ -9,7 +9,7 @@ public class ExplorerTorch : NetworkBehaviour {
 
   [SyncVar (hook = "UpdateTorchStatus")] private bool isActive;
 
-  private float activeIntensity = 1.8f;
+  private float activeIntensity = 2.3f;
 
   void Start() {
     if ( isLocalPlayer ) {
