@@ -17,11 +17,13 @@ public class DoorOnOff : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
+		door.GetComponent<Rigidbody> ().useGravity = false;
 		door.GetComponent<Rigidbody>().velocity = transform.up * 3;	
 	}
 
 	void OnTriggerExit(Collider other){
-		door.GetComponent<Rigidbody>().velocity = transform.up * -3;
+		door.GetComponent<Rigidbody> ().useGravity = true;
+		// door.GetComponent<Rigidbody>().velocity = transform.up * -3;
 	}
 
 }
