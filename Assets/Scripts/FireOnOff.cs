@@ -6,7 +6,7 @@ public class FireOnOff : MonoBehaviour {
 	public GameObject torch; 
 
 	void OnTriggerExit(Collider other){
-		torch.active = false;
+		torch.SetActive(false);
 	}
 
 }

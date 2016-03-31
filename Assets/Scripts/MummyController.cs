@@ -15,6 +15,5 @@ public class MummyController : PlayerController {
             gameObject.GetComponent<AudioSource>().Play();
             soundVision.EchoLocate();
         }
-
 	}
 }

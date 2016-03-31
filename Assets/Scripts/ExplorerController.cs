@@ -4,22 +4,19 @@ using System.Collections;
 public class ExplorerController : PlayerController {
 	
 	private Light torchIntensity;
-	private InteractScript trig;
 
-	private float wheelDirection;
-	private bool onTrigger;
+	//private float wheelDirection;
 
 
 	protected override void Start(){
         
 		base.Start();
-		onTrigger = false;
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
 	}
 	
 	protected override void Update(){
 		base.Update();
-		wheelDirection = Input.GetAxis("Mouse ScrollWheel");
+		//wheelDirection = Input.GetAxis("Mouse ScrollWheel");
       //  if (wheelDirection > 0)
       //      torchIntensity.intensity += 0.20f;
       //  else if (wheelDirection <  0)
@@ -33,35 +30,12 @@ public class ExplorerController : PlayerController {
 
 
         // deal with in-game interactions
-        if (onTrigger && trig.withKey){
-            if(Input.GetKeyDown(KeyCode.E)){
+        /*if (onTrigger && trig != null && trig.withKey){
+            if(Input.GetKeyDown(m_TriggerKey)){
                 trig.Interact();
             }
-        }
+        }*/
 	}
 
 
-    void OnTriggerEnter(Collider other){
-        if(other.tag.Equals("Interaction")){
-            trig = (InteractScript) other.GetComponent(typeof(InteractScript));
-            onTrigger = true;
-            if(trig.withKey)
-                trig.PreInteract();
-            else trig.Interact();
-        }
-    }
-    
-    void OnTriggerStay(Collider other){
-        if(other.tag.Equals("Interaction") && !onTrigger){
-            onTrigger = true;
-            trig.PreInteract(); 
-        }
-    }
-
-    void OnTriggerExit(Collider other){
-        if(other.tag.Equals("Interaction")){
-            onTrigger =false;
-            trig.EndInteract();
-        }
-    }
 }

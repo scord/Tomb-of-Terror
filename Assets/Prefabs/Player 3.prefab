@@ -9,10 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 457586}
   - 136: {fileID: 13610408}
-  - 114: {fileID: 11477398}
-  - 114: {fileID: 11409854}
-  - 114: {fileID: 11465018}
-  - 114: {fileID: 11472112}
+  - 114: {fileID: 11427516}
+  - 114: {fileID: 11498748}
+  - 114: {fileID: 11447486}
+  - 114: {fileID: 11490886}
   m_Layer: 0
   m_Name: Player 3
   m_TagString: Untagged
@@ -47,6 +47,7 @@ GameObject:
   - 20: {fileID: 2027388}
   - 124: {fileID: 12462134}
   - 92: {fileID: 9239168}
+  - 81: {fileID: 8128742}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -129,10 +130,10 @@ Camera:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174728}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 1, g: 0.99264705, b: 0.99264705, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -190,6 +191,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181392}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!81 &8128742
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174728}
+  m_Enabled: 1
 --- !u!82 &8237966
 AudioSource:
   m_ObjectHideFlags: 1
@@ -241,7 +249,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -263,7 +271,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!92 &9239168
 Behaviour:
   m_ObjectHideFlags: 1
@@ -271,7 +279,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174728}
   m_Enabled: 1
---- !u!114 &11409854
+--- !u!114 &11427516
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -301,42 +309,9 @@ MonoBehaviour:
     i13: 3
     i14: 196
     i15: 235
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
---- !u!114 &11465018
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
---- !u!114 &11472112
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37436a259ac919244b723ac1c4cb234c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Camera: {fileID: 2027388}
-  m_Listener: {fileID: 0}
---- !u!114 &11477398
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
+--- !u!114 &11447486
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -349,9 +324,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 2027388}
   soundVision: {fileID: 0}
-  audio_source: {fileID: 0}
+  audio_source: {fileID: 8237966}
   model: {fileID: 0}
   animator: {fileID: 0}
+--- !u!114 &11490886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0808770dba3f702479dc7cc8c5139d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11498748
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37436a259ac919244b723ac1c4cb234c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 2027388}
+  m_Listener: {fileID: 8128742}
 --- !u!124 &12462134
 Behaviour:
   m_ObjectHideFlags: 1

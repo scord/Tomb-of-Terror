@@ -10,6 +10,9 @@ TagManager:
   - PickUp
   - Hints
   - Interaction
+  - LightSpawn
+  - Pick Up
+  - PickUpSpawn
   layers:
   - Default
   - TransparentFX

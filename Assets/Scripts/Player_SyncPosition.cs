@@ -7,6 +7,7 @@ public class Player_SyncPosition : NetworkBehaviour {
 
   [SyncVar (hook = "SyncPositionValues")] private Vector3 syncPos;
   [SerializeField] Transform m_Transform;
+  private Animator m_Animator;
 
   private float lerpRate = 10;
 
@@ -15,6 +16,9 @@ public class Player_SyncPosition : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
     lastPos = m_Transform.position;
+    if (!isLocalPlayer) {
+      m_Animator = GetComponent<Animator>();
+    }
 	}
 
   void FixedUpdate() {
@@ -28,7 +32,12 @@ public class Player_SyncPosition : NetworkBehaviour {
 
   void LerpPosition() {
     if(!isLocalPlayer) {
-      m_Transform.position = Vector3.Lerp(m_Transform.position, syncPos, Time.deltaTime * lerpRate); 
+      if ( m_Transform.position == syncPos ) {
+        m_Animator.SetBool("Movement", false);
+      } else {
+        m_Animator.SetBool("Movement", true);
+        m_Transform.position = Vector3.Lerp(m_Transform.position, syncPos, Time.deltaTime * lerpRate);
+      }
     }
   }
 

@@ -5,14 +5,13 @@ using UnityEngine.Networking.NetworkSystem;
 
 public class NetManager : NetworkManager
 {
-    public GameObject player1;
+    [SerializeField] private GameObject[] players;
 	public GameManager gameManager;
-    public GameObject player2;
    
     GameObject chosenPlayer;
     public Vector3 playerSpawnPos;
     int chosenPlayerIndex;
-    bool first = true;
+    //bool first = true;
 
     // Sets the message code to a value that is not already being used
     const short playerMsgType = MsgType.Highest + 1;
@@ -30,6 +29,7 @@ public class NetManager : NetworkManager
         chosenPlayerIndex = playerId; 
         NetworkManager.singleton.networkPort = 7777;
         NetworkManager.singleton.networkAddress = ip;
+        Debug.Log(NetworkManager.singleton);
         if (host)
             NetworkManager.singleton.StartHost();
         else
@@ -40,8 +40,11 @@ public class NetManager : NetworkManager
     // Called when server is started
     public override void OnStartServer()
     {
-        
         NetworkServer.RegisterHandler(playerMsgType, OnPlayerResponse);
+        if (players.Length < 3) {
+            Debug.LogError("Games need at least 3 Player Prefabs to start");
+            return;
+        }
         base.OnStartServer();
     }
     Maze maze;
@@ -51,16 +54,24 @@ public class NetManager : NetworkManager
     {
         PlayerMsg msg = netMsg.ReadMessage<PlayerMsg>();
         Vector3 spawnPos;
-        if (msg.chosenPlayerIndex == 1)
-        {
-            chosenPlayer = player1;
-            spawnPos = GameObject.Find("MummySpawner").transform.position;
-        } else
-        {
-            chosenPlayer = player2;
-            spawnPos = GameObject.Find("ExplorerSpawner").transform.position;
-        }
+        switch(msg.chosenPlayerIndex) {
+            case 0:
+                chosenPlayer = players[0];
+                spawnPos = GameObject.Find("ServerSpawner").transform.position;
+                break;
+            case 1:
+                chosenPlayer = players[1];
+                spawnPos = GameObject.Find("MummySpawner").transform.position;
+                break;
+            case 2:
+                chosenPlayer = players[2];
+                spawnPos = GameObject.Find("ExplorerSpawner").transform.position;
+                break;
+            default:
+                Debug.LogError("Uknown player index");
+                return;
 
+        }
         GameObject player = (GameObject)Instantiate(chosenPlayer, spawnPos, Quaternion.identity);
         NetworkServer.AddPlayerForConnection(netMsg.conn, player, msg.controllerId);
         Debug.Log(chosenPlayer.name);
@@ -81,5 +92,6 @@ public class NetManager : NetworkManager
         msg.controllerId = playerControllerId;
         NetworkServer.SendToClient(conn.connectionId, playerMsgType, msg);
     }
+
 
 }
