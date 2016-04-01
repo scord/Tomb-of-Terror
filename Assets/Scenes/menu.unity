@@ -246,7 +246,7 @@ MonoBehaviour:
   m_OnlineScene: Sample
   m_SpawnPrefabs:
   - {fileID: 175566, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-  - {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
+  - {fileID: 149394, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
   - {fileID: 128420, guid: 6d2e2bf24d336954bb8de2fd9e03c4eb, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
@@ -289,7 +289,7 @@ MonoBehaviour:
   matchSize: 4
   player1: {fileID: 175566, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
   gameManager: {fileID: 0}
-  player2: {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
+  player2: {fileID: 149394, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
   playerSpawnPos: {x: 7, y: 7, z: 7}
 --- !u!1 &847303616
 GameObject:
