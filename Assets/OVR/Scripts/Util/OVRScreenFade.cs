@@ -96,6 +96,8 @@ public class OVRScreenFade : MonoBehaviour
 		isFading = false;
 	}
 
+
+
 	/// <summary>
 	/// Renders the fade overlay when attached to a camera object
 	/// </summary>

@@ -58,7 +58,7 @@
             {                                                                                 	                                                                                                             //for rim lighting.
          		half4 color = 0;
 
-				float speed = 20.0f;
+				float speed = 10.0f;
 				for (int x = 0; x < _N; x++)
 				{
 					half dist = clamp(distance(_SoundSource[x], i.worldPos),0.5,100);

@@ -255,7 +255,7 @@ public class SoundVision : MonoBehaviour
                 level = level - (averageFreq - 0.6f) * 100;
             if (level < 0)
                 level = 0;
-            level = level * 20;
+			level = Mathf.Pow(level * 10,0.5f)/5f;
 
             //return new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1);
             
