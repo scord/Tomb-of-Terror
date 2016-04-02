@@ -780,7 +780,7 @@ GameObject:
   - 114: {fileID: 11452234}
   m_Layer: 0
   m_Name: Explorer
-  m_TagString: Untagged
+  m_TagString: Explorer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4029,6 +4029,7 @@ MonoBehaviour:
   soundVision: {fileID: 0}
   audio_source: {fileID: 8299922}
   model: {fileID: 0}
+  player_tag: {fileID: 0}
   animator: {fileID: 0}
   normalHR: 65
   openValve: {fileID: 8230444}
