@@ -580,7 +580,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 30725684}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SunShafts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42642,6 +42642,10 @@ Prefab:
     - target: {fileID: 470238, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
       propertyPath: m_LocalPosition.y
       value: 4.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
