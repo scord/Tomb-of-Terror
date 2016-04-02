@@ -21,6 +21,7 @@ public class HRBaseline : MonoBehaviour {
 	private List<int> log;			// record of sampled HR measurements
 	private int average;			// average heart rate of the player
 	public Range range;	
+	public int std_dev;
 
 	// Make sure there is only one instance of this objects (stats), and that it's in every scene. 
 	// data persistence reference code: http://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/persistence-data-saving-loading
@@ -48,6 +49,7 @@ public class HRBaseline : MonoBehaviour {
 		range = new Range();
 		range.min = 240;
 		range.max = 0;
+		std_dev = 0;
 
 		InvokeRepeating("UpdateLog", 0, 1.0F);
 	}
@@ -78,6 +80,18 @@ public class HRBaseline : MonoBehaviour {
 		average = sum / log.Count;
 
 	}
+
+	void ComputeStdDev() {
+
+		int sum = 0;
+
+		for (int i = 0; i < log.Count; i++) {
+			sum += (log[i] - average) * (log[i] - average);
+		}
+
+		std_dev = (int) Mathf.Sqrt(sum / log.Count);
+
+	}
 		
 
 	void Update() {
@@ -86,16 +100,17 @@ public class HRBaseline : MonoBehaviour {
 		if (Input.GetKey ("h")) {
 			
 			ComputeAvgHR ();
+			ComputeStdDev ();
 			Debug.Log (average);
 
 		}
 
-		// Queue to load the main scene //
+		// Queue to load the main/Sample scene //
 		/*
 		if(moving_on) { 
 
 			ComputeAvgHR();
-			ComputeRelevance(); // spiking pattern (no. of points increased in HR & over what time span)
+			ComputeStdDev();
 			SceneManager.LoadScene ("Scenes/main"); // possibly
 
 		}
