@@ -1435,6 +1435,7 @@ GameObject:
   - 114: {fileID: 11437508}
   - 114: {fileID: 11494302}
   - 114: {fileID: 11469222}
+  - 114: {fileID: 11443144}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -3613,6 +3614,29 @@ MonoBehaviour:
   queueAhead: 1
   usePositionTracking: 1
   resetTrackerOnLoad: 1
+--- !u!114 &11443144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e318a6043c1cb4a8ce1c8805bab930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolution: 1
+  screenBlendMode: 0
+  sunTransform: {fileID: 0}
+  radialBlurIterations: 2
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunThreshold: {r: 0.87, g: 0.74, b: 0.65, a: 1}
+  sunShaftBlurRadius: 6.7
+  sunShaftIntensity: 5.11
+  maxRadius: 0.75
+  useDepthTexture: 1
+  sunShaftsShader: {fileID: 4800000, guid: d3b1c8c1036784176946f5cfbfb7fe4c, type: 3}
+  simpleClearShader: {fileID: 4800000, guid: f688f89ed5eb847c5b19c934a0f1e772, type: 3}
 --- !u!114 &11447540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3647,6 +3671,7 @@ MonoBehaviour:
   soundVision: {fileID: 0}
   audio_source: {fileID: 8262614}
   model: {fileID: 0}
+  player_tag: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &11455062
 MonoBehaviour:
