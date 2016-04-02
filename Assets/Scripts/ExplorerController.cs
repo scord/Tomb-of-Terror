@@ -100,6 +100,7 @@ public class ExplorerController : PlayerController {
         if(other.tag.Equals("Interaction")){
             trig = (InteractScript) other.GetComponent(typeof(InteractScript));
             onTrigger = true;
+			Debug.Log( trig);
             if(trig.withKey)
                 trig.PreInteract();
             else trig.Interact();

@@ -3,25 +3,34 @@ using System.Collections;
 
 public class DoorOnOff : MonoBehaviour {
 
-	public GameObject door; 
+	public Door door;
 
-	private	float speed = 20f;
-	private Vector3 openDoor = new Vector3(0, 10, 0);
-	private Vector3 doorFinalPos ;
-	private Vector3 initialPos;
-	public bool open;
-	public bool closing = false;
+	private Rigidbody doorBody;
+	private AudioSource doorSound; 
 
 	void Start(){
-		Vector3 doorspeed = door.GetComponent<Rigidbody>().velocity = transform.up * 0;
+		 doorBody = door.GetComponent<Rigidbody>();
+		 doorSound = door.GetComponent<AudioSource>();
+		// AudioSource doorOffSound = door.GetComponent<AudioSource>();
 	}
 
 	void OnTriggerEnter(Collider other){
-		door.GetComponent<Rigidbody>().velocity = transform.up * 3;	
+		doorBody.useGravity = false;
+		doorBody.velocity = transform.up * 3;	
+		
+		doorSound.clip = door.doorOn_sound;
+		doorSound.time = 1;
+		doorSound.Play();
+	}
+
+	void Update(){
+		if (doorBody.IsSleeping()){
+			doorSound.Stop();
+		}
 	}
 
 	void OnTriggerExit(Collider other){
-		door.GetComponent<Rigidbody>().velocity = transform.up * -3;
+		doorBody.useGravity = true;
+		doorSound.Stop();
 	}
-
 }
