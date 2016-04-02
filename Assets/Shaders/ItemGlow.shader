@@ -17,6 +17,12 @@
     CGPROGRAM
     #pragma surface surf Lambert
 
+    float4 _ColorTint;
+    sampler2D _MainTex;
+    sampler2D _BumpMap;
+    float4 _RimColor;
+    float _RimPower;
+
     struct Input 
     {
       float4 color : Color;
@@ -24,12 +30,6 @@
       float2 uv_BumpMap;
       float3 viewDir;
     };
-
-    float4 _ColorTint;
-    sampler2D _MainTex;
-    sampler2D _BumpMap;
-    float4 _RimColor;
-    float _RimPower;
 
     void surf (Input IN, inout SurfaceOutput o) 
     {

@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public SoundVision soundVision;
     public AudioSource audio_source;
     GameObject carriedObject;
-    protected bool carrying;
+    public bool carrying;
     protected bool turned;
     protected bool move;
     public GameObject model;
@@ -27,14 +27,11 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	virtual protected void Update () {
-
-
         move = false;
         
         float moveVertical = Input.GetAxis("Vertical");
         float lookHorizontal = Input.GetAxis("RightH");
         float lookVertical = Input.GetAxis("RightV");
-
 
         if (moveVertical == 1.0)
         {
@@ -52,8 +49,7 @@ public class PlayerController : MonoBehaviour {
 
         animator.SetBool("Movement", move);
 
-
-            if (carrying)
+        if (carrying)
         {
             carriedObject.transform.position = cam.transform.position + cam.transform.TransformDirection(Vector3.forward)*2;
         }
