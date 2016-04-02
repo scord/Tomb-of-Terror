@@ -2,8 +2,13 @@
 using System.Collections;
 
 public class Door : TargetInteract{
+	
+	public AudioClip doorOn_sound;
+	public AudioClip doorOff_sound;
+
 	private int direction = 1;
 	private bool gravity = true;
+
 
 	public void Start(){
 		GetComponent<Rigidbody> ().useGravity = gravity;
