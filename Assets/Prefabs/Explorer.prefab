@@ -108,6 +108,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &107308
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 430488}
+  - 82: {fileID: 8253098}
+  m_Layer: 0
+  m_Name: OpenValve
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &109986
 GameObject:
   m_ObjectHideFlags: 1
@@ -197,6 +213,22 @@ GameObject:
   - 4: {fileID: 458702}
   m_Layer: 0
   m_Name: R_leg1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &113410
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 484706}
+  - 82: {fileID: 8250586}
+  m_Layer: 0
+  m_Name: CloseValve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -755,7 +787,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 401844}
-  - 82: {fileID: 8208322}
   m_Layer: 0
   m_Name: Heart
   m_TagString: ExplorerHeart
@@ -1633,7 +1664,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.103, y: 0.564, z: -0.033}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 430488}
+  - {fileID: 484706}
   m_Father: {fileID: 403924}
   m_RootOrder: 3
 --- !u!4 &401870
@@ -2064,6 +2097,18 @@ Transform:
   m_Children:
   - {fileID: 493644}
   m_Father: {fileID: 493700}
+  m_RootOrder: 0
+--- !u!4 &430488
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 401844}
   m_RootOrder: 0
 --- !u!4 &434144
 Transform:
@@ -2700,6 +2745,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 492574}
   m_RootOrder: 0
+--- !u!4 &484706
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 401844}
+  m_RootOrder: 1
 --- !u!4 &487004
 Transform:
   m_ObjectHideFlags: 1
@@ -3006,16 +3063,90 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183854}
   m_Enabled: 1
---- !u!82 &8208322
+--- !u!82 &8209220
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145814}
+  m_GameObject: {fileID: 142340}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ad7f54ddd4fe6504797539b7655e110e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 53c2ed0501b8f76478c96b670ec63507, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!82 &8250586
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113410}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 27d01bd1622db504794f30379ba559d7, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -3068,7 +3199,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3080,20 +3211,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &8209220
+--- !u!82 &8253098
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142340}
+  m_GameObject: {fileID: 107308}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 53c2ed0501b8f76478c96b670ec63507, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c36c0294e15c7424698f1132055f9e15, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -3430,7 +3561,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeartRate: 0
-  m_AudioSource: {fileID: 8208322}
+  m_AudioSource: {fileID: 0}
+  m_OpenValve: {fileID: 8253098}
+  m_CloseValve: {fileID: 8250586}
+  normalHR: 65
 --- !u!114 &11413358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3760,7 +3894,11 @@ MonoBehaviour:
   soundVision: {fileID: 0}
   audio_source: {fileID: 8262614}
   model: {fileID: 0}
+  player_tag: {fileID: 0}
   animator: {fileID: 0}
+  normalHR: 65
+  openValve: {fileID: 8253098}
+  closeValve: {fileID: 8250586}
 --- !u!114 &11455062
 MonoBehaviour:
   m_ObjectHideFlags: 1

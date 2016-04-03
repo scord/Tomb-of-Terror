@@ -48,7 +48,7 @@ public class ExplorerController : PlayerController {
   
         HR = HRManager.HeartRate;
 
-
+/*
         if (HRAudioSelect){
             float delay = firstMarkSpace*60/((float)(HR));
             
@@ -76,7 +76,7 @@ public class ExplorerController : PlayerController {
             }
             
 
-        }
+        }*/
   
         if (Input.GetButtonDown("Fire2"))
             if (!carrying)
