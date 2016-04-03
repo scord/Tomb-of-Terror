@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 
 public class Explorer_HeartRate : NetworkBehaviour {
   [SyncVar (hook = "SyncHeartRate")] public int HeartRate;
-  [SerializeField] private AudioSource m_AudioSource;
 
   [SerializeField] private AudioSource m_OpenValve;
   [SerializeField] private AudioSource m_CloseValve;
