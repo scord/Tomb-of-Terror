@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &147904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 405386}
+  - 82: {fileID: 8226090}
+  - 114: {fileID: 11406994}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &149188
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,9 +42,7 @@ GameObject:
   - 4: {fileID: 413598}
   - 198: {fileID: 19829232}
   - 199: {fileID: 19901168}
-  - 82: {fileID: 8252650}
-  - 114: {fileID: 11455042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Torch Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,6 +83,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &405386
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 147904}
+  m_LocalRotation: {x: -0.17364822, y: -0.9848078, z: 0.000000028290886, w: -0.00000016044557}
+  m_LocalPosition: {x: 0.611, y: -0.177, z: 0.27}
+  m_LocalScale: {x: 0.8526679, y: 0.57366586, z: 1}
+  m_Children: []
+  m_Father: {fileID: 412384}
+  m_RootOrder: 3
 --- !u!4 &412384
 Transform:
   m_ObjectHideFlags: 1
@@ -75,12 +102,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149188}
   m_LocalRotation: {x: 0.17364822, y: 0.9848078, z: -0.000000028290886, w: -0.00000016044557}
-  m_LocalPosition: {x: 46.577, y: 0.98, z: -26.33}
-  m_LocalScale: {x: 1.1169778, y: 1.8830221, z: 1}
+  m_LocalPosition: {x: -2.55, y: 8.41, z: 2.86}
+  m_LocalScale: {x: 2.1424937, y: 2.602119, z: 1}
   m_Children:
   - {fileID: 413598}
   - {fileID: 413012}
   - {fileID: 416560}
+  - {fileID: 405386}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &413012
@@ -153,12 +181,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187600}
   m_Mesh: {fileID: 4300000, guid: 441e8e99d13bbb14a8288c6a60d6cedc, type: 3}
---- !u!82 &8252650
+--- !u!82 &8226090
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187320}
+  m_GameObject: {fileID: 147904}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300001, guid: 1dd706bb85d8aef4e83a6229dbd62c36,
@@ -278,12 +306,12 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11455042
+--- !u!114 &11406994
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187320}
+  m_GameObject: {fileID: 147904}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
