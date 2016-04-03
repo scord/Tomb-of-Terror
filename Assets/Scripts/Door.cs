@@ -4,10 +4,17 @@ using UnityEngine.Networking;
 
 public class Door : TargetInteract{
   [SyncVar (hook = "SyncDirectionState")] private int direction = 1;
+	
+	public AudioClip doorOn_sound;
+	public AudioClip doorOff_sound;
 
-  private void Start() {
-    GetComponent<Rigidbody>().velocity = transform.up * -3 * direction;
-  }
+	private bool gravity = true;
+
+
+	public void Start(){
+    //GetComponent<Rigidbody>().velocity = transform.up * -3 * direction;
+		GetComponent<Rigidbody> ().useGravity = gravity;
+	}
 
 	public override string GetText(){
 		return "open Door";
@@ -15,8 +22,10 @@ public class Door : TargetInteract{
 
 	public override void Trigger(){
     if (hasAuthority) {
-      direction = -direction;
+      gravity = !gravity; 
+      GetComponent<Rigidbody>().useGravity = false;
       GetComponent<Rigidbody>().velocity = transform.up * -3 * direction;  
+      direction = -direction;
     } else {
       CmdSetDirection(-direction);
     }
@@ -29,8 +38,11 @@ public class Door : TargetInteract{
 
   [Client]
   private void SyncDirectionState(int newDirection) {
-    direction = newDirection;
+    gravity = !gravity; 
+    GetComponent<Rigidbody>().useGravity = false;
+
     GetComponent<Rigidbody>().velocity = transform.up * -3 * direction;  
+    direction = newDirection;
   }
 
 }
