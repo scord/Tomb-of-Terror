@@ -66,6 +66,7 @@ GameObject:
   - 198: {fileID: 19852064}
   - 199: {fileID: 19962912}
   - 114: {fileID: 11407582}
+  - 114: {fileID: 11409738}
   m_Layer: 8
   m_Name: Torch Flame (1)
   m_TagString: Untagged
@@ -368,6 +369,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecf92719fd332940a055fb4b4e1c228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11409738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 114
+    i1: 78
+    i2: 142
+    i3: 227
+    i4: 108
+    i5: 80
+    i6: 218
+    i7: 212
+    i8: 75
+    i9: 32
+    i10: 155
+    i11: 87
+    i12: 168
+    i13: 3
+    i14: 110
+    i15: 61
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &11438598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -381,6 +414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 11407582}
   withKey: 1
+  m_TriggerKey: 101
 --- !u!114 &11449568
 MonoBehaviour:
   m_ObjectHideFlags: 1

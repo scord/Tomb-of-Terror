@@ -10,7 +10,7 @@ public class Fire : TargetInteract{
 
 	private void Start() {
 		m_ParticleSystem = gameObject.GetComponent<ParticleSystem>();
-    m_AudioSource = gameObject.GetComponent<AudioSource>();
+    m_AudioSource = gameObject.GetComponentInChildren<AudioSource>();
     m_Light = gameObject.GetComponentsInChildren<Light>(true)[0];
 		UpdateParticleSystem();
 	}
