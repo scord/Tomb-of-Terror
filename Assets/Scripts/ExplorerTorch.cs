@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using System.Collections.Generic;
 
 public class ExplorerTorch : NetworkBehaviour {
   [SerializeField] private Light m_Light;
   [SerializeField] private AudioSource m_AudioSource;
-  [SerializeField] private ParticleSystem m_ParticleSystem;
+  [SerializeField] private ParticleSystem[] m_ParticleSystems;
 
   [SyncVar (hook = "UpdateTorchStatus")] private bool isActive;
 
@@ -15,6 +16,8 @@ public class ExplorerTorch : NetworkBehaviour {
     if ( isLocalPlayer ) {
       CmdChangeActive(true);
     }
+
+	m_ParticleSystems = GetComponentsInChildren<ParticleSystem> ();
     SetPlayStop();
   }
 
@@ -43,10 +46,16 @@ public class ExplorerTorch : NetworkBehaviour {
 
   void SetPlayStop() {
     if (isActive) {
-      m_ParticleSystem.Play();
+	  foreach (ParticleSystem m_ParticleSystem in m_ParticleSystems)
+	  {
+	  	m_ParticleSystem.Play();
+	  } 
       m_AudioSource.Play();
     } else {
-      m_ParticleSystem.Stop();
+	  foreach (ParticleSystem m_ParticleSystem in m_ParticleSystems)
+	  {
+		m_ParticleSystem.Stop();
+	  } 
       m_AudioSource.Stop();
     }
   }

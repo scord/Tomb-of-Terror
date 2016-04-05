@@ -225,7 +225,7 @@ GameObject:
   - 4: {fileID: 420670}
   - 108: {fileID: 10890604}
   - 114: {fileID: 11468792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   - 23: {fileID: 2380054}
   - 114: {fileID: 11486222}
   - 114: {fileID: 11491652}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireComplex
   m_TagString: Fire
   m_Icon: {fileID: 0}
@@ -886,7 +886,7 @@ GameObject:
   - 4: {fileID: 434462}
   - 198: {fileID: 19886144}
   - 199: {fileID: 19952972}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1334,7 +1334,7 @@ GameObject:
   - 4: {fileID: 409160}
   - 198: {fileID: 19893804}
   - 199: {fileID: 19911486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4044,7 +4044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Light: {fileID: 10890604}
   m_AudioSource: {fileID: 8243632}
-  m_ParticleSystem: {fileID: 19896390}
+  m_ParticleSystems: []
 --- !u!114 &11409384
 MonoBehaviour:
   m_ObjectHideFlags: 1

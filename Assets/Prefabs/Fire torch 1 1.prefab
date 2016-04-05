@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 497242}
   - 198: {fileID: 19833620}
   - 199: {fileID: 19940434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flames
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 443046}
   - 108: {fileID: 10827758}
   - 114: {fileID: 11491012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - 4: {fileID: 444390}
   - 198: {fileID: 19818696}
   - 199: {fileID: 19943246}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - 23: {fileID: 2335238}
   - 114: {fileID: 11432570}
   - 114: {fileID: 11484316}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireComplex
   m_TagString: Fire
   m_Icon: {fileID: 0}
@@ -239,9 +239,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149188}
-  m_LocalRotation: {x: 0.17364822, y: 0.9848078, z: -0.000000028290886, w: -0.00000016044557}
-  m_LocalPosition: {x: -4.55, y: 8.41, z: 14.05}
-  m_LocalScale: {x: 2.1424937, y: 2.602119, z: 1}
+  m_LocalRotation: {x: -0.16895586, y: -0.9581961, z: 0.04009516, w: 0.2273909}
+  m_LocalPosition: {x: -5.659, y: 10.453, z: 20.442}
+  m_LocalScale: {x: 2.3005328, y: 2.6293037, z: 1.0826242}
   m_Children:
   - {fileID: 495482}
   - {fileID: 413012}
