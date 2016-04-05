@@ -582,7 +582,7 @@ GameObject:
   - 114: {fileID: 11464012}
   m_Layer: 0
   m_Name: Mummy
-  m_TagString: Mummy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1914,7 +1914,6 @@ MonoBehaviour:
   soundVision: {fileID: 11483624}
   audio_source: {fileID: 8261950}
   model: {fileID: 0}
-  player_tag: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &11483624
 MonoBehaviour:

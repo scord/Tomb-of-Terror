@@ -67,6 +67,7 @@ GameObject:
   - 54: {fileID: 5487728}
   - 114: {fileID: 11417492}
   - 82: {fileID: 8214034}
+  - 114: {fileID: 11421774}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -359,8 +360,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ea257c8d4fa8e47abeb6ef926c25c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorOn_sound: {fileID: 8300000, guid: fbe99e6353712dc4b8fbc3f8d63d6fe6, type: 3}
-  doorOff_sound: {fileID: 8300000, guid: fbe99e6353712dc4b8fbc3f8d63d6fe6, type: 3}
+  doorOn_sound: {fileID: 0}
+  doorOff_sound: {fileID: 0}
+--- !u!114 &11421774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 93
+    i1: 98
+    i2: 39
+    i3: 166
+    i4: 168
+    i5: 238
+    i6: 47
+    i7: 180
+    i8: 185
+    i9: 77
+    i10: 187
+    i11: 120
+    i12: 51
+    i13: 225
+    i14: 164
+    i15: 6
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &11434634
 MonoBehaviour:
   m_ObjectHideFlags: 1

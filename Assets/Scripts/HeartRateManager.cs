@@ -11,6 +11,9 @@ public class HeartRateManager : NetworkBehaviour {
 	System.Diagnostics.Process HRProcess;
     System.Diagnostics.Process bluKillProcess;
 
+  public delegate void HRDelegate(int newHR);
+  public event HRDelegate EventHRUpdate;
+
 	//[SyncVar]
 	public int HeartRate;
 	
@@ -43,13 +46,14 @@ public class HeartRateManager : NetworkBehaviour {
 	}
 
 	void ProcessData(object ob){
-		string path = ob.ToString();
+		//string path = ob.ToString();
 
-		Debug.Log ("Thread started");
-        String text;
+		Debug.Log ("Thread started " + ob);
+    String text;
 		while (programActive) {
-            text = HRProcess.StandardOutput.ReadLine();
+      text = HRProcess.StandardOutput.ReadLine();
 			HeartRate = Convert.ToInt32(text);
+			Debug.Log("My heart rate is: " + HeartRate);
 		}
 		Debug.Log ("Thread stopped");
 	}
@@ -69,12 +73,12 @@ public class HeartRateManager : NetworkBehaviour {
         bluKillProcess.WaitForExit();
         
 		Debug.Log ("Heart Rate Disabled");
-  
-
 	}
 
 	 
 	void Update () {
-
+		if (EventHRUpdate != null) {
+			EventHRUpdate(HeartRate);
+		}
 	}
 }

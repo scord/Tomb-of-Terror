@@ -17,12 +17,20 @@ public class PlayerController : MonoBehaviour {
 
     public Animator animator;
 
+
+    public delegate void PickUpDelegate(GameObject go);
+    public event PickUpDelegate EventPickUp;
+
+    public delegate void ThrowDelegate(GameObject go, Vector3 direction);
+    public event ThrowDelegate EventThrow;
+
     virtual protected void Start () {
         GetComponent<IKHandler>().enabled = true;
         GetComponent<OVRPlayerController>().enabled = true;
         GetComponent<OVRSceneSampleController>().enabled = true;
 	    turned = false;
         carrying = false;
+        carriedObject = null;
         animator = GetComponent<Animator>();
         audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
         if (player_tag == null)
@@ -38,8 +46,8 @@ public class PlayerController : MonoBehaviour {
         move = false;
         
         float moveVertical = Input.GetAxis("Vertical");
-        float lookHorizontal = Input.GetAxis("RightH");
-        float lookVertical = Input.GetAxis("RightV");
+        //float lookHorizontal = Input.GetAxis("RightH");
+        //float lookVertical = Input.GetAxis("RightV");
 
 
         if (moveVertical == 1.0)
@@ -68,10 +76,15 @@ public class PlayerController : MonoBehaviour {
 
     protected void Throw()
     {
-        carriedObject.GetComponent<Rigidbody>().isKinematic = false;
+        //carriedObject.GetComponent<Rigidbody>().isKinematic = false;
         carrying = false;
-        carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 100);
-        carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
+        //carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 100);
+        //carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
+        //carriedObject.GetComponent<Object_SyncPosition>().Throw();
+        if (EventThrow != null) {
+            EventThrow(carriedObject, cam.transform.TransformDirection(Vector3.forward) * 100);
+        }
+        carriedObject = null;
     }
 
     protected void PickUp()
@@ -84,8 +97,16 @@ public class PlayerController : MonoBehaviour {
                 carriedObject = hit.collider.gameObject;
                 carriedObject.GetComponent<Rigidbody>().isKinematic = true;
                 carrying = true;
+                if ( EventPickUp != null ) {
+                    EventPickUp(carriedObject);
+                }
+                //carriedObject.GetComponent<Object_SyncPosition>().PickUp("something");
             }
         }
+    }
+
+    public GameObject GetCarriedObject() {
+        return carriedObject;
     }
 
     void OnTriggerEnter(Collider other)

@@ -5,17 +5,17 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour {
 
     public int selected;
-    Text[] buttons;
+    //Text[] buttons;
     public NetManager manager;
     string ip;
     public bool host;
 	// Use this for initialization
 	void Start () {
         selected = 0;
-	    buttons = GetComponentsInChildren<Text>();
+	    //buttons = GetComponentsInChildren<Text>();
     }
 
-    bool pressed = false;
+    //bool pressed = false;
 	// Update is called once per frame
 
     public void JoinGame(int playerID)
@@ -30,7 +30,6 @@ public class MenuController : MonoBehaviour {
     {
         ip = transform.FindChild("IPAddressInput").GetComponent<InputField>().text;
         Debug.Log(ip);
-
 
         manager.JoinGame(playerID, true, ip);
     }

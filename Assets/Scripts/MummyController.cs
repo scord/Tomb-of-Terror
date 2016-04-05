@@ -38,7 +38,5 @@ public class MummyController : PlayerController {
             
             murmurTimer = 0.0f;
         }
-        
-
 	}
 }
