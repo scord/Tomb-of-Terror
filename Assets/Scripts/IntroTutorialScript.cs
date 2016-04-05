@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class IntroTutorialScript : MonoBehaviour {
 
-  private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas;
+  private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas;
   private PlayerController playerController;
   public Camera cam;
   public GameObject explorerObject;
@@ -16,11 +16,13 @@ public class IntroTutorialScript : MonoBehaviour {
     pivotCanvas.SetActive(false);
     pickupCanvas.SetActive(false);
     throwCanvas.SetActive(false);
+    gobackCanvas.SetActive(false);
 
     walkCanvas.GetComponent<CanvasGroup>().alpha = 0;
     pivotCanvas.GetComponent<CanvasGroup>().alpha = 0;
     pickupCanvas.GetComponent<CanvasGroup>().alpha = 0;
     throwCanvas.GetComponent<CanvasGroup>().alpha = 0;
+    gobackCanvas.GetComponent<CanvasGroup>().alpha = 0;
 
     FadeToWalk();
   }
@@ -32,6 +34,7 @@ public class IntroTutorialScript : MonoBehaviour {
     pivotCanvas = GameObject.Find("Controller-Pivot");
     pickupCanvas = GameObject.Find("Controller-PickUp");
     throwCanvas = GameObject.Find("Controller-Throw");
+    gobackCanvas = GameObject.Find("Controller-GoBack");
   }
   
   // Update is called once per frame
@@ -50,11 +53,16 @@ public class IntroTutorialScript : MonoBehaviour {
       }
     }
     else if (pickupCanvas.activeSelf && playerController.carrying) {
-      Debug.Log("throw");
       FadeToThrow();
     }
     else if (throwCanvas.activeSelf && (!playerController.carrying)) {
       StartCoroutine(FadeOut(throwCanvas, 0.5F)); 
+    }
+    else if (explorerObject.transform.position.z < -140 || explorerObject.transform.position.x < -45 || explorerObject.transform.position.x > 45) {
+      StartCoroutine(FadeIn(gobackCanvas, 1.0F));
+    }
+    else if ((explorerObject.transform.position.z > -140 && explorerObject.transform.position.x > -45 && explorerObject.transform.position.x < 45) && gobackCanvas.activeSelf) {
+      StartCoroutine(FadeOut(gobackCanvas, 1.0F));
     }
   }
 
