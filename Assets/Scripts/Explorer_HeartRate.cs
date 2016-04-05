@@ -33,7 +33,7 @@ public class Explorer_HeartRate : NetworkBehaviour {
             //Debug.Log("open, Delay: "+delay+" time: "+((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)));
             HRAudioSelect = !HRAudioSelect;
             m_OpenValve.pitch = 1.0f;
-            m_OpenValve.volume = (float)Math.Pow((double)HeartRate,heartVolumeExpScale)/normalHR; //high heart rate is louder
+			m_OpenValve.volume = Mathf.Clamp((float)Math.Pow(((double)HeartRate - normalHR)/10.0f,heartVolumeExpScale),0,1); // higher heart rate is louder
             m_OpenValve.Play();
             heartBeatTimer = 0.0f;
         }
@@ -46,7 +46,7 @@ public class Explorer_HeartRate : NetworkBehaviour {
             //Debug.Log("close, Delay: "+delay+" time: "+((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)));
             HRAudioSelect = !HRAudioSelect;
             m_CloseValve.pitch = 1.0f;
-            m_CloseValve.volume = (float)Math.Pow((double)HeartRate,heartVolumeExpScale)/normalHR; // higher heart rate is louder
+			m_CloseValve.volume = Mathf.Clamp((float)Math.Pow(((double)HeartRate - normalHR)/10.0f,heartVolumeExpScale),0,1); // higher heart rate is louder
             m_CloseValve.Play();
             
             heartBeatTimer = 0.0f;
