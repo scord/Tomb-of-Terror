@@ -8,8 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: MarbleGlow
   m_Shader: {fileID: 4800000, guid: 1ea2a2aed43864f42ae937de2c5ecb36, type: 3}
-  m_ShaderKeywords: _EMISSION _NORMALMAP
-  m_LightmapFlags: 1
+  m_ShaderKeywords: _NORMALMAP
+  m_LightmapFlags: 5
   m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
@@ -146,7 +146,7 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0.33088207, g: 4.0339746, b: 5, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color

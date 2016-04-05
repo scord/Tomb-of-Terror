@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour {
     protected bool turned;
     protected bool move;
     public GameObject model;
+    public Renderer renderer;
+    public Shader standardShader;
+    public Shader glowShader;
 	// public SoundVision test;
     // Use this for initialization
 
@@ -23,6 +26,9 @@ public class PlayerController : MonoBehaviour {
         carrying = false;
         animator = GetComponent<Animator>();
         audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
+
+        standardShader = Shader.Find("Standard");
+        glowShader = Shader.Find("Custom/ItemGlow");
     }
 	
 	// Update is called once per frame
@@ -60,8 +66,15 @@ public class PlayerController : MonoBehaviour {
     {
         carriedObject.GetComponent<Rigidbody>().isKinematic = false;
         carrying = false;
-        carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 100);
+        carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 200);
         carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
+        if (carriedObject.GetComponent<Renderer>() != null) 
+        {
+            if (renderer.material.shader == standardShader) 
+            {
+                renderer.material.shader = glowShader;
+            }
+        }
     }
 
     protected void PickUp()
@@ -73,6 +86,14 @@ public class PlayerController : MonoBehaviour {
             {
                 carriedObject = hit.collider.gameObject;
                 carriedObject.GetComponent<Rigidbody>().isKinematic = true;
+                if (carriedObject.GetComponent<Renderer>() != null)
+                {
+                    renderer = carriedObject.GetComponent<Renderer>();
+                    if (renderer.material.shader == glowShader) 
+                    {
+                        renderer.material.shader = standardShader;
+                    }
+                }             
                 carrying = true;
             }
         }
