@@ -11,19 +11,19 @@ public class InteractScript : MonoBehaviour {
 	private string infoText;
 
 	void Start(){
-		info = GameObject.Find("Text").GetComponent<Text>();
-		info.enabled = false;
+		// info = GameObject.Find("Text").GetComponent<Text>();
+		// info.enabled = false;
 	}
 
 	public void PreInteract(){
 		if(withKey){
-			info.text = targetObject.GetText();
-			info.enabled = true;
+			// info.text = targetObject.GetText();
+			// info.enabled = true;
 		}
 	}
 
 	public void EndInteract(){
-		info.enabled = false;
+		// info.enabled = false;
 	}
 
 	public void Interact() {

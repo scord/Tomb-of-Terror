@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &137764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 412616}
+  - 114: {fileID: 11482702}
+  m_Layer: 0
+  m_Name: Generation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &412616
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 28.992622, y: 45.156498, z: -74.733795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11482702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3372f8333ec1a42819c49e6de48187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passage: {fileID: 11487716, guid: ef4133f2b6c519747af2f2e7ae9023a1, type: 2}
+  corners:
+  - {fileID: 11462824, guid: 492e41c93cff7564e8a76891f1327fde, type: 2}
+  - {fileID: 11483540, guid: f7b88aed96ec265439afc2bb4e38d666, type: 2}
+  - {fileID: 11483042, guid: ae4dcd833cca9e6439650a601d40e241, type: 2}
+  - {fileID: 11422546, guid: b87c84a48e6a83748b01ef9114b9aaef, type: 2}
+  roomPrefab: {fileID: 11413974, guid: df34974063c6baf469d59f1771283d69, type: 2}
+  roomCount: 1
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 137764}
+  m_IsPrefabParent: 1
