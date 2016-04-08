@@ -1100,7 +1100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: 5.8, z: -91.1}
+  m_LocalPosition: {x: -0.4, y: 3.52, z: -91.1}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 419166}
@@ -1911,9 +1911,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2046702}
-  soundVision: {fileID: 11483624}
+  soundVision: {fileID: 0}
   audio_source: {fileID: 8261950}
   model: {fileID: 0}
+  player_tag: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &11483624
 MonoBehaviour:

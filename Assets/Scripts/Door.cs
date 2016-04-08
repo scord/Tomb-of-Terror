@@ -21,14 +21,14 @@ public class Door : TargetInteract{
 	}
 
 	public override void Trigger(){
-    if (hasAuthority) {
-      gravity = !gravity; 
-      GetComponent<Rigidbody>().useGravity = false;
-      GetComponent<Rigidbody>().velocity = transform.up * -3 * direction;  
-      direction = -direction;
-    } else {
-      CmdSetDirection(-direction);
-    }
+    // if (hasAuthority) {
+    //   gravity = !gravity; 
+    //   GetComponent<Rigidbody>().useGravity = false;
+    //   GetComponent<Rigidbody>().velocity = transform.up * -3 * direction;  
+    //   direction = -direction;
+    // } else {
+    //   CmdSetDirection(-direction);
+    // }
 	}
 
   [Command]
