@@ -1911,7 +1911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2046702}
-  soundVision: {fileID: 0}
+  soundVision: {fileID: 11483624}
   audio_source: {fileID: 8261950}
   model: {fileID: 0}
   player_tag: {fileID: 0}
