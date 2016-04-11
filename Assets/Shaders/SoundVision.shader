@@ -83,7 +83,9 @@
 				float dist = clamp(distance(_EchoSource, i.worldPos), 0.5, 100);
 				float4 base_color = _EchoColor*falloff;
 
+				
 				float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
+				float enabled = max(0, sign(speed*_EchoTime - dist));
 				color += 5*enabled*_EchoColor / pow(abs(dist2),2);
 
 			//	color += enabled*base_color * (1 - smoothstep(0, 8, _EchoTime));
