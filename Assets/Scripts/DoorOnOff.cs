@@ -20,6 +20,7 @@ public class DoorOnOff : MonoBehaviour {
 
 		doorSound.clip = door.doorOn_sound;
 		doorSound.time = 1;
+		Debug.Log("PLAY SOOOOUND");
 		doorSound.Play();
 	}
 
@@ -30,7 +31,8 @@ public class DoorOnOff : MonoBehaviour {
 
 	void Update(){
 		if (doorBody.IsSleeping()){
-			doorSound.Stop();
+			// Debug.Log("STOOOOP");
+			// doorSound.Stop();
 		}
 	}
 

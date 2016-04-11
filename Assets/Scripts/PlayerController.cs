@@ -38,13 +38,13 @@ public class PlayerController : MonoBehaviour {
             player_tag = GameObject.FindGameObjectWithTag("Player");
         }
     }
-	
+
 	// Update is called once per frame
 	virtual protected void Update () {
 
 
         move = false;
-        
+
         float moveVertical = Input.GetAxis("Vertical");
         //float lookHorizontal = Input.GetAxis("RightH");
         //float lookVertical = Input.GetAxis("RightV");
@@ -111,7 +111,6 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OUTSIDE");
         if (other.gameObject.tag == "Prize")
         {
             Debug.Log("WAS HERE");
