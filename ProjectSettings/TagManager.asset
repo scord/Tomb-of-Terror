@@ -11,6 +11,9 @@ TagManager:
   - Hints
   - Interaction
   - Prize
+  - Fire
+  - ServerExplorerCameraSpawn
+  - ServerMummyCameraSpawn
   layers:
   - Default
   - TransparentFX

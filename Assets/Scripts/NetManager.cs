@@ -53,26 +53,27 @@ public class NetManager : NetworkManager
     void OnPlayerResponse(NetworkMessage netMsg)
     {
         PlayerMsg msg = netMsg.ReadMessage<PlayerMsg>();
-        Vector3 spawnPos;
+        Transform spawnTransform;
         switch(msg.chosenPlayerIndex) {
             case 0:
                 chosenPlayer = players[0];
-                spawnPos = GameObject.Find("ServerSpawner").transform.position;
+                spawnTransform = GameObject.Find("ServerSpawner").transform;
+
                 break;
             case 1:
                 chosenPlayer = players[1];
-                spawnPos = GameObject.Find("MummySpawner").transform.position;
+                spawnTransform = GameObject.Find("MummySpawner").transform;
                 break;
             case 2:
                 chosenPlayer = players[2];
-                spawnPos = GameObject.Find("ExplorerSpawner").transform.position;
+                spawnTransform = GameObject.Find("ExplorerSpawner").transform;
                 break;
             default:
                 Debug.LogError("Uknown player index");
                 return;
 
         }
-        GameObject player = (GameObject)Instantiate(chosenPlayer, spawnPos, Quaternion.identity);
+        GameObject player = (GameObject)Instantiate(chosenPlayer, spawnTransform.position, spawnTransform.rotation);
         NetworkServer.AddPlayerForConnection(netMsg.conn, player, msg.controllerId);
         Debug.Log(chosenPlayer.name);
     }
