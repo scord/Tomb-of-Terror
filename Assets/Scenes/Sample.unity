@@ -15537,6 +15537,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11443192, guid: b1aeced1b9714474db3cd8d8835cc376, type: 2}
+      propertyPath: doorOn_sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 354c37cd61ec24bbcbbc7921d0a71bc1, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1aeced1b9714474db3cd8d8835cc376, type: 2}
   m_IsPrefabParent: 0
@@ -20447,7 +20451,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &688640145
 GameObject:
   m_ObjectHideFlags: 0
@@ -30662,7 +30666,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &903188501
 GameObject:
   m_ObjectHideFlags: 0
@@ -65169,7 +65173,7 @@ Transform:
   - {fileID: 399296826}
   - {fileID: 1325080131}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1001 &1903321057
 Prefab:
   m_ObjectHideFlags: 0
