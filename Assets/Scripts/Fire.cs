@@ -12,7 +12,7 @@ public class Fire : TargetInteract{
 	private void Start() {
         m_ParticleSystems = GetComponentsInChildren<ParticleSystem>();
         m_AudioSource = gameObject.GetComponentInChildren<AudioSource>();
-    m_Light = gameObject.GetComponentsInChildren<Light>(true)[0];
+    		m_Light = gameObject.GetComponentsInChildren<Light>(true)[0];
 		UpdateParticleSystem();
 	}
 
@@ -27,7 +27,7 @@ public class Fire : TargetInteract{
       active = !active;
       UpdateParticleSystem();
     }
-    else 
+    else
 		  CmdSetActive(!active);
 	}
 
@@ -79,5 +79,3 @@ public class Fire : TargetInteract{
   	}
   }
 }
-
-
