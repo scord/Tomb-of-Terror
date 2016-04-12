@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 
 public class ExplorerController : PlayerController {
-	
+
 	//private Light torchIntensity;
 
 
@@ -13,45 +13,55 @@ public class ExplorerController : PlayerController {
     private float firstMarkSpace = 0.5F;
     private double heartVolumeExpScale = 1.035f;
     private HeartRateManager HRManager;
-    
+
     private float heartBeatTimer;
     private bool HRAudioSelect;
     private int HR;
     public int normalHR = 65;
     public AudioSource openValve;
     public AudioSource closeValve;
-    
+
+
+		private bool alive = true;
+		private int air = 10;
+		private float interval = 1 ;
+		private float airTimer = 0;
+
 
 	protected override void Start(){
-        
+
         HRAudioSelect = true;
-        
+
 		base.Start();
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
 
         heartBeatTimer = 0.0f;
-        
+
         HRManager = GameObject.Find("HeartRate").GetComponent<HeartRateManager>();;
-        
+
 	}
-	
+
+
+
 	protected override void Update(){
 		base.Update();
-        
+
+
+
         heartBeatTimer += Time.deltaTime;
-        
+
 		//wheelDirection = Input.GetAxis("Mouse ScrollWheel");
       //  if (wheelDirection > 0)
       //      torchIntensity.intensity += 0.20f;
       //  else if (wheelDirection <  0)
       //          torchIntensity.intensity -= 0.20f;
-  
+
         HR = HRManager.HeartRate;
 
 /*
         if (HRAudioSelect){
             float delay = firstMarkSpace*60/((float)(HR));
-            
+
             if (heartBeatTimer > delay){
                 //Debug.Log("open, Delay: "+delay+" time: "+((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)));
                 HRAudioSelect = !HRAudioSelect;
@@ -60,24 +70,24 @@ public class ExplorerController : PlayerController {
                 openValve.Play();
                 heartBeatTimer = 0.0f;
             }
-            
+
         } else {
-            
+
             float delay = (1-firstMarkSpace)*60/((float)(HR));
-            
+
             if (heartBeatTimer > delay){
                 //Debug.Log("close, Delay: "+delay+" time: "+((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)));
                 HRAudioSelect = !HRAudioSelect;
                 closeValve.pitch = 1.0f;
                 closeValve.volume = (float)Math.Pow((double)HR,heartVolumeExpScale)/normalHR; // higher heart rate is louder
                 closeValve.Play();
-                
+
                 heartBeatTimer = 0.0f;
             }
-            
+
 
         }*/
-  
+
         if (Input.GetButtonDown("Fire2"))
             if (!carrying)
                 PickUp();

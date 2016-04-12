@@ -7,9 +7,11 @@ public class Fire : TargetInteract{
     [SerializeField]
     private ParticleSystem[] m_ParticleSystems;
     private AudioSource m_AudioSource;
-  private Light m_Light;
+	  private Light m_Light;
+		private AirManager air;
 
 	private void Start() {
+				air = (AirManager) FindObjectOfType(typeof(AirManager));
         m_ParticleSystems = GetComponentsInChildren<ParticleSystem>();
         m_AudioSource = gameObject.GetComponentInChildren<AudioSource>();
     		m_Light = gameObject.GetComponentsInChildren<Light>(true)[0];
@@ -29,7 +31,10 @@ public class Fire : TargetInteract{
     }
     else
 		  CmdSetActive(!active);
-	}
+
+		if(air)
+			air.UpdateAir(active);
+}
 
   [Command]
   private void CmdSetActive(bool newActive) {

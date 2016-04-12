@@ -27,6 +27,8 @@ public class Trigger_Manager : NetworkBehaviour {
     }
   }
 
+
+
   [Command]
   void CmdTriggerInteract(int index) {
     GM_Ref.GetInteractObject(index).Interact();
@@ -46,7 +48,7 @@ public class Trigger_Manager : NetworkBehaviour {
   void OnTriggerStay(Collider other){
       if(isLocalPlayer && other.tag.Equals("Interaction") && !onTrigger && trig != null){
           SetOnTrig(true);
-          trig.PreInteract(); 
+          trig.PreInteract();
       }
   }
   void OnTriggerExit(Collider other){
