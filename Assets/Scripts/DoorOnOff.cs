@@ -19,8 +19,7 @@ public class DoorOnOff : MonoBehaviour {
 		doorBody.velocity = transform.up * 3;
 
 		doorSound.clip = door.doorOn_sound;
-		// doorSound.time = 1;
-		Debug.Log("PLAY SOOOOUND");
+		doorSound.time = 1;
 		doorSound.Play();
 	}
 

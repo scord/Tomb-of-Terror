@@ -1196,6 +1196,8 @@ MonoBehaviour:
   cam: {fileID: 2016232}
   soundVision: {fileID: 11431912}
   audio_source: {fileID: 8219586}
+  model: {fileID: 0}
+  player_tag: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &11431912
 MonoBehaviour:
@@ -1209,12 +1211,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 055c60687fbff0749a949ccc17313595, type: 3}
-  audioSource: {fileID: 8219586}
   heartRateManager: {fileID: 0}
+  maxWaves: 64
   maxLength: 64
-  timer: 0
-  waves: {fileID: 0}
-  stacksize: 0
+  numfree: 0
+  color: {r: 0, g: 0.85, b: 1, a: 1}
 --- !u!114 &11498754
 MonoBehaviour:
   m_ObjectHideFlags: 1

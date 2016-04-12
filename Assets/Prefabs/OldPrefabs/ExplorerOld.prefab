@@ -2700,7 +2700,12 @@ MonoBehaviour:
   cam: {fileID: 2055604}
   soundVision: {fileID: 0}
   audio_source: {fileID: 8207844}
+  model: {fileID: 0}
+  player_tag: {fileID: 0}
   animator: {fileID: 0}
+  normalHR: 65
+  openValve: {fileID: 0}
+  closeValve: {fileID: 0}
 --- !u!124 &12490218
 Behaviour:
   m_ObjectHideFlags: 1
