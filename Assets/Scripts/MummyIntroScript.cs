@@ -4,6 +4,7 @@ using System.Collections;
 public class MummyIntroScript : MonoBehaviour {
 
 	private GameObject headCanvas, walkCanvas, pivotCanvas;
+	private GameObject trapTrigger, coffinEnter, coffinOut;
 
   // Use this for initialization
   protected void Start () {
@@ -17,12 +18,17 @@ public class MummyIntroScript : MonoBehaviour {
     FadeToWalk();
   }
 
+
+
   protected void Awake () {
     headCanvas = GameObject.Find("Controller-Head");
     walkCanvas = GameObject.Find("Controller-Walk");
     pivotCanvas = GameObject.Find("Controller-Pivot");
+		trapTrigger = GameObject.Find("TrapTrigger");
+		coffinEnter = GameObject.Find("TrapDoor");
+		coffinOut 	= GameObject.Find("CoffinDoor");
   }
-  
+
   // Update is called once per frame
   protected void Update () {
     if ( (Input.GetAxis("Vertical") != 0) && walkCanvas.activeSelf) {
@@ -42,7 +48,7 @@ public class MummyIntroScript : MonoBehaviour {
     StartCoroutine(FadeIn(pivotCanvas, 0.1F));
   }
 
-  IEnumerator WaitFunction (float waitTime) 
+  IEnumerator WaitFunction (float waitTime)
   {
     yield return new WaitForSeconds(waitTime);
     StartCoroutine(FadeOut(headCanvas, 0.5F));
@@ -60,7 +66,7 @@ public class MummyIntroScript : MonoBehaviour {
         yield return null;
     }
   }
- 
+
   IEnumerator FadeOut (GameObject obj, float speed) {
     float increment;
     CanvasGroup cv = obj.GetComponent<CanvasGroup>();
