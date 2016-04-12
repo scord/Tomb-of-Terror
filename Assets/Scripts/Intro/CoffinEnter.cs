@@ -16,5 +16,6 @@ public class CoffinEnter : TriggeredObject{
     vision.enabled = true;
     view.backgroundColor = new Color (0, 0, 0, 1);
     view.cullingMask = (view.cullingMask ) &  ~(1 << LayerMask.NameToLayer("Ignore Sound Vision"));
+    view.clearFlags = CameraClearFlags.SolidColor;
   }
 }

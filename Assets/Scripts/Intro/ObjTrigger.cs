@@ -11,6 +11,4 @@ public class ObjTrigger : MonoBehaviour {
     targetObject.Trigger(other);
     Destroy(gameObject);
   }
-
-
 }
