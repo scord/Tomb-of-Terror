@@ -6,13 +6,12 @@ using UnityEngine.SceneManagement;
 public class AirManager : MonoBehaviour {
 
   private bool alive = true;
-  private int air = 10;
+  [SerializeField] private int air = 50;
   private float interval = 1 ;
   private float airTimer = 0;
 
   void Start(){
     alive = true;
-    air = 10;
     interval = 1;
     airTimer = 0;
   }
