@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MummyIntroScript : MonoBehaviour {
 
-	private GameObject headCanvas, walkCanvas, pivotCanvas;
+	private GameObject headCanvas, walkCanvas, pivotCanvas, echolocateCanvas;
 	private GameObject trapTrigger, coffinEnter, coffinOut;
 
   // Use this for initialization
@@ -11,9 +11,11 @@ public class MummyIntroScript : MonoBehaviour {
     headCanvas.SetActive(true);
     walkCanvas.SetActive(false);
     pivotCanvas.SetActive(false);
+    echolocateCanvas.SetActive(false);
 
     walkCanvas.GetComponent<CanvasGroup>().alpha = 0;
     pivotCanvas.GetComponent<CanvasGroup>().alpha = 0;
+    echolocateCanvas.GetComponent<CanvasGroup>().alpha = 0;
 
     FadeToWalk();
   }
@@ -24,6 +26,7 @@ public class MummyIntroScript : MonoBehaviour {
     headCanvas = GameObject.Find("Controller-Head");
     walkCanvas = GameObject.Find("Controller-Walk");
     pivotCanvas = GameObject.Find("Controller-Pivot");
+    echolocateCanvas = GameObject.Find("Controller-Echolocate");
 		trapTrigger = GameObject.Find("TrapTrigger");
 		coffinEnter = GameObject.Find("TrapDoor");
 		coffinOut 	= GameObject.Find("CoffinDoor");
@@ -68,6 +71,7 @@ public class MummyIntroScript : MonoBehaviour {
   }
 
   IEnumerator FadeOut (GameObject obj, float speed) {
+    Debug.Log("fade " + obj);
     float increment;
     CanvasGroup cv = obj.GetComponent<CanvasGroup>();
     while (cv.alpha > 0) {

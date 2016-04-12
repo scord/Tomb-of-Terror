@@ -1892,7 +1892,7 @@ Transform:
   - {fileID: 598958209}
   - {fileID: 1091429018}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &697510969
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,7 +1929,7 @@ Transform:
   - {fileID: 545805830}
   - {fileID: 817586969}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &739797503
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,76 +2274,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
   m_PrefabInternal: {fileID: 811054660}
---- !u!1001 &814163595
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 3.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -91.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 450408, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046702, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046702, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_BackGroundColor.a
-      value: 0.003
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046702, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046702, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046702, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2046702, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_CullingMask.m_Bits
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 11483624, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &817586968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,7 +2393,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &939227816
 GameObject:
   m_ObjectHideFlags: 0
@@ -4104,7 +4034,7 @@ Transform:
   - {fileID: 2011486501}
   - {fileID: 1524126968}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1 &1471212956
 GameObject:
   m_ObjectHideFlags: 0
@@ -4520,7 +4450,7 @@ Transform:
   - {fileID: 1659988368}
   - {fileID: 171740246}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1001 &1552602220
 Prefab:
   m_ObjectHideFlags: 0
