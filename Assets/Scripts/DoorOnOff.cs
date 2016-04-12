@@ -26,9 +26,6 @@ public class DoorOnOff : MonoBehaviour {
 	void OnTriggerStay(Collider other) {
 		if(doorBody.useGravity)
 			doorBody.useGravity = false;
-	}
-
-	void Update(){
 		if (doorBody.IsSleeping()){
 			doorSound.Stop();
 		}
