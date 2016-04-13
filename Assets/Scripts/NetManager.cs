@@ -7,7 +7,7 @@ public class NetManager : NetworkManager
 {
     [SerializeField] private GameObject[] players;
 	public GameManager gameManager;
-   
+
     GameObject chosenPlayer;
     public Vector3 playerSpawnPos;
     int chosenPlayerIndex;
@@ -15,21 +15,21 @@ public class NetManager : NetworkManager
 
     // Sets the message code to a value that is not already being used
     const short playerMsgType = MsgType.Highest + 1;
-    
+
     class PlayerMsg : MessageBase
     {
         public short chosenPlayerIndex;
         public short controllerId;
     };
-    
+
 
     // Called from the MenuController, starts game as a player/client
     public void JoinGame(int playerId, bool host, string ip)
     {
-        chosenPlayerIndex = playerId; 
+        chosenPlayerIndex = playerId;
         NetworkManager.singleton.networkPort = 7777;
         NetworkManager.singleton.networkAddress = ip;
-        Debug.Log(NetworkManager.singleton);
+        // Debug.Log(NetworkManager.singleton);
         if (host)
             NetworkManager.singleton.StartHost();
         else
@@ -74,7 +74,7 @@ public class NetManager : NetworkManager
         }
         GameObject player = (GameObject)Instantiate(chosenPlayer, spawnPos, Quaternion.identity);
         NetworkServer.AddPlayerForConnection(netMsg.conn, player, msg.controllerId);
-        Debug.Log(chosenPlayer.name);
+        // Debug.Log(chosenPlayer.name);
     }
 
     // Called when the server sends a message

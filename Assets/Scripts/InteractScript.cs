@@ -4,7 +4,6 @@ using System.Collections;
 
 public class InteractScript : MonoBehaviour {
 
-	private Text info;
 	public TargetInteract targetObject;
 	public bool withKey;
 	[SerializeField] private KeyCode m_TriggerKey = KeyCode.E;
@@ -12,25 +11,27 @@ public class InteractScript : MonoBehaviour {
 	private string infoText;
 
 	void Start(){
-		info = GameObject.Find("FireTip").GetComponent<Text>();
-		info.enabled = false;
-		Debug.Log("Interact Started");
+		// if(GameObject.Find("Explorer"))
+			// info = GameObject.Find("Explorer/FireTip").GetComponent<Text>();
+		// info.enabled = false;
 	}
 
-	public void PreInteract(){
+	public string PreInteract(){
 		if(withKey){
-			info.text = "Press " +  m_TriggerKey.ToString() + " to " +targetObject.GetText();
-			info.enabled = true;
+			infoText = "Press " +  m_TriggerKey.ToString() + " to " +targetObject.GetText();
+			// info.enabled = true;
 		}
+		return infoText;
 	}
 
 	public void EndInteract(){
-		//info.enabled = false;
+		// info.enabled = false;
 	}
 
-	public void Interact() {
+	public string Interact() {
 		targetObject.Trigger();
-		info.text = "Press " +  m_TriggerKey.ToString() + " to " +targetObject.GetText();
+		infoText = "Press " +  m_TriggerKey.ToString() + " to " +targetObject.GetText();
+		return infoText;
 	}
 
 	public KeyCode GetKeyCode() {

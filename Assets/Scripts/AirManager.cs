@@ -17,7 +17,6 @@ public class AirManager : MonoBehaviour {
   }
 
   public void UpdateAir(bool fire){
-    Debug.Log(fire);
     if(!fire)
       interval += 0.5f;
     else

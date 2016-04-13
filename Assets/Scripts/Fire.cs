@@ -13,7 +13,6 @@ public class Fire : TargetInteract{
 		private Text info;
 
 	private void Start() {
-				// info = GameObject.Find("FireTip").GetComponent<Text>();
 
 				air = (AirManager) FindObjectOfType(typeof(AirManager));
         m_ParticleSystems = GetComponentsInChildren<ParticleSystem>();

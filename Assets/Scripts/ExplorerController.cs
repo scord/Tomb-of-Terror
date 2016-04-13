@@ -21,13 +21,6 @@ public class ExplorerController : PlayerController {
     public AudioSource openValve;
     public AudioSource closeValve;
 
-
-		private bool alive = true;
-		private int air = 10;
-		private float interval = 1 ;
-		private float airTimer = 0;
-
-
 	protected override void Start(){
 
         HRAudioSelect = true;

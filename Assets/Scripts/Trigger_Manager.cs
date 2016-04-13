@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Trigger_Manager : NetworkBehaviour {
 
   private InteractScript trig;
   private bool onTrigger;
+  [SerializeField] private Text fireInfo;
+  private string infoText;
 
   private Game_Manager_References GM_Ref;
 
   [SerializeField] private PlayerController m_Controller;
 
   void Start() {
+    fireInfo.enabled = false;
     GM_Ref = GameObject.Find("Game Manager").GetComponent<Game_Manager_References>();
     onTrigger = false;
   }
@@ -22,6 +26,7 @@ public class Trigger_Manager : NetworkBehaviour {
       if (onTrigger && trig != null && trig.withKey){
           if(Input.GetKeyDown(trig.GetKeyCode())){
             CmdTriggerInteract(GM_Ref.GetInteractObjectIndex(trig));
+            // Debug.Log(fireInfo);
           }
       }
     }
@@ -31,7 +36,7 @@ public class Trigger_Manager : NetworkBehaviour {
 
   [Command]
   void CmdTriggerInteract(int index) {
-    GM_Ref.GetInteractObject(index).Interact();
+    fireInfo.text = GM_Ref.GetInteractObject(index).Interact();
   }
 
   void OnTriggerEnter(Collider other){
@@ -39,7 +44,10 @@ public class Trigger_Manager : NetworkBehaviour {
       if (other.tag.Equals("Interaction")) {
         SetTrig((InteractScript) other.GetComponent(typeof(InteractScript)));
         SetOnTrig(true);
-        if(trig.withKey) trig.PreInteract();
+        if(trig.withKey) {
+          fireInfo.text =  trig.PreInteract();
+          fireInfo.enabled = true;
+        }
         else CmdTriggerInteract(GM_Ref.GetInteractObjectIndex(trig));
       }
     }
@@ -56,6 +64,7 @@ public class Trigger_Manager : NetworkBehaviour {
         SetOnTrig(false);
         trig.EndInteract();
         SetTrig(null);
+        fireInfo.enabled = false;
       }
   }
 
