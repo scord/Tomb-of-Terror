@@ -14,7 +14,6 @@ public class AudioEmitter : MonoBehaviour {
 	{
         AudioSource audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.pitch = Random.Range(0.8f, 1);
-        Debug.Log("TEST");
         audioSource.volume = Random.Range(collision.relativeVelocity.magnitude/5 - 0.1f, collision.relativeVelocity.magnitude/5);
         gameObject.GetComponent<AudioSource>().Play();
 	}
