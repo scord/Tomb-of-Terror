@@ -1905,7 +1905,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175566}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d633c359a14e3aa4cae91093f31b4254, type: 3}
   m_Name: 
@@ -1914,6 +1914,7 @@ MonoBehaviour:
   soundVision: {fileID: 11483624}
   audio_source: {fileID: 8261950}
   model: {fileID: 0}
+  player_tag: {fileID: 0}
   animator: {fileID: 0}
 --- !u!114 &11483624
 MonoBehaviour:

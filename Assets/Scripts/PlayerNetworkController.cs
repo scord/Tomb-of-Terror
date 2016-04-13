@@ -9,7 +9,7 @@ public class PlayerNetworkController : NetworkBehaviour {
     [SerializeField] private AudioListener m_Listener;
 
     // Use this for initialization
-    void Start () {
+    virtual protected void Start () {
         if (isLocalPlayer) {
             GameObject.Find("Main Camera").SetActive(false);
         }

@@ -6,6 +6,8 @@ public class ExplorerController : PlayerController {
 	
 	//private Light torchIntensity;
 
+    [SerializeField] private GameObject m_Torch;
+    private TorchManager torchManagerScript;
 
 	private float wheelDirection;
 	private bool onTrigger;
@@ -18,8 +20,6 @@ public class ExplorerController : PlayerController {
     private bool HRAudioSelect;
     private int HR;
     public int normalHR = 65;
-    public AudioSource openValve;
-    public AudioSource closeValve;
     
 
 	protected override void Start(){
@@ -31,60 +31,25 @@ public class ExplorerController : PlayerController {
 
         heartBeatTimer = 0.0f;
         
-        HRManager = GameObject.Find("HeartRate").GetComponent<HeartRateManager>();;
+        HRManager = GameObject.Find("HeartRate").GetComponent<HeartRateManager>();
+        m_Torch.SetActive(true);
+        torchManagerScript = new TorchManager(m_Torch);
+        torchManagerScript.Trigger(true);
         
 	}
 	
 	protected override void Update(){
 		base.Update();
         
-        heartBeatTimer += Time.deltaTime;
-        
-		//wheelDirection = Input.GetAxis("Mouse ScrollWheel");
-      //  if (wheelDirection > 0)
-      //      torchIntensity.intensity += 0.20f;
-      //  else if (wheelDirection <  0)
-      //          torchIntensity.intensity -= 0.20f;
-  
-        HR = HRManager.HeartRate;
-
-/*
-        if (HRAudioSelect){
-            float delay = firstMarkSpace*60/((float)(HR));
-            
-            if (heartBeatTimer > delay){
-                //Debug.Log("open, Delay: "+delay+" time: "+((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)));
-                HRAudioSelect = !HRAudioSelect;
-                openValve.pitch = 1.0f;
-                openValve.volume = (float)Math.Pow((double)HR,heartVolumeExpScale)/normalHR; //high heart rate is louder
-                openValve.Play();
-                heartBeatTimer = 0.0f;
-            }
-            
-        } else {
-            
-            float delay = (1-firstMarkSpace)*60/((float)(HR));
-            
-            if (heartBeatTimer > delay){
-                //Debug.Log("close, Delay: "+delay+" time: "+((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)));
-                HRAudioSelect = !HRAudioSelect;
-                closeValve.pitch = 1.0f;
-                closeValve.volume = (float)Math.Pow((double)HR,heartVolumeExpScale)/normalHR; // higher heart rate is louder
-                closeValve.Play();
-                
-                heartBeatTimer = 0.0f;
-            }
-            
-
-        }*/
-  
         if (Input.GetButtonDown("Fire2"))
             if (!carrying)
                 PickUp();
             else
                 Throw();
-
-
+        torchManagerScript.SetLight();
+        if (Input.GetButtonDown("Fire1")) {
+            torchManagerScript.Trigger();
+        }
         // deal with in-game interactions
         /*if (onTrigger && trig != null && trig.withKey){
             if(Input.GetKeyDown(m_TriggerKey)){
@@ -92,5 +57,18 @@ public class ExplorerController : PlayerController {
             }
         }*/
 	}
+
+    public TorchManager GetTorchManager() {
+        return torchManagerScript;
+    }
+
+    public bool GetTorchState() {
+        return torchManagerScript.GetState();
+    }
+
+    void OnDisable() {
+        m_Torch.SetActive(false);
+        GetComponent<Explorer_HeartRate>().enabled = false;   
+    }
 
 }

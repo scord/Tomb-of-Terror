@@ -20833,7 +20833,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1f7aa4d40edff6e48b549003cad031e1, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: 1f7aa4d40edff6e48b549003cad031e1, type: 2}
       propertyPath: InitialModule.startSpeed.minCurve.m_Curve.Array.data[0].value
@@ -27790,7 +27790,7 @@ Transform:
   m_LocalScale: {x: 2, y: 5.4, z: 2}
   m_Children: []
   m_Father: {fileID: 1708155781}
-  m_RootOrder: 11
+  m_RootOrder: 9
 --- !u!1 &595401795
 GameObject:
   m_ObjectHideFlags: 0
@@ -55435,7 +55435,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403924, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
       propertyPath: m_IsActive
@@ -73914,7 +73914,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &1554351697
 GameObject:
   m_ObjectHideFlags: 0
@@ -79467,7 +79467,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1697052435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79745,17 +79745,17 @@ Transform:
   - {fileID: 2019561809}
   - {fileID: 2114959047}
   - {fileID: 1024479306}
+  - {fileID: 589918685}
   - {fileID: 1935338649}
   - {fileID: 241543197}
-  - {fileID: 589918685}
   - {fileID: 868736158}
   - {fileID: 133647637}
   - {fileID: 1045400907}
   - {fileID: 1576830714}
   - {fileID: 964419208}
   - {fileID: 1457783652}
-  - {fileID: 2027464145}
   - {fileID: 1667287237}
+  - {fileID: 2027464145}
   - {fileID: 1582572903}
   m_Father: {fileID: 2102980151}
   m_RootOrder: 11

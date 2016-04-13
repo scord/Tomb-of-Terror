@@ -29,7 +29,6 @@ public class NetManager : NetworkManager
         chosenPlayerIndex = playerId; 
         NetworkManager.singleton.networkPort = 7777;
         NetworkManager.singleton.networkAddress = ip;
-        Debug.Log(NetworkManager.singleton);
         if (host)
             NetworkManager.singleton.StartHost();
         else
