@@ -7090,7 +7090,7 @@ GameObject:
   - 222: {fileID: 239882279}
   - 114: {fileID: 239882278}
   m_Layer: 5
-  m_Name: Text
+  m_Name: FireTip
   m_TagString: Hints
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78714,7 +78714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1682697851
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,15 +12,15 @@ public class InteractScript : MonoBehaviour {
 	private string infoText;
 
 	void Start(){
-		//info = GameObject.Find("Text").GetComponent<Text>();
-		//info.enabled = false;
+		info = GameObject.Find("FireTip").GetComponent<Text>();
+		info.enabled = false;
 		Debug.Log("Interact Started");
 	}
 
 	public void PreInteract(){
 		if(withKey){
-			//info.text = "Press " +  m_TriggerKey.ToString() + " to " +targetObject.GetText();
-			//info.enabled = true;
+			info.text = "Press " +  m_TriggerKey.ToString() + " to " +targetObject.GetText();
+			info.enabled = true;
 		}
 	}
 
@@ -30,6 +30,7 @@ public class InteractScript : MonoBehaviour {
 
 	public void Interact() {
 		targetObject.Trigger();
+		info.text = "Press " +  m_TriggerKey.ToString() + " to " +targetObject.GetText();
 	}
 
 	public KeyCode GetKeyCode() {

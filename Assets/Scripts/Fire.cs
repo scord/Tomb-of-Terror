@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Fire : TargetInteract{
 	[SyncVar (hook = "SyncActiveState")] private bool active = true;
@@ -9,8 +10,11 @@ public class Fire : TargetInteract{
     private AudioSource m_AudioSource;
 	  private Light m_Light;
 		private AirManager air;
+		private Text info;
 
 	private void Start() {
+				// info = GameObject.Find("FireTip").GetComponent<Text>();
+
 				air = (AirManager) FindObjectOfType(typeof(AirManager));
         m_ParticleSystems = GetComponentsInChildren<ParticleSystem>();
         m_AudioSource = gameObject.GetComponentInChildren<AudioSource>();
@@ -34,6 +38,9 @@ public class Fire : TargetInteract{
 
 		if(air)
 			air.UpdateAir(active);
+
+		// info.text = "Press " +  m_TriggerKey.ToString() + " to " + GetText();
+
 }
 
   [Command]
