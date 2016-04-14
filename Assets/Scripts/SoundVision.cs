@@ -12,7 +12,7 @@ public class SoundVision : MonoBehaviour
 
     bool echoLocation = false;
     private float echoTime = 0;
-
+    public Texture2D wavetex = new Texture2D(64,64);
 	float maxVolume = 50;
     public int maxLength = 64;
     public int numfree = 0;
@@ -92,8 +92,11 @@ public class SoundVision : MonoBehaviour
             waves.colors[waveSources[i].index] = waves.AddColor(waves.colors[waveSources[i].index], c);
         }
 
+     
+
 
         waves.UpdateTexture(waveSources);
+        wavetex = waves.texture;
         waves.SendToShader();
 
         waves.release();
@@ -125,6 +128,7 @@ public class SoundVision : MonoBehaviour
             colors = new Color[numWaves][];
             enabled = new List<int>();
             texture = new Texture2D(waveLength, numWaves);
+     
             texture.wrapMode = (TextureWrapMode)WrapMode.Clamp;
             texture.filterMode = FilterMode.Point;
             for (int i = 0; i < numWaves; i++)
@@ -168,6 +172,7 @@ public class SoundVision : MonoBehaviour
                 texture.SetPixels(0, i, texture.width, 1, colors[i]);
             }
             texture.Apply(true);
+ 
         }
 
         public void SendToShader()
@@ -249,13 +254,10 @@ public class SoundVision : MonoBehaviour
             }
 
             float averageFreq = ((summedFreq / level)) / (spectrum.Length - 4);
-            if (averageFreq < 0.011)
-                level = level - (0.011f - averageFreq) * 100;
-            if (averageFreq > 0.6)
-                level = level - (averageFreq - 0.6f) * 100;
+         
             if (level < 0)
                 level = 0;
-			level = Mathf.Pow(level * 10,0.5f)/5f;
+			level = Mathf.Pow(level * 100,0.5f)/5f;
 
             //return new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1);
             
