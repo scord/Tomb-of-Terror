@@ -11,12 +11,11 @@ public class PlayerController : MonoBehaviour {
     protected bool turned;
     protected bool move;
     public GameObject model;
-    public GameObject player_tag;
 	// public SoundVision test;
     // Use this for initialization
 
     public Animator animator;
-
+    bool showText = false;
 
     public delegate void PickUpDelegate(GameObject go);
     public event PickUpDelegate EventPickUp;
@@ -33,10 +32,7 @@ public class PlayerController : MonoBehaviour {
         carriedObject = null;
         animator = GetComponent<Animator>();
         audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
-        if (player_tag == null)
-        {
-            player_tag = GameObject.FindGameObjectWithTag("Player");
-        }
+
     }
 	
 	// Update is called once per frame
@@ -109,25 +105,27 @@ public class PlayerController : MonoBehaviour {
         return carriedObject;
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("OUTSIDE");
-        if (other.gameObject.tag == "Prize")
-        {
-            Debug.Log("WAS HERE");
-        }
-    }
 
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         Debug.Log("WAS HERE");
-        if (col.gameObject.tag == "Prize")
+        if (col.gameObject.tag == "Mummy")
         {
             //mummy wins
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), "dafgsgagfsd");
+            showText = true;
             //wait a few seconds
             //application.loadscene(menu); or something
         }
+    }
+
+    void OnGUI()
+    {
+
+        if (showText)
+        {
+            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "Mummy winsXXX!");
+        }
+
     }
 }

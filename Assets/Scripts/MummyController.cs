@@ -7,7 +7,8 @@ public class MummyController : PlayerController {
 	private float murmurTimer;
     
     private AudioSource shout;
-    
+
+    bool showText = false;
 	protected override void Start(){
 		base.Start();
         
@@ -39,4 +40,27 @@ public class MummyController : PlayerController {
             murmurTimer = 0.0f;
         }
 	}
+
+    void OnTriggerEnter(Collider col)
+    {
+        Debug.Log("WAS HERE");
+        if (col.gameObject.tag == "Explorer")
+        {
+            //mummy wins
+            showText = true;
+            //wait a few seconds
+            //application.loadscene(menu); or something
+        }
+    }
+
+    void OnGUI()
+    {
+
+        if (showText)
+        {
+            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "Mummy wins!");
+        }
+
+    }
+
 }

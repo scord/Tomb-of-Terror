@@ -74,7 +74,7 @@ public class NetManager : NetworkManager
         }
         GameObject player = (GameObject)Instantiate(chosenPlayer, spawnPos, Quaternion.identity);
         NetworkServer.AddPlayerForConnection(netMsg.conn, player, msg.controllerId);
-        Debug.Log(chosenPlayer.name);
+        //Debug.Log(chosenPlayer.name);
     }
 
     // Called when the server sends a message
