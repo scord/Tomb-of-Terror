@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     public Renderer renderer;
     public Shader standardShader;
     public Shader glowShader;
-
+    bool showText= false;
 	// public SoundVision test;
     // Use this for initialization
 
@@ -135,24 +135,25 @@ public class PlayerController : MonoBehaviour {
         return carriedObject;
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Prize")
-        {
-            Debug.Log("WAS HERE");
-        }
-    }
-
-
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         Debug.Log("WAS HERE");
-        if (col.gameObject.tag == "Prize")
+        if (col.gameObject.tag == "Mummy")
         {
             //mummy wins
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), "dafgsgagfsd");
+            showText = true;
             //wait a few seconds
             //application.loadscene(menu); or something
         }
+    }
+
+    void OnGUI()
+    {
+
+        if (showText)
+        {
+            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "Mummy winsXXX!");
+        }
+
     }
 }

@@ -1011,9 +1011,10 @@ GameObject:
   - 114: {fileID: 11437566}
   - 114: {fileID: 11407178}
   - 114: {fileID: 11409384}
+  - 135: {fileID: 13513988}
   m_Layer: 0
   m_Name: Explorer
-  m_TagString: Player
+  m_TagString: Explorer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4748,6 +4749,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183854}
   m_Enabled: 1
+--- !u!135 &13513988
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13683040
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -16974,7 +16987,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

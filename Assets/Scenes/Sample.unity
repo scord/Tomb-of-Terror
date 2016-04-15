@@ -22748,6 +22748,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 173390, guid: d296b061af8f7cd449ad24b1d71baad8, type: 2}
+      propertyPath: m_TagString
+      value: Prize
+      objectReference: {fileID: 0}
+    - target: {fileID: 179646, guid: d296b061af8f7cd449ad24b1d71baad8, type: 2}
+      propertyPath: m_TagString
+      value: Prize
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d296b061af8f7cd449ad24b1d71baad8, type: 2}
   m_IsPrefabParent: 0
@@ -22755,6 +22763,33 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 450874, guid: d296b061af8f7cd449ad24b1d71baad8, type: 2}
   m_PrefabInternal: {fileID: 1643887137}
+--- !u!1 &1643887139 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 173390, guid: d296b061af8f7cd449ad24b1d71baad8, type: 2}
+  m_PrefabInternal: {fileID: 1643887137}
+--- !u!114 &1643887140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643887139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a609d3e4e14d7c4383502c729fd8ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1643887141
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1643887139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1650248848
 GameObject:
   m_ObjectHideFlags: 0

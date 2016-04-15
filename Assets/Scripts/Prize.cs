@@ -17,10 +17,10 @@ public class Prize : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("prize trigger");
+        //Debug.Log("prize trigger");
         if (other.gameObject.tag == "Explorer")
         {
-            Debug.Log("Trigger worked");
+            //Debug.Log("Trigger worked");
             showText = true;
             //currently menu is set to secene 0;
             //Application.LoadLevel(0);
