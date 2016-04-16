@@ -35,7 +35,7 @@ public class AirManager : MonoBehaviour {
       else{
         air--;
         airTimer = 0;
-        Debug.Log(air);
+        //Debug.Log(air);
       }
 
       if(air < 0) {
