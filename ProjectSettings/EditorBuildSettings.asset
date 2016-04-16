@@ -11,3 +11,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Sample.unity
   - enabled: 1
     path: Assets/Scenes/endgame.unity
+  - enabled: 1
+    path: Assets/Scenes/startscene.unity
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity

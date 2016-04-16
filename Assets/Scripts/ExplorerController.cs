@@ -21,6 +21,8 @@ public class ExplorerController : PlayerController {
     public AudioSource openValve;
     public AudioSource closeValve;
 
+    private bool canChangeLevel = false;
+
 	protected override void Start(){
 
         HRAudioSelect = true;
@@ -36,6 +38,16 @@ public class ExplorerController : PlayerController {
 
 
 
+    public override void StartConfig(bool isMainLevel) {
+        Debug.Log("baaa");
+        if (isMainLevel) {
+            Debug.Log("Bad luck");
+            canChangeLevel = false;
+        } else {
+            canChangeLevel = true;
+            //GetComponent<Explorer_HeartRate>().enabled = false;
+        }
+    }
 	protected override void Update(){
 		base.Update();
 
@@ -81,6 +93,10 @@ public class ExplorerController : PlayerController {
 
         }*/
 
+        if (canChangeLevel && Input.GetKeyDown(KeyCode.K)) {
+            ChangeLevel();
+        }
+
         if (Input.GetButtonDown("Fire2"))
             if (!carrying)
                 PickUp();
@@ -96,4 +112,7 @@ public class ExplorerController : PlayerController {
         }*/
 	}
 
+    private void ChangeLevel() {
+        GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(2);
+    }
 }

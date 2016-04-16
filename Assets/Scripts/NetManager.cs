@@ -11,27 +11,43 @@ public class NetManager : NetworkManager
     GameObject chosenPlayer;
     public Vector3 playerSpawnPos;
     int chosenPlayerIndex;
+
+    private bool shouldLoadMainLevel = false;
     //bool first = true;
 
     // Sets the message code to a value that is not already being used
     const short playerMsgType = MsgType.Highest + 1;
+    const short changeLevelMsg = playerMsgType + 1;
 
     class PlayerMsg : MessageBase
     {
         public short chosenPlayerIndex;
         public short controllerId;
+        public bool mainLevel = false;
     };
 
 
     // Called from the MenuController, starts game as a player/client
-    public void JoinGame(int playerId, bool host, string ip)
+    public void JoinGameMummy(int playerId, bool host, string ip)
     {
+        JoinGame(playerId, host, ip, 7776);
+    }
+
+    public void JoinGameExplorer(int playerId, bool host, string ip = "localhost") {
+        Debug.Log(onlineScene);
+        onlineScene = "startscene";
+        Debug.Log(onlineScene);
+        JoinGame(playerId, true, ip, 7775);
+    }
+
+    public void JoinGame(int playerId, bool host, string ip, int port = 7777) {
         chosenPlayerIndex = playerId;
-        NetworkManager.singleton.networkPort = 7777;
+        NetworkManager.singleton.networkPort = port;
         NetworkManager.singleton.networkAddress = ip;
         // Debug.Log(NetworkManager.singleton);
-        if (host)
+        if (host) {
             NetworkManager.singleton.StartHost();
+        }
         else
             NetworkManager.singleton.StartClient();
         client.RegisterHandler(playerMsgType, OnPlayerRequest);
@@ -41,13 +57,13 @@ public class NetManager : NetworkManager
     public override void OnStartServer()
     {
         NetworkServer.RegisterHandler(playerMsgType, OnPlayerResponse);
+        NetworkServer.RegisterHandler(changeLevelMsg, ClientChangeLevel);
         if (players.Length < 3) {
             Debug.LogError("Games need at least 3 Player Prefabs to start");
             return;
         }
         base.OnStartServer();
     }
-    Maze maze;
 
     // Called when a client sends a message
     void OnPlayerResponse(NetworkMessage netMsg)
@@ -73,6 +89,10 @@ public class NetManager : NetworkManager
 
         }
         GameObject player = (GameObject)Instantiate(chosenPlayer, spawnPos, Quaternion.identity);
+        //Debug.Log(player);
+        if (player.GetComponent<PlayerController>() != null) {
+           player.GetComponent<PlayerController>().StartConfig(msg.mainLevel); 
+        }
         NetworkServer.AddPlayerForConnection(netMsg.conn, player, msg.controllerId);
         // Debug.Log(chosenPlayer.name);
     }
@@ -82,6 +102,7 @@ public class NetManager : NetworkManager
     {
         PlayerMsg msg = netMsg.ReadMessage<PlayerMsg>();
         msg.chosenPlayerIndex = (short)chosenPlayerIndex;
+        msg.mainLevel = shouldLoadMainLevel;
         client.Send(playerMsgType, msg);
     }
 
@@ -93,5 +114,27 @@ public class NetManager : NetworkManager
         NetworkServer.SendToClient(conn.connectionId, playerMsgType, msg);
     }
 
+    public void ChangeLevel(int _id) {
+        PlayerMsg msg = new PlayerMsg();
+        msg.controllerId = (short) _id;
+        client.Send(changeLevelMsg, msg);
+        //Network.CloseConnection(client, true);
+    }
+
+    public override void OnServerDisconnect(NetworkConnection conn) {
+        Debug.Log(conn);
+        StopHost();
+    }
+
+    void ClientChangeLevel(NetworkMessage netMsg) {
+        //Debug.Log(netMsg);
+        PlayerMsg msg = netMsg.ReadMessage<PlayerMsg>();
+        offlineScene = "Loading";
+        StopHost();
+        shouldLoadMainLevel = true;
+        onlineScene = "Sample";
+        JoinGame(msg.controllerId, true, "");
+        //JoinGame()
+    }
 
 }

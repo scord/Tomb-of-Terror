@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     public Renderer renderer;
     public Shader standardShader;
     public Shader glowShader;
-    bool showText= false;
+    //bool showText= false;
 	// public SoundVision test;
     // Use this for initialization
 
@@ -135,7 +135,11 @@ public class PlayerController : MonoBehaviour {
         return carriedObject;
     }
 
-    void OnTriggerEnter(Collider col)
+    virtual public void StartConfig(bool isMainLevel) {
+        Debug.Log("Bad luck 1");
+    }
+
+    /*void OnTriggerEnter(Collider col)
     {
         Debug.Log("WAS HERE");
         if (col.gameObject.tag == "Mummy")
@@ -155,5 +159,5 @@ public class PlayerController : MonoBehaviour {
             GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "Mummy winsXXX!");
         }
 
-    }
+    }*/
 }
