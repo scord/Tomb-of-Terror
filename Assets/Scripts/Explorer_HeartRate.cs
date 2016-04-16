@@ -19,7 +19,7 @@ public class Explorer_HeartRate : NetworkBehaviour {
 
   void Start() {
     if (isLocalPlayer) {
-      HMR_Script = GameObject.Find("HeartRate").GetComponent<HeartRateManager>();
+      HMR_Script = (Instantiate (Resources.Load ("HeartRate")) as GameObject).GetComponent<HeartRateManager>();
       HMR_Script.EventHRUpdate += UpdateHeartRate;
     }
   }

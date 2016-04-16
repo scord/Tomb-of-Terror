@@ -33,7 +33,7 @@ public class MummyController : PlayerController {
         
         if (murmurTimer > 3.0f){
             
-            shout.volume = 0.25f;
+            shout.volume = 1.0f;
             shout.Play();
             
             murmurTimer = 0.0f;
