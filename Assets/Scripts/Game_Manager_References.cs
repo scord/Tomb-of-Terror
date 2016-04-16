@@ -17,12 +17,12 @@ public class Game_Manager_References : MonoBehaviour {
     }
 
     pickableObjects = GameObject.FindGameObjectsWithTag("PickUp");
-    Debug.Log("Found: " + pickableObjects.Length);
+    // Debug.Log("Found: " + pickableObjects.Length);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
   public int GetInteractObjectIndex(InteractScript o) {

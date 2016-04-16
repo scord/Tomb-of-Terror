@@ -7,11 +7,15 @@ public class PlayerController : MonoBehaviour {
 	public SoundVision soundVision;
     public AudioSource audio_source;
     GameObject carriedObject;
-    protected bool carrying;
+    public bool carrying;
     protected bool turned;
     protected bool move;
     public GameObject model;
     public GameObject player_tag;
+    public Renderer renderer;
+    public Shader standardShader;
+    public Shader glowShader;
+    bool showText= false;
 	// public SoundVision test;
     // Use this for initialization
 
@@ -33,22 +37,25 @@ public class PlayerController : MonoBehaviour {
         carriedObject = null;
         animator = GetComponent<Animator>();
         audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
+
         if (player_tag == null)
         {
             player_tag = GameObject.FindGameObjectWithTag("Player");
         }
+
+
+        standardShader = Shader.Find("Standard");
+        glowShader = Shader.Find("Custom/ItemGlow");
+
     }
-	
+
 	// Update is called once per frame
 	virtual protected void Update () {
-
-
         move = false;
-        
+
         float moveVertical = Input.GetAxis("Vertical");
         //float lookHorizontal = Input.GetAxis("RightH");
         //float lookVertical = Input.GetAxis("RightV");
-
 
         if (moveVertical == 1.0)
         {
@@ -66,8 +73,7 @@ public class PlayerController : MonoBehaviour {
 
         animator.SetBool("Movement", move);
 
-
-            if (carrying)
+        if (carrying)
         {
             carriedObject.transform.position = cam.transform.position + cam.transform.TransformDirection(Vector3.forward)*2;
         }
@@ -78,6 +84,7 @@ public class PlayerController : MonoBehaviour {
     {
         //carriedObject.GetComponent<Rigidbody>().isKinematic = false;
         carrying = false;
+
         //carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 100);
         //carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
         //carriedObject.GetComponent<Object_SyncPosition>().Throw();
@@ -85,17 +92,36 @@ public class PlayerController : MonoBehaviour {
             EventThrow(carriedObject, cam.transform.TransformDirection(Vector3.forward) * 100);
         }
         carriedObject = null;
+
+        // carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 200);
+        // carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
+        // if (carriedObject.GetComponent<Renderer>() != null)
+        // {
+        //     if (renderer.material.shader == standardShader)
+        //     {
+        //         renderer.material.shader = glowShader;
+        //     }
+        // }
+
     }
 
     protected void PickUp()
     {
         RaycastHit hit = new RaycastHit();
-        if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 4))
+        if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16))
         {
             if (hit.collider.gameObject.tag == "PickUp")
             {
                 carriedObject = hit.collider.gameObject;
                 carriedObject.GetComponent<Rigidbody>().isKinematic = true;
+                if (carriedObject.GetComponent<Renderer>() != null)
+                {
+                    renderer = carriedObject.GetComponent<Renderer>();
+                    if (renderer.material.shader == glowShader)
+                    {
+                        renderer.material.shader = standardShader;
+                    }
+                }
                 carrying = true;
                 if ( EventPickUp != null ) {
                     EventPickUp(carriedObject);
@@ -109,25 +135,25 @@ public class PlayerController : MonoBehaviour {
         return carriedObject;
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("OUTSIDE");
-        if (other.gameObject.tag == "Prize")
-        {
-            Debug.Log("WAS HERE");
-        }
-    }
-
-
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
         Debug.Log("WAS HERE");
-        if (col.gameObject.tag == "Prize")
+        if (col.gameObject.tag == "Mummy")
         {
             //mummy wins
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), "dafgsgagfsd");
+            showText = true;
             //wait a few seconds
             //application.loadscene(menu); or something
         }
+    }
+
+    void OnGUI()
+    {
+
+        if (showText)
+        {
+            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "Mummy winsXXX!");
+        }
+
     }
 }
