@@ -1285,7 +1285,7 @@ AudioSource:
   Loop: 0
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 63
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1360,7 +1360,7 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1435,7 +1435,7 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 64
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -8,6 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menu.unity
   - enabled: 1
-    path: Assets/Scenes/startscene-mummy.unity
+    path: Assets/Scenes/Sample.unity
   - enabled: 1
     path: Assets/Scenes/endgame.unity
+  - enabled: 1
+    path: Assets/Scenes/startscene-mummy.unity

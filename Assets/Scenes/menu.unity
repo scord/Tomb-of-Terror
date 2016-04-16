@@ -377,8 +377,8 @@ MonoBehaviour:
   - {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
   - {fileID: 128420, guid: 6d2e2bf24d336954bb8de2fd9e03c4eb, type: 2}
   - {fileID: 161496, guid: f5faa363656090d4fb5a0ee691474069, type: 2}
-  - {fileID: 177708, guid: 724e8ee36c50dad44b209b57a8036e3d, type: 2}
-  - {fileID: 184742, guid: 68016891dbc624249922e862ae49ee04, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
