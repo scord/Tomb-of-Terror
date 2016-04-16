@@ -21,7 +21,7 @@ public class MenuController : MonoBehaviour {
     public void JoinGame(int playerID)
     {
         ip = transform.FindChild("IPAddressInput").GetComponent<InputField>().text;
-        Debug.Log(ip);
+        // Debug.Log(ip);
 
         manager.JoinGame(playerID, false, ip);
     }
@@ -29,7 +29,7 @@ public class MenuController : MonoBehaviour {
     public void CreateGame(int playerID)
     {
         ip = transform.FindChild("IPAddressInput").GetComponent<InputField>().text;
-        Debug.Log(ip);
+        // Debug.Log(ip);
 
         manager.JoinGame(playerID, true, ip);
     }

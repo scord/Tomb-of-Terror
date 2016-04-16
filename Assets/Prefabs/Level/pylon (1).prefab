@@ -26,7 +26,7 @@ GameObject:
   - 33: {fileID: 3318976}
   - 23: {fileID: 2394054}
   - 95: {fileID: 9561732}
-  - 64: {fileID: 6485926}
+  - 64: {fileID: 6474796}
   m_Layer: 0
   m_Name: pilar
   m_TagString: Untagged
@@ -53,8 +53,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.516569, y: -12.3826065, z: 49.88264}
-  m_LocalScale: {x: 1.763922, y: 2.4655273, z: 1.7639222}
+  m_LocalPosition: {x: -2.25, y: 2.9600003, z: -44.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 404190}
   m_Father: {fileID: 0}
@@ -92,7 +92,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165188}
   m_Mesh: {fileID: 4300000, guid: ed7e5d0b4e51bfd40ab62f971dfb9310, type: 3}
---- !u!64 &6485926
+--- !u!64 &6474796
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

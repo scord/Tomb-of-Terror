@@ -1,17 +1,23 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Fire : TargetInteract{
 	[SyncVar (hook = "SyncActiveState")] private bool active = true;
-	private ParticleSystem m_ParticleSystem;
-  private AudioSource m_AudioSource;
-  private Light m_Light;
+    [SerializeField]
+    private ParticleSystem[] m_ParticleSystems;
+    private AudioSource m_AudioSource;
+	  private Light m_Light;
+		private AirManager air;
+		private Text info;
 
 	private void Start() {
-		m_ParticleSystem = gameObject.GetComponent<ParticleSystem>();
-    m_AudioSource = gameObject.GetComponentInChildren<AudioSource>();
-    m_Light = gameObject.GetComponentsInChildren<Light>(true)[0];
+
+				air = (AirManager) FindObjectOfType(typeof(AirManager));
+        m_ParticleSystems = GetComponentsInChildren<ParticleSystem>();
+        m_AudioSource = gameObject.GetComponentInChildren<AudioSource>();
+    		m_Light = gameObject.GetComponentsInChildren<Light>(true)[0];
 		UpdateParticleSystem();
 	}
 
@@ -26,9 +32,15 @@ public class Fire : TargetInteract{
       active = !active;
       UpdateParticleSystem();
     }
-    else 
+    else
 		  CmdSetActive(!active);
-	}
+
+		if(air)
+			air.UpdateAir(active);
+
+		// info.text = "Press " +  m_TriggerKey.ToString() + " to " + GetText();
+
+}
 
   [Command]
   private void CmdSetActive(bool newActive) {
@@ -41,17 +53,40 @@ public class Fire : TargetInteract{
   	UpdateParticleSystem();
   }
 
-  private void UpdateParticleSystem() {
+
+    void Update()
+    {
+        SetLight();
+    }
+
+    void SetLight()
+    {
+        float intensity = m_Light.GetComponent<FireLight>().intensityMultiplier;
+        if (active)
+        {
+            m_Light.GetComponent<FireLight>().intensityMultiplier = Mathf.Lerp(intensity, 1.0f, 0.01f);
+        }
+        else
+        {
+            m_Light.GetComponent<FireLight>().intensityMultiplier = Mathf.Lerp(intensity, 0.0f, 0.05f);
+        }
+    }
+
+    private void UpdateParticleSystem() {
   	if (active) {
-  		m_ParticleSystem.Play();
+      foreach (ParticleSystem m_ParticleSystem in m_ParticleSystems)
+      {
+        m_ParticleSystem.Play();
+      }
       m_AudioSource.Play();
       m_Light.enabled = true;
   	} else {
-  		m_ParticleSystem.Stop();
+      foreach (ParticleSystem m_ParticleSystem in m_ParticleSystems)
+      {
+        m_ParticleSystem.Stop();
+      }
       m_AudioSource.Stop();
       m_Light.enabled = false;
   	}
   }
 }
-
-

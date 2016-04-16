@@ -5,6 +5,7 @@
 
 	CGINCLUDE
 	#include "UnityCG.cginc"
+	#pragma target 3.0
 
 	struct fragmentInput {
 		float4 pos : SV_POSITION;
@@ -58,25 +59,52 @@
             {                                                                                 	                                                                                                             //for rim lighting.
          		half4 color = 0;
 
-				float speed = 10.0f;
+				float speed = 20.0f;
+
+				[unroll(64)]
 				for (int x = 0; x < _N; x++)
 				{
-					half dist = clamp(distance(_SoundSource[x], i.worldPos),0.5,100);
-					half atten = clamp(distance(_WorldSpaceCameraPos, i.worldPos),0.5,100);
+					half dist = distance(_SoundSource[x], i.worldPos);
+					half atten = clamp(1/distance(_WorldSpaceCameraPos, i.worldPos), 0.0f, 0.1f);
 					half4 blur = half4(0, 0, 0, 1);
 	
 					float w = (dist / speed)*64.0f - floor((dist / speed)*64.0f);
-					blur += lerp(tex2D(_Waves, fixed2(dist / speed, (x) / 64.0f)).rgba, tex2D(_Waves, fixed2(dist / speed + 1/64.0f + 0.01f, (x) / 64.0f)).rgba, w);
+					blur += lerp(tex2D(_Waves, fixed2(dist / speed, (x) / _N)).rgba, tex2D(_Waves, fixed2(dist / speed + 1/64.0f  , (x) / _N)).rgba, w);
+					//blur += tex2D(_Waves, fixed2(clamp(speed*dist / 100.0f,0,100), x / _N)).rgba;
+					blur *= atten*10.0f;
+					blur /= pow(dist/2.0f,2);
 					blur.a = 1;
 					blur.a /= atten;
-					color += 2*blur / (dist);
+					color += blur;
 				}
+
+				half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));
+
+
+
+
+				float dist = clamp(distance(_EchoSource, i.worldPos), 0.5, 100);
+				float4 base_color = _EchoColor*falloff;
+
+				
+				float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
+				float enabled = max(0, sign(speed*_EchoTime - dist));
+				//color += 5*enabled*_EchoColor / pow(abs(dist2),2);
+
+				color += enabled*base_color * (1 - smoothstep(0, 8, _EchoTime));
+
+				color.a = (color.r + color.g + color.b)*5;
+
+
+				return color;
+
 				return color;
             }
             ENDCG
         }
 
-		Pass {
+	
+		/*Pass {
 
 			Blend SrcAlpha OneMinusSrcAlpha
 			ZWrite On                   // and if the depth is ok, it renders the main texture.
@@ -91,13 +119,12 @@
 			half4 frag(fragmentInput i) : COLOR
 			{
 
-				half a = sin(_Time * 20)*sin(i.worldPos.x / 5) + cos(_Time * 10)*cos(i.worldPos.z / 5) + sin(_Time * 20)*cos(i.worldPos.z / 5);
-				half4 ambientColor = _EchoColor*a / 80.0f + _EchoColor / 80.0f;
+		
 
 				half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));
 	
 				half4 color = 0;
-				color += ambientColor;
+		
 
 				float speed = 20.0f;
 
@@ -115,13 +142,13 @@
 
 				color += base_color * (1 - smoothstep(0, 8, _EchoTime)) ;
 			
-	
+				color.a = (color.r + color.b + color.g)*10;
 			
 
 				return enabled*color;
 			}
 			ENDCG
-		}    
+		}    */
     }
 	Fallback "Diffuse"
 }

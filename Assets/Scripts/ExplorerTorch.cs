@@ -10,11 +10,14 @@ public class ExplorerTorch : NetworkBehaviour {
 
   [SyncVar (hook = "UpdateTorchStatus")] private bool isActive;
 
-  private float activeIntensity = 2.3f;
+  private AirManager air;
+
+  private float activeIntensity = 1.0f;
 
   void Start() {
     if ( isLocalPlayer ) {
       CmdChangeActive(true);
+      air = (AirManager) FindObjectOfType(typeof(AirManager));
     }
 
 	m_ParticleSystems = GetComponentsInChildren<ParticleSystem> ();
@@ -29,8 +32,10 @@ public class ExplorerTorch : NetworkBehaviour {
     if ( isLocalPlayer ) {
       if (Input.GetButtonDown("Fire1")) {
         CmdChangeActive(!isActive);
+        if(air)
+          air.UpdateAir(isActive);
       }
-    } 
+    }
   }
 
   [Command]
@@ -49,22 +54,23 @@ public class ExplorerTorch : NetworkBehaviour {
 	  foreach (ParticleSystem m_ParticleSystem in m_ParticleSystems)
 	  {
 	  	m_ParticleSystem.Play();
-	  } 
+	  }
       m_AudioSource.Play();
     } else {
 	  foreach (ParticleSystem m_ParticleSystem in m_ParticleSystems)
 	  {
 		m_ParticleSystem.Stop();
-	  } 
+	  }
       m_AudioSource.Stop();
     }
   }
 
   void SetLight() {
+    float intensity = m_Light.GetComponent<FireLight>().intensityMultiplier;
     if ( isActive ) {
-      m_Light.intensity = Mathf.Lerp(m_Light.intensity, activeIntensity, 0.01f);
+      m_Light.GetComponent<FireLight>().intensityMultiplier = Mathf.Lerp(intensity, activeIntensity, 0.01f);
     } else {
-      m_Light.intensity = Mathf.Lerp(m_Light.intensity, 0, 0.01f);
+      m_Light.GetComponent<FireLight>().intensityMultiplier = Mathf.Lerp(intensity, 0.0f, 0.05f);
     }
   }
 }

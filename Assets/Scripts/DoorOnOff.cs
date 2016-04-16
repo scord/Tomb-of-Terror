@@ -6,7 +6,7 @@ public class DoorOnOff : MonoBehaviour {
 	public Door door;
 
 	private Rigidbody doorBody;
-	private AudioSource doorSound; 
+	private AudioSource doorSound;
 
 	void Start(){
 		 doorBody = door.GetComponent<Rigidbody>();
@@ -16,14 +16,16 @@ public class DoorOnOff : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		doorBody.useGravity = false;
-		doorBody.velocity = transform.up * 3;	
-		
+		doorBody.velocity = transform.up * 3;
+
 		doorSound.clip = door.doorOn_sound;
 		doorSound.time = 1;
 		doorSound.Play();
 	}
 
-	void Update(){
+	void OnTriggerStay(Collider other) {
+		if(doorBody.useGravity)
+			doorBody.useGravity = false;
 		if (doorBody.IsSleeping()){
 			doorSound.Stop();
 		}
