@@ -11,6 +11,11 @@ public class Player_SyncPosition : NetworkBehaviour {
 
   private float lerpRate = 10;
 
+  public AudioSource footStep1;
+  public AudioSource footStep2;
+  
+  bool leftFoot = true;
+  
   private Vector3 lastPos;
   private float threshold = 0.3f;
 	// Use this for initialization
@@ -37,6 +42,24 @@ public class Player_SyncPosition : NetworkBehaviour {
       } else {
         m_Animator.SetBool("Movement", true);
         m_Transform.position = Vector3.Lerp(m_Transform.position, syncPos, Time.deltaTime * lerpRate);
+        
+        if (footStep1.isPlaying == false && footStep2.isPlaying == false)// add more logic later such as, onground/jumping etc etc
+            {
+                if (leftFoot){
+                   // AudioSource.PlayClipAtPoint(footstep_Sound1, transform.position);
+                   // footstep_playing = 1;
+                    footStep1.pitch = Random.Range(0.8f, 1);
+                    footStep1.volume = Random.Range(0.8f, 1.1f);
+                    footStep1.Play();
+                } else {
+
+                    footStep2.pitch = Random.Range(0.8f, 1);
+                    footStep2.volume = Random.Range(0.8f, 1.1f);
+                    footStep2.Play();
+                }
+                leftFoot = !leftFoot;
+            }
+            
       }
     }
   }

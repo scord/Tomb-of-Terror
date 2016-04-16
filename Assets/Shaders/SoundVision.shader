@@ -49,7 +49,7 @@
 
 			ZWrite Off
 			Blend SrcAlpha OneMinusSrcAlpha
-			ZTest Less
+		
             CGPROGRAM
 
             #pragma vertex vert
@@ -87,11 +87,11 @@
 				float4 base_color = _EchoColor*falloff;
 
 				
-				float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
+				float dist2 = dist - speed * 0.5f * _EchoTime * (75.0f / 64.0f);
 				float enabled = max(0, sign(speed*_EchoTime - dist));
-				//color += 5*enabled*_EchoColor / pow(abs(dist2),2);
+				color += 5*enabled*_EchoColor / pow(max(abs(dist2),_EchoTime),2);
 
-				color += enabled*base_color * (1 - smoothstep(0, 8, _EchoTime));
+				//color += enabled*base_color * (1 - smoothstep(0, 8, _EchoTime));
 
 				color.a = (color.r + color.g + color.b)*5;
 

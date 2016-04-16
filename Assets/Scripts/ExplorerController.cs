@@ -12,26 +12,11 @@ public class ExplorerController : PlayerController {
 	private float wheelDirection;
 	private bool onTrigger;
 
-    private float firstMarkSpace = 0.5F;
-    private double heartVolumeExpScale = 1.035f;
-    private HeartRateManager HRManager;
-
-    private float heartBeatTimer;
-    private bool HRAudioSelect;
-    private int HR;
-    public int normalHR = 65;
-
-
 	protected override void Start(){
-
-        HRAudioSelect = true;
 
 		base.Start();
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
 
-        heartBeatTimer = 0.0f;
-        
-        HRManager = GameObject.Find("HeartRate").GetComponent<HeartRateManager>();
         if (!canChangeLevel) {
             m_Torch.SetActive(true);
             torchManagerScript = new TorchManager(m_Torch);
