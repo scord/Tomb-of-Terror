@@ -7,7 +7,7 @@ public class AudioEmitter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 
 	void OnCollisionEnter(Collision collision)
@@ -20,11 +20,11 @@ public class AudioEmitter : MonoBehaviour {
 
 	void onTriggerStay(Collider other)
 	{
-	
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }
