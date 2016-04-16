@@ -71,7 +71,7 @@ public class SoundVision : MonoBehaviour
 
         if (echoLocation)
         {
-            if (echoTime > 8)
+            if (echoTime > 16)
             {
                 echoLocation = false;
                 echoTime = 0;
