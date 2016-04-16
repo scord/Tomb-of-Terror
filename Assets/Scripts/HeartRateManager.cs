@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class HeartRateManager : NetworkBehaviour {
 	Thread thread;
@@ -266,8 +267,24 @@ public class HeartRateManager : NetworkBehaviour {
 
 	 
 	void Update () {
+
+		int avg = 0; 
+
 		if (EventHRUpdate != null) {
 			EventHRUpdate(HeartRate);
+		}
+
+		if ((Input.GetKey ("l")) {
+
+			for (int i = 0; i < log.Count; i++)
+				avg += log [i];
+
+			avg = avg / log.Count;
+			partials.Add (avg);
+
+			AverageRate(true);	// compute *final* average hr
+			SceneManager.LoadScene ("Scenes/endgame");
+
 		}
 	}
 }
