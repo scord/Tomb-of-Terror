@@ -21,6 +21,7 @@ public class Door : TargetInteract{
 	}
 
 	public override void Trigger(){
+
     if (hasAuthority) {
       gravity = !gravity;
       GetComponent<Rigidbody>().useGravity = false;
