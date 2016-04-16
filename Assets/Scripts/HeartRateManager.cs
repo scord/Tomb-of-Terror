@@ -274,7 +274,7 @@ public class HeartRateManager : NetworkBehaviour {
 			EventHRUpdate(HeartRate);
 		}
 
-		if ((Input.GetKey ("l")) {
+		if (Input.GetKey ("l")) {
 
 			for (int i = 0; i < log.Count; i++)
 				avg += log [i];
