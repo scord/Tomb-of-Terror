@@ -21,12 +21,15 @@ public class PlayerController : MonoBehaviour {
 
     public Animator animator;
 
+    [SerializeField] private IntroTutorialScript m_IntroTutorialScript;
 
     public delegate void PickUpDelegate(GameObject go);
     public event PickUpDelegate EventPickUp;
 
     public delegate void ThrowDelegate(GameObject go, Vector3 direction);
     public event ThrowDelegate EventThrow;
+
+    protected bool canChangeLevel = false;
 
     virtual protected void Start () {
         GetComponent<IKHandler>().enabled = true;
@@ -52,6 +55,10 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	virtual protected void Update () {
         move = false;
+
+        if (canChangeLevel && Input.GetKeyDown(KeyCode.K)) {
+            ChangeLevel();
+        }
 
         float moveVertical = Input.GetAxis("Vertical");
         //float lookHorizontal = Input.GetAxis("RightH");
@@ -136,7 +143,17 @@ public class PlayerController : MonoBehaviour {
     }
 
     virtual public void StartConfig(bool isMainLevel) {
-        Debug.Log("Bad luck 1");
+        m_IntroTutorialScript.enabled = !isMainLevel;
+        if (isMainLevel) {
+            canChangeLevel = false;
+        } else {
+            canChangeLevel = true;
+            //GetComponent<Explorer_HeartRate>().enabled = false;
+        }
+    }
+
+    protected virtual void ChangeLevel() {
+        //GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(2);
     }
 
     /*void OnTriggerEnter(Collider col)

@@ -7,11 +7,13 @@ public class PlayerNetworkController : NetworkBehaviour {
 
     [SerializeField] private Camera m_Camera;
     [SerializeField] private AudioListener m_Listener;
+    [SyncVar] private bool isMainLevel;
 
     // Use this for initialization
-    void Start () {
+    virtual protected void Start () {
         if (isLocalPlayer) {
             GameObject.Find("Main Camera").SetActive(false);
+            GetComponent<PlayerController>().StartConfig(isMainLevel);
         }
         if (!isLocalPlayer)
         {
@@ -21,5 +23,9 @@ public class PlayerNetworkController : NetworkBehaviour {
             m_Listener.enabled = false;
         }
 	}
+
+    public void SetMainLevel(bool newValue) {
+        isMainLevel = newValue;
+    }
 
 }

@@ -6,15 +6,24 @@ using UnityEngine.Networking.NetworkSystem;
 public class NetManager : NetworkManager
 {
     [SerializeField] private GameObject[] players;
+    [SerializeField] private string m_MummyIntroScene;
+    [SerializeField] private string m_ExplorerIntroScene;
+    [SerializeField] private string m_MainScene;
+    [SerializeField] private string m_LoadingScene;
+    [SerializeField] private string m_EndScene;
+    [SerializeField] private string m_MenuScene;
 	public GameManager gameManager;
 
     GameObject chosenPlayer;
     public Vector3 playerSpawnPos;
     int chosenPlayerIndex;
 
-    private bool shouldLoadMainLevel = false;
+    [SerializeField] private bool shouldLoadMainLevel = false;
+    private bool loadMainAsHost = false;
+    private string loadMainOnIp = "";
     //bool first = true;
 
+    private const int default_port = 7777;
     // Sets the message code to a value that is not already being used
     const short playerMsgType = MsgType.Highest + 1;
     const short changeLevelMsg = playerMsgType + 1;
@@ -26,25 +35,52 @@ public class NetManager : NetworkManager
         public bool mainLevel = false;
     };
 
-
     // Called from the MenuController, starts game as a player/client
     public void JoinGameMummy(int playerId, bool host, string ip)
     {
-        JoinGame(playerId, host, ip, 7776);
+        loadMainAsHost = host;
+        loadMainOnIp = ip;
+        onlineScene = m_MummyIntroScene;
+        if( shouldLoadMainLevel ) {
+            JoinMainGame(playerId);
+        } else {
+            JoinGame(playerId, true, "", 7776);
+        }
+    }
+
+    public void JoinMainGame(int playerId) {
+        if ( shouldLoadMainLevel ) {
+            onlineScene = m_MainScene;
+            JoinGame(playerId, loadMainAsHost, loadMainOnIp);
+        }
+    }
+
+    public void StartServerOnly(string ip) {
+        onlineScene = m_MainScene;
+        NetworkManager.singleton.networkPort = default_port;
+        NetworkManager.singleton.networkAddress = ip;
+        if (NetworkManager.singleton.StartServer()) {
+            Debug.Log("Server started");
+        }
     }
 
     public void JoinGameExplorer(int playerId, bool host, string ip = "localhost") {
-        Debug.Log(onlineScene);
-        onlineScene = "startscene";
-        Debug.Log(onlineScene);
-        JoinGame(playerId, true, ip, 7775);
+        loadMainAsHost = host;
+        loadMainOnIp = ip;
+        onlineScene = m_ExplorerIntroScene;
+        Debug.Log(shouldLoadMainLevel);
+        if ( shouldLoadMainLevel ) {
+            JoinMainGame(playerId);
+        } else {
+            JoinGame(playerId, true, "", 7775);
+        }
     }
 
-    public void JoinGame(int playerId, bool host, string ip, int port = 7777) {
+    public void JoinGame(int playerId, bool host, string ip, int port = default_port) {
+        Debug.Log(playerId + " " + host + " " + ip);
         chosenPlayerIndex = playerId;
         NetworkManager.singleton.networkPort = port;
         NetworkManager.singleton.networkAddress = ip;
-        // Debug.Log(NetworkManager.singleton);
         if (host) {
             NetworkManager.singleton.StartHost();
         }
@@ -90,8 +126,8 @@ public class NetManager : NetworkManager
         }
         GameObject player = (GameObject)Instantiate(chosenPlayer, spawnPos, Quaternion.identity);
         //Debug.Log(player);
-        if (player.GetComponent<PlayerController>() != null) {
-           player.GetComponent<PlayerController>().StartConfig(msg.mainLevel); 
+        if (player.GetComponent<PlayerNetworkController>() != null) {
+           player.GetComponent<PlayerNetworkController>().SetMainLevel(msg.mainLevel); 
         }
         NetworkServer.AddPlayerForConnection(netMsg.conn, player, msg.controllerId);
         // Debug.Log(chosenPlayer.name);
@@ -103,6 +139,7 @@ public class NetManager : NetworkManager
         PlayerMsg msg = netMsg.ReadMessage<PlayerMsg>();
         msg.chosenPlayerIndex = (short)chosenPlayerIndex;
         msg.mainLevel = shouldLoadMainLevel;
+        Debug.Log(shouldLoadMainLevel);
         client.Send(playerMsgType, msg);
     }
 
@@ -121,20 +158,13 @@ public class NetManager : NetworkManager
         //Network.CloseConnection(client, true);
     }
 
-    public override void OnServerDisconnect(NetworkConnection conn) {
-        Debug.Log(conn);
-        StopHost();
-    }
-
     void ClientChangeLevel(NetworkMessage netMsg) {
-        //Debug.Log(netMsg);
         PlayerMsg msg = netMsg.ReadMessage<PlayerMsg>();
-        offlineScene = "Loading";
+        offlineScene = m_LoadingScene;
         StopHost();
         shouldLoadMainLevel = true;
-        onlineScene = "Sample";
-        JoinGame(msg.controllerId, true, "");
-        //JoinGame()
+        onlineScene = m_MainScene;
+        JoinMainGame(msg.controllerId);
     }
 
 }

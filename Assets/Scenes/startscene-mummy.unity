@@ -1279,6 +1279,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 175566, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
   m_IsPrefabParent: 0
@@ -2190,7 +2194,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &772024661 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 440620, guid: 724e8ee36c50dad44b209b57a8036e3d, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 772024660}
 --- !u!1001 &798087870
 Prefab:
@@ -3985,7 +3989,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!4 &1357955355 stripped
 Transform:
-  m_PrefabParentObject: {fileID: 440620, guid: 724e8ee36c50dad44b209b57a8036e3d, type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 1357955354}
 --- !u!1 &1471163859
 GameObject:

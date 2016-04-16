@@ -6,6 +6,8 @@ public class ExplorerController : PlayerController {
 
 	//private Light torchIntensity;
 
+    [SerializeField] private GameObject m_Torch;
+    private TorchManager torchManagerScript;
 
 	private float wheelDirection;
 	private bool onTrigger;
@@ -18,10 +20,7 @@ public class ExplorerController : PlayerController {
     private bool HRAudioSelect;
     private int HR;
     public int normalHR = 65;
-    public AudioSource openValve;
-    public AudioSource closeValve;
 
-    private bool canChangeLevel = false;
 
 	protected override void Start(){
 
@@ -31,17 +30,21 @@ public class ExplorerController : PlayerController {
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
 
         heartBeatTimer = 0.0f;
-
-        HRManager = GameObject.Find("HeartRate").GetComponent<HeartRateManager>();;
-
+        
+        HRManager = GameObject.Find("HeartRate").GetComponent<HeartRateManager>();
+        if (!canChangeLevel) {
+            m_Torch.SetActive(true);
+            torchManagerScript = new TorchManager(m_Torch);
+            torchManagerScript.Trigger(true);
+        }
+        
 	}
 
 
 
     public override void StartConfig(bool isMainLevel) {
-        Debug.Log("baaa");
+        base.StartConfig(isMainLevel);
         if (isMainLevel) {
-            Debug.Log("Bad luck");
             canChangeLevel = false;
         } else {
             canChangeLevel = true;
@@ -51,59 +54,19 @@ public class ExplorerController : PlayerController {
 	protected override void Update(){
 		base.Update();
 
-
-
-        heartBeatTimer += Time.deltaTime;
-
-		//wheelDirection = Input.GetAxis("Mouse ScrollWheel");
-      //  if (wheelDirection > 0)
-      //      torchIntensity.intensity += 0.20f;
-      //  else if (wheelDirection <  0)
-      //          torchIntensity.intensity -= 0.20f;
-
-        HR = HRManager.HeartRate;
-
-/*
-        if (HRAudioSelect){
-            float delay = firstMarkSpace*60/((float)(HR));
-
-            if (heartBeatTimer > delay){
-                //Debug.Log("open, Delay: "+delay+" time: "+((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)));
-                HRAudioSelect = !HRAudioSelect;
-                openValve.pitch = 1.0f;
-                openValve.volume = (float)Math.Pow((double)HR,heartVolumeExpScale)/normalHR; //high heart rate is louder
-                openValve.Play();
-                heartBeatTimer = 0.0f;
-            }
-
-        } else {
-
-            float delay = (1-firstMarkSpace)*60/((float)(HR));
-
-            if (heartBeatTimer > delay){
-                //Debug.Log("close, Delay: "+delay+" time: "+((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)));
-                HRAudioSelect = !HRAudioSelect;
-                closeValve.pitch = 1.0f;
-                closeValve.volume = (float)Math.Pow((double)HR,heartVolumeExpScale)/normalHR; // higher heart rate is louder
-                closeValve.Play();
-
-                heartBeatTimer = 0.0f;
-            }
-
-
-        }*/
-
-        if (canChangeLevel && Input.GetKeyDown(KeyCode.K)) {
-            ChangeLevel();
-        }
-
         if (Input.GetButtonDown("Fire2"))
             if (!carrying)
                 PickUp();
             else
                 Throw();
 
+        if (torchManagerScript != null) {
+            torchManagerScript.SetLight();
+            if (Input.GetButtonDown("Fire1")) {
+                torchManagerScript.Trigger();
+            }
 
+        }   
         // deal with in-game interactions
         /*if (onTrigger && trig != null && trig.withKey){
             if(Input.GetKeyDown(m_TriggerKey)){
@@ -112,7 +75,21 @@ public class ExplorerController : PlayerController {
         }*/
 	}
 
-    private void ChangeLevel() {
+    public TorchManager GetTorchManager() {
+        return torchManagerScript;
+    }
+
+    public bool GetTorchState() {
+        return torchManagerScript.GetState();
+    }
+
+    void OnDisable() {
+        m_Torch.SetActive(false);
+        GetComponent<Explorer_HeartRate>().enabled = false;   
+    }
+
+    protected override void ChangeLevel() {
         GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(2);
     }
+
 }

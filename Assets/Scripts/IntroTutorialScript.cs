@@ -114,4 +114,14 @@ public class IntroTutorialScript : MonoBehaviour {
     }
     obj.SetActive(false);
   }
+
+  protected void OnDisable() {
+    Debug.Log("At least this");
+    headCanvas.SetActive(false);
+    walkCanvas.SetActive(false);
+    pivotCanvas.SetActive(false);
+    pickupCanvas.SetActive(false);
+    throwCanvas.SetActive(false);
+    gobackCanvas.SetActive(false);
+  }
 }

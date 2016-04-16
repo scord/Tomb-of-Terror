@@ -61,4 +61,8 @@ public class MummyController : PlayerController {
         }
 
     }
+
+    protected override void ChangeLevel() {
+        GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(1);
+    }
 }

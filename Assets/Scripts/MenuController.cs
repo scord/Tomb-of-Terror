@@ -38,15 +38,19 @@ public class MenuController : MonoBehaviour {
         ip = transform.FindChild("IPAddressInput").GetComponent<InputField>().text;
         // Debug.Log(ip);
 
-        //manager.JoinGame(playerID, true, ip);
         if (playerID == 1)
-            manager.JoinGameMummy(playerID, false, ip);
+            manager.JoinGameMummy(playerID, true, ip);
         else
-            manager.JoinGameExplorer(playerID, false);
+            manager.JoinGameExplorer(playerID, true, ip);
     }
-    void Update () {
 
+    public void StartServer(int playerID) {
+        ip = transform.FindChild("IPAddressInput").GetComponent<InputField>().text;
 
+        manager.StartServerOnly(ip);
+    }
 
-	}
+    public void SetTutorial() {
+
+    }
 }

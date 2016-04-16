@@ -47,7 +47,7 @@ MonoBehaviour:
   m_RunInBackground: 1
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
-  m_LogLevel: 0
+  m_LogLevel: 2
   m_PlayerPrefab: {fileID: 128420, guid: 6d2e2bf24d336954bb8de2fd9e03c4eb, type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
@@ -58,8 +58,8 @@ MonoBehaviour:
   - {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
   - {fileID: 128420, guid: 6d2e2bf24d336954bb8de2fd9e03c4eb, type: 2}
   - {fileID: 161496, guid: f5faa363656090d4fb5a0ee691474069, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 135454, guid: f13752c6a3f99c843b177c1cef7b4669, type: 2}
+  - {fileID: 108388, guid: 2293b24bf16f12648a4d7c69e17ad110, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -103,6 +103,12 @@ MonoBehaviour:
   - {fileID: 128420, guid: 6d2e2bf24d336954bb8de2fd9e03c4eb, type: 2}
   - {fileID: 175566, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
   - {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
+  m_MummyIntroScene: startscene-mummy
+  m_ExplorerIntroScene: startscene
+  m_MainScene: Sample
+  m_LoadingScene: Loading
+  m_EndScene: 
+  m_MenuScene: menu
   gameManager: {fileID: 0}
   playerSpawnPos: {x: 7, y: 7, z: 7}
 --- !u!1001 &100100000
