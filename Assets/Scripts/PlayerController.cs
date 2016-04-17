@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour {
         return carriedObject;
     }
 
-    virtual public void StartConfig(bool isMainLevel) {
+    public virtual void StartConfig(bool isMainLevel) {
         m_IntroTutorialScript.enabled = !isMainLevel;
         if (isMainLevel) {
             canChangeLevel = false;

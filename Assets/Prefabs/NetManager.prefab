@@ -54,7 +54,7 @@ MonoBehaviour:
   m_OfflineScene: menu
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 175566, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
+  - {fileID: 131858, guid: bd17e05dd9de3fd438fc735190aee767, type: 2}
   - {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
   - {fileID: 128420, guid: 6d2e2bf24d336954bb8de2fd9e03c4eb, type: 2}
   - {fileID: 161496, guid: f5faa363656090d4fb5a0ee691474069, type: 2}
@@ -101,7 +101,7 @@ MonoBehaviour:
   matchSize: 4
   players:
   - {fileID: 128420, guid: 6d2e2bf24d336954bb8de2fd9e03c4eb, type: 2}
-  - {fileID: 175566, guid: 0267f6ccc5e445f42b44416d43577d3e, type: 2}
+  - {fileID: 131858, guid: bd17e05dd9de3fd438fc735190aee767, type: 2}
   - {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
   m_MummyIntroScene: startscene-mummy
   m_ExplorerIntroScene: startscene
@@ -113,7 +113,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   playerSpawnPos: {x: 7, y: 7, z: 7}
   shouldLoadMainLevel: 0
-  m_SkipTutorial: 1
+  m_SkipTutorial: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

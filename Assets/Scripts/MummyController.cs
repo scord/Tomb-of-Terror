@@ -14,7 +14,7 @@ public class MummyController : PlayerController {
 		base.Start();
 
         shout = gameObject.GetComponent<AudioSource>();
-
+        soundVision = cam.gameObject.GetComponent<SoundVision>();
         murmurTimer = 0.0f;
 
 	}
@@ -85,5 +85,15 @@ public class MummyController : PlayerController {
 
     public override string GetPrizeTag() {
         return "Explorer";
+    }
+
+    public override void StartConfig(bool isMainLevel) {
+        base.StartConfig(isMainLevel);
+        if (isMainLevel) {
+            soundVision.enabled = true;
+            cam.backgroundColor = new Color (0, 0, 0, 1);
+            cam.cullingMask = (cam.cullingMask ) &  ~(1 << LayerMask.NameToLayer("Ignore Sound Vision"));
+            cam.clearFlags = CameraClearFlags.SolidColor;
+        }
     }
 }

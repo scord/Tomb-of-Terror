@@ -5423,7 +5423,7 @@ MonoBehaviour:
   carrying: 0
   model: {fileID: 0}
   player_tag: {fileID: 0}
-  renderer: {fileID: 0}
+  m_Renderer: {fileID: 0}
   standardShader: {fileID: 0}
   glowShader: {fileID: 0}
   animator: {fileID: 0}
@@ -5637,6 +5637,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2095840}
   m_Listener: {fileID: 8153660}
+  withPickupManager: 0
 --- !u!114 &11476460
 MonoBehaviour:
   m_ObjectHideFlags: 1
