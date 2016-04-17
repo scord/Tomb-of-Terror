@@ -650,7 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 11491098}
   withKey: 1
-  m_TriggerKey: 101
+  m_TriggerKey: 122
 --- !u!114 &11491098
 MonoBehaviour:
   m_ObjectHideFlags: 1

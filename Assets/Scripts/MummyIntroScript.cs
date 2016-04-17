@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MummyIntroScript : MonoBehaviour {
+public class MummyIntroScript : IntroTutorialScript {
 
 	private GameObject headCanvas, walkCanvas, pivotCanvas, echolocateCanvas;
 	private GameObject trapTrigger, coffinEnter, coffinOut;
@@ -81,5 +81,12 @@ public class MummyIntroScript : MonoBehaviour {
         yield return null;
     }
     obj.SetActive(false);
+  }
+
+  protected void OnDisable() {
+    headCanvas.SetActive(false);
+    walkCanvas.SetActive(false);
+    pivotCanvas.SetActive(false);
+    echolocateCanvas.SetActive(false);
   }
 }

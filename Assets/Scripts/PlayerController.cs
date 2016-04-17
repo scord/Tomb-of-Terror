@@ -6,27 +6,34 @@ public class PlayerController : MonoBehaviour {
     public Camera cam;
 	public SoundVision soundVision;
     public AudioSource audio_source;
-    GameObject carriedObject;
+    protected GameObject carriedObject;
     public bool carrying;
     protected bool turned;
     protected bool move;
     public GameObject model;
     public GameObject player_tag;
-    public Renderer renderer;
+    public Renderer m_Renderer;
     public Shader standardShader;
     public Shader glowShader;
-    bool showText= false;
+
+    private bool m_PickupEnabled = true;
+
+    public bool pickupEnabled { get { return m_PickupEnabled; } set { m_PickupEnabled = value; }}
+    //bool showText= false;
 	// public SoundVision test;
     // Use this for initialization
 
     public Animator animator;
 
+    [SerializeField] private IntroTutorialScript m_IntroTutorialScript;
 
     public delegate void PickUpDelegate(GameObject go);
     public event PickUpDelegate EventPickUp;
 
     public delegate void ThrowDelegate(GameObject go, Vector3 direction);
     public event ThrowDelegate EventThrow;
+
+    protected bool canChangeLevel = false;
 
     virtual protected void Start () {
         GetComponent<IKHandler>().enabled = true;
@@ -52,6 +59,10 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	virtual protected void Update () {
         move = false;
+
+        if (canChangeLevel && Input.GetKeyDown(KeyCode.K)) {
+            ChangeLevel();
+        }
 
         float moveVertical = Input.GetAxis("Vertical");
         //float lookHorizontal = Input.GetAxis("RightH");
@@ -80,62 +91,54 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    protected void Throw()
+    protected virtual void Throw()
     {
-        //carriedObject.GetComponent<Rigidbody>().isKinematic = false;
-        carrying = false;
-
-        //carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 100);
-        //carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
-        //carriedObject.GetComponent<Object_SyncPosition>().Throw();
-        if (EventThrow != null) {
-            EventThrow(carriedObject, cam.transform.TransformDirection(Vector3.forward) * 600);
-        }
-        carriedObject = null;
-
-        // carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 200);
-        // carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
-        // if (carriedObject.GetComponent<Renderer>() != null)
-        // {
-        //     if (renderer.material.shader == standardShader)
-        //     {
-        //         renderer.material.shader = glowShader;
-        //     }
-        // }
-
     }
 
-    protected void PickUp()
+    protected virtual void PickUp()
     {
-        RaycastHit hit = new RaycastHit();
-        if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16))
-        {
-            if (hit.collider.gameObject.tag == "PickUp")
-            {
-                carriedObject = hit.collider.gameObject;
-                carriedObject.GetComponent<Rigidbody>().isKinematic = true;
-                if (carriedObject.GetComponent<Renderer>() != null)
-                {
-                    renderer = carriedObject.GetComponent<Renderer>();
-                    if (renderer.material.shader == glowShader)
-                    {
-                        renderer.material.shader = standardShader;
-                    }
-                }
-                carrying = true;
-                if ( EventPickUp != null ) {
-                    EventPickUp(carriedObject);
-                }
-                //carriedObject.GetComponent<Object_SyncPosition>().PickUp("something");
-            }
+    }
+
+    protected void CallEventPickUp(GameObject go) {
+        if ( EventPickUp != null ) {
+            EventPickUp(go);
         }
+    }
+
+    protected void CallEventThrow(GameObject go, Vector3 v) {
+        if (EventThrow != null) {
+            EventThrow(go, v);
+        }
+    }
+
+    public virtual string GetPrizeTag() {
+        return "";
     }
 
     public GameObject GetCarriedObject() {
         return carriedObject;
     }
 
-    void OnTriggerEnter(Collider col)
+    public virtual void StartConfig(bool isMainLevel) {
+        m_IntroTutorialScript.enabled = !isMainLevel;
+        if (isMainLevel) {
+            canChangeLevel = false;
+        } else {
+            canChangeLevel = true;
+            //GetComponent<Explorer_HeartRate>().enabled = false;
+        }
+    }
+
+    protected virtual void OnDisable() {
+        m_IntroTutorialScript.enabled = false;
+        m_IntroTutorialScript.gameObject.SetActive(false);
+    }
+
+    protected virtual void ChangeLevel() {
+        //GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(2);
+    }
+
+    /*void OnTriggerEnter(Collider col)
     {
         Debug.Log("WAS HERE");
         if (col.gameObject.tag == "Mummy")
@@ -155,5 +158,5 @@ public class PlayerController : MonoBehaviour {
             GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "Mummy winsXXX!");
         }
 
-    }
+    }*/
 }

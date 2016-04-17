@@ -23,6 +23,9 @@ public class Player_SyncPosition : NetworkBehaviour {
     lastPos = m_Transform.position;
     if (!isLocalPlayer) {
       m_Animator = GetComponent<Animator>();
+    } else {
+      CmdSendPositionToServer(m_Transform.position);
+      lastPos = m_Transform.position;
     }
 	}
 

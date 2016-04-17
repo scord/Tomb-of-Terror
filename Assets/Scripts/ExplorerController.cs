@@ -6,6 +6,8 @@ public class ExplorerController : PlayerController {
 
 	//private Light torchIntensity;
 
+    [SerializeField] private GameObject m_Torch;
+    private TorchManager torchManagerScript;
 
 	private float wheelDirection;
 	private bool onTrigger;
@@ -15,28 +17,40 @@ public class ExplorerController : PlayerController {
 		base.Start();
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
 
+        m_Torch.SetActive(true);
+        torchManagerScript = new TorchManager(m_Torch);
+        torchManagerScript.Trigger(true);
+        
 	}
 
 
 
+    public override void StartConfig(bool isMainLevel) {
+        base.StartConfig(isMainLevel);
+        if (isMainLevel) {
+            canChangeLevel = false;
+        } else {
+            canChangeLevel = true;
+            torchManagerScript = null;
+            m_Torch.SetActive(false);
+        }
+    }
 	protected override void Update(){
 		base.Update();
 
-
-		//wheelDirection = Input.GetAxis("Mouse ScrollWheel");
-      //  if (wheelDirection > 0)
-      //      torchIntensity.intensity += 0.20f;
-      //  else if (wheelDirection <  0)
-      //          torchIntensity.intensity -= 0.20f;
-
-
-        if (Input.GetButtonDown("Fire2"))
+        if (pickupEnabled && Input.GetButtonDown("Fire2"))
             if (!carrying)
                 PickUp();
             else
                 Throw();
 
+        if (torchManagerScript != null) {
+            torchManagerScript.SetLight();
+            if (Input.GetButtonDown("Fire1")) {
+                torchManagerScript.Trigger();
+            }
 
+        }   
         // deal with in-game interactions
         /*if (onTrigger && trig != null && trig.withKey){
             if(Input.GetKeyDown(m_TriggerKey)){
@@ -44,5 +58,76 @@ public class ExplorerController : PlayerController {
             }
         }*/
 	}
+
+    public TorchManager GetTorchManager() {
+        return torchManagerScript;
+    }
+
+    public bool GetTorchState() {
+        return torchManagerScript.GetState();
+    }
+
+    protected override void OnDisable() {
+        base.OnDisable();
+        m_Torch.SetActive(false);
+        GetComponent<Explorer_HeartRate>().enabled = false;   
+    }
+
+    protected override void ChangeLevel() {
+        GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(2);
+    }
+
+    protected override void Throw()
+    {
+        //carriedObject.GetComponent<Rigidbody>().isKinematic = false;
+        carrying = false;
+
+        //carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 100);
+        //carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
+        //carriedObject.GetComponent<Object_SyncPosition>().Throw();
+        CallEventThrow(carriedObject, cam.transform.TransformDirection(Vector3.forward) * 600);
+
+        // carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 200);
+        // carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
+        if (carriedObject.GetComponent<Renderer>() != null)
+        {
+            if (m_Renderer.material.shader == standardShader)
+            {
+                m_Renderer.material.shader = glowShader;
+            }
+        }
+        carriedObject = null;
+
+    }
+
+    protected override void PickUp()
+    {
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16))
+        {
+            if (hit.collider.gameObject.tag == "PickUp")
+            {
+                carriedObject = hit.collider.gameObject;
+                carriedObject.GetComponent<Rigidbody>().isKinematic = true;
+                if (carriedObject.GetComponent<Renderer>() != null)
+                {
+                    m_Renderer = carriedObject.GetComponent<Renderer>();
+                    if (m_Renderer.material.shader == glowShader)
+                    {
+                        m_Renderer.material.shader = standardShader;
+                    }
+                }
+                carrying = true;
+                CallEventPickUp(carriedObject);
+                //carriedObject.GetComponent<Object_SyncPosition>().PickUp("something");
+            } else if ( hit.collider.gameObject.tag == "Prize") {
+                CallEventPickUp(hit.collider.gameObject);
+            }
+        }
+    }
+
+    public override string GetPrizeTag() {
+        return "Prize";
+    }
 
 }

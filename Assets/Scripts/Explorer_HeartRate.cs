@@ -1,85 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-using UnityEngine.Networking;
 
-public class Explorer_HeartRate : NetworkBehaviour {
-  [SyncVar (hook = "SyncHeartRate")] public int HeartRate;
+public class Explorer_HeartRate : MonoBehaviour {
 
+  [SerializeField] private int HeartRate;
   [SerializeField] private AudioSource m_OpenValve;
   [SerializeField] private AudioSource m_CloseValve;
   private HeartRateManager HMR_Script;
-  private bool HRAudioSelect = false;
-  private float heartBeatTimer = 0.0f;
-  private float firstMarkSpace = 0.5F;
-  private double heartVolumeExpScale = 1.035f;
-  public int normalHR = 65;
 
-  private bool hasChanged = false;
+  private HeartBeats heartBeatsScript;
 
   void Start() {
-    if (isLocalPlayer) {
-      HMR_Script = (Instantiate (Resources.Load ("HeartRate")) as GameObject).GetComponent<HeartRateManager>();
-      HMR_Script.EventHRUpdate += UpdateHeartRate;
-    }
+    GameObject go = GameObject.Find("HeartRate") ?? (GameObject) Instantiate(Resources.Load("HeartRate"));
+    go.name = "HeartRate";
+    HMR_Script = go.GetComponent<HeartRateManager>();
+    //HMR_Script = GameObject.Find("HeartRate").GetComponent<HeartRateManager>();
+    HMR_Script.EventHRUpdate += UpdateHeartRate;
+    heartBeatsScript = new HeartBeats(m_OpenValve, m_CloseValve);
   }
 
   void Update() {
-    heartBeatTimer += Time.deltaTime;
-    if (HRAudioSelect){
-        float delay = firstMarkSpace*60/((float)(HeartRate));
-        
-        if (heartBeatTimer > delay){
-            //Debug.Log("open, Delay: "+delay+" time: "+((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)));
-            HRAudioSelect = !HRAudioSelect;
-            m_OpenValve.pitch = 1.0f;
-			m_OpenValve.volume = Mathf.Clamp((float)Math.Pow(((double)HeartRate - normalHR)/10.0f,heartVolumeExpScale),0,1); // higher heart rate is louder
-            m_OpenValve.Play();
-            heartBeatTimer = 0.0f;
-        }
-        
-    } else {
-        
-        float delay = (1-firstMarkSpace)*60/((float)(HeartRate));
-        
-        if (heartBeatTimer > delay){
-            //Debug.Log("close, Delay: "+delay+" time: "+((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond)));
-            HRAudioSelect = !HRAudioSelect;
-            m_CloseValve.pitch = 1.0f;
-			m_CloseValve.volume = Mathf.Clamp((float)Math.Pow(((double)HeartRate - normalHR)/10.0f,heartVolumeExpScale),0,1); // higher heart rate is louder
-            m_CloseValve.Play();
-            
-            heartBeatTimer = 0.0f;
-        }
-      }
-    /*if (hasChanged) {
-      hasChanged = false; 
-      m_AudioSource.volume = 0; //(float) HeartRate/260.0f;
-      m_AudioSource.Play();
-    } 
-    if ( !m_AudioSource.isPlaying ) {
-      m_AudioSource.Play();
-    }*/
+    heartBeatsScript.Beat(HeartRate);
   }
 
   void OnDisable() {
-    if ( isLocalPlayer ) {
-      HMR_Script.EventHRUpdate -= UpdateHeartRate;
-    }
+    if ( HMR_Script != null ) HMR_Script.EventHRUpdate -= UpdateHeartRate;
   }
 
   void UpdateHeartRate(int newHR) {
-    if ( newHR != HeartRate ) CmdUpdateHeartRate(newHR);
-  }
-
-  [Command]
-  void CmdUpdateHeartRate(int newHR) {
     HeartRate = newHR;
   }
 
-  [Client]
-  void SyncHeartRate(int newHR) {
-    HeartRate = newHR;
-    hasChanged = true;
+  public int GetHeartBeat() {
+    return HeartRate;
   }
+
 }
