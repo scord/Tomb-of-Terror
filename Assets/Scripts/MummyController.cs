@@ -38,9 +38,13 @@ public class MummyController : PlayerController {
             
             murmurTimer = 0.0f;
         }
+
+        if ( pickupEnabled && Input.GetButtonDown("Fire2")) {
+            PickUp();
+        }
 	}
 
-    void OnTriggerEnter(Collider col)
+    /*void OnTriggerEnter(Collider col)
     {
         Debug.Log("WAS HERE");
         if (col.gameObject.tag == "Explorer")
@@ -49,6 +53,17 @@ public class MummyController : PlayerController {
             showText = true;
             //wait a few seconds
             //application.loadscene(menu); or something
+        }
+    }*/
+
+    protected override void PickUp() {
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16))
+        {
+            if (hit.collider.gameObject.tag == "Explorer")
+            {
+                CallEventPickUp(hit.collider.gameObject);
+            }
         }
     }
 
@@ -64,5 +79,9 @@ public class MummyController : PlayerController {
 
     protected override void ChangeLevel() {
         GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(1);
+    }
+
+    public override string GetPrizeTag() {
+        return "Explorer";
     }
 }

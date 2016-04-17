@@ -3788,7 +3788,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294966783
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5013,7 +5013,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151886}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b71d1996d67004241a3b69960856ffcb, type: 3}
   m_Name: 
@@ -5345,6 +5345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Torch: {fileID: 177436}
   m_Controller: {fileID: 11453372}
+  isActive: 0
 --- !u!114 &11440876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5647,8 +5648,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb46cef17fbd2146b262cf3515e362e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 403924}
-  camTransform: {fileID: 470238}
+  m_PlayerTransform: {fileID: 403924}
+  m_CamTransform: {fileID: 470238}
 --- !u!114 &11483100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5942,7 +5943,13 @@ SkinnedMeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9b54c67ef6474439394aaa77722a794e, type: 2}
+  - {fileID: 2100000, guid: 3839ac64a405f7f4e95c533538ee45fa, type: 2}
+  - {fileID: 2100000, guid: 1f12a158b397de349870be0cd1034170, type: 2}
+  - {fileID: 2100000, guid: 9ee88ac03fd86234d82fbc934ee901be, type: 2}
+  - {fileID: 2100000, guid: 65f913e27f02b274e8edb89809c79ab5, type: 2}
+  - {fileID: 2100000, guid: cb05dc48f9fd98841ba18983a961e1ab, type: 2}
+  - {fileID: 2100000, guid: fa79671cf8ec41e4d9b6608a6116dc16, type: 2}
+  - {fileID: 2100000, guid: 63cb4ded1155ba844ab3ac851630dee4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

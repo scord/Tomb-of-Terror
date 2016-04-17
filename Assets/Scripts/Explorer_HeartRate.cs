@@ -12,8 +12,10 @@ public class Explorer_HeartRate : MonoBehaviour {
   private HeartBeats heartBeatsScript;
 
   void Start() {
-    //HMR_Script = (Instantiate (Resources.Load ("HeartRate")) as GameObject).GetComponent<HeartRateManager>();
-    HMR_Script = GameObject.Find("HeartRate").GetComponent<HeartRateManager>();
+    GameObject go = GameObject.Find("HeartRate") ?? (GameObject) Instantiate(Resources.Load("HeartRate"));
+    go.name = "HeartRate";
+    HMR_Script = go.GetComponent<HeartRateManager>();
+    //HMR_Script = GameObject.Find("HeartRate").GetComponent<HeartRateManager>();
     HMR_Script.EventHRUpdate += UpdateHeartRate;
     heartBeatsScript = new HeartBeats(m_OpenValve, m_CloseValve);
   }

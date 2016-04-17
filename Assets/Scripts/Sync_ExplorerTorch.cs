@@ -10,7 +10,7 @@ public class Sync_ExplorerTorch : NetworkBehaviour {
 
   private TorchManager torchManagerScript;
 
-  [SyncVar (hook = "UpdateTorchStatus")] private bool isActive;
+  [SyncVar (hook = "UpdateTorchStatus")] public bool isActive;
 
 
   void Start() {
@@ -20,7 +20,7 @@ public class Sync_ExplorerTorch : NetworkBehaviour {
       torchManagerScript = m_Controller.GetTorchManager();
       CmdChangeActive(true);
     }
-    if (torchManagerScript != null) torchManagerScript.Trigger(isActive);
+    SafeTriggerNotLocal(isActive);
     //SetPlayStop();
   }
 
@@ -42,14 +42,19 @@ public class Sync_ExplorerTorch : NetworkBehaviour {
 
   [Command]
   void CmdChangeActive(bool newValue) {
+    SafeTriggerNotLocal(newValue);
     isActive = newValue;
   }
 
   [Client]
   void UpdateTorchStatus(bool newValue) {
     isActive = newValue;
-    if (torchManagerScript != null) torchManagerScript.Trigger(isActive);
+    SafeTriggerNotLocal(isActive);
     //SetPlayStop();
+  }
+
+  void SafeTriggerNotLocal(bool state) {
+    if (!isLocalPlayer && torchManagerScript != null) torchManagerScript.Trigger(state);
   }
 
 }

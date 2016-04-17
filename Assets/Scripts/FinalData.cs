@@ -23,6 +23,7 @@ public class FinalData : MonoBehaviour {
 		start_point.text = my_stats.GetStartPoint().ToString();
 		log = my_stats.GetLog ();
 		times = my_stats.GetTimes ();
+		
 	}
 
 

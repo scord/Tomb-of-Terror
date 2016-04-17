@@ -18,17 +18,13 @@ public class TorchManager {
   }
 
   void SetPlayStop() {
+    foreach (ParticleSystem ps in m_ParticleSystems) {
+      ParticleSystem.EmissionModule em = ps.emission;
+      em.enabled = isActive;
+    }
     if (isActive) {
-      foreach (ParticleSystem ps in m_ParticleSystems) {
-        //ps.Play();
-        ps.enableEmission = true;
-      } 
       m_AudioSource.Play();
     } else {
-      foreach (ParticleSystem ps in m_ParticleSystems) {
-        //ps.Stop();
-        ps.enableEmission = false;
-      }
       m_AudioSource.Stop();
     }
   }

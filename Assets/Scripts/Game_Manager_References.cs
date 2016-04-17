@@ -5,18 +5,26 @@ using UnityEngine.Networking;
 
 public class Game_Manager_References : MonoBehaviour {
 
-  private InteractScript[] interactObjects;
-  private GameObject[] pickableObjects;
+  private List<InteractScript> interactObjects;
+  private List<GameObject> pickableObjects;
 	// Use this for initialization
 	void Start () {
     GameObject[] tmp = GameObject.FindGameObjectsWithTag("Interaction");
-    interactObjects = new InteractScript[tmp.Length];
+    interactObjects = new List<InteractScript>();
 
-    for(int i = 0; i < tmp.Length; i++) {
-      interactObjects[i] = tmp[i].GetComponent<InteractScript>();
+    foreach( GameObject go in tmp) {
+      interactObjects.Add(go.GetComponent<InteractScript>());
     }
 
-    pickableObjects = GameObject.FindGameObjectsWithTag("PickUp");
+    pickableObjects = new List<GameObject>();
+    tmp = GameObject.FindGameObjectsWithTag("PickUp");
+    foreach( GameObject go in tmp) {
+      pickableObjects.Add(go);
+    }
+    tmp = GameObject.FindGameObjectsWithTag("Prize");
+    foreach( GameObject go in tmp) {
+      pickableObjects.Add(go);
+    }
     // Debug.Log("Found: " + pickableObjects.Length);
 	}
 
@@ -26,7 +34,7 @@ public class Game_Manager_References : MonoBehaviour {
 	}
 
   public int GetInteractObjectIndex(InteractScript o) {
-    return System.Array.IndexOf(interactObjects, o);
+    return interactObjects.IndexOf(o);
   }
 
   public InteractScript GetInteractObject(int index) {
@@ -34,20 +42,20 @@ public class Game_Manager_References : MonoBehaviour {
   }
 
   public void SetInteractObject(InteractScript o, int index) {
-    if ( index != -1 && index < interactObjects.Length) {
+    if ( index != -1 && index < interactObjects.Count) {
       interactObjects[index] = o;
     }
   }
 
   public int GetPickUpObjectIndex(GameObject go) {
-    return System.Array.IndexOf(pickableObjects, go);
+    return pickableObjects.IndexOf(go);
   }
 
   public GameObject GetPickUpObject(int index) {
     return pickableObjects[index];
   }
   public void SetPickUpObject(GameObject go, int index) {
-    if ( index != -1 && index < pickableObjects.Length) {
+    if ( index != -1 && index < pickableObjects.Count) {
       pickableObjects[index] = go;
     }
   }

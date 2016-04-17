@@ -14,6 +14,7 @@ public class MainCameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+    Cursor.visible = true;
     speed  = ( Input.GetKey(KeyCode.LeftShift)) ? 40 : 20;
     if ( Input.GetKey(KeyCode.W)) camTransform.position += camTransform.forward*speed*Time.deltaTime;
     if ( Input.GetKey(KeyCode.S)) camTransform.position -= camTransform.forward*speed*Time.deltaTime; 

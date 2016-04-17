@@ -7,8 +7,10 @@ public class Player_SyncRotation : NetworkBehaviour {
   [SyncVar (hook = "OnPlayerRotSynced")] private float syncPlayerRotation;
   [SyncVar (hook = "OnCamRotSynced")] private float syncCamRotation;
 
-  [SerializeField] private Transform playerTransform;
-  [SerializeField] private Transform camTransform;
+  [SerializeField] private Transform m_PlayerTransform;
+  [SerializeField] private Transform m_CamTransform;
+
+  public Transform camTransform { get { return m_CamTransform; } }
 
   private float lerpRate = 20;
 
@@ -24,8 +26,8 @@ public class Player_SyncRotation : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
     if(isLocalPlayer) {
-      lastPlayerRotation = playerTransform.localEulerAngles.y;
-      lastCameraRotation = camTransform.localEulerAngles.x;
+      lastPlayerRotation = m_PlayerTransform.localEulerAngles.y;
+      lastCameraRotation = m_CamTransform.localEulerAngles.x;
     }
 	}
 	
@@ -47,12 +49,12 @@ public class Player_SyncRotation : NetworkBehaviour {
 
   void LerpCamRotation(float rot) {
     Vector3 camNewRot = new Vector3(rot, 0, 0);
-    camTransform.localRotation = Quaternion.Lerp(camTransform.localRotation, Quaternion.Euler(camNewRot), lerpRate*Time.deltaTime);
+    m_CamTransform.localRotation = Quaternion.Lerp(m_CamTransform.localRotation, Quaternion.Euler(camNewRot), lerpRate*Time.deltaTime);
   }
 
   void LerpPlayerRotation(float rot) {
     Vector3 playerNewRot = new Vector3(0, rot, 0);
-    playerTransform.rotation = Quaternion.Lerp(playerTransform.rotation, Quaternion.Euler(playerNewRot), lerpRate*Time.deltaTime);
+    m_PlayerTransform.rotation = Quaternion.Lerp(m_PlayerTransform.rotation, Quaternion.Euler(playerNewRot), lerpRate*Time.deltaTime);
   }
 
   [Command]
@@ -63,9 +65,9 @@ public class Player_SyncRotation : NetworkBehaviour {
 
   [ClientCallback]
   void TransmitRotations() {
-    if (isLocalPlayer && (CheckIfBeyondThreshold(playerTransform.localEulerAngles.y, lastPlayerRotation) || CheckIfBeyondThreshold(camTransform.localEulerAngles.x, lastCameraRotation))) {
-      lastPlayerRotation = playerTransform.localEulerAngles.y;
-      lastCameraRotation = camTransform.localEulerAngles.x;
+    if (isLocalPlayer && (CheckIfBeyondThreshold(m_PlayerTransform.localEulerAngles.y, lastPlayerRotation) || CheckIfBeyondThreshold(m_CamTransform.localEulerAngles.x, lastCameraRotation))) {
+      lastPlayerRotation = m_PlayerTransform.localEulerAngles.y;
+      lastCameraRotation = m_CamTransform.localEulerAngles.x;
       CmdProvideRotationsToServer(lastPlayerRotation, lastCameraRotation);
     }
   }

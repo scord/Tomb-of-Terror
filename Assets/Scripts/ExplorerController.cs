@@ -17,11 +17,9 @@ public class ExplorerController : PlayerController {
 		base.Start();
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
 
-        if (!canChangeLevel) {
-            m_Torch.SetActive(true);
-            torchManagerScript = new TorchManager(m_Torch);
-            torchManagerScript.Trigger(true);
-        }
+        m_Torch.SetActive(true);
+        torchManagerScript = new TorchManager(m_Torch);
+        torchManagerScript.Trigger(true);
         
 	}
 
@@ -33,13 +31,14 @@ public class ExplorerController : PlayerController {
             canChangeLevel = false;
         } else {
             canChangeLevel = true;
-            //GetComponent<Explorer_HeartRate>().enabled = false;
+            torchManagerScript = null;
+            m_Torch.SetActive(false);
         }
     }
 	protected override void Update(){
 		base.Update();
 
-        if (Input.GetButtonDown("Fire2"))
+        if (pickupEnabled && Input.GetButtonDown("Fire2"))
             if (!carrying)
                 PickUp();
             else
@@ -68,13 +67,67 @@ public class ExplorerController : PlayerController {
         return torchManagerScript.GetState();
     }
 
-    void OnDisable() {
+    protected override void OnDisable() {
+        base.OnDisable();
         m_Torch.SetActive(false);
         GetComponent<Explorer_HeartRate>().enabled = false;   
     }
 
     protected override void ChangeLevel() {
         GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(2);
+    }
+
+    protected override void Throw()
+    {
+        //carriedObject.GetComponent<Rigidbody>().isKinematic = false;
+        carrying = false;
+
+        //carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 100);
+        //carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
+        //carriedObject.GetComponent<Object_SyncPosition>().Throw();
+        CallEventThrow(carriedObject, cam.transform.TransformDirection(Vector3.forward) * 600);
+
+        // carriedObject.GetComponent<Rigidbody>().AddForce(cam.transform.TransformDirection(Vector3.forward) * 200);
+        // carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
+        if (carriedObject.GetComponent<Renderer>() != null)
+        {
+            if (m_Renderer.material.shader == standardShader)
+            {
+                m_Renderer.material.shader = glowShader;
+            }
+        }
+        carriedObject = null;
+
+    }
+
+    protected override void PickUp()
+    {
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16))
+        {
+            if (hit.collider.gameObject.tag == "PickUp")
+            {
+                carriedObject = hit.collider.gameObject;
+                carriedObject.GetComponent<Rigidbody>().isKinematic = true;
+                if (carriedObject.GetComponent<Renderer>() != null)
+                {
+                    m_Renderer = carriedObject.GetComponent<Renderer>();
+                    if (m_Renderer.material.shader == glowShader)
+                    {
+                        m_Renderer.material.shader = standardShader;
+                    }
+                }
+                carrying = true;
+                CallEventPickUp(carriedObject);
+                //carriedObject.GetComponent<Object_SyncPosition>().PickUp("something");
+            } else if ( hit.collider.gameObject.tag == "Prize") {
+                CallEventPickUp(hit.collider.gameObject);
+            }
+        }
+    }
+
+    public override string GetPrizeTag() {
+        return "Prize";
     }
 
 }

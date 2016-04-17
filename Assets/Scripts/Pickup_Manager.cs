@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
 
@@ -11,6 +11,7 @@ public class Pickup_Manager : NetworkBehaviour {
   [SyncVar (hook = "SyncRotationValues")] private Quaternion syncRot;
 
   [SerializeField] private PlayerController m_PlayerController;
+  private string prize_tag;
   private Transform m_Transform;
   private Rigidbody m_Rigidbody;
   private GameObject carriedObject;
@@ -30,6 +31,7 @@ public class Pickup_Manager : NetworkBehaviour {
   void Start () {
     m_PlayerController.EventPickUp += PickUpObject;
     m_PlayerController.EventThrow += ThrowObject;
+    prize_tag = m_PlayerController.GetPrizeTag();
     GM_Ref = GameObject.Find("Game Manager").GetComponent<Game_Manager_References>();
   }
 
@@ -39,6 +41,10 @@ public class Pickup_Manager : NetworkBehaviour {
   }
 
   void PickUpObject(GameObject go) {
+    if (go.tag == prize_tag ) {
+      CmdTriggerPrize();
+      return;
+    }
     PopulateVars(go);
     CmdProvideObjectIndex(GM_Ref.GetPickUpObjectIndex(carriedObject));
     CmdProvideChangingStateToServer(true);
@@ -65,6 +71,20 @@ public class Pickup_Manager : NetworkBehaviour {
     carriedObject = null;
     m_Transform = null;
     m_Rigidbody = null;
+  }
+
+  [Command]
+  void CmdTriggerPrize() {
+    Debug.Log("Is is server? " + isServer);
+    Player_SyncRotation psr = GetComponent<Player_SyncRotation>();
+    Transform cam = psr.camTransform;
+    RaycastHit hit = new RaycastHit();
+    if (Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, 16))
+    {
+      if ( hit.collider.gameObject.tag == prize_tag) {
+        NetworkManager.singleton.ServerChangeScene("endgame");
+      }
+    }
   }
 
   void Update() {

@@ -116,7 +116,6 @@ public class IntroTutorialScript : MonoBehaviour {
   }
 
   protected void OnDisable() {
-    Debug.Log("At least this");
     headCanvas.SetActive(false);
     walkCanvas.SetActive(false);
     pivotCanvas.SetActive(false);

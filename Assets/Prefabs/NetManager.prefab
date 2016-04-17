@@ -107,10 +107,13 @@ MonoBehaviour:
   m_ExplorerIntroScene: startscene
   m_MainScene: Sample
   m_LoadingScene: Loading
-  m_EndScene: 
+  m_LobbyScene: Lobby
+  m_EndScene: endgame
   m_MenuScene: menu
   gameManager: {fileID: 0}
   playerSpawnPos: {x: 7, y: 7, z: 7}
+  shouldLoadMainLevel: 0
+  m_SkipTutorial: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
