@@ -12,7 +12,6 @@ public class SoundVision : MonoBehaviour
 
     bool echoLocation = false;
     private float echoTime = 0;
-    public Texture2D wavetex = new Texture2D(64,64);
 	float maxVolume = 50;
     public int maxLength = 64;
     public int numfree = 0;
@@ -96,7 +95,7 @@ public class SoundVision : MonoBehaviour
 
 
         waves.UpdateTexture(waveSources);
-        wavetex = waves.texture;
+
         waves.SendToShader();
 
         waves.release();

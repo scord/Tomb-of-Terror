@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour {
         //carriedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(1, 1, 1));
         //carriedObject.GetComponent<Object_SyncPosition>().Throw();
         if (EventThrow != null) {
-            EventThrow(carriedObject, cam.transform.TransformDirection(Vector3.forward) * 100);
+            EventThrow(carriedObject, cam.transform.TransformDirection(Vector3.forward) * 600);
         }
         carriedObject = null;
 
