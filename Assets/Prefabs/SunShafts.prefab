@@ -54,9 +54,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126410}
-  m_LocalRotation: {x: -0.7443864, y: -0.30740985, z: 0.06656239, w: 0.5890311}
-  m_LocalPosition: {x: -11.952818, y: 9.09804, z: -19.456583}
-  m_LocalScale: {x: 7.0056915, y: 7.005691, z: 7.00569}
+  m_LocalRotation: {x: -0.11085361, y: 0.6368621, z: -0.7213876, w: 0.2484315}
+  m_LocalPosition: {x: -22.400005, y: 23.300003, z: -24.699991}
+  m_LocalScale: {x: 7.0056915, y: 7.005691, z: 10.469567}
   m_Children: []
   m_Father: {fileID: 439928}
   m_RootOrder: 1
@@ -66,8 +66,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184526}
-  m_LocalRotation: {x: 0.11990704, y: 0.794876, z: 0.08872284, w: 0.58815205}
-  m_LocalPosition: {x: -29.03, y: 18.45, z: -3.94}
+  m_LocalRotation: {x: 0.026275584, y: 0.1741841, z: 0.14682995, w: 0.97335017}
+  m_LocalPosition: {x: 5.61, y: 18.45, z: -325.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 479082}
@@ -80,8 +80,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117294}
-  m_LocalRotation: {x: -0.5564328, y: -0.061772987, z: -0.26992384, w: -0.78339505}
-  m_LocalPosition: {x: -21.643309, y: 30.090313, z: -33.320793}
+  m_LocalRotation: {x: -0.6200922, y: -0.09119161, z: -0.19212085, w: -0.7551552}
+  m_LocalPosition: {x: -19.419994, y: 24.889997, z: -27.310009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 439928}
@@ -98,17 +98,17 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 163.1
-  m_SpotAngle: 32
+  m_SpotAngle: 48.37661
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
-  m_Cookie: {fileID: 2800000, guid: 641bb2dce818a8a499b537a1963889ac, type: 3}
-  m_DrawHalo: 0
+  m_Cookie: {fileID: 2800000, guid: 95ef4804fe0be4c999ddaa383536cde8, type: 3}
+  m_DrawHalo: 1
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -173,7 +173,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 11.2
+      scalar: 141.8
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -208,7 +208,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 0.1
+      scalar: -0.04
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -483,10 +483,10 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 5
-    radius: 2.66
-    angle: 0
-    length: 5
+    type: 8
+    radius: 0.33937204
+    angle: 16.149546
+    length: 6.439636
     boxX: 1.7490358
     boxY: 1.7620534
     boxZ: 16.869339
@@ -505,7 +505,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 13.9
+      scalar: 0.73
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1650,7 +1650,7 @@ ParticleSystemRenderer:
   m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 79.7
+  m_LengthScale: 56.4
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_RenderAlignment: 0
