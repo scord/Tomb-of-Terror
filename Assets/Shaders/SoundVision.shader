@@ -3,9 +3,23 @@
 	{
 	}
 
-	CGINCLUDE
-	#include "UnityCG.cginc"
-	#pragma target 3.0
+
+	
+
+	SubShader{
+		Tags{ "Queue" = "Transparent" "RenderType" = "Transparent" "IgnoreProjector" = "True" }
+
+		
+		Pass {
+
+		
+			Blend SrcAlpha OneMinusSrcAlpha
+			ZTest Less
+
+            CGPROGRAM
+			#include "UnityCG.cginc"
+            #pragma vertex vert
+            #pragma fragment frag
 
 	struct fragmentInput {
 		float4 pos : SV_POSITION;
@@ -38,22 +52,6 @@
 		o.viewDir = normalize(ObjSpaceViewDir(v.vertex));
 		return o;
 	}
-
-	ENDCG
-
-	SubShader{
-		Tags{ "Queue" = "Transparent" "RenderType" = "Transparent" "IgnoreProjector" = "True" }
-
-		
-		Pass {
-
-			ZWrite Off
-			Blend SrcAlpha OneMinusSrcAlpha
-		
-            CGPROGRAM
-
-            #pragma vertex vert
-            #pragma fragment frag
                   
             half4 frag (fragmentInput i) : COLOR
             {                                                                                 	                                                                                                             //for rim lighting.
@@ -61,42 +59,35 @@
 
 				float speed = 20.0f;
 
-				[unroll(64)]
-				for (int x = 0; x < _N; x++)
+
+				for (int x = 0; x < 64; x++)
 				{
 					half dist = distance(_SoundSource[x], i.worldPos);
 					half atten = clamp(1/distance(_WorldSpaceCameraPos, i.worldPos), 0.0f, 0.1f);
 					half4 blur = half4(0, 0, 0, 1);
+
+					float dist2 = dist / speed;
 	
-					float w = (dist / speed)*64.0f - floor((dist / speed)*64.0f);
-					blur += lerp(tex2D(_Waves, fixed2(dist / speed, (x) / _N)).rgba, tex2D(_Waves, fixed2(dist / speed + 1/64.0f  , (x) / _N)).rgba, w);
+					float w = dist2*64.0f - floor(dist2*64.0f);
+					blur += lerp(tex2D(_Waves, fixed2(dist2, (x) / _N)).rgba, tex2D(_Waves, fixed2(dist2 + 1/64.0f  , (x) / _N)).rgba, w);
 					//blur += tex2D(_Waves, fixed2(clamp(speed*dist / 100.0f,0,100), x / _N)).rgba;
-					blur *= atten*10.0f;
-					blur /= pow(dist/2.0f,2);
-					blur.a = 1;
-					blur.a /= atten;
+					blur *= atten*10.0f/pow(dist/2.0f,2);
+					//blur.a = 1/atten;
 					color += blur;
 				}
 
 				half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));
 
-
-
-
 				float dist = clamp(distance(_EchoSource, i.worldPos), 0.5, 100);
 				float4 base_color = _EchoColor*falloff;
 
-				
-				float dist2 = dist - speed * 0.5f * _EchoTime * (75.0f / 64.0f);
+				float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
 				float enabled = max(0, sign(speed*_EchoTime - dist));
 				color += 5*enabled*_EchoColor / pow(max(abs(dist2),_EchoTime),2);
 
 				//color += enabled*base_color * (1 - smoothstep(0, 8, _EchoTime));
 
-				color.a = (color.r + color.g + color.b)*5;
-
-
-				return color;
+				color.a = (color.r + color.b + color.g)*8;
 
 				return color;
             }

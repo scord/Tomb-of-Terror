@@ -8,15 +8,15 @@ public class SoundVision : MonoBehaviour
 
     public Shader shader;
 	public HeartRateManager heartRateManager;
-    public int maxWaves = 64; //number of possible simultaneous waves
+    private int maxWaves = 64; //number of possible simultaneous waves
 
     bool echoLocation = false;
     private float echoTime = 0;
 	float maxVolume = 50;
-    public int maxLength = 64;
+    public int maxLength = 32;
     public int numfree = 0;
     public Color color = new Color(0, 0.85f, 1, 1);
-
+    float timer = 0;
     Waves waves;
     // Use this for initialization
     List<WaveSource> waveSources;
@@ -32,6 +32,19 @@ public class SoundVision : MonoBehaviour
 
     // Update is called once per frame
 
+    WaveSource ContainsAudioSource(List<WaveSource> sources, AudioSource source, ref bool found)
+    {
+        foreach (WaveSource waveSource in sources)
+        {
+            if (waveSource.audioSource.GetInstanceID() == source.GetInstanceID())
+            {
+                found = true;
+                return waveSource;
+            }
+        }
+        found = false;
+        return sources[0];
+    }
 
     void GetAudioSources()
     {
@@ -52,7 +65,30 @@ public class SoundVision : MonoBehaviour
         }
     }
 
-    
+
+    void UpdateAudioSources()
+    {
+        foreach (AudioSource source in FindObjectsOfType<AudioSource>())
+        {
+            bool found = false;
+            WaveSource foundWaveSource = ContainsAudioSource(waveSources, source, ref found);
+            if (Vector3.Distance(source.transform.position, transform.position) < 60 && !found && source.gameObject.layer != LayerMask.NameToLayer("Ignore Sound Vision"))
+            {
+                int i = waves.free.Pop();
+
+                WaveSource waveSource = new WaveSource(source, i);
+                waveSources.Add(waveSource);
+
+
+                waveSource.SendToShader();
+            } else if (Vector3.Distance(source.transform.position, transform.position) >= 60 && found)
+            {
+                waves.free.Push(foundWaveSource.index);
+                waveSources.Remove(foundWaveSource);
+            }
+        }
+
+    }
 
     
 
@@ -64,9 +100,17 @@ public class SoundVision : MonoBehaviour
         Shader.SetGlobalFloat("_EchoTime", 0);
     }
     
-    void FixedUpdate()
+    void Update()
     {
+        
 		float dtime = Time.deltaTime;
+        timer += dtime;
+
+        if (timer > 5)
+        {
+            UpdateAudioSources();
+            timer = 0;
+        }
 
         if (echoLocation)
         {
@@ -240,7 +284,7 @@ public class SoundVision : MonoBehaviour
 
         public Color GetCurrentColor(Color baseColor)
         {
-            float[] spectrum = new float[64];
+            float[] spectrum = new float[256];
 
             audioSource.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
             float summedFreq = 0;
