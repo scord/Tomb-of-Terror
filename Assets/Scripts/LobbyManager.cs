@@ -4,9 +4,12 @@ using System.Collections;
 public class LobbyManager : MonoBehaviour {
 
   [SerializeField] private MouseLook m_MouseLookScript;
+  [SerializeField] private GameObject m_Canvas_1;
+  [SerializeField] private GameObject m_Canvas_2;
 	// Use this for initialization
 	void Start () {
-	
+    m_Canvas_1.SetActive(true);	
+    m_Canvas_2.SetActive(true);
 	}
 	
 	// Update is called once per frame
@@ -21,4 +24,10 @@ public class LobbyManager : MonoBehaviour {
   public void StartGame() {
     GameObject.Find("NetManager").GetComponent<NetManager>().StartFromLobby();
   }
+
+  public void OnDisable() {
+    m_Canvas_1.SetActive(false);
+    m_Canvas_2.SetActive(false);
+  }
+
 }

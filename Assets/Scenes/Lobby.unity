@@ -253,7 +253,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 289342239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 34.4}
+  m_LocalPosition: {x: 0, y: 6.11, z: 34.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &385812555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 543408419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.89, y: 3.12, z: -4.37}
+  m_LocalPosition: {x: -9.89, y: 7.93, z: -4.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -641,6 +641,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MouseLookScript: {fileID: 795587850}
+  m_Canvas_1: {fileID: 801237815}
+  m_Canvas_2: {fileID: 385812554}
 --- !u!1 &801237815
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &801237816
 MonoBehaviour:
   m_ObjectHideFlags: 0

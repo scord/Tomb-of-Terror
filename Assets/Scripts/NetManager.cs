@@ -122,16 +122,16 @@ public class NetManager : NetworkManager
         Transform spawnTransform;
         switch(msg.chosenPlayerIndex) {
             case 0:
-                chosenPlayer = players[0];
+                playerPrefab = players[0];
                 spawnTransform = GameObject.Find("ServerSpawner").transform;
 
                 break;
             case 1:
-                chosenPlayer = players[1];
+                playerPrefab = players[1];
                 spawnTransform = GameObject.Find("MummySpawner").transform;
                 break;
             case 2:
-                chosenPlayer = players[2];
+                playerPrefab = players[2];
                 spawnTransform = GameObject.Find("ExplorerSpawner").transform;
                 break;
             default:
@@ -139,12 +139,19 @@ public class NetManager : NetworkManager
                 return;
 
         }
-        GameObject player = (GameObject)Instantiate(chosenPlayer, spawnTransform.position, spawnTransform.rotation);
+        RegisterStartPosition(spawnTransform);
+
+        base.OnServerAddPlayer(netMsg.conn, msg.controllerId);
+
+        UnRegisterStartPosition(spawnTransform);
+
+        //GameObject player = (GameObject)Instantiate(chosenPlayer, spawnTransform.position, spawnTransform.rotation);
         //Debug.Log(player);
-        if (player.GetComponent<PlayerNetworkController>() != null) {
-           player.GetComponent<PlayerNetworkController>().SetMainLevel(msg.mainLevel, msg.withPickup); 
-        }
-        NetworkServer.AddPlayerForConnection(netMsg.conn, player, msg.controllerId);
+       // if (player.GetComponent<PlayerNetworkController>() != null) {
+       //    player.GetComponent<PlayerNetworkController>().SetMainLevel(msg.mainLevel, msg.withPickup); 
+       // }
+        //base.OnServerAddPlayer()
+        //NetworkServer.AddPlayerForConnection(netMsg.conn, player, msg.controllerId);
         // Debug.Log(chosenPlayer.name);
     }
 
@@ -176,10 +183,25 @@ public class NetManager : NetworkManager
     void ClientChangeLevel(NetworkMessage netMsg) {
         PlayerMsg msg = netMsg.ReadMessage<PlayerMsg>();
         offlineScene = m_LoadingScene;
-        StopHost();
-        shouldLoadMainLevel = true;
-        onlineScene = m_LobbyScene;
-        JoinMainGame(msg.controllerId);
+        //StopHost();
+        Shutdown();
+        Destroy(gameObject);
+        //shouldLoadMainLevel = true;
+        //onlineScene = m_LobbyScene;
+        //JoinMainGame(msg.controllerId);
+    }
+
+    public void LoadLobby(int playerId, bool _shouldLoadMainLevel, bool _m_SkipTutorial, bool _loadMainAsHost, string _loadMainOnIp) {
+        shouldLoadMainLevel = _shouldLoadMainLevel;
+        m_SkipTutorial = _m_SkipTutorial;
+        loadMainAsHost = _loadMainAsHost;
+        loadMainOnIp = _loadMainOnIp;
+        if ( _loadMainAsHost ) {
+            onlineScene = m_MainScene;
+            JoinGame(playerId, loadMainAsHost, loadMainOnIp);
+        } else {
+            JoinMainGame(playerId);
+        }
     }
 
 }

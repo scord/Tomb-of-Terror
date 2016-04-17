@@ -27,6 +27,7 @@ public class MenuController : MonoBehaviour {
         ip = transform.FindChild("IPAddressInput").GetComponent<InputField>().text;
         // Debug.Log(ip);
 
+        GameObject.Find("GameParams").GetComponent<GameParams>().SetParams(playerID, false, ip);
         if (playerID == 1)
             manager.JoinGameMummy(playerID, false, ip);
         else
@@ -37,7 +38,7 @@ public class MenuController : MonoBehaviour {
     {
         ip = transform.FindChild("IPAddressInput").GetComponent<InputField>().text;
         // Debug.Log(ip);
-
+        GameObject.Find("GameParams").GetComponent<GameParams>().SetParams(playerID, true, ip);
         if (playerID == 1)
             manager.JoinGameMummy(playerID, true, ip);
         else
