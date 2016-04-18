@@ -10,6 +10,14 @@ public class AirManager : MonoBehaviour {
   private float interval = 1 ;
   private float airTimer = 0;
 
+  private NetworkManagerCustom m_NetworkManager;
+
+  public delegate void AirDelegate(int newAir);
+  public event AirDelegate EventAirUpdate;
+
+  void Awake() {
+    m_NetworkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>();
+  }
   void Start(){
     alive = true;
     interval = 1;
@@ -25,6 +33,16 @@ public class AirManager : MonoBehaviour {
 
   void Update(){
     UpdateOxigen();
+    if ( EventAirUpdate != null ) {
+      EventAirUpdate(air);
+    }
+    CheckDead();
+  }
+
+  void CheckDead() {
+    if ( air <= 0 ) {
+      m_NetworkManager.EndGame();
+    }
   }
 
   private void UpdateOxigen(){
@@ -36,12 +54,6 @@ public class AirManager : MonoBehaviour {
         air--;
         airTimer = 0;
         //Debug.Log(air);
-      }
-
-      if(air < 0) {
-        alive = false;
-        Debug.Log("YOU DIEDED");
-        SceneManager.LoadScene ("Scenes/endgame");
       }
     }
   }

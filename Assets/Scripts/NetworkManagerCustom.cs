@@ -80,7 +80,6 @@ public class NetworkManagerCustom : NetworkManager {
   }
 
   public void ChangeLevel(int _id) {
-    Debug.Log("Trigg?");
     offlineScene = m_LoadingScene;
     StopGameConnection();
     shouldLoadMainLevel = true;
@@ -119,6 +118,10 @@ public class NetworkManagerCustom : NetworkManager {
     SetPort();
     SetIPAdress(loadMainOnIp);
     NetworkManager.singleton.StartClient();
+  }
+
+  public void EndGame() {
+    NetworkManager.singleton.ServerChangeScene(m_EndScene);
   }
 
   public void ServerStartMain() {
@@ -277,7 +280,7 @@ public class NetworkManagerCustom : NetworkManager {
       SetupMenuSceneBUttons();
     } else if ( level == 3 ) {
       SetupLoadingSceneButtons();
-    } else if ( level == 4  || level == 5) {
+    } else if ( level >= 4) {
       SetupDisconnectButton();
     }
   }
