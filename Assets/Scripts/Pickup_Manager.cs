@@ -76,11 +76,10 @@ public class Pickup_Manager : NetworkBehaviour {
 
   [Command]
   void CmdTriggerPrize() {
-    Debug.Log("Is is server? " + isServer);
     Player_SyncRotation psr = GetComponent<Player_SyncRotation>();
     Transform cam = psr.camTransform;
     RaycastHit hit = new RaycastHit();
-    if (Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, 16))
+    if (Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, 50))
     {
       if ( hit.collider.gameObject.tag == prize_tag) {
         NetworkManager.singleton.ServerChangeScene("endgame");

@@ -8,6 +8,10 @@ public class MainCameraController : MonoBehaviour {
   private int speed = 20;
   private Transform camTransform;
 	// Use this for initialization
+
+  void Awake() {
+    m_Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+  }
 	void Start () {
     camTransform = m_Camera.transform;
 	}

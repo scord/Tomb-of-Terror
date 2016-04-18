@@ -7,6 +7,10 @@ public class LobbyManager : MonoBehaviour {
   [SerializeField] private GameObject m_Canvas_1;
   [SerializeField] private GameObject m_Canvas_2;
 	// Use this for initialization
+
+  void Awake() {
+    m_MouseLookScript = GameObject.Find("Main Camera").GetComponent<MouseLook>();
+  }
 	void Start () {
     m_Canvas_1.SetActive(true);	
     m_Canvas_2.SetActive(true);

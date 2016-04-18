@@ -257,7 +257,7 @@ public class NetworkManagerCustom : NetworkManager {
   }
 
   private IEnumerator CLientSceneWithWait(NetworkConnection conn) {
-    yield return new WaitForSeconds(1);
+    yield return new WaitForSeconds(0.3f);
     base.OnClientSceneChanged(conn);
   }
   private void SetIPAdress(string ipadd) {
