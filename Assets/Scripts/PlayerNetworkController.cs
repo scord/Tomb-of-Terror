@@ -7,24 +7,26 @@ public class PlayerNetworkController : NetworkBehaviour {
 
     [SerializeField] private Camera m_Camera;
     [SerializeField] private AudioListener m_Listener;
-    [SyncVar] private bool isMainLevel;
+    [SyncVar (hook="SyncIsMainLevel")] public bool isMainLevel;
     [SyncVar] public bool withPickupManager;
+
+    private GameObject mainCamera;
 
     // Use this for initialization
     virtual protected void Start () {
         if (isLocalPlayer) {
-            GameObject go = GameObject.Find("Main Camera");
-            MouseLook ml = go.GetComponent<MouseLook>();
+            mainCamera = GameObject.Find("Main Camera");
+            MouseLook ml = (mainCamera != null) ? mainCamera.GetComponent<MouseLook>() : null;
             if (ml != null) ml.enabled = false;
-            go.SetActive(false);
+            if (mainCamera != null) mainCamera.SetActive(false);
             ml = null;
-            go = GameObject.Find("GameParams");
-            PlayerController pc = GetComponent<PlayerController>();
+            GameObject go = GameObject.Find("GameParams");
+            /*PlayerController pc = GetComponent<PlayerController>();
             if (go != null) {
                 GameParams gp = go.GetComponent<GameParams>();
                 pc.StartConfig(gp.GetMainLevel());
                 gp = null;
-            }
+            }*/
             //pc.StartConfig(isMainLevel);
             //pc.pickupEnabled = withPickupManager;
         }
@@ -42,6 +44,18 @@ public class PlayerNetworkController : NetworkBehaviour {
         withPickupManager = newPickupValue;
         GetComponent<PlayerController>().StartConfig(isMainLevel);
         GetComponent<PlayerController>().pickupEnabled = withPickupManager;
+    }
+
+    [Client]
+    private void SyncIsMainLevel(bool newValue) {
+        isMainLevel = newValue;
+        gameObject.GetComponent<PlayerController>().StartConfig(isMainLevel);
+    }
+
+    private void OnDisable() {
+        if (isLocalPlayer) {
+            if (mainCamera != null) mainCamera.SetActive(true);
+        }
     }
 
 }

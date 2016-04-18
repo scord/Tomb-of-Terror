@@ -1239,11 +1239,11 @@ GameObject:
   - 114: {fileID: 11463906}
   - 114: {fileID: 11498176}
   - 114: {fileID: 11413358}
+  - 114: {fileID: 11475996}
   - 114: {fileID: 11453372}
   - 95: {fileID: 9581524}
   - 114: {fileID: 11469776}
   - 114: {fileID: 11459588}
-  - 114: {fileID: 11475996}
   - 114: {fileID: 11437474}
   - 114: {fileID: 11476460}
   - 114: {fileID: 11444714}
@@ -1253,6 +1253,7 @@ GameObject:
   - 135: {fileID: 13513988}
   - 114: {fileID: 11450382}
   - 114: {fileID: 11440038}
+  - 114: {fileID: 11455892}
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Explorer
@@ -5460,6 +5461,17 @@ MonoBehaviour:
   animSpeed: 10
   animDistance: 0.05
   waitTime: 10
+--- !u!114 &11455892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4574252571141564a989184bf6ccc71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11457744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5637,6 +5649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2095840}
   m_Listener: {fileID: 8153660}
+  isMainLevel: 0
   withPickupManager: 0
 --- !u!114 &11476460
 MonoBehaviour:

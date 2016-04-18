@@ -115,6 +115,9 @@ public class NetManager : NetworkManager
         base.OnStartServer();
     }
 
+    void OnConnectedToServer() {
+        Debug.Log("Connected Client");
+    }
     // Called when a client sends a message
     void OnPlayerResponse(NetworkMessage netMsg)
     {
@@ -164,9 +167,17 @@ public class NetManager : NetworkManager
         client.Send(playerMsgType, msg);
     }
 
+    public override void OnClientConnect(NetworkConnection conn)
+    {
+        Debug.Log("Entered OnClientConnect" + clientLoadedScene);
+        base.OnClientConnect(conn);
+    }
+
+
     // Called when a client attempts to join the server
     public override void  OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
+        Debug.LogError("Called again");
         PlayerMsg msg = new PlayerMsg();
         msg.controllerId = playerControllerId;
         msg.withPickup = !( onlineScene == m_LobbyScene || onlineScene == m_EndScene);
@@ -200,6 +211,7 @@ public class NetManager : NetworkManager
             onlineScene = m_MainScene;
             JoinGame(playerId, loadMainAsHost, loadMainOnIp);
         } else {
+            onlineScene = m_LoadingScene;
             JoinMainGame(playerId);
         }
     }

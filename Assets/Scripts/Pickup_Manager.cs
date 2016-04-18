@@ -32,6 +32,7 @@ public class Pickup_Manager : NetworkBehaviour {
     m_PlayerController.EventPickUp += PickUpObject;
     m_PlayerController.EventThrow += ThrowObject;
     prize_tag = m_PlayerController.GetPrizeTag();
+    Debug.Log(GameObject.Find("Game Manager"));
     GM_Ref = GameObject.Find("Game Manager").GetComponent<Game_Manager_References>();
   }
 

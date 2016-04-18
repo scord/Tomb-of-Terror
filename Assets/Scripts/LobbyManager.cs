@@ -22,12 +22,12 @@ public class LobbyManager : MonoBehaviour {
 	}
 
   public void StartGame() {
-    GameObject.Find("NetManager").GetComponent<NetManager>().StartFromLobby();
+    GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().ServerStartMain();
   }
 
   public void OnDisable() {
-    m_Canvas_1.SetActive(false);
-    m_Canvas_2.SetActive(false);
+    if (m_Canvas_1 != null) m_Canvas_1.SetActive(false);
+    if (m_Canvas_2 != null) m_Canvas_2.SetActive(false);
   }
 
 }

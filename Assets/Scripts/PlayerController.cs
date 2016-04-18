@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
     public delegate void ThrowDelegate(GameObject go, Vector3 direction);
     public event ThrowDelegate EventThrow;
 
-    protected bool canChangeLevel = false;
+    protected bool canChangeLevel = true;
 
     virtual protected void Start () {
         GetComponent<IKHandler>().enabled = true;
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	virtual protected void Update () {
         move = false;
-
+        Debug.Log(canChangeLevel);
         if (canChangeLevel && Input.GetKeyDown(KeyCode.K)) {
             ChangeLevel();
         }
@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour {
 
     protected virtual void Throw()
     {
+
     }
 
     protected virtual void PickUp()
@@ -134,9 +135,7 @@ public class PlayerController : MonoBehaviour {
         m_IntroTutorialScript.gameObject.SetActive(false);
     }
 
-    protected virtual void ChangeLevel() {
-        //GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(2);
-    }
+    protected virtual void ChangeLevel() {}
 
     /*void OnTriggerEnter(Collider col)
     {

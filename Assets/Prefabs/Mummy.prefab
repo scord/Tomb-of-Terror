@@ -165,6 +165,7 @@ GameObject:
   - 114: {fileID: 11474274}
   - 114: {fileID: 11499778}
   - 114: {fileID: 11427896}
+  - 114: {fileID: 11441304}
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Player
@@ -2076,6 +2077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2092708}
   m_Listener: {fileID: 8171602}
+  isMainLevel: 0
   withPickupManager: 0
 --- !u!114 &11439400
 MonoBehaviour:
@@ -2104,6 +2106,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11441304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4574252571141564a989184bf6ccc71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11449598
 MonoBehaviour:
   m_ObjectHideFlags: 1
