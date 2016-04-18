@@ -24,6 +24,7 @@ public class NetworkManagerCustom : NetworkManager {
   public int choosenIndex { get {return m_choosenIndex;} set { m_choosenIndex = value;}}
   private bool loadMainAsHost = false;
   private string loadMainOnIp = null;
+  private bool alreadyStartedMain = false;
 
   private const int default_port = 7777;
 
@@ -121,8 +122,9 @@ public class NetworkManagerCustom : NetworkManager {
   }
 
   public void ServerStartMain() {
-    if (onlineScene == m_LobbyScene) {
+    if (!alreadyStartedMain && (onlineScene == m_LobbyScene)) {
       NetworkManager.singleton.ServerChangeScene(m_MainScene);
+      alreadyStartedMain = true;
     }
   }
 
@@ -166,6 +168,10 @@ public class NetworkManagerCustom : NetworkManager {
     choosenIndex = 1;
     onlineScene = m_MummyIntroScene;
     SetPort(7776);
+    if (m_SkipTutorial) { 
+      shouldLoadMainLevel = true;
+      GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
+    }
     JoinGame();
   }
 
@@ -173,6 +179,10 @@ public class NetworkManagerCustom : NetworkManager {
     choosenIndex = 0;
     onlineScene = m_ExplorerIntroScene;
     SetPort(7775);
+    if (m_SkipTutorial) { 
+      shouldLoadMainLevel = true;
+      GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
+    }
     JoinGame();
   }
 
@@ -180,6 +190,10 @@ public class NetworkManagerCustom : NetworkManager {
     choosenIndex = 1;
     onlineScene = m_MummyIntroScene;
     SetPort(7776);
+    if (m_SkipTutorial) { 
+      shouldLoadMainLevel = true;
+      GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
+    }
     HostGame();
   }
 
@@ -187,6 +201,10 @@ public class NetworkManagerCustom : NetworkManager {
     choosenIndex = 0;
     onlineScene = m_ExplorerIntroScene;
     SetPort(7775);
+    if (m_SkipTutorial) { 
+      shouldLoadMainLevel = true;
+      GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
+    }
     HostGame();
   }
 
@@ -259,7 +277,7 @@ public class NetworkManagerCustom : NetworkManager {
       SetupMenuSceneBUttons();
     } else if ( level == 3 ) {
       SetupLoadingSceneButtons();
-    } else if ( level == 4 ) {
+    } else if ( level == 4  || level == 5) {
       SetupDisconnectButton();
     }
   }
@@ -286,7 +304,9 @@ public class NetworkManagerCustom : NetworkManager {
     offlineScene = m_MenuScene;
     StopGameConnection();
     shouldLoadMainLevel = false;
-    m_SkipTutorial = false;
+    GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
+    //m_SkipTutorial = false;
+    alreadyStartedMain = false;
     loadMainAsHost = false;
     loadMainOnIp = null;
     GameObject go = GameObject.Find("HeartRate");

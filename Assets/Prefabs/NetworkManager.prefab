@@ -99,7 +99,7 @@ MonoBehaviour:
   matchName: default
   matchSize: 4
   shouldLoadMainLevel: 0
-  m_SkipTutorial: 0
+  m_SkipTutorial: 1
   m_MummyIntroScene: startscene-mummy
   m_ExplorerIntroScene: startscene
   m_MainScene: Sample
