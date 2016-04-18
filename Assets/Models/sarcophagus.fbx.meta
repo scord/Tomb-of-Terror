@@ -1,0 +1,332 @@
+fileFormatVersion: 2
+guid: b289d0d345dd67c489334147422b91cd
+timeCreated: 1461007926
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: body
+    100002: cane
+    100004: eye_left
+    100006: eye_right
+    100008: eyebrow_left
+    100010: eyebrow_right
+    100012: eyeliner
+    100014: eyeliner1
+    100016: eyeliner_bottom
+    100018: eyeliner_bottom 1
+    100020: eyeliner_upper
+    100022: eyeliner_upper 1
+    100024: goatee
+    100026: group1
+    100028: hand
+    100030: hand 1
+    100032: hand_left
+    100034: hand_right
+    100036: handcuff
+    100038: handcuff 1
+    100040: pCube1
+    100042: pCube2
+    100044: pCube3
+    100046: pCube4
+    100048: pCube5
+    100050: pCube6
+    100052: pCube7
+    100054: pCylinder1
+    100056: pCylinder10
+    100058: pCylinder11
+    100060: pCylinder12
+    100062: pCylinder13
+    100064: pCylinder14
+    100066: pCylinder15
+    100068: pCylinder16
+    100070: pCylinder17
+    100072: pCylinder18
+    100074: pCylinder19
+    100076: pCylinder2
+    100078: pCylinder20
+    100080: pCylinder21
+    100082: pCylinder22
+    100084: pCylinder23
+    100086: pCylinder24
+    100088: pCylinder3
+    100090: pCylinder4
+    100092: pCylinder5
+    100094: pCylinder6
+    100096: pCylinder7
+    100098: pCylinder8
+    100100: pCylinder9
+    100102: //RootNode
+    100104: sarcophagus_right
+    100106: sarcophagus_right2
+    100108: snake
+    100110: stick
+    100112: stick_decoration
+    100114: transform2
+    400000: body
+    400002: cane
+    400004: eye_left
+    400006: eye_right
+    400008: eyebrow_left
+    400010: eyebrow_right
+    400012: eyeliner
+    400014: eyeliner1
+    400016: eyeliner_bottom
+    400018: eyeliner_bottom 1
+    400020: eyeliner_upper
+    400022: eyeliner_upper 1
+    400024: goatee
+    400026: group1
+    400028: hand
+    400030: hand 1
+    400032: hand_left
+    400034: hand_right
+    400036: handcuff
+    400038: handcuff 1
+    400040: pCube1
+    400042: pCube2
+    400044: pCube3
+    400046: pCube4
+    400048: pCube5
+    400050: pCube6
+    400052: pCube7
+    400054: pCylinder1
+    400056: pCylinder10
+    400058: pCylinder11
+    400060: pCylinder12
+    400062: pCylinder13
+    400064: pCylinder14
+    400066: pCylinder15
+    400068: pCylinder16
+    400070: pCylinder17
+    400072: pCylinder18
+    400074: pCylinder19
+    400076: pCylinder2
+    400078: pCylinder20
+    400080: pCylinder21
+    400082: pCylinder22
+    400084: pCylinder23
+    400086: pCylinder24
+    400088: pCylinder3
+    400090: pCylinder4
+    400092: pCylinder5
+    400094: pCylinder6
+    400096: pCylinder7
+    400098: pCylinder8
+    400100: pCylinder9
+    400102: //RootNode
+    400104: sarcophagus_right
+    400106: sarcophagus_right2
+    400108: snake
+    400110: stick
+    400112: stick_decoration
+    400114: transform2
+    2300000: body
+    2300002: cane
+    2300004: eye_left
+    2300006: eye_right
+    2300008: eyebrow_left
+    2300010: eyebrow_right
+    2300012: eyeliner_bottom
+    2300014: eyeliner_bottom 1
+    2300016: eyeliner_upper
+    2300018: eyeliner_upper 1
+    2300020: goatee
+    2300022: hand
+    2300024: hand 1
+    2300026: handcuff
+    2300028: handcuff 1
+    2300030: pCube1
+    2300032: pCube2
+    2300034: pCube3
+    2300036: pCube4
+    2300038: pCube5
+    2300040: pCube6
+    2300042: pCube7
+    2300044: pCylinder1
+    2300046: pCylinder10
+    2300048: pCylinder11
+    2300050: pCylinder12
+    2300052: pCylinder13
+    2300054: pCylinder14
+    2300056: pCylinder15
+    2300058: pCylinder16
+    2300060: pCylinder17
+    2300062: pCylinder18
+    2300064: pCylinder19
+    2300066: pCylinder2
+    2300068: pCylinder20
+    2300070: pCylinder21
+    2300072: pCylinder22
+    2300074: pCylinder23
+    2300076: pCylinder24
+    2300078: pCylinder3
+    2300080: pCylinder4
+    2300082: pCylinder5
+    2300084: pCylinder6
+    2300086: pCylinder7
+    2300088: pCylinder8
+    2300090: pCylinder9
+    2300092: sarcophagus_right2
+    2300094: stick
+    3300000: body
+    3300002: cane
+    3300004: eye_left
+    3300006: eye_right
+    3300008: eyebrow_left
+    3300010: eyebrow_right
+    3300012: eyeliner_bottom
+    3300014: eyeliner_bottom 1
+    3300016: eyeliner_upper
+    3300018: eyeliner_upper 1
+    3300020: goatee
+    3300022: hand
+    3300024: hand 1
+    3300026: handcuff
+    3300028: handcuff 1
+    3300030: pCube1
+    3300032: pCube2
+    3300034: pCube3
+    3300036: pCube4
+    3300038: pCube5
+    3300040: pCube6
+    3300042: pCube7
+    3300044: pCylinder1
+    3300046: pCylinder10
+    3300048: pCylinder11
+    3300050: pCylinder12
+    3300052: pCylinder13
+    3300054: pCylinder14
+    3300056: pCylinder15
+    3300058: pCylinder16
+    3300060: pCylinder17
+    3300062: pCylinder18
+    3300064: pCylinder19
+    3300066: pCylinder2
+    3300068: pCylinder20
+    3300070: pCylinder21
+    3300072: pCylinder22
+    3300074: pCylinder23
+    3300076: pCylinder24
+    3300078: pCylinder3
+    3300080: pCylinder4
+    3300082: pCylinder5
+    3300084: pCylinder6
+    3300086: pCylinder7
+    3300088: pCylinder8
+    3300090: pCylinder9
+    3300092: sarcophagus_right2
+    3300094: stick
+    4300000: cane
+    4300002: handcuff
+    4300004: hand
+    4300006: handcuff
+    4300008: hand
+    4300010: goatee
+    4300012: pCube1
+    4300014: pCylinder1
+    4300016: pCylinder2
+    4300018: pCylinder3
+    4300020: pCylinder4
+    4300022: pCylinder5
+    4300024: pCylinder6
+    4300026: pCylinder7
+    4300028: pCylinder8
+    4300030: pCylinder9
+    4300032: pCylinder10
+    4300034: pCylinder11
+    4300036: pCylinder12
+    4300038: pCube2
+    4300040: pCube3
+    4300042: pCube4
+    4300044: pCylinder13
+    4300046: pCylinder14
+    4300048: pCylinder15
+    4300050: pCylinder16
+    4300052: pCylinder17
+    4300054: pCylinder18
+    4300056: pCylinder19
+    4300058: pCylinder20
+    4300060: pCylinder21
+    4300062: pCylinder22
+    4300064: pCylinder23
+    4300066: pCylinder24
+    4300068: pCube5
+    4300070: pCube6
+    4300072: pCube7
+    4300074: stick
+    4300076: body
+    4300078: eyebrow_right
+    4300080: eyebrow_left
+    4300082: eye_right
+    4300084: eye_left
+    4300086: eyeliner_bottom
+    4300088: eyeliner_upper
+    4300090: eyeliner_bottom
+    4300092: eyeliner_upper
+    4300094: sarcophagus_right2
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
