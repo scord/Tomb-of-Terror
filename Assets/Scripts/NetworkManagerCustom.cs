@@ -233,6 +233,14 @@ public class NetworkManagerCustom : NetworkManager {
     base.OnClientConnect(conn);
   }
 
+  public override void OnClientSceneChanged(NetworkConnection conn) {
+    StartCoroutine(CLientSceneWithWait(conn));
+  }
+
+  private IEnumerator CLientSceneWithWait(NetworkConnection conn) {
+    yield return new WaitForSeconds(0.3f);
+    base.OnClientSceneChanged(conn);
+  }
   private void SetIPAdress(string ipadd) {
     NetworkManager.singleton.networkAddress = ipadd;
   }

@@ -59,7 +59,6 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	virtual protected void Update () {
         move = false;
-        Debug.Log(canChangeLevel);
         if (canChangeLevel && Input.GetKeyDown(KeyCode.K)) {
             ChangeLevel();
         }
