@@ -16,14 +16,16 @@ public class FinalData : MonoBehaviour {
 	private List<double> times;
 
 	void Start() {
-
-		my_stats = GameObject.Find ("HeartRate").GetComponent<HeartRateManager> ();
-		average_hr.text = my_stats.GetAverage ().ToString ();
-		range.text = my_stats.GetMin().ToString() + " - " + my_stats.GetMax().ToString();
-		start_point.text = my_stats.GetStartPoint().ToString();
-		log = my_stats.GetLog ();
-		times = my_stats.GetTimes ();
-		
+		GameObject go = GameObject.Find("HeartRate");
+		if (go != null) {
+			my_stats = go.GetComponent<HeartRateManager> ();
+			average_hr.text = my_stats.GetAverage ().ToString();
+			range.text = my_stats.GetMin().ToString() + " - " + my_stats.GetMax().ToString();
+			start_point.text = my_stats.GetStartPoint().ToString();
+			log = my_stats.GetLog ();
+			times = my_stats.GetTimes ();
+			
+		}
 	}
 
 

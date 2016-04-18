@@ -120,8 +120,12 @@ public class NetworkManagerCustom : NetworkManager {
     NetworkManager.singleton.StartClient();
   }
 
-  public void EndGame() {
-    NetworkManager.singleton.ServerChangeScene(m_EndScene);
+  private bool gameEnded = false;
+  public void EndGame(){
+    if (!gameEnded ) {
+      NetworkManager.singleton.ServerChangeScene(m_EndScene);
+      gameEnded = true;
+    }
   }
 
   public void ServerStartMain() {
@@ -317,6 +321,7 @@ public class NetworkManagerCustom : NetworkManager {
     m_SkipTutorial = false;
     alreadyStartedMain = false;
     loadMainAsHost = false;
+    gameEnded = false;
     loadMainOnIp = null;
     GameObject go = GameObject.Find("HeartRate");
     if ( go != null ) Destroy(go);
