@@ -6,7 +6,7 @@ using UnityEngine.Networking.NetworkSystem;
 
 public class NetworkManagerCustom : NetworkManager {
   [SerializeField] private bool shouldLoadMainLevel = false;
-  [SerializeField] private bool m_SkipTutorial = false;
+  private bool m_SkipTutorial = false;
 
   [SerializeField] private string m_MummyIntroScene;
   [SerializeField] private string m_ExplorerIntroScene;
@@ -298,6 +298,12 @@ public class NetworkManagerCustom : NetworkManager {
     
     GameObject.Find("ButtonStartServer").GetComponent<Button>().onClick.RemoveAllListeners();
     GameObject.Find("ButtonStartServer").GetComponent<Button>().onClick.AddListener(ServerOnly);
+    GameObject.Find("ToggleSkipTutorial").GetComponent<Toggle>().onValueChanged.RemoveAllListeners();
+    GameObject.Find("ToggleSkipTutorial").GetComponent<Toggle>().onValueChanged.AddListener(ToggleSkipTutorial);
+  }
+
+  void ToggleSkipTutorial(bool newValue) {
+    m_SkipTutorial = newValue;
   }
 
   public void CloseGameConnection() {
@@ -305,7 +311,7 @@ public class NetworkManagerCustom : NetworkManager {
     StopGameConnection();
     shouldLoadMainLevel = false;
     GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
-    //m_SkipTutorial = false;
+    m_SkipTutorial = false;
     alreadyStartedMain = false;
     loadMainAsHost = false;
     loadMainOnIp = null;
