@@ -83,6 +83,7 @@ public class NetworkManagerCustom : NetworkManager {
     offlineScene = m_LoadingScene;
     StopGameConnection();
     shouldLoadMainLevel = true;
+    GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
     StartCoroutine(ConnectToLobby());
 
   }
@@ -238,7 +239,7 @@ public class NetworkManagerCustom : NetworkManager {
   }
 
   private IEnumerator CLientSceneWithWait(NetworkConnection conn) {
-    yield return new WaitForSeconds(0.3f);
+    yield return new WaitForSeconds(1);
     base.OnClientSceneChanged(conn);
   }
   private void SetIPAdress(string ipadd) {

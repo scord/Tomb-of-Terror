@@ -35,6 +35,12 @@ public class PlayerController : MonoBehaviour {
 
     protected bool canChangeLevel = true;
 
+    [SerializeField] protected GameParams m_GameParams;
+    void Awake() {
+        GameObject go = GameObject.Find("GameParams");
+        m_GameParams = go.GetComponent<GameParams>();
+    }
+
     virtual protected void Start () {
         GetComponent<IKHandler>().enabled = true;
         GetComponent<OVRPlayerController>().enabled = true;

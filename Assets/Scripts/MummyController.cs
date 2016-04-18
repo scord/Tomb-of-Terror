@@ -17,6 +17,8 @@ public class MummyController : PlayerController {
         soundVision = cam.gameObject.GetComponent<SoundVision>();
         murmurTimer = 0.0f;
 
+        StartConfig(m_GameParams.mainLevel);
+
 	}
 
 	protected override void Update(){

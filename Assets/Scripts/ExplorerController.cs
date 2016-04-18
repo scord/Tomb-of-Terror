@@ -16,10 +16,10 @@ public class ExplorerController : PlayerController {
 
 		base.Start();
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
-
-        m_Torch.SetActive(true);
-        torchManagerScript = new TorchManager(m_Torch);
-        torchManagerScript.Trigger(true);
+            m_Torch.SetActive(true);
+            torchManagerScript = new TorchManager(m_Torch);
+            torchManagerScript.Trigger(true);
+        StartConfig(m_GameParams.mainLevel);
         
 	}
 

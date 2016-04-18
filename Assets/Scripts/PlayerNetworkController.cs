@@ -20,14 +20,6 @@ public class PlayerNetworkController : NetworkBehaviour {
             if (ml != null) ml.enabled = false;
             if (mainCamera != null) mainCamera.SetActive(false);
             ml = null;
-            GameObject go = GameObject.Find("GameParams");
-            /*PlayerController pc = GetComponent<PlayerController>();
-            if (go != null) {
-                GameParams gp = go.GetComponent<GameParams>();
-                pc.StartConfig(gp.GetMainLevel());
-                gp = null;
-            }*/
-            //pc.StartConfig(isMainLevel);
             //pc.pickupEnabled = withPickupManager;
         }
         if (!isLocalPlayer)

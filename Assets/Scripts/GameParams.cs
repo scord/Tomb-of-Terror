@@ -11,6 +11,7 @@ public class GameParams : MonoBehaviour {
     [SerializeField] private bool canPickup;
     //bool first = true;
 
+    public bool mainLevel { get { return shouldLoadMainLevel; } set { shouldLoadMainLevel = value;}}
     private const int default_port = 7777;
 	// Use this for initialization
 	void Start () {
