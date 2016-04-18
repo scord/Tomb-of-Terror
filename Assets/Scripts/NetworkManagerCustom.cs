@@ -43,7 +43,7 @@ public class NetworkManagerCustom : NetworkManager {
     RegisterStartPosition(spawnTransform);
     base.OnServerAddPlayer(netMsg.conn, msg.controllerId);
     UnRegisterStartPosition(spawnTransform);
-    if ( netMsg.conn != null ){
+    if ( netMsg.conn != null  && netMsg.conn.clientOwnedObjects != null){
       foreach(NetworkInstanceId netId in netMsg.conn.clientOwnedObjects) {
         GameObject g = NetworkServer.FindLocalObject(netId);
         PlayerNetworkController pnc = null;
