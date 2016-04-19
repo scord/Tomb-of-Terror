@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class SoundVision : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class SoundVision : MonoBehaviour
 
     void Start()
     {
-     
+        echoLocation = true;
         GetComponent<Camera>().SetReplacementShader(shader, "");
         waves = new Waves(maxWaves, maxLength);
         GetAudioSources();
@@ -68,11 +69,14 @@ public class SoundVision : MonoBehaviour
 
     void UpdateAudioSources()
     {
-        foreach (AudioSource source in FindObjectsOfType<AudioSource>())
+        List<AudioSource> unsortedList = new List<AudioSource>(FindObjectsOfType<AudioSource>());
+        List<AudioSource> sortedList = unsortedList.OrderBy(o => Vector3.Distance(o.transform.position, transform.position)).ToList();
+
+        foreach (AudioSource source in sortedList.GetRange(0, 32))
         {
             bool found = false;
             WaveSource foundWaveSource = ContainsAudioSource(waveSources, source, ref found);
-            if (Vector3.Distance(source.transform.position, transform.position) < 60 && !found && source.gameObject.layer != LayerMask.NameToLayer("Ignore Sound Vision"))
+            if (!found && source.gameObject.layer != LayerMask.NameToLayer("Ignore Sound Vision"))
             {
                 int i = waves.free.Pop();
 
@@ -81,11 +85,7 @@ public class SoundVision : MonoBehaviour
 
 
                 waveSource.SendToShader();
-            } else if (Vector3.Distance(source.transform.position, transform.position) >= 60 && found)
-            {
-                waves.free.Push(foundWaveSource.index);
-                waveSources.Remove(foundWaveSource);
-            }
+            } 
         }
 
     }
@@ -114,7 +114,7 @@ public class SoundVision : MonoBehaviour
 
         if (echoLocation)
         {
-            if (echoTime > 16)
+            if (echoTime > 5)
             {
                 echoLocation = false;
                 echoTime = 0;
@@ -143,6 +143,7 @@ public class SoundVision : MonoBehaviour
         waves.SendToShader();
 
         waves.release();
+        Debug.Log(waves.free.Count);
     }
 
     
@@ -190,7 +191,7 @@ public class SoundVision : MonoBehaviour
         public WaveSource getFreeWave(WaveSource source)
         {
             if (free.Contains(source.index)) { }
-            else if (source.GetDeltaMovement() > 0.5f && free.Count > 0) source.deltaMovement = 0;
+            else if (source.GetDeltaMovement() > 1.5f && free.Count > 0) source.deltaMovement = 0;
             else return source;
 
             source.index = free.Pop();
