@@ -352,4 +352,8 @@ public class NetworkManagerCustom : NetworkManager {
     SetupMenuSceneBUttons(); 
   }
 
+  void OnStopServer() {
+    offlineScene = m_MenuScene;
+  }
+
 }

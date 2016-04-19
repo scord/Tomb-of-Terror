@@ -13,6 +13,7 @@ public class MenuController : MonoBehaviour {
     public bool host;
 	// Use this for initialization
 	void Start () {
+        Cursor.visible = true;
         selected = 0;
         GameObject netManager = GameObject.Find("NetworkManager");
         if (netManager == null) {
