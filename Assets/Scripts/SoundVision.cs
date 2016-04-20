@@ -28,7 +28,7 @@ public class SoundVision : MonoBehaviour
         GetComponent<Camera>().SetReplacementShader(shader, "");
         waves = new Waves(maxWaves, maxLength);
         GetAudioSources();
-   
+
     }
 
     // Update is called once per frame
@@ -65,6 +65,7 @@ public class SoundVision : MonoBehaviour
 
                 if ( i == 0 ) break;
             }
+            Debug.Log(waveSources.Count);
         }
     }
 
@@ -87,12 +88,12 @@ public class SoundVision : MonoBehaviour
 
 
                 waveSource.SendToShader();
-            } 
+            }
         }
 
     }
 
-    
+
 
     public void EchoLocate()
     {
@@ -101,10 +102,10 @@ public class SoundVision : MonoBehaviour
         Shader.SetGlobalVector("_EchoSource", transform.position);
         Shader.SetGlobalFloat("_EchoTime", 0);
     }
-    
+
     void Update()
     {
-        
+
 		float dtime = Time.deltaTime;
         timer += dtime;
 
@@ -122,7 +123,7 @@ public class SoundVision : MonoBehaviour
                 echoTime = 0;
             }
             echoTime += dtime;
-            
+
             Shader.SetGlobalFloat("_EchoTime", echoTime);
         }
 
@@ -137,7 +138,7 @@ public class SoundVision : MonoBehaviour
             waves.colors[waveSources[i].index] = waves.AddColor(waves.colors[waveSources[i].index], c);
         }
 
-     
+
 
 
         waves.UpdateTexture(waveSources);
@@ -148,7 +149,7 @@ public class SoundVision : MonoBehaviour
         Debug.Log(waves.free.Count);
     }
 
-    
+
 
     struct Waves
     {
@@ -174,7 +175,7 @@ public class SoundVision : MonoBehaviour
             colors = new Color[numWaves][];
             enabled = new List<int>();
             texture = new Texture2D(waveLength, numWaves);
-     
+
             texture.wrapMode = (TextureWrapMode)WrapMode.Clamp;
             texture.filterMode = FilterMode.Point;
             for (int i = 0; i < numWaves; i++)
@@ -218,7 +219,7 @@ public class SoundVision : MonoBehaviour
                 texture.SetPixels(0, i, texture.width, 1, colors[i]);
             }
             texture.Apply(true);
- 
+
         }
 
         public void SendToShader()
@@ -300,18 +301,18 @@ public class SoundVision : MonoBehaviour
             }
 
             float averageFreq = ((summedFreq / level)) / (spectrum.Length - 4);
-         
+
             if (level < 0)
                 level = 0;
 			level = Mathf.Pow(level * 100,0.5f)/5f;
 
             //return new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1);
-            
+
             return baseColor*(new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1));
         }
         public float GetDeltaMovement()
         {
-            
+
             deltaMovement += Vector3.Distance(audioSource.transform.position, prevPosition);
             prevPosition = audioSource.transform.position;
             return deltaMovement;
