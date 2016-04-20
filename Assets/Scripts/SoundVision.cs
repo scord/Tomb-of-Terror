@@ -167,7 +167,6 @@ public class SoundVision : MonoBehaviour
         waves.SendToShader();
 
         waves.release();
-        Debug.Log(waves.free.Count);
     }
 
     
