@@ -19,16 +19,18 @@ public class SoundVision : MonoBehaviour
     public Color color = new Color(0, 0.85f, 1, 1);
     float timer = 0;
     Waves waves;
+    public Texture2D wavetex;
     // Use this for initialization
     List<WaveSource> waveSources;
 
     void Start()
     {
-        echoLocation = true;
+        EchoLocate();
         GetComponent<Camera>().SetReplacementShader(shader, "");
         waves = new Waves(maxWaves, maxLength);
-        GetAudioSources();
-
+        waveSources = new List<WaveSource>();
+        UpdateAudioSources();
+   
     }
 
     // Update is called once per frame
@@ -44,7 +46,7 @@ public class SoundVision : MonoBehaviour
             }
         }
         found = false;
-        return sources[0];
+        return new WaveSource();
     }
 
     void GetAudioSources()
@@ -56,7 +58,7 @@ public class SoundVision : MonoBehaviour
             if (source.gameObject.layer != LayerMask.NameToLayer("Ignore Sound Vision"))
             {
                 int i = waves.free.Pop();
-
+                Debug.Log(i);
                 WaveSource waveSource = new WaveSource(source, i);
                 waveSources.Add(waveSource);
 
@@ -71,38 +73,50 @@ public class SoundVision : MonoBehaviour
 
     void UpdateAudioSources()
     {
-        List<AudioSource> unsortedList = new List<AudioSource>(FindObjectsOfType<AudioSource>());
-        List<AudioSource> sortedList = unsortedList.OrderBy(o => Vector3.Distance(o.transform.position, transform.position)).ToList();
-        List<AudioSource> filteredList = sortedList.Where( x => (x.gameObject.layer != LayerMask.NameToLayer("Ignore Sound Vision"))).ToList();
-
-        Debug.Log(filteredList.Count);
-        Debug.Log(waveSources.Count);
-        if ( filteredList.Count == 0)
-          return;
-        foreach (AudioSource source in filteredList.GetRange(0, 32))
+    
+        List<AudioSource> sortedList = (new List<AudioSource>(FindObjectsOfType<AudioSource>())).OrderBy(o => Vector3.Distance(o.transform.position, transform.position)).ToList();
+        foreach (AudioSource source in sortedList)
+        {
+            if (source.gameObject.layer == LayerMask.NameToLayer("Ignore Sound Vision"))
+                sortedList.Remove(source);
+        }
+        int sourceCount = 0;
+        foreach (AudioSource source in sortedList)
         {
             bool found = false;
             WaveSource foundWaveSource = ContainsAudioSource(waveSources, source, ref found);
-            // Debug.Log("source " + source + " " + found);
-            if (!found && (source.gameObject.layer != LayerMask.NameToLayer("Ignore Sound Vision")))
+
+            if (sourceCount < Mathf.Min(sortedList.Count, 32))
             {
-                // Debug.Log("do i even?");
-                int i = waves.free.Pop();
 
-                WaveSource waveSource = new WaveSource(source, i);
-                waveSources.Add(waveSource);
+                if (!found)
+                {
+                    if (waves.free.Count == 0) break;
+                    Debug.Log("TEST1");
+                    int i = waves.free.Pop();
+
+                    WaveSource waveSource = new WaveSource(source, i);
+                    waveSources.Add(waveSource);
 
 
-                waveSource.SendToShader();
+                    waveSource.SendToShader();
 
-                if ( i == 0) break;
+                }
             }
+            else if (found)
+            {
+                Debug.Log("TEST2");
+                waves.release(foundWaveSource);
+                waveSources.Remove(foundWaveSource);
+            }
+
+            sourceCount++;
         }
-        Debug.Log(waveSources.Count);
+        
 
     }
 
-
+    
 
     public void EchoLocate()
     {
@@ -111,10 +125,10 @@ public class SoundVision : MonoBehaviour
         Shader.SetGlobalVector("_EchoSource", transform.position);
         Shader.SetGlobalFloat("_EchoTime", 0);
     }
-
+    
     void Update()
     {
-
+        
 		float dtime = Time.deltaTime;
         timer += dtime;
 
@@ -132,7 +146,7 @@ public class SoundVision : MonoBehaviour
                 echoTime = 0;
             }
             echoTime += dtime;
-
+            
             Shader.SetGlobalFloat("_EchoTime", echoTime);
         }
 
@@ -147,18 +161,18 @@ public class SoundVision : MonoBehaviour
             waves.colors[waveSources[i].index] = waves.AddColor(waves.colors[waveSources[i].index], c);
         }
 
-
+     
 
 
         waves.UpdateTexture(waveSources);
-
+        wavetex = waves.texture;
         waves.SendToShader();
 
         waves.release();
-        //Debug.Log(waves.free.Count);
+
     }
 
-
+    
 
     struct Waves
     {
@@ -184,7 +198,7 @@ public class SoundVision : MonoBehaviour
             colors = new Color[numWaves][];
             enabled = new List<int>();
             texture = new Texture2D(waveLength, numWaves);
-
+     
             texture.wrapMode = (TextureWrapMode)WrapMode.Clamp;
             texture.filterMode = FilterMode.Point;
             for (int i = 0; i < numWaves; i++)
@@ -228,7 +242,7 @@ public class SoundVision : MonoBehaviour
                 texture.SetPixels(0, i, texture.width, 1, colors[i]);
             }
             texture.Apply(true);
-
+ 
         }
 
         public void SendToShader()
@@ -238,6 +252,12 @@ public class SoundVision : MonoBehaviour
             Shader.SetGlobalTexture("_Waves", texture);
         }
 
+        public void release(WaveSource waveSource)
+        {
+            int i = waveSource.index;
+            free.Push(i);
+            enabled[i] = 0;
+        }
         public void release()
         {
             for (int i = 0; i < numWaves; i++)
@@ -297,7 +317,7 @@ public class SoundVision : MonoBehaviour
 
         public Color GetCurrentColor(Color baseColor)
         {
-            float[] spectrum = new float[256];
+            float[] spectrum = new float[64];
 
             audioSource.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
             float summedFreq = 0;
@@ -310,18 +330,24 @@ public class SoundVision : MonoBehaviour
             }
 
             float averageFreq = ((summedFreq / level)) / (spectrum.Length - 4);
-
+         
             if (level < 0)
                 level = 0;
-			level = Mathf.Pow(level * 100,0.5f)/5f;
+
+            if (level < 0.0000001)
+                level = 0;
+            level = Mathf.Pow(level * 100,0.5f)/5f;
+
+            
+
 
             //return new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1);
 
-            return baseColor*(new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1));
+            return baseColor *(new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1));
         }
         public float GetDeltaMovement()
         {
-
+            
             deltaMovement += Vector3.Distance(audioSource.transform.position, prevPosition);
             prevPosition = audioSource.transform.position;
             return deltaMovement;
