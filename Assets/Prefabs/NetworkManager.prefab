@@ -56,12 +56,11 @@ MonoBehaviour:
   m_SpawnPrefabs:
   - {fileID: 131858, guid: bd17e05dd9de3fd438fc735190aee767, type: 2}
   - {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
-  - {fileID: 108388, guid: 2293b24bf16f12648a4d7c69e17ad110, type: 2}
+  - {fileID: 149186, guid: 1af885962313eb841a7b640eaac18b7f, type: 2}
   - {fileID: 135454, guid: f13752c6a3f99c843b177c1cef7b4669, type: 2}
   - {fileID: 177910, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
   - {fileID: 141254, guid: ae59e0409ea0e77499fe99ef7cb44772, type: 2}
   - {fileID: 158000, guid: 4abea14bc9786fc48983fe2ec9742cf4, type: 2}
-  - {fileID: 149186, guid: 1af885962313eb841a7b640eaac18b7f, type: 2}
   m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -104,7 +103,7 @@ MonoBehaviour:
   shouldLoadMainLevel: 0
   m_MummyIntroScene: startscene-mummy
   m_ExplorerIntroScene: startscene
-  m_MainScene: Sample
+  m_MainScene: endgame
   m_LoadingScene: Loading
   m_LobbyScene: Lobby
   m_EndScene: endgame
