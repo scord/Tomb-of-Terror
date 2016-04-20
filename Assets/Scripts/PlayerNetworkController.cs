@@ -24,6 +24,10 @@ public class PlayerNetworkController : NetworkBehaviour {
         }
         if (!isLocalPlayer)
         {
+			ExplorerMusicController emc = GetComponent<ExplorerMusicController>();
+			if (emc != null){
+				emc.enabled = false;
+			}
             GetComponent<PlayerController>().enabled = false;
             GetComponent<OVRPlayerController>().enabled = false;
             m_Camera.enabled = false;

@@ -1260,6 +1260,7 @@ GameObject:
   - 114: {fileID: 11455892}
   - 114: {fileID: 11443536}
   - 114: {fileID: 11478190}
+  - 114: {fileID: 11499350}
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Explorer
@@ -6015,6 +6016,17 @@ MonoBehaviour:
   fadeInTexture: {fileID: 0}
   speedRotationIncrement: 0.05
   layerName: Default
+--- !u!114 &11499350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefd442328684c3448917b54ac9870fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &12440274
 Behaviour:
   m_ObjectHideFlags: 1
