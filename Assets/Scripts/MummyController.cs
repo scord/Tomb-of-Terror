@@ -17,6 +17,8 @@ public class MummyController : PlayerController {
         soundVision = cam.gameObject.GetComponent<SoundVision>();
         murmurTimer = 0.0f;
 
+        StartConfig(m_GameParams.mainLevel);
+
 	}
 
 	protected override void Update(){
@@ -80,7 +82,7 @@ public class MummyController : PlayerController {
     }
 
     protected override void ChangeLevel() {
-        GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(1);
+        GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().ChangeLevel(1);
     }
 
     public override string GetPrizeTag() {

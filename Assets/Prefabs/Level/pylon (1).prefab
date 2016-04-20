@@ -131,6 +131,7 @@ GameObject:
   - 4: {fileID: 451846}
   - 33: {fileID: 3358306}
   - 23: {fileID: 2333080}
+  - 64: {fileID: 6457730}
   m_Layer: 0
   m_Name: pCylinder5
   m_TagString: Untagged
@@ -242,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.44, y: 14.3, z: -15}
+  m_LocalPosition: {x: -39.56, y: 14.3, z: 20}
   m_LocalScale: {x: 4, y: 5, z: 4}
   m_Children:
   - {fileID: 412074}
@@ -342,6 +343,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 158964}
+  m_Mesh: {fileID: 4300000, guid: c58dad46cc7f15b43abb78b2d232b073, type: 3}
+--- !u!64 &6457730
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158964}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: c58dad46cc7f15b43abb78b2d232b073, type: 3}
 --- !u!95 &9550728
 Animator:

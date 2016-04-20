@@ -8,14 +8,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menu.unity
   - enabled: 1
-    path: Assets/Scenes/Sample.unity
-  - enabled: 1
-    path: Assets/Scenes/endgame.unity
+    path: Assets/Scenes/startscene.unity
   - enabled: 1
     path: Assets/Scenes/startscene-mummy.unity
   - enabled: 1
     path: Assets/Scenes/Loading.unity
   - enabled: 1
-    path: Assets/Scenes/startscene.unity
-  - enabled: 1
     path: Assets/Scenes/Lobby.unity
+  - enabled: 1
+    path: Assets/Scenes/Sample.unity
+  - enabled: 1
+    path: Assets/Scenes/endgame.unity

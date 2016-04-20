@@ -165,6 +165,8 @@ GameObject:
   - 114: {fileID: 11474274}
   - 114: {fileID: 11499778}
   - 114: {fileID: 11427896}
+  - 114: {fileID: 11441304}
+  - 114: {fileID: 11469070}
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Player
@@ -2075,6 +2077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2092708}
   m_Listener: {fileID: 8171602}
+  isMainLevel: 0
   withPickupManager: 0
 --- !u!114 &11439400
 MonoBehaviour:
@@ -2103,6 +2106,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11441304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4574252571141564a989184bf6ccc71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11449598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2143,6 +2157,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 2
   fadeColor: {r: 0.01, g: 0.01, b: 0.01, a: 1}
+--- !u!114 &11469070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b221b6929278643b6bae60ca464631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerController: {fileID: 11478636}
 --- !u!114 &11474274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2195,6 +2221,7 @@ MonoBehaviour:
   glowShader: {fileID: 0}
   animator: {fileID: 0}
   m_IntroTutorialScript: {fileID: 11482596}
+  m_GameParams: {fileID: 0}
 --- !u!114 &11479804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2260,7 +2287,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131858}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b71d1996d67004241a3b69960856ffcb, type: 3}
   m_Name: 

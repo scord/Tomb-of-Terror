@@ -44,7 +44,6 @@ public class HeartRateManager : NetworkBehaviour {
 	// Make sure there is only one instance of this objects (stats), and that it's in every scene. 
 	// data persistence reference code: http://unity3d.com/learn/tutorials/modules/beginner/live-training-archive/persistence-data-saving-loading
 	void Awake() {
-		DontDestroyOnLoad(gameObject);
 		if (reference == null) {
 			DontDestroyOnLoad (gameObject); // keep it in every scene
 			reference = this;
@@ -181,8 +180,8 @@ public class HeartRateManager : NetworkBehaviour {
 
 	public void OnDisable(){
         
-        log.Clear ();
-		partials.Clear ();
+    log.Clear();
+		partials.Clear();
 		timer = 0.0;
             // Free resources associated with process.
         programActive = false;

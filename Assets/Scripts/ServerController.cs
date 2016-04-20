@@ -2,31 +2,17 @@
 using System.Collections;
 using UnityEngine.Networking;
 
-public class ServerController : MonoBehaviour {
+public class ServerController : NetworkBehaviour {
 
   // Use this for initialization
-
-
-  private int numberOfPlayers;
-  private int lastNumberOfPlayers;
-
-  private Camera[] cameras;
+  [SerializeField] private MainCameraController m_Controller;
+  [SerializeField] private MouseLook m_MouseLook;
   void Start () {
-    lastNumberOfPlayers = NetworkServer.connections.Count;
+    if ( !isServer ) return;
+    m_Controller.enabled = true;
+    m_MouseLook = GameObject.Find("Main Camera").GetComponent<MouseLook>();
+    m_MouseLook.enabled = true;
   }
 
-  void Update() {
-    numberOfPlayers = NetworkServer.connections.Count;
-    if ( lastNumberOfPlayers != numberOfPlayers ) {
-      GameObject[] goa= GameObject.FindGameObjectsWithTag("Player");
-      if (goa.Length != 0) {
-        GameObject go = goa[0];
-        Camera[] c = go.GetComponentsInChildren<Camera>();
-        if (c.Length != 0) {
-          c[0].enabled = true;
-        }
-      }
-    }
-  }
 
 }

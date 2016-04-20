@@ -62,6 +62,8 @@ public class SoundVision : MonoBehaviour
 
 
                 waveSource.SendToShader();
+
+                if ( i == 0 ) break;
             }
         }
     }

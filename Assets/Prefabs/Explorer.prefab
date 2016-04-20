@@ -1243,11 +1243,11 @@ GameObject:
   - 114: {fileID: 11463906}
   - 114: {fileID: 11498176}
   - 114: {fileID: 11413358}
+  - 114: {fileID: 11475996}
   - 114: {fileID: 11453372}
   - 95: {fileID: 9581524}
   - 114: {fileID: 11469776}
   - 114: {fileID: 11459588}
-  - 114: {fileID: 11475996}
   - 114: {fileID: 11437474}
   - 114: {fileID: 11476460}
   - 114: {fileID: 11444714}
@@ -1257,6 +1257,8 @@ GameObject:
   - 135: {fileID: 13513988}
   - 114: {fileID: 11450382}
   - 114: {fileID: 11440038}
+  - 114: {fileID: 11455892}
+  - 114: {fileID: 11443536}
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Explorer
@@ -3777,7 +3779,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -5398,6 +5400,18 @@ MonoBehaviour:
   queueAhead: 1
   usePositionTracking: 1
   resetTrackerOnLoad: 1
+--- !u!114 &11443536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff96f861a1b4d8a408f6302e63985972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AirLevel: 0
 --- !u!114 &11444714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5483,6 +5497,7 @@ MonoBehaviour:
   glowShader: {fileID: 0}
   animator: {fileID: 0}
   m_IntroTutorialScript: {fileID: 11412036}
+  m_GameParams: {fileID: 0}
   m_Torch: {fileID: 108084}
 --- !u!114 &11455062
 MonoBehaviour:
@@ -5515,6 +5530,17 @@ MonoBehaviour:
   animSpeed: 10
   animDistance: 0.05
   waitTime: 10
+--- !u!114 &11455892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4574252571141564a989184bf6ccc71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11457744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5709,6 +5735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2095840}
   m_Listener: {fileID: 8153660}
+  isMainLevel: 0
   withPickupManager: 0
 --- !u!114 &11476460
 MonoBehaviour:
@@ -5989,7 +6016,7 @@ SphereCollider:
   m_GameObject: {fileID: 151886}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

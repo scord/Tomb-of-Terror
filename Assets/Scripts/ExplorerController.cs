@@ -16,10 +16,10 @@ public class ExplorerController : PlayerController {
 
 		base.Start();
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
-
-        m_Torch.SetActive(true);
-        torchManagerScript = new TorchManager(m_Torch);
-        torchManagerScript.Trigger(true);
+            m_Torch.SetActive(true);
+            torchManagerScript = new TorchManager(m_Torch);
+            torchManagerScript.Trigger(true);
+        StartConfig(m_GameParams.mainLevel);
         
 	}
 
@@ -74,7 +74,7 @@ public class ExplorerController : PlayerController {
     }
 
     protected override void ChangeLevel() {
-        GameObject.Find("NetManager").GetComponent<NetManager>().ChangeLevel(2);
+        GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().ChangeLevel(2);
     }
 
     protected override void Throw()
