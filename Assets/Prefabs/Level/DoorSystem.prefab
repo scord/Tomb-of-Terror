@@ -68,6 +68,7 @@ GameObject:
   - 114: {fileID: 11417492}
   - 82: {fileID: 8214034}
   - 114: {fileID: 11421774}
+  - 114: {fileID: 11496602}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -418,6 +419,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 11417492}
+--- !u!114 &11496602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpatialization: 1
+  gain: 0
+  useInvSqr: 0
+  near: 1
+  far: 10
+  disableRfl: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
