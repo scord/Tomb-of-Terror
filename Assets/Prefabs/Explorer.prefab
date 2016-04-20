@@ -591,6 +591,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 416824}
   - 82: {fileID: 8208354}
+  - 114: {fileID: 11459140}
   m_Layer: 0
   m_Name: centreOpenValve
   m_TagString: Untagged
@@ -909,6 +910,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 421576}
   - 82: {fileID: 8271102}
+  - 114: {fileID: 11415016}
   m_Layer: 0
   m_Name: closeValve
   m_TagString: Untagged
@@ -1017,6 +1019,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 415942}
   - 82: {fileID: 8281698}
+  - 114: {fileID: 11434002}
   m_Layer: 0
   m_Name: centreCloseValve
   m_TagString: Untagged
@@ -1109,6 +1112,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 483466}
   - 82: {fileID: 8210368}
+  - 114: {fileID: 11446726}
   m_Layer: 0
   m_Name: openValve
   m_TagString: Untagged
@@ -4029,7 +4033,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   Priority: 9
   DopplerLevel: 1
   MinDistance: 1
@@ -4059,7 +4063,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4178,7 +4182,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -4208,7 +4212,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4625,7 +4629,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   Priority: 0
   DopplerLevel: 1
   MinDistance: 1
@@ -4655,7 +4659,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4700,7 +4704,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -4730,7 +4734,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5020,6 +5024,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71d1996d67004241a3b69960856ffcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11415016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpatialization: 1
+  gain: 0
+  useInvSqr: 1
+  near: 1
+  far: 1000
+  disableRfl: 0
 --- !u!114 &11416172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5122,6 +5143,23 @@ MonoBehaviour:
   blurAndFlaresShader: {fileID: 4800000, guid: be6e39cf196f146d5be72fbefb18ed75, type: 3}
   brightPassFilterShader: {fileID: 4800000, guid: 0aeaa4cb29f5d4e9c8455f04c8575c8c,
     type: 3}
+--- !u!114 &11434002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpatialization: 1
+  gain: 0
+  useInvSqr: 1
+  near: 1
+  far: 1000
+  disableRfl: 0
 --- !u!114 &11435782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5387,6 +5425,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireInfo: {fileID: 11495090}
   m_Controller: {fileID: 11453372}
+--- !u!114 &11446726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpatialization: 1
+  gain: 0
+  useInvSqr: 1
+  near: 1
+  far: 1000
+  disableRfl: 0
 --- !u!114 &11447540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5498,6 +5553,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intensityMultiplier: 1
+--- !u!114 &11459140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpatialization: 1
+  gain: 0
+  useInvSqr: 1
+  near: 1
+  far: 1000
+  disableRfl: 0
 --- !u!114 &11459588
 MonoBehaviour:
   m_ObjectHideFlags: 1
