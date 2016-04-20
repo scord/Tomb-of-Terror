@@ -16,9 +16,7 @@ public class ExplorerController : PlayerController {
 
 		base.Start();
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
-            m_Torch.SetActive(true);
-            torchManagerScript = new TorchManager(m_Torch);
-            torchManagerScript.Trigger(true);
+        InstantiateTorch();
         StartConfig(m_GameParams.mainLevel);
         
 	}
@@ -122,12 +120,23 @@ public class ExplorerController : PlayerController {
                 //carriedObject.GetComponent<Object_SyncPosition>().PickUp("something");
             } else if ( hit.collider.gameObject.tag == "Prize") {
                 CallEventPickUp(hit.collider.gameObject);
+                if (canChangeLevel) {
+                    InstantiateTorch();
+                }
             }
         }
     }
 
     public override string GetPrizeTag() {
         return "Prize";
+    }
+
+    private void InstantiateTorch() {
+        if (torchManagerScript == null) {
+            m_Torch.SetActive(true);
+            torchManagerScript = new TorchManager(m_Torch);
+            torchManagerScript.Trigger(true);
+        }  
     }
 
 }

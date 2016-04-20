@@ -7,6 +7,6 @@ public class DestroyAfterPickup : MonoBehaviour {
   [SerializeField] private GameObject m_DestroyTarget;
 
   public void OnPickedUp() {
-    Destroy(m_DestroyTarget ?? gameObject);
+    Destroy(m_DestroyTarget);
   }
 }

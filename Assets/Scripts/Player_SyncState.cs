@@ -28,7 +28,7 @@ public class Player_SyncState : NetworkBehaviour {
 
   void OnTriggerEnter(Collider coll) {
     if ( m_ShouldChangeOnTrigger && isServer && ( coll.gameObject.tag == "PyramidExit")) {
-      IncrementState();
+      if ( state_end == m_State + 1) IncrementState();
     }
   }
 
