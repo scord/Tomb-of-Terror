@@ -175,6 +175,10 @@ public class NetworkManagerCustom : NetworkManager {
     //OldJoinGame();
   }
 
+  public override void OnServerSceneChanged(string newSceneName) {
+    onlineScene = newSceneName;
+  }
+
   private void NewHostGame() {
     loadMainAsHost = true;
     loadMainOnIp = GetIPAdress();
@@ -271,13 +275,17 @@ public class NetworkManagerCustom : NetworkManager {
     base.OnClientConnect(conn);
   }
 
+  private bool waited = false;
+
   public override void OnClientSceneChanged(NetworkConnection conn) {
-    StartCoroutine(CLientSceneWithWait(conn));
+    //StartCoroutine(CLientSceneWithWait(conn));
+    base.OnClientSceneChanged(conn);
   }
 
   private IEnumerator CLientSceneWithWait(NetworkConnection conn) {
     yield return new WaitForSeconds(0.3f);
-    base.OnClientSceneChanged(conn);
+    //base.OnClientSceneChanged(conn);
+    waited = true;
   }
   private void SetIPAdress(string ipadd) {
     NetworkManager.singleton.networkAddress = ipadd;
