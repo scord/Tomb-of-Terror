@@ -82,7 +82,7 @@ public class MummyController : PlayerController {
     }
 
     protected override void ChangeLevel() {
-        GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().ChangeLevel(1);
+        GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().ChangeLevel();
     }
 
     public override string GetPrizeTag() {

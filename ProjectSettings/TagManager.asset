@@ -12,6 +12,7 @@ TagManager:
   - Interaction
   - Prize
   - Fire
+  - PyramidExit
   layers:
   - Default
   - TransparentFX

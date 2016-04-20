@@ -29,6 +29,9 @@ public class Pickup_Manager : NetworkBehaviour {
 
   private bool prizeTriggered = false;
 
+  public delegate void ChangeStateDelegate();
+  public event ChangeStateDelegate ChangeStateEvent;
+
   // Use this for initialization
   void Start () {
     m_PlayerController.EventPickUp += PickUpObject;
@@ -83,7 +86,10 @@ public class Pickup_Manager : NetworkBehaviour {
     if (!prizeTriggered && Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, 50))
     {
       if ( hit.collider.gameObject.tag == prize_tag) {
-        GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().EndGame();
+        Debug.Log(hit.collider.gameObject);
+        DestroyAfterPickup dap= hit.collider.gameObject.GetComponent<DestroyAfterPickup>();
+        if (ChangeStateEvent != null) ChangeStateEvent();
+        if (dap != null) dap.OnPickedUp();
         prizeTriggered = false;
       }
     }

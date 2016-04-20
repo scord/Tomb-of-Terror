@@ -167,6 +167,7 @@ GameObject:
   - 114: {fileID: 11427896}
   - 114: {fileID: 11441304}
   - 114: {fileID: 11469070}
+  - 114: {fileID: 11469150}
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Player
@@ -2169,6 +2170,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerController: {fileID: 11478636}
+--- !u!114 &11469150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69e2e8c9b4c8064c82910f8be144259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_State: 1
+  m_ShouldChangeOnTrigger: 0
 --- !u!114 &11474274
 MonoBehaviour:
   m_ObjectHideFlags: 1
