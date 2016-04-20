@@ -74,7 +74,7 @@ public class ExplorerController : PlayerController {
     }
 
     protected override void ChangeLevel() {
-        GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().ChangeLevel(2);
+        GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().ChangeLevel();
     }
 
     protected override void Throw()

@@ -79,7 +79,7 @@ public class NetworkManagerCustom : NetworkManager {
     offlineScene = m_MenuScene;
   }
 
-  public void ChangeLevel(int _id) {
+  public void ChangeLevel() {
     offlineScene = m_LoadingScene;
     StopGameConnection();
     shouldLoadMainLevel = true;
@@ -125,6 +125,14 @@ public class NetworkManagerCustom : NetworkManager {
     if (!gameEnded ) {
       NetworkManager.singleton.ServerChangeScene(m_EndScene);
       gameEnded = true;
+    }
+  }
+
+  public void ManageFinalState() {
+    if (onlineScene == m_MainScene) {
+      EndGame();
+    } else if ( (onlineScene == m_ExplorerIntroScene) || (onlineScene == m_MummyIntroScene) ){
+      ChangeLevel();
     }
   }
 

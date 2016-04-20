@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     protected void CallEventPickUp(GameObject go) {
+        Debug.Log("I call");
         if ( EventPickUp != null ) {
             EventPickUp(go);
         }
