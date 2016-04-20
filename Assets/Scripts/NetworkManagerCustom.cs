@@ -80,11 +80,12 @@ public class NetworkManagerCustom : NetworkManager {
   }
 
   public void ChangeLevel() {
-    offlineScene = m_LoadingScene;
+    offlineScene = m_LobbyScene;
     StopGameConnection();
     shouldLoadMainLevel = true;
     GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
     StartCoroutine(ConnectToLobby());
+    offlineScene = m_MenuScene;
 
   }
 
@@ -124,11 +125,13 @@ public class NetworkManagerCustom : NetworkManager {
   public void EndGame(){
     if (!gameEnded ) {
       NetworkManager.singleton.ServerChangeScene(m_EndScene);
+      onlineScene = m_EndScene;
       gameEnded = true;
     }
   }
 
   public void ManageFinalState() {
+    //Debug.Log("Triggered" + onlineScene);
     if (onlineScene == m_MainScene) {
       EndGame();
     } else if ( (onlineScene == m_ExplorerIntroScene) || (onlineScene == m_MummyIntroScene) ){
@@ -139,6 +142,7 @@ public class NetworkManagerCustom : NetworkManager {
   public void ServerStartMain() {
     if (!alreadyStartedMain && (onlineScene == m_LobbyScene)) {
       NetworkManager.singleton.ServerChangeScene(m_MainScene);
+      onlineScene = m_MainScene;
       alreadyStartedMain = true;
     }
   }
@@ -363,5 +367,6 @@ public class NetworkManagerCustom : NetworkManager {
   void OnStopServer() {
     offlineScene = m_MenuScene;
   }
+
 
 }
