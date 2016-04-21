@@ -440,7 +440,7 @@ MonoBehaviour:
   gain: 0
   useInvSqr: 1
   near: 1
-  far: 1000
+  far: 100
   disableRfl: 0
 --- !u!82 &56956586
 AudioSource:
@@ -460,10 +460,10 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 1
-  Priority: 128
-  DopplerLevel: 1
+  Priority: 10
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -500,7 +500,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 0.027777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1425,6 +1425,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5440358, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
   m_IsPrefabParent: 0
@@ -1948,18 +1952,6 @@ Prefab:
     - target: {fileID: 149188, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_Name
       value: Fire torch 1 (22)
-      objectReference: {fileID: 0}
-    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.300533
-      objectReference: {fileID: 0}
-    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2.165247
-      objectReference: {fileID: 0}
-    - target: {fileID: 149188, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
@@ -2849,7 +2841,7 @@ MonoBehaviour:
   gain: 0
   useInvSqr: 1
   near: 1
-  far: 1000
+  far: 100
   disableRfl: 0
 --- !u!82 &404764773
 AudioSource:
@@ -2869,10 +2861,10 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 1
-  Priority: 9
-  DopplerLevel: 1
+  Priority: 10
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2909,7 +2901,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 0.027777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4962,6 +4954,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5440358, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
   m_IsPrefabParent: 0
@@ -5044,18 +5040,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &475763581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 475763579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a829f3952d6341febea4d99b7a46a02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundVision: {fileID: 0}
 --- !u!4 &475763582 stripped
 Transform:
   m_PrefabParentObject: {fileID: 484020, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
@@ -6759,6 +6743,10 @@ Prefab:
       propertyPath: m_Name
       value: New Fire Pot (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8290546, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
   m_IsPrefabParent: 0
@@ -7383,18 +7371,6 @@ Prefab:
       propertyPath: m_Name
       value: Fire torch 1 (21)
       objectReference: {fileID: 0}
-    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2.300533
-      objectReference: {fileID: 0}
-    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2.165247
-      objectReference: {fileID: 0}
-    - target: {fileID: 149188, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
   m_IsPrefabParent: 0
@@ -7697,7 +7673,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 8.7
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -11072,7 +11048,7 @@ MonoBehaviour:
   gain: 0
   useInvSqr: 1
   near: 1
-  far: 1000
+  far: 100
   disableRfl: 0
 --- !u!82 &930872428
 AudioSource:
@@ -11092,10 +11068,10 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 1
-  Priority: 128
+  Priority: 10
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -11132,7 +11108,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 0.027777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -13832,6 +13808,8 @@ Transform:
   - {fileID: 866223917}
   - {fileID: 448468744}
   - {fileID: 1493903391}
+  - {fileID: 1604216206}
+  - {fileID: 1829705192}
   m_Father: {fileID: 697510970}
   m_RootOrder: 10
 --- !u!1001 &1111603628
@@ -17000,6 +16978,10 @@ Prefab:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5440358, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
   m_IsPrefabParent: 0
@@ -17761,15 +17743,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 43.33
+      value: 47.83
       objectReference: {fileID: 0}
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15.5
+      value: 13.26
       objectReference: {fileID: 0}
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 56.53
+      value: 56.47
       objectReference: {fileID: 0}
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -18220,6 +18202,10 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5440358, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
   m_IsPrefabParent: 0
@@ -18486,6 +18472,68 @@ Transform:
   - {fileID: 1894394845}
   m_Father: {fileID: 697510970}
   m_RootOrder: 20
+--- !u!1001 &1604216205
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1102029235}
+    m_Modifications:
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 39.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 12.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 55.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.068646096
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.92583483
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.20504247
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.30995995
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 149188, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_Name
+      value: Fire torch 1 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.300533
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2.165247
+      objectReference: {fileID: 0}
+    - target: {fileID: 149188, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1604216206 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+  m_PrefabInternal: {fileID: 1604216205}
 --- !u!1 &1613644262
 GameObject:
   m_ObjectHideFlags: 0
@@ -18912,15 +18960,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 38.83
+      value: 45.83
       objectReference: {fileID: 0}
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15.5
+      value: 12.6
       objectReference: {fileID: 0}
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 43.29
+      value: 43.59
       objectReference: {fileID: 0}
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -19060,7 +19108,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 13.1
+      value: 5.6
       objectReference: {fileID: 0}
     - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
       propertyPath: m_LocalRotation.x
@@ -19549,6 +19597,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 665928272}
   m_RootOrder: 0
+--- !u!1001 &1829705191
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1102029235}
+    m_Modifications:
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 36.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 12.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 46.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.21007647
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.23123525
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.051211126
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.948565
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 149188, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_Name
+      value: Fire torch 1 (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.3005335
+      objectReference: {fileID: 0}
+    - target: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2.1652474
+      objectReference: {fileID: 0}
+    - target: {fileID: 149188, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1829705192 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 412384, guid: 884b8130e302df24cad6e518549ef70f, type: 2}
+  m_PrefabInternal: {fileID: 1829705191}
 --- !u!1 &1833401639
 GameObject:
   m_ObjectHideFlags: 0
@@ -19672,7 +19782,7 @@ MonoBehaviour:
   gain: 0
   useInvSqr: 1
   near: 1
-  far: 1000
+  far: 100
   disableRfl: 0
 --- !u!82 &1835968954
 AudioSource:
@@ -19692,10 +19802,10 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 1
-  Priority: 0
-  DopplerLevel: 1
+  Priority: 10
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -19732,7 +19842,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 0.027777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -20550,6 +20660,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5440358, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
       propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440358, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

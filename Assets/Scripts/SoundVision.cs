@@ -75,7 +75,7 @@ public class SoundVision : MonoBehaviour
     {
     
         List<AudioSource> sortedList = (new List<AudioSource>(FindObjectsOfType<AudioSource>())).OrderBy(o => Vector3.Distance(o.transform.position, transform.position)).ToList();
-        foreach (AudioSource source in sortedList)
+        foreach (AudioSource source in sortedList.ToList())
         {
             if (source.gameObject.layer == LayerMask.NameToLayer("Ignore Sound Vision"))
                 sortedList.Remove(source);
@@ -140,7 +140,7 @@ public class SoundVision : MonoBehaviour
 
         if (echoLocation)
         {
-            if (echoTime > 5)
+            if (echoTime > 10)
             {
                 echoLocation = false;
                 echoTime = 0;
@@ -341,7 +341,7 @@ public class SoundVision : MonoBehaviour
 
             if (level < 0.0000001)
                 level = 0;
-            level = Mathf.Pow(level * 100,0.5f)/5f;
+            level = Mathf.Pow(level * 100,1)/5f;
 
             
 
