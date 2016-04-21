@@ -9,10 +9,11 @@ public class MummyController : PlayerController {
     private AudioSource shout;
 
     bool showText = false;
-
-	protected override void Start(){
+    RaycastHit Mummy_ray = new RaycastHit();
+    protected override void Start(){
 		base.Start();
 
+        
         shout = gameObject.GetComponent<AudioSource>();
         soundVision = cam.gameObject.GetComponent<SoundVision>();
         murmurTimer = 0.0f;
@@ -46,7 +47,19 @@ public class MummyController : PlayerController {
         if ( pickupEnabled && Input.GetButtonDown("Fire2")) {
             PickUp();
         }
-	}
+
+
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out Mummy_ray, 24))
+        {
+            if (Mummy_ray.collider.gameObject.tag == "Explorer")
+            {
+                OVRPlayerController mummy_controller = gameObject.GetComponent<OVRPlayerController>();
+                mummy_controller.SetMoveScaleMultiplier(4.0f);
+            }
+        }
+
+    }
 
     /*void OnTriggerEnter(Collider col)
     {
@@ -70,6 +83,9 @@ public class MummyController : PlayerController {
             }
         }
     }
+
+
+
 
     void OnGUI()
     {
