@@ -140,7 +140,7 @@ public class SoundVision : MonoBehaviour
 
         if (echoLocation)
         {
-            if (echoTime > 5)
+            if (echoTime > 10)
             {
                 echoLocation = false;
                 echoTime = 0;
@@ -336,7 +336,7 @@ public class SoundVision : MonoBehaviour
 
             if (level < 0.0000001)
                 level = 0;
-            level = Mathf.Pow(level * 100,0.5f)/5f;
+            level = Mathf.Pow(level * 100,1)/5f;
 
             
 

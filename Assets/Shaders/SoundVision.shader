@@ -58,13 +58,13 @@
             {                                                                                 	                                                                                                             //for rim lighting.
          		half4 color = 0;
 
-				float speed = 20.0f;
+				float speed = 10.0f;
 
 
 				for (int x = 0; x < 64; x++)
 				{
-					half dist = distance(_SoundSource[x], i.worldPos);
-					half atten = clamp(1/distance(_WorldSpaceCameraPos, i.worldPos), 0.0f, 0.1f);
+					half dist = clamp(distance(_SoundSource[x], i.worldPos),0.5, 200);
+					half atten = 1/distance(_WorldSpaceCameraPos, i.worldPos);
 					half4 blur = half4(0, 0, 0, 1);
 
 					float dist2 = dist / speed;
@@ -72,23 +72,24 @@
 					float w = dist2*64.0f - floor(dist2*64.0f);
 					blur += lerp(tex2D(_Waves, fixed2(dist2, (x) / _N)).rgba, tex2D(_Waves, fixed2(dist2 + 1/64.0f  , (x) / _N)).rgba, w);
 					//blur += tex2D(_Waves, fixed2(clamp(speed*dist / 100.0f,0,100), x / _N)).rgba;
-					blur *= atten*10.0f/pow(dist/2.0f,2);
+					blur *= atten*10.0f/pow(dist/4.0f,2);
 					//blur.a = 1/atten;
 					color += blur;
 				}
 
 				half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));
 
-				float dist = clamp(distance(_EchoSource, i.worldPos), 0.5, 100);
+				float dist = distance(_EchoSource, i.worldPos);
 				float4 base_color = _EchoColor*falloff;
 
-				float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
-				float enabled = max(0, sign(speed*_EchoTime - dist));
-				color += 5*enabled*_EchoColor / pow(max(abs(dist2),_EchoTime),2);
+				float dist2 = dist - speed * 2 * _EchoTime * (75.0f / 64.0f);
+				float enabled = max(0, sign(speed*2*_EchoTime - dist));
+				color += 50*enabled*_EchoColor / pow(max(abs(dist2),_EchoTime),2);
 
 				//color += enabled*base_color * (1 - smoothstep(0, 8, _EchoTime));
-
-				color.a = (color.r + color.b + color.g)*8;
+				color.a = (color.r + color.b + color.g) * 8;
+				color.rgb = color.rgb* (1*(dist/50) + (1-(tex2D(_MainTex, i.uv).r+ tex2D(_MainTex, i.uv).g+ tex2D(_MainTex, i.uv).b)/3))/((dist/50)+1);
+				
 
 				return color;
             }
