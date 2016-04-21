@@ -150,8 +150,12 @@ public class SoundVision : MonoBehaviour
             Shader.SetGlobalFloat("_EchoTime", echoTime);
         }
 
-        for (int i = 0; i < waveSources.Count; i++)
-        {
+        int i = 0;
+        while ( i < waveSources.Count) {
+            if ( waveSources[i].audioSource == null) { // handle removal of audiosource
+                waveSources.RemoveAt(i);
+                continue;
+            }
             float distance = Vector3.Distance(transform.position, waveSources[i].audioSource.transform.position);
             Color c;
 
@@ -159,6 +163,7 @@ public class SoundVision : MonoBehaviour
 
             waveSources[i] = waves.getFreeWave(waveSources[i]);
             waves.colors[waveSources[i].index] = waves.AddColor(waves.colors[waveSources[i].index], c);
+            i++;
         }
 
      

@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.Networking.NetworkSystem;
+using UnityEngine.SceneManagement;
 
 public class NetworkManagerCustom : NetworkManager {
   [SerializeField] private bool shouldLoadMainLevel = false;
@@ -80,7 +81,7 @@ public class NetworkManagerCustom : NetworkManager {
   }
 
   public void ChangeLevel() {
-    offlineScene = m_LobbyScene;
+    offlineScene = m_LoadingScene;
     StopGameConnection();
     shouldLoadMainLevel = true;
     GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
@@ -131,7 +132,6 @@ public class NetworkManagerCustom : NetworkManager {
   }
 
   public void ManageFinalState() {
-    //Debug.Log("Triggered" + onlineScene);
     if (onlineScene == m_MainScene) {
       EndGame();
     } else if ( (onlineScene == m_ExplorerIntroScene) || (onlineScene == m_MummyIntroScene) ){
@@ -141,6 +141,7 @@ public class NetworkManagerCustom : NetworkManager {
 
   public void ServerStartMain() {
     if (!alreadyStartedMain && (onlineScene == m_LobbyScene)) {
+      SceneManager.LoadScene(m_MainScene);
       NetworkManager.singleton.ServerChangeScene(m_MainScene);
       onlineScene = m_MainScene;
       alreadyStartedMain = true;
