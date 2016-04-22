@@ -93,16 +93,20 @@ Material:
         second: 0.5
       data:
         first:
+          name: _Glossiness
+        second: 0
+      data:
+        first:
+          name: _Metallic
+        second: 0
+      data:
+        first:
           name: _Parallax
         second: 0.02
       data:
         first:
           name: _ZWrite
         second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0
       data:
         first:
           name: _BumpScale
@@ -125,10 +129,6 @@ Material:
         second: 0
       data:
         first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
           name: _RimPower
         second: 1.32
     m_Colors:
@@ -143,7 +143,7 @@ Material:
       data:
         first:
           name: _RimColor
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.35686275, g: 0.5803922, b: 0.9607843, a: 1}
       data:
         first:
           name: _ColorTint

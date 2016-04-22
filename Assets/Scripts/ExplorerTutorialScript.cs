@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ExplorerTutorialScript : IntroTutorialScript {
 
-  private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas, extinguishCanvas;
+  private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas, extinguishCanvas, sprintCanvas;
   private PlayerController playerController;
   private ExplorerController explorerController;
   public Camera cam;
@@ -20,6 +20,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     throwCanvas.SetActive(false);
     gobackCanvas.SetActive(false);
     extinguishCanvas.SetActive(false);
+    sprintCanvas.SetActive(false);
 
     walkCanvas.GetComponent<CanvasGroup>().alpha = 0;
     pivotCanvas.GetComponent<CanvasGroup>().alpha = 0;
@@ -27,6 +28,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     throwCanvas.GetComponent<CanvasGroup>().alpha = 0;
     gobackCanvas.GetComponent<CanvasGroup>().alpha = 0;
     extinguishCanvas.GetComponent<CanvasGroup>().alpha = 0;
+    sprintCanvas.GetComponent<CanvasGroup>().alpha = 0;
 
     FadeToWalk();
     extinguishPrompt = false;
@@ -42,13 +44,18 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     throwCanvas = GameObject.Find("Controller-Throw");
     gobackCanvas = GameObject.Find("Controller-GoBack");
     extinguishCanvas = GameObject.Find("Controller-Extinguish");
+    sprintCanvas = GameObject.Find("Controller-Sprint");
   }
   
   // Update is called once per frame
   protected void Update () {
     RaycastHit hit = new RaycastHit();
     if ( (Input.GetAxis("Vertical") != 0) && walkCanvas.activeSelf) {
+      FadeToSprint();
+    }
+    else if ( Input.GetButtonDown("LeftTrigger") && sprintCanvas.activeSelf) {
       FadeToPivot();
+      Debug.Log("sprint");
     }
     else if ( (Input.GetAxis("Horizontal") != 0) && pivotCanvas.activeSelf) {
       StartCoroutine(FadeOut(pivotCanvas, 0.05F));
@@ -71,11 +78,11 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     else if ((explorerObject.transform.position.z > -140 && explorerObject.transform.position.x > -45 && explorerObject.transform.position.x < 45) && gobackCanvas.activeSelf) {
       StartCoroutine(FadeOut(gobackCanvas, 1.0F));
     }
-    else if ((explorerController.carryingTorch && (!extinguishCanvas.activeSelf) && (!extinguishPrompt))) {
+    else if (explorerController.carryingTorch && (!extinguishCanvas.activeSelf) && (!extinguishPrompt)) {
       StartCoroutine(FadeIn(extinguishCanvas, 1.0F));
       extinguishPrompt = true;
     }
-    else if ((explorerController.carryingTorch && extinguishCanvas.activeSelf) && Input.GetButtonDown("Fire1")) {
+    else if (explorerController.carryingTorch && extinguishCanvas.activeSelf && Input.GetButtonDown("Fire1") && extinguishPrompt) {
       StartCoroutine(FadeOut(extinguishCanvas, 1.0F));
     }
   }
@@ -84,8 +91,13 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     StartCoroutine(WaitFunction(4.0F));
   }
 
-  private void FadeToPivot () {
+  private void FadeToSprint () {
     StartCoroutine(FadeOut(walkCanvas, 0.3F));
+    StartCoroutine(FadeIn(sprintCanvas, 0.1F));
+  }
+
+  private void FadeToPivot () {
+    StartCoroutine(FadeOut(sprintCanvas, 0.3F));
     StartCoroutine(FadeIn(pivotCanvas, 0.1F));
   }
 
