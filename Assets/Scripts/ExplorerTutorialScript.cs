@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 public class ExplorerTutorialScript : IntroTutorialScript {
 
-  private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas;
+  private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas, extinguishCanvas;
   private PlayerController playerController;
+  private ExplorerController explorerController;
   public Camera cam;
   public GameObject explorerObject;
+  private bool extinguishPrompt;
 
   // Use this for initialization
   protected void Start () {
@@ -17,24 +19,29 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     pickupCanvas.SetActive(false);
     throwCanvas.SetActive(false);
     gobackCanvas.SetActive(false);
+    extinguishCanvas.SetActive(false);
 
     walkCanvas.GetComponent<CanvasGroup>().alpha = 0;
     pivotCanvas.GetComponent<CanvasGroup>().alpha = 0;
     pickupCanvas.GetComponent<CanvasGroup>().alpha = 0;
     throwCanvas.GetComponent<CanvasGroup>().alpha = 0;
     gobackCanvas.GetComponent<CanvasGroup>().alpha = 0;
+    extinguishCanvas.GetComponent<CanvasGroup>().alpha = 0;
 
     FadeToWalk();
+    extinguishPrompt = false;
   }
 
   protected void Awake () {
     playerController = explorerObject.GetComponent<PlayerController>();
+    explorerController = explorerObject.GetComponent<ExplorerController>();
     headCanvas = GameObject.Find("Controller-Head");
     walkCanvas = GameObject.Find("Controller-Walk");
     pivotCanvas = GameObject.Find("Controller-Pivot");
     pickupCanvas = GameObject.Find("Controller-PickUp");
     throwCanvas = GameObject.Find("Controller-Throw");
     gobackCanvas = GameObject.Find("Controller-GoBack");
+    extinguishCanvas = GameObject.Find("Controller-Extinguish");
   }
   
   // Update is called once per frame
@@ -63,6 +70,13 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     }
     else if ((explorerObject.transform.position.z > -140 && explorerObject.transform.position.x > -45 && explorerObject.transform.position.x < 45) && gobackCanvas.activeSelf) {
       StartCoroutine(FadeOut(gobackCanvas, 1.0F));
+    }
+    else if ((explorerController.carryingTorch && (!extinguishCanvas.activeSelf) && (!extinguishPrompt))) {
+      StartCoroutine(FadeIn(extinguishCanvas, 1.0F));
+      extinguishPrompt = true;
+    }
+    else if ((explorerController.carryingTorch && extinguishCanvas.activeSelf) && Input.GetButtonDown("Fire1")) {
+      StartCoroutine(FadeOut(extinguishCanvas, 1.0F));
     }
   }
 

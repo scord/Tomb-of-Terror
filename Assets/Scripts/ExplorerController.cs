@@ -11,6 +11,7 @@ public class ExplorerController : PlayerController {
 
 	private float wheelDirection;
 	private bool onTrigger;
+    public bool carryingTorch;
 
 	protected override void Start(){
 
@@ -122,6 +123,7 @@ public class ExplorerController : PlayerController {
                 CallEventPickUp(hit.collider.gameObject);
                 if (canChangeLevel) {
                     InstantiateTorch();
+                    carryingTorch = true;
                 }
             }
         }
