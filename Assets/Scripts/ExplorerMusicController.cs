@@ -22,7 +22,7 @@ public class ExplorerMusicController : MonoBehaviour {
             mummyRenderer = mummy.GetComponentInChildren<Renderer>();
         }
 		
-		if (mmummyRenderer != null && mummyRenderer.IsVisibleFrom(Camera.main)){
+		if (mummyRenderer != null && mummyRenderer.IsVisibleFrom(Camera.main)){
 			Debug.Log("mummy seen");
 		}
 	}
