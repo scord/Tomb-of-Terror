@@ -8,17 +8,21 @@ public class ExplorerMusicController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		mummyRenderer = GameObject.FindGameObjectWithTag("Mummy").GetComponentInChildren<Renderer>();
+        GameObject mummy = GameObject.FindGameObjectWithTag("Mummy");
+        if (mummy != null){
+            mummyRenderer = mummy.GetComponentInChildren<Renderer>();
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
-		if (mummyRenderer == null){
-			mummyRenderer = GameObject.FindGameObjectWithTag("Mummy").GetComponentInChildren<Renderer>();
-		}
+        GameObject mummy = GameObject.FindGameObjectWithTag("Mummy");
+        if (mummy != null){
+            mummyRenderer = mummy.GetComponentInChildren<Renderer>();
+        }
 		
-		if (mummyRenderer.IsVisibleFrom(Camera.main)){
+		if (mmummyRenderer != null && mummyRenderer.IsVisibleFrom(Camera.main)){
 			Debug.Log("mummy seen");
 		}
 	}
