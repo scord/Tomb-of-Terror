@@ -70,19 +70,10 @@ public class HeartRateManager : NetworkBehaviour {
 		spikes = new int[5];
 		average = 0;
 
-
-		starting_point = HeartRate;
-		signal = starting_point;
-		min = starting_point;
-		max = starting_point;
-
 		// Load relevant data from Intro Scene // 
 //		baseline = GameObject.Find ("HeartRateListener").GetComponent<HRBaseline> ();
 //		if (baseline == null)
 //			Debug.Log ("null baseline");
-
-		// add first reading to the log//
-		log.Add (starting_point);
 
 		// initialise spikes with 0 //
 		for (int i = 0; i < 5; i++)
@@ -90,12 +81,6 @@ public class HeartRateManager : NetworkBehaviour {
 
 		// calculateMaxHR();
 		// calculateZones();
-
-		// start timer for data collection //
-		timer = 0.0;
-
-		InvokeRepeating("UpdateLog", 8, 1.0F);	// start collecting HR measurements after 8 seconds; player might be nervous at first
-		InvokeRepeating("UpdateAvg", 8, refresh_time);
         
         //bluetooth
 
@@ -122,6 +107,23 @@ public class HeartRateManager : NetworkBehaviour {
 		
 		thread = new Thread(new ParameterizedThreadStart(ProcessData));
 		thread.Start(path);
+
+		starting_point = HeartRate;
+		signal = starting_point;
+		min = starting_point;
+		max = starting_point;
+		// uncomment line below if the above is still not working //
+		// min = 300; max = 0;
+
+		// add first reading to the log//
+		log.Add (starting_point);
+
+		// start timer for data collection //
+		timer = 0.0;
+
+		InvokeRepeating("UpdateLog", 8, 1.0F);	// start collecting HR measurements after 8 seconds; player might be nervous at first
+		InvokeRepeating("UpdateAvg", 8, refresh_time);
+
 	}
     
     void UpdateLog() {
