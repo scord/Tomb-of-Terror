@@ -374,9 +374,5 @@ public class NetworkManagerCustom : NetworkManager {
     SetupMenuSceneBUttons(); 
   }
 
-  public override void OnStopServer() {
-    offlineScene = m_MenuScene;
-  }
-
 
 }
