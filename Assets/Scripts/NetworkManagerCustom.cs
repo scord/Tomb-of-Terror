@@ -304,9 +304,8 @@ public class NetworkManagerCustom : NetworkManager {
   private void OnLevelWasLoaded(int level) {
     if (level == 0) {
       SetupMenuSceneBUttons();
-    } else if ( level == 3 ) {
-      SetupLoadingSceneButtons();
-    } else if ( level >= 4) {
+      ResetContext();
+    } else {
       SetupDisconnectButton();
     }
   }
@@ -327,6 +326,7 @@ public class NetworkManagerCustom : NetworkManager {
     
     GameObject.Find("ButtonStartServer").GetComponent<Button>().onClick.RemoveAllListeners();
     GameObject.Find("ButtonStartServer").GetComponent<Button>().onClick.AddListener(ServerOnly);
+
     GameObject.Find("ToggleSkipTutorial").GetComponent<Toggle>().onValueChanged.RemoveAllListeners();
     GameObject.Find("ToggleSkipTutorial").GetComponent<Toggle>().onValueChanged.AddListener(ToggleSkipTutorial);
   }
@@ -335,9 +335,8 @@ public class NetworkManagerCustom : NetworkManager {
     m_SkipTutorial = newValue;
   }
 
-  public void CloseGameConnection() {
-    offlineScene = m_MenuScene;
-    StopGameConnection();
+  private void ResetContext() {
+    shouldLoadMainLevel = false;
     shouldLoadMainLevel = false;
     GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
     m_SkipTutorial = false;
@@ -347,6 +346,12 @@ public class NetworkManagerCustom : NetworkManager {
     loadMainOnIp = null;
     GameObject go = GameObject.Find("HeartRate");
     if ( go != null ) Destroy(go);
+  }
+
+  public void CloseGameConnection() {
+    offlineScene = m_MenuScene;
+    StopGameConnection();
+    ResetContext();
     //onlineScene = m_ExplorerIntroScene;
   } 
 
@@ -356,12 +361,6 @@ public class NetworkManagerCustom : NetworkManager {
   }
 
   private void SetupLoadingSceneButtons() {
-    GameObject.Find("ButtonStartHost").GetComponent<Button>().onClick.RemoveAllListeners();
-    GameObject.Find("ButtonStartHost").GetComponent<Button>().onClick.AddListener(HostGame);
-    
-    GameObject.Find("ButtonJoinGame").GetComponent<Button>().onClick.RemoveAllListeners();
-    GameObject.Find("ButtonJoinGame").GetComponent<Button>().onClick.AddListener(JoinGame);
-
     SetupDisconnectButton(); 
   }
 
