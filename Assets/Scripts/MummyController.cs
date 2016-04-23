@@ -49,14 +49,21 @@ public class MummyController : PlayerController {
         }
 
 
-
+        bool found_mummy = false;
         if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out Mummy_ray, 24))
         {
             if (Mummy_ray.collider.gameObject.tag == "Explorer")
             {
                 OVRPlayerController mummy_controller = gameObject.GetComponent<OVRPlayerController>();
-                mummy_controller.SetMoveScaleMultiplier(4.0f);
-            }
+                mummy_controller.SetMoveScaleMultiplier(2.0f);
+                found_mummy = true; 
+            } else
+        }
+
+        if (!found_mummy)
+        {
+            OVRPlayerController mummy_controller = gameObject.GetComponent<OVRPlayerController>();
+            mummy_controller.SetMoveScaleMultiplier(1.0f);
         }
 
     }
