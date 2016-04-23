@@ -3,8 +3,8 @@ using System.Collections;
 
 public class MummyIntroScript : IntroTutorialScript {
 
-	private GameObject headCanvas, walkCanvas, pivotCanvas, echolocateCanvas;
-	private GameObject trapTrigger, coffinEnter, coffinOut;
+	[SerializeField] private GameObject headCanvas, walkCanvas, pivotCanvas, echolocateCanvas;
+	[SerializeField] private GameObject trapTrigger, coffinEnter, coffinOut;
 
   // Use this for initialization
   protected void Start () {
@@ -23,10 +23,10 @@ public class MummyIntroScript : IntroTutorialScript {
 
 
   protected void Awake () {
-    headCanvas = GameObject.Find("Controller-Head");
+    /*headCanvas = GameObject.Find("Controller-Head");
     walkCanvas = GameObject.Find("Controller-Walk");
     pivotCanvas = GameObject.Find("Controller-Pivot");
-    echolocateCanvas = GameObject.Find("Controller-Echolocate");
+    echolocateCanvas = GameObject.Find("Controller-Echolocate");*/
 		trapTrigger = GameObject.Find("TrapTrigger");
 		coffinEnter = GameObject.Find("TrapDoor");
 		coffinOut 	= GameObject.Find("CoffinDoor");
