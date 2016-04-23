@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 public class ExplorerMusicController : MonoBehaviour {
 
 	private Renderer mummyRenderer;
@@ -10,9 +11,14 @@ public class ExplorerMusicController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GameObject mummy = GameObject.FindGameObjectWithTag("Mummy");
-        GameObject background_audio = GameObject.FindGameObjectWithTag("background_audio");
+        GameObject background_audio = GameObject.FindGameObjectWithTag("Background_audio");
         AudioSource[] audio_array = background_audio.GetComponents<AudioSource>();
-
+        //audio_array[5].volume = 1.0f;
+        if (SceneManager.GetActiveScene().name == "Sample")
+        {
+            audio_array[5].loop = true;
+            audio_array[5].Play();
+        }
         if (mummy != null){
             mummyRenderer = mummy.GetComponentInChildren<Renderer>();
         }
