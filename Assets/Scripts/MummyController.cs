@@ -57,7 +57,7 @@ public class MummyController : PlayerController {
                 OVRPlayerController mummy_controller = gameObject.GetComponent<OVRPlayerController>();
                 mummy_controller.SetMoveScaleMultiplier(2.0f);
                 found_mummy = true; 
-            } else
+            } 
         }
 
         if (!found_mummy)
