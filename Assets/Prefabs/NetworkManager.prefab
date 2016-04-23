@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 444790}
   - 114: {fileID: 11426092}
+  - 114: {fileID: 11495548}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -114,6 +115,18 @@ MonoBehaviour:
   m_PlayerSpawnName:
   - ExplorerSpawner
   - MummySpawner
+--- !u!114 &11495548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138c9741c4365a54c90ecc1ae012ee53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NetworkManager: {fileID: 11426092}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -374,5 +374,12 @@ public class NetworkManagerCustom : NetworkManager {
     SetupMenuSceneBUttons(); 
   }
 
+  public void EscapeKeyPressed() {
+    if ( SceneManager.GetActiveScene().name == m_MenuScene) {
+      Application.Quit();
+    } else {
+      CloseGameConnection();
+    }
+  }
 
 }
