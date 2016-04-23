@@ -125,6 +125,7 @@ public class NetworkManagerCustom : NetworkManager {
   private bool gameEnded = false;
   public void EndGame(){
     if (!gameEnded ) {
+      SceneManager.LoadScene(m_EndScene);
       NetworkManager.singleton.ServerChangeScene(m_EndScene);
       onlineScene = m_EndScene;
       gameEnded = true;
