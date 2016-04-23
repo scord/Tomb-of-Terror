@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.Networking.NetworkSystem;
+using UnityEngine.SceneManagement;
 
 public class NetworkManagerCustom : NetworkManager {
   [SerializeField] private bool shouldLoadMainLevel = false;
@@ -85,6 +86,7 @@ public class NetworkManagerCustom : NetworkManager {
     shouldLoadMainLevel = true;
     GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
     StartCoroutine(ConnectToLobby());
+    offlineScene = m_MenuScene;
 
   }
 
@@ -124,6 +126,7 @@ public class NetworkManagerCustom : NetworkManager {
   public void EndGame(){
     if (!gameEnded ) {
       NetworkManager.singleton.ServerChangeScene(m_EndScene);
+      onlineScene = m_EndScene;
       gameEnded = true;
     }
   }
@@ -138,7 +141,9 @@ public class NetworkManagerCustom : NetworkManager {
 
   public void ServerStartMain() {
     if (!alreadyStartedMain && (onlineScene == m_LobbyScene)) {
+      SceneManager.LoadScene(m_MainScene);
       NetworkManager.singleton.ServerChangeScene(m_MainScene);
+      onlineScene = m_MainScene;
       alreadyStartedMain = true;
     }
   }
@@ -169,6 +174,10 @@ public class NetworkManagerCustom : NetworkManager {
         NewJoinGame();
       }
     //OldJoinGame();
+  }
+
+  public override void OnServerSceneChanged(string newSceneName) {
+    onlineScene = newSceneName;
   }
 
   private void NewHostGame() {
@@ -267,13 +276,17 @@ public class NetworkManagerCustom : NetworkManager {
     base.OnClientConnect(conn);
   }
 
+  private bool waited = false;
+
   public override void OnClientSceneChanged(NetworkConnection conn) {
-    StartCoroutine(CLientSceneWithWait(conn));
+    //StartCoroutine(CLientSceneWithWait(conn));
+    base.OnClientSceneChanged(conn);
   }
 
   private IEnumerator CLientSceneWithWait(NetworkConnection conn) {
     yield return new WaitForSeconds(0.3f);
-    base.OnClientSceneChanged(conn);
+    //base.OnClientSceneChanged(conn);
+    waited = true;
   }
   private void SetIPAdress(string ipadd) {
     NetworkManager.singleton.networkAddress = ipadd;
@@ -363,5 +376,6 @@ public class NetworkManagerCustom : NetworkManager {
   void OnStopServer() {
     offlineScene = m_MenuScene;
   }
+
 
 }

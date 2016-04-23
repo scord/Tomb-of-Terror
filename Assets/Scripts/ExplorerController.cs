@@ -123,6 +123,7 @@ public class ExplorerController : PlayerController {
                 if (canChangeLevel) {
                     InstantiateTorch();
                 }
+                hit.collider.gameObject.tag = "Untagged";
             }
         }
     }

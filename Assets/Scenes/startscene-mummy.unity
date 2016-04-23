@@ -824,7 +824,8 @@ Prefab:
       propertyPath: m_Name
       value: DoorSystem (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11421774, guid: 5d6227a6a8ee2fb4b94dbb7833e1a406, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5d6227a6a8ee2fb4b94dbb7833e1a406, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &125493248 stripped
@@ -21218,7 +21219,8 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -0.87
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11421774, guid: 5d6227a6a8ee2fb4b94dbb7833e1a406, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5d6227a6a8ee2fb4b94dbb7833e1a406, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2020311830 stripped

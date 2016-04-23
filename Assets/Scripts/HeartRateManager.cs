@@ -158,7 +158,6 @@ public class HeartRateManager : NetworkBehaviour {
 		while (programActive) {
       text = HRProcess.StandardOutput.ReadLine();
 			HeartRate = Convert.ToInt32(text);
-			Debug.Log("My heart rate is: " + HeartRate);
 		}
 		Debug.Log ("Thread stopped");
 	}
