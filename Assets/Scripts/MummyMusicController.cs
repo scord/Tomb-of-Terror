@@ -9,7 +9,16 @@ public class MummyMusicController : MonoBehaviour {
 
 		// Use this for initialization
 		void Start () {
-			GameObject explorer = GameObject.FindGameObjectWithTag("Explorer");
+        GameObject background_audio = GameObject.FindGameObjectWithTag("Background_audio");
+        AudioSource[] audio_array = background_audio.GetComponents<AudioSource>();
+
+        if (SceneManager.GetActiveScene().name == "Sample")
+        {
+            audio_array[0].loop = true;
+            audio_array[0].Play();
+        }
+
+        GameObject explorer = GameObject.FindGameObjectWithTag("Explorer");
 
 			if (explorer != null){
 				explorerRenderer = explorer.GetComponentInChildren<Renderer>();
