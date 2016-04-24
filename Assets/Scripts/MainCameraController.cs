@@ -63,9 +63,9 @@ public class MainCameraController : MonoBehaviour {
     if ( Input.GetKey(KeyCode.E)) camTransform.position -= camTransform.up*speed*Time.deltaTime;
 
     if ( testPos != null && testPos.Count != 0) {
-      if( Input.GetKeyDown(KeyCode.P)) GotoNextPlayer();
-      if( Input.GetKeyDown(KeyCode.O)) GotoCurrentPlayer();
-      if( Input.GetKeyDown(KeyCode.I)) GotoPreviousPlayer();
+      if( Input.GetKeyDown(KeyCode.Alpha1)) GotoNextPlayer();
+      if( Input.GetKeyDown(KeyCode.Alpha2)) GotoCurrentPlayer();
+      if( Input.GetKeyDown(KeyCode.Alpha3)) GotoPreviousPlayer();
     }
 	}
 
