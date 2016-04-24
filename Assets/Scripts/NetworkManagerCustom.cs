@@ -182,18 +182,17 @@ public class NetworkManagerCustom : NetworkManager {
   private void NewJoinGame() {
     loadMainAsHost = false;
     loadMainOnIp = GetIPAdress();
-    //SetPort(7776);
     NetworkManager.singleton.StartHost();
     client.RegisterHandler(choosenPlayerMsg, OnPlayerRequest);
   }
   public void JoinGame() {
     if (shouldLoadMainLevel) {
+        SceneManager.LoadScene(m_LoadingScene);
         onlineScene = m_LobbyScene;
         OldJoinGame();
       } else {
         NewJoinGame();
       }
-    //OldJoinGame();
   }
 
   public override void OnServerSceneChanged(string newSceneName) {
@@ -265,8 +264,6 @@ public class NetworkManagerCustom : NetworkManager {
         NewHostGame();
       }
     client.RegisterHandler(choosenPlayerMsg, OnPlayerRequest);
-    //NewHostGame();
-    //OldHostGame();
   }
 
   void OnPlayerRequest(NetworkMessage netMsg) {
@@ -296,8 +293,6 @@ public class NetworkManagerCustom : NetworkManager {
     base.OnClientConnect(conn);
   }
 
-  private bool waited = false;
-
   public override void OnClientSceneChanged(NetworkConnection conn) {
     //StartCoroutine(CLientSceneWithWait(conn));
     base.OnClientSceneChanged(conn);
@@ -305,8 +300,6 @@ public class NetworkManagerCustom : NetworkManager {
 
   private IEnumerator CLientSceneWithWait(NetworkConnection conn) {
     yield return new WaitForSeconds(0.3f);
-    //base.OnClientSceneChanged(conn);
-    waited = true;
   }
   private void SetIPAdress(string ipadd) {
     NetworkManager.singleton.networkAddress = ipadd;
@@ -323,10 +316,9 @@ public class NetworkManagerCustom : NetworkManager {
   private void OnLevelWasLoaded(int level) {
     if (level == 0) {
       SetupMenuSceneBUttons();
-    } else if ( level == 3 ) {
-      SetupLoadingSceneButtons();
-    } else if ( level >= 4) {
-      SetupDisconnectButton();
+      ResetContext();
+    } else {
+      StartCoroutine(SetupDisconnectButton());
     }
   }
 
@@ -346,6 +338,7 @@ public class NetworkManagerCustom : NetworkManager {
 
     GameObject.Find("ButtonStartServer").GetComponent<Button>().onClick.RemoveAllListeners();
     GameObject.Find("ButtonStartServer").GetComponent<Button>().onClick.AddListener(ServerOnly);
+
     GameObject.Find("ToggleSkipTutorial").GetComponent<Toggle>().onValueChanged.RemoveAllListeners();
     GameObject.Find("ToggleSkipTutorial").GetComponent<Toggle>().onValueChanged.AddListener(ToggleSkipTutorial);
   }
@@ -354,9 +347,7 @@ public class NetworkManagerCustom : NetworkManager {
     m_SkipTutorial = newValue;
   }
 
-  public void CloseGameConnection() {
-    offlineScene = m_MenuScene;
-    StopGameConnection();
+  private void ResetContext() {
     shouldLoadMainLevel = false;
     GameObject.Find("GameParams").GetComponent<GameParams>().mainLevel = shouldLoadMainLevel;
     m_SkipTutorial = false;
@@ -366,7 +357,21 @@ public class NetworkManagerCustom : NetworkManager {
     loadMainOnIp = null;
     GameObject go = GameObject.Find("HeartRate");
     if ( go != null ) Destroy(go);
+  }
+
+  public void CloseGameConnection() {
+    offlineScene = m_MenuScene;
+    StopGameConnection();
+    ResetContext();
+    StartCoroutine(CheckFirstLevel());
     //onlineScene = m_ExplorerIntroScene;
+  }
+
+  private IEnumerator CheckFirstLevel() {
+    yield return new WaitForSeconds(0.5f);
+    if (SceneManager.GetActiveScene().name != m_MenuScene) {
+      SceneManager.LoadScene(m_MenuScene);
+    }
   }
 
   private void StopGameConnection() {
@@ -382,9 +387,11 @@ public class NetworkManagerCustom : NetworkManager {
     GameObject.Find("ButtonJoinGame").GetComponent<Button>().onClick.AddListener(JoinGame);
 
     SetupDisconnectButton();
+
   }
 
-  private void SetupDisconnectButton() {
+  private IEnumerator SetupDisconnectButton() {
+    yield return new WaitForSeconds(0.3f);
     GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.RemoveAllListeners();
     GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.AddListener(CloseGameConnection);
   }
@@ -393,9 +400,12 @@ public class NetworkManagerCustom : NetworkManager {
     SetupMenuSceneBUttons();
   }
 
-  void OnStopServer() {
-    offlineScene = m_MenuScene;
+  public void EscapeKeyPressed() {
+    if ( SceneManager.GetActiveScene().name == m_MenuScene) {
+      Application.Quit();
+    } else {
+      CloseGameConnection();
+    }
   }
-
 
 }

@@ -95,7 +95,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &112842
 GameObject:
   m_ObjectHideFlags: 1
@@ -113,7 +113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &118386
 GameObject:
   m_ObjectHideFlags: 1
@@ -344,7 +344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &146822
 GameObject:
   m_ObjectHideFlags: 1
@@ -814,7 +814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &195516
 GameObject:
   m_ObjectHideFlags: 1
@@ -2288,6 +2288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_State: 1
   m_ShouldChangeOnTrigger: 0
+  carryingPrize: 0
 --- !u!114 &11474274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2449,6 +2450,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0436d46b5cad3542af994a40d5b0893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  headCanvas: {fileID: 146818}
+  walkCanvas: {fileID: 195264}
+  pivotCanvas: {fileID: 107314}
+  echolocateCanvas: {fileID: 112842}
+  trapTrigger: {fileID: 0}
+  coffinEnter: {fileID: 0}
+  coffinOut: {fileID: 0}
 --- !u!114 &11487152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2675,6 +2683,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
