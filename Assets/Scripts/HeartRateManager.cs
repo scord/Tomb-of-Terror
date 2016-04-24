@@ -91,11 +91,11 @@ public class HeartRateManager : NetworkBehaviour {
         
         //bluetooth
 
-		object path = Application.dataPath;
+		object path = Application.streamingAssetsPath;
 		
 		HRProcess = new System.Diagnostics.Process();
-		HRProcess.StartInfo.FileName = path+"/Scripts/HR/bglib_test_hr_collector.exe";
- 
+		HRProcess.StartInfo.FileName = path + "\\HR\\bglib_test_hr_collector.exe";
+ 		Debug.Log(path);
 		HRProcess.StartInfo.UseShellExecute = false;
 		HRProcess.StartInfo.RedirectStandardOutput = true;
 		HRProcess.StartInfo.CreateNoWindow = true;
@@ -104,7 +104,7 @@ public class HeartRateManager : NetworkBehaviour {
         
         bluKillProcess = new System.Diagnostics.Process();
 		bluKillProcess.StartInfo.FileName = "C:\\Windows\\system32\\cmd.exe";
-        bluKillProcess.StartInfo.Arguments = "/c" + path+"/Scripts/HR/bglibKill.bat";
+    bluKillProcess.StartInfo.Arguments = "/c" + path + "\\HR\\bglibKill.bat";
 		bluKillProcess.StartInfo.UseShellExecute = false;
 		bluKillProcess.StartInfo.RedirectStandardOutput = true;
 		bluKillProcess.StartInfo.CreateNoWindow = true;
@@ -188,10 +188,10 @@ public class HeartRateManager : NetworkBehaviour {
         
         bool stopped = false;
         bluKillProcess.Start();
+        Debug.Log(bluKillProcess.StartInfo.Arguments);
         while(!stopped){
             String output = bluKillProcess.StandardOutput.ReadLine();
             stopped = output.Equals("done!");
-            
         }
         thread.Abort();
         bluKillProcess.Kill();
