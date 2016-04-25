@@ -13,7 +13,7 @@ public class MummyController : PlayerController {
     protected override void Start(){
 		base.Start();
 
-        
+
         shout = gameObject.GetComponent<AudioSource>();
         soundVision = cam.gameObject.GetComponent<SoundVision>();
         murmurTimer = 0.0f;
@@ -56,8 +56,8 @@ public class MummyController : PlayerController {
             {
                 OVRPlayerController mummy_controller = gameObject.GetComponent<OVRPlayerController>();
                 mummy_controller.SetMoveScaleMultiplier(2.0f);
-                found_mummy = true; 
-            } 
+                found_mummy = true;
+            }
         }
 
         if (!found_mummy)

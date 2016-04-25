@@ -44,6 +44,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
 
   // Update is called once per frame
   protected void Update () {
+    fireInfo.enabled = false;
     RaycastHit hit = new RaycastHit();
     if ( (Input.GetAxis("Vertical") != 0) && walkCanvas.activeSelf) {
       FadeTo(walkCanvas, pivotCanvas);
@@ -61,33 +62,30 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     // if the throw canvas is activated, fade when player isn't carrying anymore
     else if (throwCanvas.activeSelf) {
       if (Input.GetButtonDown("Fire2")) {
-        FadeTo(throwCanvas, toTombCanvas);
+        FadeTo(throwCanvas, runCanvas);
       }
-    }
-    // if the go towards tomb canvas is activated, fade to sprint
-    else if (toTombCanvas.activeSelf) {
-      FadeToSprint();
     }
     // if run canvas activated
     else if( runCanvas.activeSelf ) {
-      if( Input.GetKeyDown(KeyCode.LeftShift) ) {
+      if( Input.GetKey(KeyCode.LeftShift) ) {
         Debug.Log("fade run");
-        StartCoroutine(FadeOut(runCanvas, 0.5F));
+        // WaitFunction(2, runCanvas, extinguishCanvas);
+        FadeTo(runCanvas, extinguishCanvas);
       }
-    }
-    // if the player took the torch, show message to extinguish
-    else if (explorerController.carryingTorch && !extinguishCanvas.activeSelf && !showedExtinguish) {
-      StartCoroutine(FadeIn(extinguishCanvas, 1F));
-      showedExtinguish = true;
     }
     // if fire pots canvas activated
     else if( extinguishCanvas.activeSelf ){
-      // disable default message
-      fireInfo.enabled = false;
-
-      if(Input.GetButtonDown("Fire1") ) {
-        FadeTo(extinguishCanvas, enterCanvas);
+      if(Input.GetButtonDown("Fire2") ) {
+        FadeTo(extinguishCanvas, toTombCanvas);
       }
+    }
+    else if (toTombCanvas.activeSelf ){
+      if(explorerController.carryingTorch)
+        FadeTo(toTombCanvas, enterCanvas );
+    }
+    // if the player took the torch, show message to extinguish
+    else if (explorerController.carryingTorch && enterCanvas.activeSelf ) {
+      // StartCoroutine(FadeOut(enterCanvas, 0.3F));
     }
     // if pickupCanvas activated
     // else if(pickupCanvas.activeSelf) {
@@ -144,7 +142,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
 
   private void FadeTo( GameObject fromCanvas, GameObject toCanvas){
     StartCoroutine(FadeOut(fromCanvas, 0.5F));
-    StartCoroutine(FadeIn(toCanvas, 0.5F));
+    StartCoroutine(FadeIn(toCanvas, 0.2F));
   }
 
   private void FadeToSprint () {
