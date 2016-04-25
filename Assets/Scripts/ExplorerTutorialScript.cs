@@ -4,11 +4,12 @@ using UnityEngine.UI;
 
 public class ExplorerTutorialScript : IntroTutorialScript {
 
-  [SerializeField] private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas;
+  [SerializeField] private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas, runCanvas, extinguishCanvas;
   [SerializeField] private PlayerController playerController;
   [SerializeField] private Camera cam;
   [SerializeField] private GameObject explorerObject;
 
+  private int pivotCount = 5;
   // Use this for initialization
   protected void Start () {
     headCanvas.SetActive(true);
@@ -17,12 +18,16 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     pickupCanvas.SetActive(false);
     throwCanvas.SetActive(false);
     gobackCanvas.SetActive(false);
+    runCanvas.SetActive(false);
+    extinguishCanvas.SetActive(false);
 
     walkCanvas.GetComponent<CanvasGroup>().alpha = 0;
     pivotCanvas.GetComponent<CanvasGroup>().alpha = 0;
     pickupCanvas.GetComponent<CanvasGroup>().alpha = 0;
     throwCanvas.GetComponent<CanvasGroup>().alpha = 0;
     gobackCanvas.GetComponent<CanvasGroup>().alpha = 0;
+    runCanvas.GetComponent<CanvasGroup>().alpha = 0;
+    extinguishCanvas.GetComponent<CanvasGroup>().alpha = 0;
 
     FadeToWalk();
   }
@@ -31,23 +36,48 @@ public class ExplorerTutorialScript : IntroTutorialScript {
   protected void Update () {
     RaycastHit hit = new RaycastHit();
     if ( (Input.GetAxis("Vertical") != 0) && walkCanvas.activeSelf) {
-      FadeToPivot();
+      FadeTo(walkCanvas, pivotCanvas);
     }
-    else if ( (Input.GetAxis("Horizontal") != 0) && pivotCanvas.activeSelf) {
-      StartCoroutine(FadeOut(pivotCanvas, 0.05F));
+    // if pivot canas activated
+    else if (pivotCanvas.activeSelf) {
+      if( EndPivot() )
+        FadeTo(pivotCanvas, runCanvas);
     }
-    else if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 10)) {
-      if (hit.collider.gameObject.tag == "PickUp" && (!walkCanvas.activeSelf) && (!pivotCanvas.activeSelf) && (!pickupCanvas.activeSelf) && (!throwCanvas.activeSelf))
-      {
-        FadeToPickup();
+    else if( runCanvas.activeSelf ) {
+      if( Input.GetButtonDown("Fire2") ) {
+        FadeTo(runCanvas, extinguishCanvas);
       }
     }
-    else if (pickupCanvas.activeSelf && playerController.carrying) {
-      FadeToThrow();
+    else if( extinguishCanvas.activeSelf ){
+      if(Input.GetButtonDown("Fire2") ) {
+        StartCoroutine(FadeOut(extinguishCanvas, 1F));
+      }
     }
-    else if (throwCanvas.activeSelf && (!playerController.carrying)) {
-      StartCoroutine(FadeOut(throwCanvas, 0.5F)); 
-    }
+    // if pickupCanvas activated
+    // else if(pickupCanvas.activeSelf) {
+    //   if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16)) {
+    //     Debug.Log(hit.collider.gameObject.tag);
+    //     if (hit.collider.gameObject.tag == "Prize"){
+    //       Debug.Log("right object in froont");
+    //       if(Input.GetButtonDown("Fire2")){
+    //         Debug.Log("picked up");
+    //         StartCoroutine(FadeOut(pickupCanvas, 0.05F));
+    //       }
+    //     }
+    //   }
+    // }
+
+
+
+      // if (hit.collider.gameObject.tag == "PickUp" && (!walkCanvas.activeSelf) && (!pivotCanvas.activeSelf) && (!pickupCanvas.activeSelf) && (!throwCanvas.activeSelf)){
+      //   FadeToPickup();
+      // }
+    // else if (pickupCanvas.activeSelf && playerController.carrying) {
+    //   FadeToThrow();
+    // }
+    // else if (throwCanvas.activeSelf && (!playerController.carrying)) {
+    //   StartCoroutine(FadeOut(throwCanvas, 0.5F));
+    // }
     else if (explorerObject.transform.position.z < -140 || explorerObject.transform.position.x < -45 || explorerObject.transform.position.x > 45) {
       StartCoroutine(FadeIn(gobackCanvas, 1.0F));
     }
@@ -56,25 +86,33 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     }
   }
 
+  private bool EndPivot(){
+    Debug.Log(pivotCount);
+    if(pivotCount > 0){
+      if ( Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) ){
+        Debug.Log("pressed");
+        pivotCount--;
+      }
+      return false;
+    }
+    return true;
+  }
+
+  private bool EndPickup(){
+    return true;
+  }
+
   private void FadeToWalk () {
     StartCoroutine(WaitFunction(4.0F));
   }
 
-  private void FadeToPivot () {
-    StartCoroutine(FadeOut(walkCanvas, 0.3F));
-    StartCoroutine(FadeIn(pivotCanvas, 0.1F));
+  private void FadeTo( GameObject fromCanvas, GameObject toCanvas){
+    StartCoroutine(FadeOut(fromCanvas, 0.5F));
+    StartCoroutine(FadeIn(toCanvas, 0.5F));
   }
 
-  private void FadeToPickup () {
-    StartCoroutine(FadeIn(pickupCanvas, 0.3F));
-  }
 
-  private void FadeToThrow () {
-    StartCoroutine(FadeOut(pickupCanvas, 3.0F));
-    StartCoroutine(FadeIn(throwCanvas, 2.0F));
-  }
-
-  IEnumerator WaitFunction (float waitTime) 
+  IEnumerator WaitFunction (float waitTime)
   {
     yield return new WaitForSeconds(waitTime);
     StartCoroutine(FadeOut(headCanvas, 0.5F));
@@ -92,7 +130,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
         yield return null;
     }
   }
- 
+
   IEnumerator FadeOut (GameObject obj, float speed) {
     float increment;
     CanvasGroup cv = obj.GetComponent<CanvasGroup>();
@@ -112,5 +150,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     pickupCanvas.SetActive(false);
     throwCanvas.SetActive(false);
     gobackCanvas.SetActive(false);
+    runCanvas.SetActive(false);
+    extinguishCanvas.SetActive(false);
   }
 }
