@@ -1112,6 +1112,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &143674
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22418612}
+  - 222: {fileID: 22224558}
+  - 114: {fileID: 11449056}
+  - 225: {fileID: 22563324}
+  m_Layer: 5
+  m_Name: Controller-TowardsTomb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &144942
 GameObject:
   m_ObjectHideFlags: 1
@@ -1824,6 +1842,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &175652
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22451112}
+  - 222: {fileID: 22217896}
+  - 114: {fileID: 11453514}
+  - 225: {fileID: 22556636}
+  m_Layer: 5
+  m_Name: Controller-Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &176688
 GameObject:
   m_ObjectHideFlags: 1
@@ -2081,7 +2117,7 @@ GameObject:
   - 114: {fileID: 11492852}
   - 225: {fileID: 22563404}
   m_Layer: 5
-  m_Name: Controller-Head
+  m_Name: Controller-Enter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5871,7 +5907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ee9b441f7071f459363d9451cc9609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  headCanvas: {fileID: 190296}
+  headCanvas: {fileID: 175652}
   walkCanvas: {fileID: 119214}
   pivotCanvas: {fileID: 129708}
   pickupCanvas: {fileID: 102616}
@@ -5879,8 +5915,11 @@ MonoBehaviour:
   gobackCanvas: {fileID: 125630}
   runCanvas: {fileID: 127560}
   extinguishCanvas: {fileID: 187012}
+  toTombCanvas: {fileID: 143674}
+  enterCanvas: {fileID: 190296}
   fireInfo: {fileID: 11495090}
   playerController: {fileID: 11453372}
+  explorerController: {fileID: 0}
   cam: {fileID: 2095840}
   explorerObject: {fileID: 151886}
 --- !u!114 &11412218
@@ -6185,7 +6224,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 88b742a8d65cd2d4fab8141d7594e329, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 019a83d08c2f7904dbc3510d0f3e02a0, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6210,6 +6249,39 @@ MonoBehaviour:
   near: 1
   far: 1000
   disableRfl: 0
+--- !u!114 &11449056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.03529412, g: 0.76862746, b: 0.85490197, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 923963841406e4546bf939d3cd326e0f, type: 3}
+    m_FontSize: 1
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 7
+    m_AlignByGeometry: 1
+    m_RichText: 0
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: WALK TOWARDS THE TOMB ENTRANCE AND PICK UP YOUR TORCH
 --- !u!114 &11450382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6248,6 +6320,42 @@ MonoBehaviour:
   m_IntroTutorialScript: {fileID: 11412036}
   m_GameParams: {fileID: 0}
   m_Torch: {fileID: 108084}
+  carryingTorch: 0
+--- !u!114 &11453514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.03529412, g: 0.76862746, b: 0.85490197, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 923963841406e4546bf939d3cd326e0f, type: 3}
+    m_FontSize: 1
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 7
+    m_AlignByGeometry: 1
+    m_RichText: 0
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'MOVE YOUR HEAD
+
+    TO LOOK AROUND'
 --- !u!114 &11455062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6523,7 +6631,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 5c8c9f7247e422646b4e0408e46004c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3acddcc7f52ecb4baf4245916372b31, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6600,9 +6708,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'MOVE YOUR HEAD
-
-    TO LOOK AROUND'
+  m_Text: NOW ENTER THE TOMB AND FIND THE TREASURE
 --- !u!114 &11494302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29543,6 +29649,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127560}
+--- !u!222 &22217896
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175652}
+--- !u!222 &22224558
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143674}
 --- !u!222 &22229704
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -29650,6 +29768,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22418612
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.0034495636, y: 0.0034495655, z: 0.0034495655}
+  m_Children: []
+  m_Father: {fileID: 22460910}
+  m_RootOrder: 10
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22423752
 RectTransform:
   m_ObjectHideFlags: 1
@@ -29712,7 +29847,7 @@ RectTransform:
   m_LocalScale: {x: 0.0034495636, y: 0.0034495655, z: 0.0034495655}
   m_Children: []
   m_Father: {fileID: 22460910}
-  m_RootOrder: 6
+  m_RootOrder: 11
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -29735,6 +29870,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1.746, y: 1.476}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22451112
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.0034495636, y: 0.0034495655, z: 0.0034495655}
+  m_Children: []
+  m_Father: {fileID: 22460910}
+  m_RootOrder: 6
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22460910
 RectTransform:
   m_ObjectHideFlags: 1
@@ -29751,10 +29903,12 @@ RectTransform:
   - {fileID: 22427124}
   - {fileID: 22498964}
   - {fileID: 22443454}
-  - {fileID: 22434274}
+  - {fileID: 22451112}
   - {fileID: 22402284}
   - {fileID: 22492676}
   - {fileID: 22429892}
+  - {fileID: 22418612}
+  - {fileID: 22434274}
   m_Father: {fileID: 455640}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -29857,12 +30011,34 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!225 &22556636
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175652}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!225 &22559356
 CanvasGroup:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187012}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!225 &22563324
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143674}
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
