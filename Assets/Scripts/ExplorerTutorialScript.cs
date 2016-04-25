@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ExplorerTutorialScript : IntroTutorialScript {
 
   [SerializeField] private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas, runCanvas, extinguishCanvas;
+  [SerializeField] Text fireInfo;
   [SerializeField] private PlayerController playerController;
   [SerializeField] private Camera cam;
   [SerializeField] private GameObject explorerObject;
@@ -43,12 +44,17 @@ public class ExplorerTutorialScript : IntroTutorialScript {
       if( EndPivot() )
         FadeTo(pivotCanvas, runCanvas);
     }
+    // if run canvas activated
     else if( runCanvas.activeSelf ) {
-      if( Input.GetButtonDown("Fire2") ) {
+      if( Input.GetKeyDown(KeyCode.LeftShift) ) {
         FadeTo(runCanvas, extinguishCanvas);
       }
     }
+    // if fire pots canvas activated
     else if( extinguishCanvas.activeSelf ){
+      // disable default message
+      fireInfo.enabled = false;
+
       if(Input.GetButtonDown("Fire2") ) {
         StartCoroutine(FadeOut(extinguishCanvas, 1F));
       }
@@ -78,12 +84,12 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     // else if (throwCanvas.activeSelf && (!playerController.carrying)) {
     //   StartCoroutine(FadeOut(throwCanvas, 0.5F));
     // }
-    else if (explorerObject.transform.position.z < -140 || explorerObject.transform.position.x < -45 || explorerObject.transform.position.x > 45) {
-      StartCoroutine(FadeIn(gobackCanvas, 1.0F));
-    }
-    else if ((explorerObject.transform.position.z > -140 && explorerObject.transform.position.x > -45 && explorerObject.transform.position.x < 45) && gobackCanvas.activeSelf) {
-      StartCoroutine(FadeOut(gobackCanvas, 1.0F));
-    }
+    // else if (explorerObject.transform.position.z < -140 || explorerObject.transform.position.x < -45 || explorerObject.transform.position.x > 45) {
+    //   StartCoroutine(FadeIn(gobackCanvas, 1.0F));
+    // }
+    // else if ((explorerObject.transform.position.z > -140 && explorerObject.transform.position.x > -45 && explorerObject.transform.position.x < 45) && gobackCanvas.activeSelf) {
+    //   StartCoroutine(FadeOut(gobackCanvas, 1.0F));
+    // }
   }
 
   private bool EndPivot(){

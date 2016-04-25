@@ -5879,6 +5879,7 @@ MonoBehaviour:
   gobackCanvas: {fileID: 125630}
   runCanvas: {fileID: 127560}
   extinguishCanvas: {fileID: 187012}
+  fireInfo: {fileID: 11495090}
   playerController: {fileID: 11453372}
   cam: {fileID: 2095840}
   explorerObject: {fileID: 151886}
