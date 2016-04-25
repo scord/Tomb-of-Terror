@@ -2324,9 +2324,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 8.7, z: -113.44}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
+  - {fileID: 406496}
   - {fileID: 407588}
   - {fileID: 465730}
-  - {fileID: 406496}
   - {fileID: 444212}
   - {fileID: 401844}
   - {fileID: 463342}
@@ -2383,7 +2383,7 @@ Transform:
   m_LocalScale: {x: 0.57181895, y: 0.5718185, z: 0.5718185}
   m_Children: []
   m_Father: {fileID: 403924}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!4 &407588
 Transform:
   m_ObjectHideFlags: 1
@@ -2395,7 +2395,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403924}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &408738
 Transform:
   m_ObjectHideFlags: 1
@@ -3335,7 +3335,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 403924}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &469996
 Transform:
   m_ObjectHideFlags: 1
@@ -4072,7 +4072,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -4371,7 +4371,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 1.01
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -4446,7 +4446,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -4669,7 +4669,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -4743,7 +4743,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -4891,7 +4891,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -4966,7 +4966,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5038,9 +5038,9 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5113,9 +5113,9 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5265,7 +5265,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5412,9 +5412,9 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5859,7 +5859,7 @@ MonoBehaviour:
   gain: 0
   useInvSqr: 1
   near: 1
-  far: 1000
+  far: 150
   disableRfl: 0
 --- !u!114 &11412228
 MonoBehaviour:

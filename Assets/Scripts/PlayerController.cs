@@ -79,10 +79,8 @@ public class PlayerController : MonoBehaviour {
 
             if (audio_source.isPlaying == false)// add more logic later such as, onground/jumping etc etc
             {
-               // AudioSource.PlayClipAtPoint(footstep_Sound1, transform.position);
-               // footstep_playing = 1;
-                audio_source.pitch = Random.Range(0.8f, 1);
-                audio_source.volume = Random.Range(0.8f, 1.1f);
+                audio_source.pitch = Random.Range(0.7f, 0.9f);
+                audio_source.volume = Random.Range(0.7f, 0.9f);
                 audio_source.Play();
             }
         }
