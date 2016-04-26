@@ -24,7 +24,7 @@ public class Trigger_Manager : NetworkBehaviour {
   void Update() {
     if (isLocalPlayer) {
       if (onTrigger && trig != null && trig.withKey){
-          if(Input.GetKeyDown(trig.GetKeyCode())){
+          if(Input.GetButtonDown(trig.GetKeyCode())){
             CmdTriggerInteract(GM_Ref.GetInteractObjectIndex(trig));
             // Debug.Log(fireInfo);
           }

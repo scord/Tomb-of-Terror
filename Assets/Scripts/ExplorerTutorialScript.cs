@@ -77,7 +77,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     }
     // if fire pots canvas activated
     else if( extinguishCanvas.activeSelf ){
-      if(Input.GetButtonDown("Fire2") ) {
+      if(Input.GetButtonDown("Fire3") ) {
         FadeTo(extinguishCanvas, toTombCanvas);
       }
     }
