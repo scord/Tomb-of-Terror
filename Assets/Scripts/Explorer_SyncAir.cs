@@ -30,8 +30,13 @@ public class Explorer_SyncAir : NetworkBehaviour {
 	void Update () {
 		if (!isLocalPlayer) return;
 		if (m_ForTimerText == null) return;
-		if (m_AirLevel.ToString () != m_ForTimerText.text)
-			m_ForTimerText.text = m_AirLevel.ToString ();
+		if ( (m_AirLevel / 60).ToString() + ":" + (m_AirLevel % 60).ToString() != m_ForTimerText.text) {
+			int min, sec;
+			min = m_AirLevel / 60;
+			sec = m_AirLevel % 60;
+			m_ForTimerText.text = min.ToString() + ":" + sec.ToString();
+		}
+			
 	}
 
   void OnDisable() {
