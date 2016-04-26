@@ -36,7 +36,7 @@ public class Player_SyncState : NetworkBehaviour {
     }
   }
 
-  public bool GetCarryingPrize()GetCarryingPrize() {
+  public bool GetCarryingPrize() {
     return (m_State == 1);
   }
 
