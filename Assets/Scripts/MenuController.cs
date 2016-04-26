@@ -13,6 +13,7 @@ public class MenuController : MonoBehaviour {
     public bool host;
 	// Use this for initialization
 	void Start () {
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         selected = 0;
         GameObject netManager = GameObject.Find("NetworkManager");
@@ -24,7 +25,7 @@ public class MenuController : MonoBehaviour {
         gameParams.name = "GameParams";
         netManager.name = "NetworkManager";
         //manager = netManager.GetComponent<NetManager>();
-	    //buttons = GetComponentsInChildren<Text>();
+        //buttons = GetComponentsInChildren<Text>();
     }
 
     //bool pressed = false;

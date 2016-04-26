@@ -42,6 +42,7 @@
 	sampler2D _Waves;
 	int _CurrentWave;
 	float _N;
+	float _EchoPower;
 
 	fragmentInput vert(appdata_tan v)
 	{
@@ -84,7 +85,7 @@
 
 				float dist2 = dist - speed * 2 * _EchoTime * (75.0f / 64.0f);
 				float enabled = max(0, sign(speed*2*_EchoTime - dist));
-				color += 50*enabled*_EchoColor / pow(max(abs(dist2),_EchoTime),2);
+				color += 10*(_EchoPower-1)*(1 - smoothstep(0, _EchoPower, _EchoTime))*enabled*_EchoColor / pow(max(abs(dist2),_EchoTime),2);
 
 				//color += enabled*base_color * (1 - smoothstep(0, 8, _EchoTime));
 				color.a = (color.r + color.b + color.g) * 8;
@@ -96,52 +97,6 @@
             ENDCG
         }
 
-	
-		/*Pass {
-
-			Blend SrcAlpha OneMinusSrcAlpha
-			ZWrite On                   // and if the depth is ok, it renders the main texture.
-			ZTest Less
-			CGPROGRAM
-
-			#pragma vertex vert
-			#pragma fragment frag
-			#include "UnityCG.cginc"
-
-
-			half4 frag(fragmentInput i) : COLOR
-			{
-
-		
-
-				half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));
-	
-				half4 color = 0;
-		
-
-				float speed = 20.0f;
-
-				float dist = clamp(distance(_EchoSource, i.worldPos), 0.5, 100);
-				float4 base_color = _EchoColor*falloff;
-
-				float enabled = max(0, sign(speed*_EchoTime - dist));
-
-
-				color += base_color / (dist*_EchoTime);
-
-				float dist2 = dist - speed * _EchoTime * (75.0f / 64.0f);
-
-				color += _EchoColor / abs(dist2);
-
-				color += base_color * (1 - smoothstep(0, 8, _EchoTime)) ;
-			
-				color.a = (color.r + color.b + color.g)*10;
-			
-
-				return enabled*color;
-			}
-			ENDCG
-		}    */
     }
 	Fallback "Diffuse"
 }

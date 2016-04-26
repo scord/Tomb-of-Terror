@@ -33,7 +33,7 @@ public class MummyController : PlayerController {
 				shout.Play();
 			}
 			soundVision.EchoLocate(murmurTimer);
-			Debug.Log(murmurTimer);
+//			Debug.Log(murmurTimer);
       murmurTimer = 0.0f;
     }
 
@@ -41,9 +41,9 @@ public class MummyController : PlayerController {
 
         // shout.volume = 1.0f;
 
-        shout.Play();
+     //   shout.Play();
 
-        murmurTimer+=1.0f;
+     //   murmurTimer+=1.0f;
     }
 
     if ( pickupEnabled && Input.GetButtonDown("Fire2")) {
