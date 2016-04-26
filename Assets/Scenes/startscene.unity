@@ -3302,6 +3302,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 74
       objectReference: {fileID: 0}
+    - target: {fileID: 11472806, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
+      propertyPath: m_TriggerKey
+      value: 308
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
   m_IsPrefabParent: 0

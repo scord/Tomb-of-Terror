@@ -22,15 +22,16 @@ public class SoundVision : MonoBehaviour
     public Texture2D wavetex;
     // Use this for initialization
     List<WaveSource> waveSources;
+    private float echoCharge = 0;
 
     void Start()
     {
-        EchoLocate();
+        EchoLocate(7);
         GetComponent<Camera>().SetReplacementShader(shader, "");
         waves = new Waves(maxWaves, maxLength);
         waveSources = new List<WaveSource>();
         UpdateAudioSources();
-   
+
     }
 
     // Update is called once per frame
@@ -73,7 +74,7 @@ public class SoundVision : MonoBehaviour
 
     void UpdateAudioSources()
     {
-    
+
         List<AudioSource> sortedList = (new List<AudioSource>(FindObjectsOfType<AudioSource>())).OrderBy(o => Vector3.Distance(o.transform.position, transform.position)).ToList();
         foreach (AudioSource source in sortedList.ToList())
         {
@@ -112,23 +113,25 @@ public class SoundVision : MonoBehaviour
 
             sourceCount++;
         }
-        
+
 
     }
 
-    
 
-    public void EchoLocate()
+
+    public void EchoLocate(float charge)
     {
+        echoCharge = charge;
         echoLocation = true;
+        // echoTime = 0;
         Shader.SetGlobalColor("_EchoColor", color);
         Shader.SetGlobalVector("_EchoSource", transform.position);
         Shader.SetGlobalFloat("_EchoTime", 0);
     }
-    
+
     void Update()
     {
-        
+
 		float dtime = Time.deltaTime;
         timer += dtime;
 
@@ -140,13 +143,13 @@ public class SoundVision : MonoBehaviour
 
         if (echoLocation)
         {
-            if (echoTime > 10)
+            if (echoTime > echoCharge)
             {
                 echoLocation = false;
                 echoTime = 0;
             }
             echoTime += dtime;
-            
+
             Shader.SetGlobalFloat("_EchoTime", echoTime);
         }
 
@@ -166,7 +169,7 @@ public class SoundVision : MonoBehaviour
             i++;
         }
 
-     
+
 
 
         waves.UpdateTexture(waveSources);
@@ -177,7 +180,7 @@ public class SoundVision : MonoBehaviour
 
     }
 
-    
+
 
     struct Waves
     {
@@ -203,7 +206,7 @@ public class SoundVision : MonoBehaviour
             colors = new Color[numWaves][];
             enabled = new List<int>();
             texture = new Texture2D(waveLength, numWaves);
-     
+
             texture.wrapMode = (TextureWrapMode)WrapMode.Clamp;
             texture.filterMode = FilterMode.Point;
             for (int i = 0; i < numWaves; i++)
@@ -247,7 +250,7 @@ public class SoundVision : MonoBehaviour
                 texture.SetPixels(0, i, texture.width, 1, colors[i]);
             }
             texture.Apply(true);
- 
+
         }
 
         public void SendToShader()
@@ -335,7 +338,7 @@ public class SoundVision : MonoBehaviour
             }
 
             float averageFreq = ((summedFreq / level)) / (spectrum.Length - 4);
-         
+
             if (level < 0)
                 level = 0;
 
@@ -343,7 +346,7 @@ public class SoundVision : MonoBehaviour
                 level = 0;
             level = Mathf.Pow(level * 100,1)/5f;
 
-            
+
 
 
             //return new Color(level * averageFreq * 4, level * (1 - averageFreq * 4), level, 1);
@@ -352,7 +355,7 @@ public class SoundVision : MonoBehaviour
         }
         public float GetDeltaMovement()
         {
-            
+
             deltaMovement += Vector3.Distance(audioSource.transform.position, prevPosition);
             prevPosition = audioSource.transform.position;
             return deltaMovement;

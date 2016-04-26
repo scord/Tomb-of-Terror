@@ -140,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 140146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.07, y: 4.13, z: 7.11}
-  m_LocalScale: {x: 0.78827107, y: 0.38828424, z: 0.52362764}
+  m_LocalScale: {x: 0.54196453, y: 0.38828424, z: 0.52362764}
   m_Children: []
   m_Father: {fileID: 404878}
   m_RootOrder: 1
@@ -361,17 +361,17 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: fbe99e6353712dc4b8fbc3f8d63d6fe6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   Priority: 63
-  DopplerLevel: 1
+  DopplerLevel: 1.75
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 150
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 1
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -379,23 +379,28 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
+      value: 0.5166666
       inSlope: 0
-      outSlope: 0
+      outSlope: -1.0067114
       tangentMode: 0
-    - time: 1
-      value: 0
+    - time: 0.4550562
+      value: 0.24166666
+      inSlope: -1.1577237
+      outSlope: -1.1577237
+      tangentMode: 0
+    - time: 0.8651685
+      value: 0.04166667
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
