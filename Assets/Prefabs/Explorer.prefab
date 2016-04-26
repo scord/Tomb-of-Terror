@@ -2082,7 +2082,7 @@ GameObject:
   - 114: {fileID: 11483464}
   - 225: {fileID: 22559356}
   m_Layer: 5
-  m_Name: Controller-Extinguish
+  m_Name: Controller-Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2224,6 +2224,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &196616
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22429504}
+  - 222: {fileID: 22287534}
+  - 114: {fileID: 11418178}
+  - 225: {fileID: 22557272}
+  m_Layer: 5
+  m_Name: Controller-Extinguish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &199240
 GameObject:
   m_ObjectHideFlags: 1
@@ -5914,8 +5932,9 @@ MonoBehaviour:
   throwCanvas: {fileID: 119010}
   gobackCanvas: {fileID: 125630}
   runCanvas: {fileID: 127560}
-  extinguishCanvas: {fileID: 187012}
+  extinguishCanvas: {fileID: 196616}
   toTombCanvas: {fileID: 143674}
+  torchCanvas: {fileID: 187012}
   enterCanvas: {fileID: 190296}
   fireInfo: {fileID: 11495090}
   playerController: {fileID: 11453372}
@@ -6015,6 +6034,33 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11418178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: b3acddcc7f52ecb4baf4245916372b31, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &11420316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -29715,6 +29761,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102616}
+--- !u!222 &22287534
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196616}
 --- !u!223 &22382316
 Canvas:
   m_ObjectHideFlags: 1
@@ -29819,6 +29871,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.48}
   m_SizeDelta: {x: 1.746, y: 1.476}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &22429504
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5829351, y: 0.5829356, z: 0.5829356}
+  m_Children: []
+  m_Father: {fileID: 22460910}
+  m_RootOrder: 9
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1.746, y: 1.476}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22429892
 RectTransform:
   m_ObjectHideFlags: 1
@@ -29830,7 +29899,7 @@ RectTransform:
   m_LocalScale: {x: 0.5829351, y: 0.5829356, z: 0.5829356}
   m_Children: []
   m_Father: {fileID: 22460910}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -29906,9 +29975,10 @@ RectTransform:
   - {fileID: 22451112}
   - {fileID: 22402284}
   - {fileID: 22492676}
-  - {fileID: 22429892}
+  - {fileID: 22429504}
   - {fileID: 22418612}
   - {fileID: 22434274}
+  - {fileID: 22429892}
   m_Father: {fileID: 455640}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
@@ -30017,6 +30087,17 @@ CanvasGroup:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175652}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!225 &22557272
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196616}
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1

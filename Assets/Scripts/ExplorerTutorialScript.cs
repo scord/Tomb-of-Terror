@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ExplorerTutorialScript : IntroTutorialScript {
 
-  [SerializeField] private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas, runCanvas, extinguishCanvas, toTombCanvas, enterCanvas;
+  [SerializeField] private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas, runCanvas, extinguishCanvas, toTombCanvas, torchCanvas,enterCanvas;
   [SerializeField] Text fireInfo;
   [SerializeField] private PlayerController playerController;
   [SerializeField] private ExplorerController explorerController;
@@ -25,6 +25,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     extinguishCanvas.SetActive(false);
     toTombCanvas.SetActive(false);
     enterCanvas.SetActive(false);
+    torchCanvas.SetActive(false);
 
     walkCanvas.GetComponent<CanvasGroup>().alpha = 0;
     pivotCanvas.GetComponent<CanvasGroup>().alpha = 0;
@@ -35,6 +36,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     extinguishCanvas.GetComponent<CanvasGroup>().alpha = 0;
     toTombCanvas.GetComponent<CanvasGroup>().alpha = 0;
     enterCanvas.GetComponent<CanvasGroup>().alpha = 0;
+    torchCanvas.GetComponent<CanvasGroup>().alpha = 0;
 
     playerController = explorerObject.GetComponent<PlayerController>();
     explorerController = explorerObject.GetComponent<ExplorerController>();
@@ -81,7 +83,12 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     }
     else if (toTombCanvas.activeSelf ){
       if(explorerController.carryingTorch)
-        FadeTo(toTombCanvas, enterCanvas );
+        FadeTo(toTombCanvas, torchCanvas);
+    }
+    else if(explorerController.carryingTorch && torchCanvas.activeSelf){
+      Debug.Log("torch Canvas");
+      if(Input.GetButtonDown("Fire1"))
+        FadeTo(torchCanvas, enterCanvas);
     }
     // if the player took the torch, show message to extinguish
     else if (explorerController.carryingTorch && enterCanvas.activeSelf ) {
@@ -189,5 +196,8 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     gobackCanvas.SetActive(false);
     runCanvas.SetActive(false);
     extinguishCanvas.SetActive(false);
+    torchCanvas.SetActive(false);
+    enterCanvas.SetActive(false);
+    toTombCanvas.SetActive(false);
   }
 }
