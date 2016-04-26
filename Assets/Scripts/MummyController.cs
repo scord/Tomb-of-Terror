@@ -13,7 +13,7 @@ public class MummyController : PlayerController {
     protected override void Start(){
 		base.Start();
 
-        
+
         shout = gameObject.GetComponent<AudioSource>();
         soundVision = cam.gameObject.GetComponent<SoundVision>();
         murmurTimer = 0.0f;
@@ -24,39 +24,48 @@ public class MummyController : PlayerController {
 
 	protected override void Update(){
 
-        murmurTimer += Time.deltaTime;
+    murmurTimer += Time.deltaTime;
 
 		base.Update();
-	    if (Input.GetButtonDown("Fire1")){
-            shout.volume = 2.0f;
-            shout.Play();
-            soundVision.EchoLocate();
+    if (Input.GetButtonDown("Fire1") && murmurTimer > 1f){
+			if(!shout.isPlaying){
+				// shout.volume = 1.0f;
+				shout.Play();
+			}
+			soundVision.EchoLocate(murmurTimer);
+			Debug.Log(murmurTimer);
+      murmurTimer = 0.0f;
+    }
 
-            murmurTimer = 0.0f;
+    if (murmurTimer%4 > 3.0f && !shout.isPlaying){
 
-        }
+        // shout.volume = 1.0f;
 
-        if (murmurTimer > 3.0f){
+        shout.Play();
 
-            shout.volume = 1.0f;
-            shout.Play();
+        murmurTimer+=1.0f;
+    }
 
-            murmurTimer = 0.0f;
-        }
-
-        if ( pickupEnabled && Input.GetButtonDown("Fire2")) {
-            PickUp();
-        }
+    if ( pickupEnabled && Input.GetButtonDown("Fire2")) {
+        PickUp();
+    }
 
 
-
+        bool found_mummy = false;
         if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out Mummy_ray, 24))
         {
             if (Mummy_ray.collider.gameObject.tag == "Explorer")
             {
                 OVRPlayerController mummy_controller = gameObject.GetComponent<OVRPlayerController>();
-                mummy_controller.SetMoveScaleMultiplier(4.0f);
+                mummy_controller.SetMoveScaleMultiplier(2.0f);
+                found_mummy = true;
             }
+        }
+
+        if (!found_mummy)
+        {
+            OVRPlayerController mummy_controller = gameObject.GetComponent<OVRPlayerController>();
+            mummy_controller.SetMoveScaleMultiplier(1.0f);
         }
 
     }

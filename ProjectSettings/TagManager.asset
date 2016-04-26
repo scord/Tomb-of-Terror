@@ -13,6 +13,8 @@ TagManager:
   - Prize
   - Fire
   - PyramidExit
+  - Background_audio
+  - Mummy_BackgroundAudio
   layers:
   - Default
   - TransparentFX

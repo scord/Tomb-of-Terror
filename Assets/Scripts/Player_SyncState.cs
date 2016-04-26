@@ -6,12 +6,15 @@ public class Player_SyncState : NetworkBehaviour {
 
   [SyncVar] [SerializeField] private int m_State;
   [SerializeField] private bool m_ShouldChangeOnTrigger;
-	
+
+    public bool carryingPrize;
+    
   private Pickup_Manager m_PickupManager;
 
   private const int state_end = 2;
 
   void Start() {
+        carryingPrize = false;
     m_PickupManager = GetComponent<Pickup_Manager>();
     if (m_PickupManager != null) m_PickupManager.ChangeStateEvent += IncrementState; 
   }
@@ -24,6 +27,7 @@ public class Player_SyncState : NetworkBehaviour {
 
   void IncrementState() {
     if (isServer) m_State++;
+        carryingPrize = (m_State == 1);
   }
 
   void OnTriggerEnter(Collider coll) {

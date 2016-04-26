@@ -18,6 +18,7 @@ public class LobbyManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+    if (!Cursor.visible) Cursor.visible = true;
     if (Input.GetButton("Fire2")) {
       m_MouseLookScript.enabled = true;
     } else {

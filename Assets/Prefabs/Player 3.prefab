@@ -260,7 +260,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -325,8 +325,15 @@ MonoBehaviour:
   cam: {fileID: 2027388}
   soundVision: {fileID: 0}
   audio_source: {fileID: 8237966}
+  carrying: 0
   model: {fileID: 0}
+  player_tag: {fileID: 0}
+  m_Renderer: {fileID: 0}
+  standardShader: {fileID: 0}
+  glowShader: {fileID: 0}
   animator: {fileID: 0}
+  m_IntroTutorialScript: {fileID: 0}
+  m_GameParams: {fileID: 0}
 --- !u!114 &11490886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,6 +345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0808770dba3f702479dc7cc8c5139d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Controller: {fileID: 0}
+  m_MouseLook: {fileID: 0}
 --- !u!114 &11498748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,6 +360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2027388}
   m_Listener: {fileID: 8128742}
+  isMainLevel: 0
+  withPickupManager: 0
 --- !u!124 &12462134
 Behaviour:
   m_ObjectHideFlags: 1

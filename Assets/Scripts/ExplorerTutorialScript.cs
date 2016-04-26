@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class ExplorerTutorialScript : IntroTutorialScript {
 
-  private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas;
-  private PlayerController playerController;
-  public Camera cam;
-  public GameObject explorerObject;
+  [SerializeField] private GameObject headCanvas, walkCanvas, pivotCanvas, pickupCanvas, throwCanvas, gobackCanvas;
+  [SerializeField] private PlayerController playerController;
+  [SerializeField] private Camera cam;
+  [SerializeField] private GameObject explorerObject;
 
   // Use this for initialization
   protected void Start () {
@@ -27,16 +27,6 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     FadeToWalk();
   }
 
-  protected void Awake () {
-    playerController = explorerObject.GetComponent<PlayerController>();
-    headCanvas = GameObject.Find("Controller-Head");
-    walkCanvas = GameObject.Find("Controller-Walk");
-    pivotCanvas = GameObject.Find("Controller-Pivot");
-    pickupCanvas = GameObject.Find("Controller-PickUp");
-    throwCanvas = GameObject.Find("Controller-Throw");
-    gobackCanvas = GameObject.Find("Controller-GoBack");
-  }
-  
   // Update is called once per frame
   protected void Update () {
     RaycastHit hit = new RaycastHit();

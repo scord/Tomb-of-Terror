@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 444790}
   - 114: {fileID: 11426092}
+  - 114: {fileID: 11495548}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -56,12 +57,12 @@ MonoBehaviour:
   m_SpawnPrefabs:
   - {fileID: 131858, guid: bd17e05dd9de3fd438fc735190aee767, type: 2}
   - {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
-  - {fileID: 149186, guid: 1af885962313eb841a7b640eaac18b7f, type: 2}
   - {fileID: 135454, guid: f13752c6a3f99c843b177c1cef7b4669, type: 2}
   - {fileID: 177910, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
   - {fileID: 141254, guid: ae59e0409ea0e77499fe99ef7cb44772, type: 2}
   - {fileID: 158000, guid: 4abea14bc9786fc48983fe2ec9742cf4, type: 2}
-  m_CustomConfig: 1
+  - {fileID: 149186, guid: 1af885962313eb841a7b640eaac18b7f, type: 2}
+  m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
     m_PacketSize: 1500
@@ -70,7 +71,7 @@ MonoBehaviour:
     m_DisconnectTimeout: 2000
     m_ConnectTimeout: 2000
     m_MinUpdateTimeout: 10
-    m_PingTimeout: 500
+    m_PingTimeout: 5000
     m_ReducedPingTimeout: 100
     m_AllCostTimeout: 20
     m_NetworkDropThreshold: 5
@@ -114,6 +115,18 @@ MonoBehaviour:
   m_PlayerSpawnName:
   - ExplorerSpawner
   - MummySpawner
+--- !u!114 &11495548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138c9741c4365a54c90ecc1ae012ee53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NetworkManager: {fileID: 11426092}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

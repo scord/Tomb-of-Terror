@@ -70,19 +70,11 @@ public class HeartRateManager : NetworkBehaviour {
 		spikes = new int[5];
 		average = 0;
 
-
-		starting_point = HeartRate;
-		signal = starting_point;
-		min = starting_point;
-		max = starting_point;
-
 		// Load relevant data from Intro Scene // 
 //		baseline = GameObject.Find ("HeartRateListener").GetComponent<HRBaseline> ();
 //		if (baseline == null)
 //			Debug.Log ("null baseline");
 
-		// add first reading to the log//
-		log.Add (starting_point);
 
 		// initialise spikes with 0 //
 		for (int i = 0; i < 5; i++)
@@ -99,11 +91,11 @@ public class HeartRateManager : NetworkBehaviour {
         
         //bluetooth
 
-		object path = Application.dataPath;
+		object path = Application.streamingAssetsPath;
 		
 		HRProcess = new System.Diagnostics.Process();
-		HRProcess.StartInfo.FileName = path+"/Scripts/HR/bglib_test_hr_collector.exe";
- 
+		HRProcess.StartInfo.FileName = path + "\\HR\\bglib_test_hr_collector.exe";
+ 		Debug.Log(path);
 		HRProcess.StartInfo.UseShellExecute = false;
 		HRProcess.StartInfo.RedirectStandardOutput = true;
 		HRProcess.StartInfo.CreateNoWindow = true;
@@ -112,7 +104,7 @@ public class HeartRateManager : NetworkBehaviour {
         
         bluKillProcess = new System.Diagnostics.Process();
 		bluKillProcess.StartInfo.FileName = "C:\\Windows\\system32\\cmd.exe";
-        bluKillProcess.StartInfo.Arguments = "/c" + path+"/Scripts/HR/bglibKill.bat";
+    bluKillProcess.StartInfo.Arguments = "/c" + path + "\\HR\\bglibKill.bat";
 		bluKillProcess.StartInfo.UseShellExecute = false;
 		bluKillProcess.StartInfo.RedirectStandardOutput = true;
 		bluKillProcess.StartInfo.CreateNoWindow = true;
@@ -122,6 +114,15 @@ public class HeartRateManager : NetworkBehaviour {
 		
 		thread = new Thread(new ParameterizedThreadStart(ProcessData));
 		thread.Start(path);
+
+		starting_point = HeartRate;
+		signal = starting_point;
+		min = starting_point;
+		max = starting_point;
+		// min = 300; max = 0; //
+
+		// add first reading to the log//
+		log.Add (starting_point);
 	}
     
     void UpdateLog() {
@@ -158,7 +159,6 @@ public class HeartRateManager : NetworkBehaviour {
 		while (programActive) {
       text = HRProcess.StandardOutput.ReadLine();
 			HeartRate = Convert.ToInt32(text);
-			Debug.Log("My heart rate is: " + HeartRate);
 		}
 		Debug.Log ("Thread stopped");
 	}
@@ -188,10 +188,10 @@ public class HeartRateManager : NetworkBehaviour {
         
         bool stopped = false;
         bluKillProcess.Start();
+        Debug.Log(bluKillProcess.StartInfo.Arguments);
         while(!stopped){
             String output = bluKillProcess.StandardOutput.ReadLine();
             stopped = output.Equals("done!");
-            
         }
         thread.Abort();
         bluKillProcess.Kill();
