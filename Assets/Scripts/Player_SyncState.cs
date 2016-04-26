@@ -7,7 +7,7 @@ public class Player_SyncState : NetworkBehaviour {
   [SyncVar] [SerializeField] private int m_State;
   [SerializeField] private bool m_ShouldChangeOnTrigger;
 
-    public bool carryingPrize;
+  public bool carryingPrize;
     
   private Pickup_Manager m_PickupManager;
 
@@ -27,13 +27,17 @@ public class Player_SyncState : NetworkBehaviour {
 
   void IncrementState() {
     if (isServer) m_State++;
-        carryingPrize = (m_State == 1);
+    carryingPrize = (m_State == 1);
   }
 
   void OnTriggerEnter(Collider coll) {
     if ( m_ShouldChangeOnTrigger && isServer && ( coll.gameObject.tag == "PyramidExit")) {
       if ( state_end == m_State + 1) IncrementState();
     }
+  }
+
+  public bool GetCarryingPrize()GetCarryingPrize() {
+    return (m_State == 1);
   }
 
   void OnDisable() {
