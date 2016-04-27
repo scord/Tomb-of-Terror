@@ -2071,6 +2071,7 @@ GameObject:
   - 45: {fileID: 4545436}
   - 114: {fileID: 11494302}
   - 114: {fileID: 11404388}
+  - 114: {fileID: 11469274}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -6647,6 +6648,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 723274b822865ed4d9ed2a504c0ca79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11469274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e997f3e02b8a9ef4eb2ca929fce3f980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11469776
