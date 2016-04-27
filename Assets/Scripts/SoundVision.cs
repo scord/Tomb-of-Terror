@@ -59,7 +59,7 @@ public class SoundVision : MonoBehaviour
             if (source.gameObject.layer != LayerMask.NameToLayer("Ignore Sound Vision"))
             {
                 int i = waves.free.Pop();
-                Debug.Log(i);
+               // Debug.Log(i);
                 WaveSource waveSource = new WaveSource(source, i);
                 waveSources.Add(waveSource);
 
@@ -93,7 +93,7 @@ public class SoundVision : MonoBehaviour
                 if (!found)
                 {
                     if (waves.free.Count == 0) break;
-                    Debug.Log("TEST1");
+                 //   Debug.Log("TEST1");
                     int i = waves.free.Pop();
 
                     WaveSource waveSource = new WaveSource(source, i);
@@ -106,7 +106,7 @@ public class SoundVision : MonoBehaviour
             }
             else if (found)
             {
-                Debug.Log("TEST2");
+            //    Debug.Log("TEST2");
                 waves.release(foundWaveSource);
                 waveSources.Remove(foundWaveSource);
             }
@@ -123,7 +123,9 @@ public class SoundVision : MonoBehaviour
     {
         echoCharge = charge;
         echoLocation = true;
-        // echoTime = 0;
+        echoTime = 0;
+		Shader.SetGlobalFloat("_EchoPower", charge);
+		Debug.Log (charge);
         Shader.SetGlobalColor("_EchoColor", color);
         Shader.SetGlobalVector("_EchoSource", transform.position);
         Shader.SetGlobalFloat("_EchoTime", 0);
@@ -143,12 +145,17 @@ public class SoundVision : MonoBehaviour
 
         if (echoLocation)
         {
+			if (echoCharge > 7f)
+				echoCharge = 7f;
+			
             if (echoTime > echoCharge)
             {
                 echoLocation = false;
                 echoTime = 0;
             }
             echoTime += dtime;
+
+
 
             Shader.SetGlobalFloat("_EchoTime", echoTime);
         }

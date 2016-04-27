@@ -76,14 +76,18 @@ public class Fire : TargetInteract{
   	if (active) {
       foreach (ParticleSystem m_ParticleSystem in m_ParticleSystems)
       {
-        m_ParticleSystem.Play();
+				ParticleSystem.EmissionModule em = m_ParticleSystem.emission;
+	      em.enabled = true;
+        // m_ParticleSystem.Play();
       }
       m_AudioSource.Play();
       m_Light.enabled = true;
   	} else {
       foreach (ParticleSystem m_ParticleSystem in m_ParticleSystems)
       {
-        m_ParticleSystem.Stop();
+				ParticleSystem.EmissionModule em = m_ParticleSystem.emission;
+	      em.enabled = false;
+        // m_ParticleSystem.Stop();
       }
       m_AudioSource.Stop();
       m_Light.enabled = false;

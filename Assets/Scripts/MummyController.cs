@@ -9,6 +9,7 @@ public class MummyController : PlayerController {
     private AudioSource shout;
 
     bool showText = false;
+		private bool finishedTutorial = false;
     RaycastHit Mummy_ray = new RaycastHit();
     protected override void Start(){
 		base.Start();
@@ -33,7 +34,7 @@ public class MummyController : PlayerController {
 				shout.Play();
 			}
 			soundVision.EchoLocate(murmurTimer);
-			Debug.Log(murmurTimer);
+//			Debug.Log(murmurTimer);
       murmurTimer = 0.0f;
     }
 
@@ -41,9 +42,9 @@ public class MummyController : PlayerController {
 
         // shout.volume = 1.0f;
 
-        shout.Play();
+     //   shout.Play();
 
-        murmurTimer+=1.0f;
+     //   murmurTimer+=1.0f;
     }
 
     if ( pickupEnabled && Input.GetButtonDown("Fire2")) {
@@ -93,7 +94,13 @@ public class MummyController : PlayerController {
         }
     }
 
+		public void FinishTutorial(){
+			finishedTutorial = true;
+		}
 
+		public bool CheckTutorial(){
+			return finishedTutorial;
+		}
 
 
     void OnGUI()

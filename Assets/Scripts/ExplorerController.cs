@@ -11,6 +11,7 @@ public class ExplorerController : PlayerController {
 
 	private float wheelDirection;
 	private bool onTrigger;
+    public bool carryingTorch;
 
 	protected override void Start(){
 
@@ -18,6 +19,7 @@ public class ExplorerController : PlayerController {
 		//torchIntensity = GetComponentsInChildren<Light>()[0];
         InstantiateTorch();
         StartConfig(m_GameParams.mainLevel);
+        carryingTorch = false;
         
 	}
 
@@ -137,7 +139,8 @@ public class ExplorerController : PlayerController {
             m_Torch.SetActive(true);
             torchManagerScript = new TorchManager(m_Torch);
             torchManagerScript.Trigger(true);
-        }  
+        }
+        carryingTorch = true;  
     }
 
 }

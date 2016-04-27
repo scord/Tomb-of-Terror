@@ -6,7 +6,8 @@ public class InteractScript : MonoBehaviour {
 
 	public TargetInteract targetObject;
 	public bool withKey;
-	[SerializeField] private KeyCode m_TriggerKey = KeyCode.E;
+
+  private string m_TriggerKey = "Fire3";
 
 	private string infoText;
 
@@ -18,7 +19,7 @@ public class InteractScript : MonoBehaviour {
 
 	public string PreInteract(){
 		if(withKey){
-			infoText = "Press " +  m_TriggerKey.ToString() + " to " +targetObject.GetText();
+			infoText = "Press X to " +targetObject.GetText();
 			// info.enabled = true;
 		}
 		return infoText;
@@ -30,11 +31,11 @@ public class InteractScript : MonoBehaviour {
 
 	public string Interact() {
 		targetObject.Trigger();
-		infoText = "Press " +  m_TriggerKey.ToString() + " to " +targetObject.GetText();
+		infoText = "Press X to " +targetObject.GetText();
 		return infoText;
 	}
 
-	public KeyCode GetKeyCode() {
+	public string GetKeyCode() {
 		return m_TriggerKey;
 	}
 }
