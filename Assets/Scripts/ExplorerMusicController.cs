@@ -39,7 +39,7 @@ public class ExplorerMusicController : MonoBehaviour {
 
 		}
 
-        if (gameObject.GetComponent<Player_SyncState>().carryingPrize)
+        if (gameObject.GetComponent<Player_SyncState>().GetCarryingPrize())
         {
             play_drama_music = true;
         }
