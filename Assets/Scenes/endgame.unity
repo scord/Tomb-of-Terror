@@ -9201,7 +9201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1217164362}
   withKey: 1
-  m_TriggerKey: 122
 --- !u!65 &447312249
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11780,8 +11779,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 700500801}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalRotation: {x: 0, y: 0.13294876, z: 0, w: -0.99112296}
+  m_LocalPosition: {x: 0, y: 5, z: -100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11905,7 +11904,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1366052095}
   withKey: 1
-  m_TriggerKey: 122
 --- !u!65 &753220135
 BoxCollider:
   m_ObjectHideFlags: 0
