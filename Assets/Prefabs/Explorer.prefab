@@ -219,6 +219,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 446086}
   - 82: {fileID: 8245706}
+  - 114: {fileID: 11476536}
   m_Layer: 0
   m_Name: footStep2
   m_TagString: Untagged
@@ -842,6 +843,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 444212}
   - 82: {fileID: 8257194}
+  - 114: {fileID: 11492642}
   m_Layer: 0
   m_Name: footStep1
   m_TagString: Untagged
@@ -3079,7 +3081,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: -0.763, z: -0.021}
+  m_LocalPosition: {x: 0.11, y: -0.763, z: 0}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
   m_Children: []
   m_Father: {fileID: 403924}
@@ -3117,7 +3119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.123, y: -0.674, z: -0.02}
+  m_LocalPosition: {x: -0.123, y: -0.674, z: 0}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
   m_Children: []
   m_Father: {fileID: 403924}
@@ -4713,14 +4715,15 @@ AudioSource:
   m_GameObject: {fileID: 108720}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300001, guid: 1dd706bb85d8aef4e83a6229dbd62c36,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: c5ed2ba6d82175d47bf29390bf2efc89, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -4935,14 +4938,15 @@ AudioSource:
   m_GameObject: {fileID: 133320}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300001, guid: 1dd706bb85d8aef4e83a6229dbd62c36,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: c5ed2ba6d82175d47bf29390bf2efc89, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -6722,6 +6726,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerTransform: {fileID: 403924}
   m_CamTransform: {fileID: 470238}
+--- !u!114 &11476536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 108720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpatialization: 1
+  gain: 24
+  useInvSqr: 0
+  near: 1
+  far: 10
+  disableRfl: 0
 --- !u!114 &11478190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6822,6 +6843,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplier: 1.5
+--- !u!114 &11492642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e503ea6418d27594caa33b93cac1b06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableSpatialization: 1
+  gain: 24
+  useInvSqr: 0
+  near: 1
+  far: 10
+  disableRfl: 0
 --- !u!114 &11492852
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -69,24 +69,6 @@ public class PlayerController : MonoBehaviour {
             ChangeLevel();
         }
 
-        float moveVertical = Input.GetAxis("Vertical");
-        //float lookHorizontal = Input.GetAxis("RightH");
-        //float lookVertical = Input.GetAxis("RightV");
-
-        if (moveVertical == 1.0)
-        {
-			
-            move = true;
-
-            if (audio_source.isPlaying == false)// add more logic later such as, onground/jumping etc etc
-            {
-//				Debug.Log ("TEST");
-                audio_source.pitch = Random.Range(0.7f, 0.9f);
-                audio_source.volume = Random.Range(0.7f, 0.9f);
-                audio_source.Play();
-            }
-        }
-
         animator.SetBool("Movement", move);
 
         if (carrying)
