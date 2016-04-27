@@ -9,6 +9,7 @@ public class MummyController : PlayerController {
     private AudioSource shout;
 
     bool showText = false;
+		private bool finishedTutorial = false;
     RaycastHit Mummy_ray = new RaycastHit();
     protected override void Start(){
 		base.Start();
@@ -93,7 +94,13 @@ public class MummyController : PlayerController {
         }
     }
 
+		public void FinishTutorial(){
+			finishedTutorial = true;
+		}
 
+		public bool CheckTutorial(){
+			return finishedTutorial;
+		}
 
 
     void OnGUI()

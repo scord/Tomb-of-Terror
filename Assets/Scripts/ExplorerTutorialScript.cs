@@ -69,7 +69,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     }
     // if run canvas activated
     else if( runCanvas.activeSelf ) {
-      if( Input.GetKey(KeyCode.LeftShift) ) {
+      if( Input.GetKey(KeyCode.LeftShift) || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0 ) {
         Debug.Log("fade run");
         // WaitFunction(2, runCanvas, extinguishCanvas);
         FadeTo(runCanvas, extinguishCanvas);
@@ -130,7 +130,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
   private bool EndPivot(){
     Debug.Log(pivotCount);
     if(pivotCount > 0){
-      if ( Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) ){
+      if ( Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) || OVRInput.Get(OVRInput.Button.PrimaryShoulder) || OVRInput.Get(OVRInput.Button.SecondaryShoulder)  ){
         Debug.Log("pressed");
         pivotCount--;
       }
