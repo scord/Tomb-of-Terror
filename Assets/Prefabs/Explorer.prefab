@@ -6521,7 +6521,7 @@ MonoBehaviour:
   BackAndSideDampen: 0.5
   JumpForce: 0.3
   RotationAmount: 1.5
-  RotationRatchet: 45
+  RotationRatchet: 30
   HmdResetsY: 1
   HmdRotatesY: 1
   GravityModifier: 1
