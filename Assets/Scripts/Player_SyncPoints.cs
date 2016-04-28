@@ -16,6 +16,7 @@ public class Player_SyncPoints : NetworkBehaviour {
   public int necessaryPoints { get { return m_NecessaryPoints;}}
   public int defaultValuePoints { get { return m_DefaultValuePoints;}}
 
+  private bool already_enough = false;
 
   public delegate void ChangeStateDelegate();
   public event ChangeStateDelegate ChangeStateEvent;
@@ -36,8 +37,11 @@ public class Player_SyncPoints : NetworkBehaviour {
     ObjectValue m_ObjectValueScript = target.GetComponent<ObjectValue>();
     if ( m_ObjectValueScript == null) m_PointsEarned += defaultValuePoints;
     else m_PointsEarned += m_ObjectValueScript.objectValue;
-    if ( m_PointsEarned >= necessaryPoints ) {
-      if (ChangeStateEvent != null) ChangeStateEvent();
+    if ( !already_enough && m_PointsEarned >= necessaryPoints ) {
+      if (ChangeStateEvent != null) {
+        ChangeStateEvent();
+        already_enough = true;
+      }
     }
   }
 	
