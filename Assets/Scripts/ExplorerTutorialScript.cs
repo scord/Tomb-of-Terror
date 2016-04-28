@@ -11,15 +11,21 @@ public class ExplorerTutorialScript : IntroTutorialScript {
   [SerializeField] private Camera cam;
   [SerializeField] private GameObject explorerObject;
 
+  // look around variable
+  private float lookAround = 3;
+
+  // walk variable
+  private float walkTime = 2;
+
   // torch variables
-  private int torchPress = 0;
+  private int torchPress = 2;
 
   // run variables
   private float runTime = 3;   // seconds
   private bool running = false;
 
   // pivot variables
-  private int pivotCount = 4;
+  private int pivotCount = 6;
 
   // Use this for initialization
   protected void Start () {
@@ -49,32 +55,32 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     playerController = explorerObject.GetComponent<PlayerController>();
     explorerController = explorerObject.GetComponent<ExplorerController>();
 
-    FadeToWalk();
   }
 
   // Update is called once per frame
   protected void Update () {
-    fireInfo.enabled = false;
-    RaycastHit hit = new RaycastHit();
-    if ( (Input.GetAxis("Vertical") != 0) && walkCanvas.activeSelf) {
-      FadeTo(walkCanvas, pivotCanvas);
+    // rotate head prompt
+    if( headCanvas.activeSelf ){
+      if(lookAround > 0)
+        lookAround -= Time.deltaTime;
+      else
+        FadeToWalk();
     }
+
+    // walk around prompt
+    else if (walkCanvas.activeSelf) {
+      if(Input.GetAxis("Vertical") != 0 && walkTime > 0)
+        walkTime -= Time.deltaTime;
+      else
+        FadeTo(walkCanvas, pivotCanvas);
+    }
+
     // if pivot canvas activated
     else if (pivotCanvas.activeSelf) {
       if( EndPivot() )
         FadeTo(pivotCanvas, runCanvas);
     }
-    // if the pickup canvas is activated, fade when player is carrying an object
-    // else if (pickupCanvas.activeSelf) {
-    //   if (playerController.carrying)
-    //     FadeTo(pickupCanvas, throwCanvas);
-    // }
-    // if the throw canvas is activated, fade when player isn't carrying anymore
-    // else if (throwCanvas.activeSelf) {
-    //   if (Input.GetButtonDown("Fire2")) {
-    //     FadeTo(throwCanvas, runCanvas);
-    //   }
-    // }
+
     // if run canvas activated
     else if( runCanvas.activeSelf ) {
       if( Input.GetKey(KeyCode.LeftShift) || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0 )
@@ -82,20 +88,13 @@ public class ExplorerTutorialScript : IntroTutorialScript {
       else
         running = false;
 
-      if(running && runTime > 0){
+      if(running && runTime > 0)
         runTime -= Time.deltaTime;
-      }
 
       if(runTime < 0)
         FadeTo(runCanvas, toTombCanvas);
-
     }
-    // if fire pots canvas activated
-    // else if( extinguishCanvas.activeSelf ){
-    //   if(Input.GetButtonDown("Fire3") ) {
-    //     FadeTo(extinguishCanvas, toTombCanvas);
-    //   }
-    // }
+
     else if (toTombCanvas.activeSelf ){
       if(explorerController.carryingTorch)
         FadeTo(toTombCanvas, torchCanvas);
@@ -104,10 +103,10 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     // if at the torch stage
     else if(explorerController.carryingTorch && torchCanvas.activeSelf){
 
-      if(Input.GetButtonDown("Fire1"))
-        torchPress ++;
+      if(Input.GetButtonDown("Fire1") && torchPress > 0)
+        torchPress --;
 
-      if(torchPress > 1){
+      if(torchPress == 0){
         GameObject.FindGameObjectWithTag("PyramidExit").GetComponent<Collider>().isTrigger = true;
         FadeTo(torchCanvas, enterCanvas);
       }
@@ -126,7 +125,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
   }
 
   private void FadeToWalk () {
-    StartCoroutine(WaitFunction(4.0F, headCanvas, walkCanvas));
+    StartCoroutine(WaitFunction(1.0F, headCanvas, walkCanvas));
   }
 
   private void FadeTo( GameObject fromCanvas, GameObject toCanvas){

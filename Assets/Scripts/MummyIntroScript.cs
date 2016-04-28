@@ -6,8 +6,23 @@ public class MummyIntroScript : IntroTutorialScript {
 	[SerializeField] private GameObject headCanvas, walkCanvas, pivotCanvas, echolocateCanvas, runCanvas, catchCanvas;
 	[SerializeField] private MummyController mummyController;
 	[SerializeField] private GameObject mummyObject;
-	private int pivotCount = 5;
-	// [SerializeField] private GameObject trapTrigger, coffinEnter, coffinOut;
+
+	// look around variable
+	private float lookAround = 3;
+
+	// walk variable
+	private float walkTime = 2;
+
+	// torch variables
+	private int torchPress = 2;
+
+	// run variables
+	private float runTime = 3;   // seconds
+	private bool running = false;
+
+	// pivot variables
+	private int pivotCount = 6;
+
 
   // Use this for initialization
   protected void Start () {
@@ -24,43 +39,53 @@ public class MummyIntroScript : IntroTutorialScript {
 		runCanvas.GetComponent<CanvasGroup>().alpha = 0;
 		catchCanvas.GetComponent<CanvasGroup>().alpha = 0;
 
-    FadeToWalk();
-
 		mummyController = mummyObject.GetComponent<MummyController>();
-  }
-
-
-
-  protected void Awake () {
-    /*headCanvas = GameObject.Find("Controller-Head");
-    walkCanvas = GameObject.Find("Controller-Walk");
-    pivotCanvas = GameObject.Find("Controller-Pivot");
-    echolocateCanvas = GameObject.Find("Controller-Echolocate");*/
-		// trapTrigger = GameObject.Find("TrapTrigger");
-		// coffinEnter = GameObject.Find("TrapDoor");
-		// coffinOut 	= GameObject.Find("CoffinDoor");
   }
 
   // Update is called once per frame
   protected void Update () {
-		if ( (Input.GetAxis("Vertical") != 0) && walkCanvas.activeSelf) {
-			FadeTo(walkCanvas, pivotCanvas);
+		// rotate head prompt
+		if( headCanvas.activeSelf ){
+			if(lookAround > 0)
+				lookAround -= Time.deltaTime;
+			else
+				FadeToWalk();
 		}
+
+		// walk around prompt
+    else if (walkCanvas.activeSelf) {
+      if(Input.GetAxis("Vertical") != 0 && walkTime > 0)
+        walkTime -= Time.deltaTime;
+      else
+        FadeTo(walkCanvas, pivotCanvas);
+    }
+
 		// if pivot canvas activated
 		else if (pivotCanvas.activeSelf) {
 			if( EndPivot() )
 				FadeTo(pivotCanvas, runCanvas);
 		}
+
+		// if run canvas activated
 		else if( runCanvas.activeSelf ) {
-      if( Input.GetKey(KeyCode.LeftShift) || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0 ) {
-        FadeTo(runCanvas, catchCanvas);
-      }
-    }
+			if( Input.GetKey(KeyCode.LeftShift) || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0 )
+				running = true;
+			else
+				running = false;
+
+			if(running && runTime > 0)
+				runTime -= Time.deltaTime;
+
+			if(runTime < 0)
+				FadeTo(runCanvas, catchCanvas);
+		}
+
 		else if (catchCanvas.activeSelf){
 			if(Input.GetButtonDown("Fire2")){
 				FadeTo(catchCanvas, echolocateCanvas);
 			}
 		}
+
 		else if(echolocateCanvas.activeSelf){
 			if((Input.GetButtonDown("Fire1"))){
 				echolocateCanvas.SetActive(false);
