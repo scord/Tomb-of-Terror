@@ -8,7 +8,6 @@ public class CameraManager : MonoBehaviour {
 	[SerializeField] private MainCameraController m_CameraController;
 
 	void Start(){
-		Debug.Log("Starting");
 		m_NetworkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>();
 		m_NetworkManager.AddcameraPosition += AddRemovePlayer;
 	}
@@ -19,7 +18,7 @@ public class CameraManager : MonoBehaviour {
 	}
 
 	void AddRemovePlayer(){
-		Debug.Log("Added/Removed payer in camera manager");
+		// Debug.Log("Added/Removed payer in camera manager");
 		m_CameraController.SetCameras(FindObjectsOfType<PlayerController>());
 	}
 }

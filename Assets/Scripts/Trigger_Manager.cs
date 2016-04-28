@@ -7,7 +7,7 @@ public class Trigger_Manager : NetworkBehaviour {
 
   private InteractScript trig;
   private bool onTrigger;
-  [SerializeField] private Text fireInfo;
+  // [SerializeField] private Text fireInfo;
   private string infoText;
 
   private Game_Manager_References GM_Ref;
@@ -15,7 +15,7 @@ public class Trigger_Manager : NetworkBehaviour {
   [SerializeField] private PlayerController m_Controller;
 
   void Start() {
-    fireInfo.enabled = false;
+    // fireInfo.enabled = false;
     GM_Ref = GameObject.Find("Game Manager").GetComponent<Game_Manager_References>();
     onTrigger = false;
   }
@@ -36,7 +36,7 @@ public class Trigger_Manager : NetworkBehaviour {
 
   [Command]
   void CmdTriggerInteract(int index) {
-    fireInfo.text = GM_Ref.GetInteractObject(index).Interact();
+    // fireInfo.text = GM_Ref.GetInteractObject(index).Interact();
   }
 
   void OnTriggerEnter(Collider other){
@@ -45,8 +45,8 @@ public class Trigger_Manager : NetworkBehaviour {
         SetTrig((InteractScript) other.GetComponent(typeof(InteractScript)));
         SetOnTrig(true);
         if(trig.withKey) {
-          fireInfo.text =  trig.PreInteract();
-          fireInfo.enabled = true;
+          // fireInfo.text =  trig.PreInteract();
+          // fireInfo.enabled = true;
         }
         else CmdTriggerInteract(GM_Ref.GetInteractObjectIndex(trig));
       }
@@ -64,7 +64,7 @@ public class Trigger_Manager : NetworkBehaviour {
         SetOnTrig(false);
         trig.EndInteract();
         SetTrig(null);
-        fireInfo.enabled = false;
+        // fireInfo.enabled = false;
       }
   }
 

@@ -26,7 +26,6 @@ public class MainCameraController : MonoBehaviour {
     foreach(PlayerController player in playerList){
       testPos.Add(player.transform);
     }
-    Debug.Log(testPos.Count);
   }
 
   private void GotoNextPlayer(){

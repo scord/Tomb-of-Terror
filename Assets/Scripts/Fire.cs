@@ -10,7 +10,6 @@ public class Fire : TargetInteract{
     private AudioSource m_AudioSource;
 	  private Light m_Light;
 		private AirManager air;
-		private Text info;
 
 	private void Start() {
 
@@ -37,9 +36,6 @@ public class Fire : TargetInteract{
 
 		if(air)
 			air.UpdateAir(active);
-
-		// info.text = "Press " +  m_TriggerKey.ToString() + " to " + GetText();
-
 }
 
   [Command]
