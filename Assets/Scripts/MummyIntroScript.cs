@@ -3,6 +3,9 @@ using System.Collections;
 
 public class MummyIntroScript : IntroTutorialScript {
 
+	private SoundVision vision;
+	private GameObject mummy;
+	private Camera view;
 	[SerializeField] private GameObject headCanvas, walkCanvas, pivotCanvas, echolocateCanvas, runCanvas, catchCanvas;
 	[SerializeField] private MummyController mummyController;
 	[SerializeField] private GameObject mummyObject;
@@ -40,6 +43,10 @@ public class MummyIntroScript : IntroTutorialScript {
 		catchCanvas.GetComponent<CanvasGroup>().alpha = 0;
 
 		mummyController = mummyObject.GetComponent<MummyController>();
+		mummy = mummyObject.transform.Find("OVRCameraRig/TrackingSpace/CenterEyeAnchor").gameObject;
+
+		vision = mummy.GetComponent<SoundVision>();
+		view = mummy.GetComponent<Camera>();
   }
 
   // Update is called once per frame
@@ -88,6 +95,7 @@ public class MummyIntroScript : IntroTutorialScript {
 
 		else if(echolocateCanvas.activeSelf){
 			if((Input.GetButtonDown("Fire1"))){
+				TurnOnVision();
 				echolocateCanvas.SetActive(false);
 				mummyController.FinishTutorial();
 			}
@@ -107,6 +115,12 @@ public class MummyIntroScript : IntroTutorialScript {
     return true;
   }
 
+	private void TurnOnVision(){
+		vision.enabled = true;
+		view.backgroundColor = new Color (0, 0, 0, 1);
+		view.cullingMask = (view.cullingMask ) &  ~(1 << LayerMask.NameToLayer("Ignore Sound Vision"));
+		view.clearFlags = CameraClearFlags.SolidColor;
+	}
 
   private void FadeToWalk () {
     StartCoroutine(WaitFunction(4.0F));
