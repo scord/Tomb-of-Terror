@@ -95,6 +95,19 @@ public class MummyController : PlayerController {
         }
     }
 
+    public override void CallbackServerChecking(bool success) {
+        if (success) {
+            StartCoroutine(DelayedResponseServer(success));
+        } else {
+            base.CallbackServerChecking(success);
+        }
+    }
+
+    private IEnumerator DelayedResponseServer(bool success) {
+        yield return new WaitForSeconds(1.0f);
+        base.CallbackServerChecking(success);
+    }
+
 		public void FinishTutorial(){
 			finishedTutorial = true;
 		}

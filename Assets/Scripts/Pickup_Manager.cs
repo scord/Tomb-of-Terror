@@ -85,19 +85,28 @@ public class Pickup_Manager : NetworkBehaviour {
     RaycastHit hit = new RaycastHit();
     if (Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, 50))
     {
-      if ( IsPrizeTag(hit.collider.gameObject.tag)) {
+      if ( IsPrizeTag(hit.collider.gameObject.tag) ) {
         GameObject go = hit.collider.gameObject;
-
         if (PrizePickedCallback != null) PrizePickedCallback(go);
-
-        DestroyAfterPickup dap= hit.collider.gameObject.GetComponent<DestroyAfterPickup>();
-
-        if (dap != null) dap.OnPickedUp();
+        UpdatePickedUpObjectStatus(go);
+        DestroyPickedUpObject(go);
         RpcStopThinking(true);
       }
     } else {
       RpcStopThinking(false);
     }
+  }
+
+  [Server]
+  private void UpdatePickedUpObjectStatus(GameObject target) {
+    Player_SyncHealth m_HealthManagerScript = target.GetComponent<Player_SyncHealth>();
+    if (m_HealthManagerScript != null) m_HealthManagerScript.Swipe();
+  }
+
+  [Server]
+  private void DestroyPickedUpObject(GameObject target) {
+        DestroyAfterPickup dap= target.GetComponent<DestroyAfterPickup>();
+        if (dap != null) dap.OnPickedUp();
   }
 
   [ClientRpc]

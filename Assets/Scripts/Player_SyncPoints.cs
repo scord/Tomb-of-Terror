@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Player_SyncPoints : NetworkBehaviour {
 
@@ -9,6 +10,8 @@ public class Player_SyncPoints : NetworkBehaviour {
   [SerializeField] private int m_DefaultValuePoints = 400; //default
   [SerializeField] private Pickup_Manager m_PickupManager;
   [SerializeField] private PlayerController m_PlayerController;
+  [SerializeField] private GameObject m_PointsCanvas; //Put canvas in prefab
+  private Text m_PointsMessage; 
 
   public int necessaryPoints { get { return m_NecessaryPoints;}}
   public int defaultValuePoints { get { return m_DefaultValuePoints;}}
@@ -20,7 +23,8 @@ public class Player_SyncPoints : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
     if (isServer && m_PickupManager != null) m_PickupManager.PrizePickedCallback += PrizePicked;
-	}
+    if (isLocalPlayer && m_PointsCanvas != null && m_PointsCanvas.activeSelf) m_PointsMessage = m_PointsCanvas.GetComponent<Text>();
+  }
 
   void OnDisable() {
     if (isServer && m_PickupManager != null) m_PickupManager.PrizePickedCallback += PrizePicked;
@@ -40,11 +44,17 @@ public class Player_SyncPoints : NetworkBehaviour {
   [ClientCallback]
   void OnPointsEarnedUpdate(int newValue) {
     m_PointsEarned = newValue;
-    Debug.Log(m_PointsEarned);
+    if ( isLocalPlayer ) ShowUpdatedCanvas();
   }
 
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+  void ShowUpdatedCanvas() {
+    if ( isLocalPlayer && m_PointsCanvas != null && m_PointsCanvas.activeSelf && m_PointsMessage != null) {
+      // Update points on UI here
+    }
+  }
 }

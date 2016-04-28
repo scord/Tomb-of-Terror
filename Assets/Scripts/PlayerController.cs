@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
     public delegate void ThrowDelegate(GameObject go, Vector3 direction);
     public event ThrowDelegate EventThrow;
 
-    protected bool canChangeLevel = true;
+    protected bool m_IsMainLevel = true;
 
     [SerializeField] protected GameParams m_GameParams;
     void Awake() {
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	virtual protected void Update () {
         move = false;
-        if (canChangeLevel && Input.GetKeyDown(KeyCode.K)) {
+        if (!m_IsMainLevel && Input.GetKeyDown(KeyCode.K)) {
             ChangeLevel();
         }
 
@@ -116,9 +116,9 @@ public class PlayerController : MonoBehaviour {
     public virtual void StartConfig(bool isMainLevel) {
         m_IntroTutorialScript.enabled = !isMainLevel;
         if (isMainLevel) {
-            canChangeLevel = false;
+            m_IsMainLevel = true;
         } else {
-            canChangeLevel = true;
+            m_IsMainLevel = false;
             //GetComponent<Explorer_HeartRate>().enabled = false;
         }
     }

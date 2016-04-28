@@ -7,6 +7,7 @@ public class ExplorerController : PlayerController {
 	//private Light torchIntensity;
 
     [SerializeField] private GameObject m_Torch;
+    [SerializeField] private GameObject m_PointsCanvas;
     private TorchManager torchManagerScript;
 
 	private float wheelDirection;
@@ -28,9 +29,10 @@ public class ExplorerController : PlayerController {
     public override void StartConfig(bool isMainLevel) {
         base.StartConfig(isMainLevel);
         if (isMainLevel) {
-            canChangeLevel = false;
+            m_IsMainLevel = true;
+            if ( m_PointsCanvas != null ) m_PointsCanvas.SetActive(true);
         } else {
-            canChangeLevel = true;
+            m_IsMainLevel = false;
             torchManagerScript = null;
             m_Torch.SetActive(false);
         }
@@ -130,7 +132,7 @@ public class ExplorerController : PlayerController {
     public override void CallbackServerChecking(bool success) {
         base.CallbackServerChecking(success);
         if (success) {
-            if (canChangeLevel) {
+            if (m_IsMainLevel) {
                 InstantiateTorch();
             }
         }
