@@ -54,4 +54,9 @@ public class PlayerNetworkController : NetworkBehaviour {
         }
     }
 
+    public override void OnDeserialize(NetworkReader reader, bool initialState)
+    {
+        base.OnDeserialize(reader, initialState);
+    }
+
 }
