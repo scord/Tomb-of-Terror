@@ -6,14 +6,18 @@ public class Player_SyncHealth : NetworkBehaviour {
 
   [SerializeField] [SyncVar (hook = "OnLivesUpdated")] private int m_Lives = 3; //lives
   [SerializeField] private Player_SyncPoints m_PlayerSyncPoints;
+  private OVRPlayerController m_OVRPlayerController;
   private int localLives;
 
   public override void OnStartServer() {
-    m_Lives = m_PlayerSyncPoints.necessaryPoints/m_PlayerSyncPoints.defaultValuePoints + 1;
+    //m_Lives = m_PlayerSyncPoints.necessaryPoints/m_PlayerSyncPoints.defaultValuePoints + 1;
   }
 
   void Start() {
     localLives = m_Lives;
+    if (isLocalPlayer) {
+      m_OVRPlayerController = gameObject.GetComponent<OVRPlayerController>();
+    }
   }
 
 
@@ -26,8 +30,19 @@ public class Player_SyncHealth : NetworkBehaviour {
   void OnLivesUpdated(int newValue) {
     m_Lives = newValue;
     if (isLocalPlayer) {
+      MultiplyRunningSpeed(2.0f);
+      StartCoroutine(RelaxSpeed());
       //Do things like run faster
       Debug.Log("I was swiped");
     }
+  }
+
+  IEnumerator RelaxSpeed() {
+    yield return new WaitForSeconds(2.0f);
+    MultiplyRunningSpeed(1.0f);
+  }
+
+  void MultiplyRunningSpeed(float scalingFactor) {
+    if( m_OVRPlayerController != null ) m_OVRPlayerController.SetMoveScaleMultiplier(1.0f);
   }
 }

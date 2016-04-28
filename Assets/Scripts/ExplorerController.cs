@@ -132,7 +132,7 @@ public class ExplorerController : PlayerController {
     public override void CallbackServerChecking(bool success) {
         base.CallbackServerChecking(success);
         if (success) {
-            if (m_IsMainLevel) {
+            if (!m_IsMainLevel) {
                 InstantiateTorch();
             }
         }
