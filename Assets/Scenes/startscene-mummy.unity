@@ -20227,6 +20227,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1890902224}
   - 143: {fileID: 1890902225}
+  - 114: {fileID: 1890902226}
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Explorer
@@ -20266,6 +20267,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1890902226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1890902223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2689bddd90a314944952eb916eb97d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObjectValue: 1000
 --- !u!1 &1891361308
 GameObject:
   m_ObjectHideFlags: 0

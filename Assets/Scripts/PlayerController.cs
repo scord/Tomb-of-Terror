@@ -83,8 +83,13 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    protected bool isServerChecking = false;
     protected virtual void PickUp()
     {
+    }
+
+    public virtual void CallbackServerChecking(bool success) {
+        isServerChecking = false;
     }
 
     protected void CallEventPickUp(GameObject go) {
@@ -100,8 +105,8 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public virtual string GetPrizeTag() {
-        return "";
+    public virtual string[] GetPrizeTags() {
+        return new string[] {};
     }
 
     public GameObject GetCarriedObject() {

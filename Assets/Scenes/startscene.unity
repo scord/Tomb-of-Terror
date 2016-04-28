@@ -608,6 +608,7 @@ GameObject:
   - 54: {fileID: 249457361}
   - 114: {fileID: 249457363}
   - 136: {fileID: 249457362}
+  - 114: {fileID: 249457364}
   m_Layer: 0
   m_Name: torch (1)
   m_TagString: Prize
@@ -721,6 +722,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DestroyTarget: {fileID: 249457356}
+--- !u!114 &249457364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 249457356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2689bddd90a314944952eb916eb97d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ObjectValue: 1000
 --- !u!1 &337503531
 GameObject:
   m_ObjectHideFlags: 0

@@ -120,18 +120,24 @@ public class ExplorerController : PlayerController {
                 carrying = true;
                 CallEventPickUp(carriedObject);
                 //carriedObject.GetComponent<Object_SyncPosition>().PickUp("something");
-            } else if ( hit.collider.gameObject.tag == "Prize") {
+            } else if ( !isServerChecking && (System.Array.IndexOf(GetPrizeTags(), hit.collider.gameObject.tag) != -1)) {
+                isServerChecking = true;
                 CallEventPickUp(hit.collider.gameObject);
-                if (canChangeLevel) {
-                    InstantiateTorch();
-                }
-                hit.collider.gameObject.tag = "Untagged";
             }
         }
     }
 
-    public override string GetPrizeTag() {
-        return "Prize";
+    public override void CallbackServerChecking(bool success) {
+        base.CallbackServerChecking(success);
+        if (success) {
+            if (canChangeLevel) {
+                InstantiateTorch();
+            }
+        }
+    }
+
+    public override string[] GetPrizeTags() {
+        return new string[] {"Prize", "SmallPrize"};
     }
 
     private void InstantiateTorch() {

@@ -24,7 +24,7 @@ public class NetworkManagerCustom : NetworkManager {
   [SerializeField] private string[] m_PlayerSpawnName;
 
   public delegate void PlayerAdded();
-  public event PlayerAdded AddcameraPosition;
+  public event PlayerAdded AddedPlayerCallback;
 
   private int m_choosenIndex;
   public int choosenIndex { get {return m_choosenIndex;} set { m_choosenIndex = value;}}
@@ -44,8 +44,8 @@ public class NetworkManagerCustom : NetworkManager {
   public override void OnServerRemovePlayer(NetworkConnection conn, UnityEngine.Networking.PlayerController player){
     base.OnServerRemovePlayer(conn, player);
     Debug.Log("SERVER REMOVE PLATTE");
-    if( null != AddcameraPosition )
-      AddcameraPosition();
+    if( null != AddedPlayerCallback )
+      AddedPlayerCallback();
   }
 
 
@@ -59,8 +59,8 @@ public class NetworkManagerCustom : NetworkManager {
     base.OnServerAddPlayer(netMsg.conn, msg.controllerId);
     UnRegisterStartPosition(spawnTransform);
 
-    if( null != AddcameraPosition )
-      AddcameraPosition();
+    if( null != AddedPlayerCallback )
+      AddedPlayerCallback();
 
     if ( netMsg.conn != null  && netMsg.conn.clientOwnedObjects != null){
       foreach(NetworkInstanceId netId in netMsg.conn.clientOwnedObjects) {

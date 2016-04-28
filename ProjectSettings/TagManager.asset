@@ -15,6 +15,7 @@ TagManager:
   - PyramidExit
   - Background_audio
   - Mummy_BackgroundAudio
+  - SmallPrize
   layers:
   - Default
   - TransparentFX

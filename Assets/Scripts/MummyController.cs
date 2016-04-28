@@ -87,9 +87,10 @@ public class MummyController : PlayerController {
         RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16))
         {
-            if (hit.collider.gameObject.tag == "Explorer")
+            if (!isServerChecking && hit.collider.gameObject.tag == "Explorer")
             {
                 CallEventPickUp(hit.collider.gameObject);
+                isServerChecking = true;
             }
         }
     }
@@ -117,8 +118,8 @@ public class MummyController : PlayerController {
         GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().ChangeLevel();
     }
 
-    public override string GetPrizeTag() {
-        return "Explorer";
+    public override string[] GetPrizeTags() {
+        return new string[] {"Explorer"};
     }
 
     public override void StartConfig(bool isMainLevel) {

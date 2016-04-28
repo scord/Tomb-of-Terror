@@ -11,7 +11,7 @@ public class Pickup_Manager : NetworkBehaviour {
   [SyncVar (hook = "SyncRotationValues")] private Quaternion syncRot;
 
   [SerializeField] private PlayerController m_PlayerController;
-  private string prize_tag;
+  private string[] prize_tags;
   private Transform m_Transform;
   private Rigidbody m_Rigidbody;
   private GameObject carriedObject;
@@ -29,14 +29,14 @@ public class Pickup_Manager : NetworkBehaviour {
 
   private bool prizeTriggered = false;
 
-  public delegate void ChangeStateDelegate();
-  public event ChangeStateDelegate ChangeStateEvent;
+  public delegate void UpdatePointsDelegate(GameObject target);
+  public event UpdatePointsDelegate PrizePickedCallback;
 
   // Use this for initialization
   void Start () {
     m_PlayerController.EventPickUp += PickUpObject;
     m_PlayerController.EventThrow += ThrowObject;
-    prize_tag = m_PlayerController.GetPrizeTag();
+    prize_tags = m_PlayerController.GetPrizeTags();
     GM_Ref = GameObject.Find("Game Manager").GetComponent<Game_Manager_References>();
   }
 
@@ -46,7 +46,7 @@ public class Pickup_Manager : NetworkBehaviour {
   }
 
   void PickUpObject(GameObject go) {
-    if (go.tag == prize_tag ) {
+    if (IsPrizeTag(go.tag) ) {
       CmdTriggerPrize();
       return;
     }
@@ -83,16 +83,27 @@ public class Pickup_Manager : NetworkBehaviour {
     Player_SyncRotation psr = GetComponent<Player_SyncRotation>();
     Transform cam = psr.camTransform;
     RaycastHit hit = new RaycastHit();
-    if (!prizeTriggered && Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, 50))
+    if (Physics.Raycast(cam.position, cam.TransformDirection(Vector3.forward), out hit, 50))
     {
-      if ( hit.collider.gameObject.tag == prize_tag) {
-        Debug.Log(hit.collider.gameObject);
+      if ( IsPrizeTag(hit.collider.gameObject.tag)) {
+        GameObject go = hit.collider.gameObject;
+
+        if (PrizePickedCallback != null) PrizePickedCallback(go);
+
         DestroyAfterPickup dap= hit.collider.gameObject.GetComponent<DestroyAfterPickup>();
-        if (ChangeStateEvent != null) ChangeStateEvent();
+
         if (dap != null) dap.OnPickedUp();
-        prizeTriggered = false;
+        RpcStopThinking(true);
       }
+    } else {
+      RpcStopThinking(false);
     }
+  }
+
+  [ClientRpc]
+  public void RpcStopThinking(bool success)
+  {
+    if ( m_PlayerController.enabled ) m_PlayerController.CallbackServerChecking(success);
   }
 
   void Update() {
@@ -213,4 +224,7 @@ public class Pickup_Manager : NetworkBehaviour {
     syncRot = latestRot;
   }
   
+  bool IsPrizeTag(string tag) {
+    return (System.Array.IndexOf(prize_tags, tag) != -1);
+  }
 }

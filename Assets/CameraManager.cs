@@ -10,12 +10,12 @@ public class CameraManager : MonoBehaviour {
 	void Start(){
 		Debug.Log("Starting");
 		m_NetworkManager = GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>();
-		m_NetworkManager.AddcameraPosition += AddRemovePlayer;
+		m_NetworkManager.AddedPlayerCallback += AddRemovePlayer;
 	}
 
 	void OnDisable(){
 		if( m_NetworkManager != null)
-			m_NetworkManager.AddcameraPosition -= AddRemovePlayer;
+			m_NetworkManager.AddedPlayerCallback -= AddRemovePlayer;
 	}
 
 	void AddRemovePlayer(){
