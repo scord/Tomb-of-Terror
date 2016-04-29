@@ -8,24 +8,30 @@ public class MummyIntroScript : IntroTutorialScript {
 	private SoundVision vision;
 	private GameObject mummy;
 	private Camera view;
-	[SerializeField] private GameObject headCanvas, walkCanvas, pivotCanvas, echolocateCanvas, runCanvas, catchCanvas;
 	[SerializeField] private MummyController mummyController;
 	[SerializeField] private GameObject mummyObject;
 
 	// look around variable
+	[SerializeField] private GameObject headCanvas;
 	private float lookAround = 3;
 
 	// walk variable
+	[SerializeField] private GameObject walkCanvas;
 	private float walkTime = 2;
 
-	// torch variables
-	private int torchPress = 2;
-
 	// run variables
+	[SerializeField] private GameObject runCanvas;
 	private float runTime = 2;   // seconds
 	private bool running = false;
 
+	// echolocaltion variables
+	[SerializeField] private GameObject echolocateCanvas;
+
+	// catch explorer variables
+	[SerializeField] private GameObject catchCanvas;
+
 	// pivot variables
+	[SerializeField] private GameObject pivotCanvas;
 	private int pivotCount = 6;
 
 	// prepare variables
@@ -55,7 +61,9 @@ public class MummyIntroScript : IntroTutorialScript {
 		runCanvas.GetComponent<CanvasGroup>().alpha = 0;
 		catchCanvas.GetComponent<CanvasGroup>().alpha = 0;
 		prepareCanvas.GetComponent<CanvasGroup>().alpha = 0;
-			prepareCanvas.GetComponent<Text>().text = preparePrompts[completedPrompts];
+
+		prepareCanvas.GetComponent<Text>().text = preparePrompts[completedPrompts];
+		prepareTime = preparePrompts[completedPrompts].Length / 8;
 
 		mummyController = mummyObject.GetComponent<MummyController>();
 		mummy = mummyObject.transform.Find("OVRCameraRig/TrackingSpace/CenterEyeAnchor").gameObject;
@@ -109,7 +117,7 @@ public class MummyIntroScript : IntroTutorialScript {
 				else {
 					completedPrompts++;
 					prepareCanvas.GetComponent<Text>().text = preparePrompts[completedPrompts];
-					prepareTime = 3;
+					prepareTime = preparePrompts[completedPrompts].Length / 8;
 				}
 			}
 				else

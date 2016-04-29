@@ -13,7 +13,7 @@ public class SoundVision : MonoBehaviour
 
     bool echoLocation = false;
     private float echoTime = 0;
-	float maxVolume = 50;
+    // float maxVolume = 50;
     public int maxLength = 32;
     public int numfree = 0;
     public Color color = new Color(0, 0.85f, 1, 1);
@@ -125,7 +125,7 @@ public class SoundVision : MonoBehaviour
         echoLocation = true;
         echoTime = 0;
 		Shader.SetGlobalFloat("_EchoPower", charge);
-		Debug.Log (charge);
+		// Debug.Log (charge);
         Shader.SetGlobalColor("_EchoColor", color);
         Shader.SetGlobalVector("_EchoSource", transform.position);
         Shader.SetGlobalFloat("_EchoTime", 0);
@@ -147,7 +147,7 @@ public class SoundVision : MonoBehaviour
         {
 			if (echoCharge > 7f)
 				echoCharge = 7f;
-			
+
             if (echoTime > echoCharge)
             {
                 echoLocation = false;
