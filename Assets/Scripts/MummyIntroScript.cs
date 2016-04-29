@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+ using System.Collections.Generic;
 
 public class MummyIntroScript : IntroTutorialScript {
 
@@ -20,12 +22,22 @@ public class MummyIntroScript : IntroTutorialScript {
 	private int torchPress = 2;
 
 	// run variables
-	private float runTime = 3;   // seconds
+	private float runTime = 2;   // seconds
 	private bool running = false;
 
 	// pivot variables
 	private int pivotCount = 6;
 
+	// prepare variables
+	[SerializeField] private GameObject prepareCanvas;
+	private float prepareTime = 3;
+	private int completedPrompts = 0;
+	private List<string> preparePrompts = new List<string>{"The following are just preparation for when you become blind.",
+																													"Your goal is to catch the explorer",
+																													"You will need to make sounds to be able to navigate",
+																													"You will also be able to 'see' fires, oppening doors and the explorer's heart and footsteps ",
+																													"Remember, if you don't see anything, trigger echolocation",
+																													"Do it now, to enter the soundvision and try and find the explorer"};
 
   // Use this for initialization
   protected void Start () {
@@ -34,6 +46,7 @@ public class MummyIntroScript : IntroTutorialScript {
     echolocateCanvas.SetActive(false);
 		runCanvas.SetActive(false);
 		catchCanvas.SetActive(false);
+		prepareCanvas.SetActive(false);
 		headCanvas.SetActive(true);
 
     walkCanvas.GetComponent<CanvasGroup>().alpha = 0;
@@ -41,6 +54,8 @@ public class MummyIntroScript : IntroTutorialScript {
     echolocateCanvas.GetComponent<CanvasGroup>().alpha = 0;
 		runCanvas.GetComponent<CanvasGroup>().alpha = 0;
 		catchCanvas.GetComponent<CanvasGroup>().alpha = 0;
+		prepareCanvas.GetComponent<CanvasGroup>().alpha = 0;
+			prepareCanvas.GetComponent<Text>().text = preparePrompts[completedPrompts];
 
 		mummyController = mummyObject.GetComponent<MummyController>();
 		mummy = mummyObject.transform.Find("OVRCameraRig/TrackingSpace/CenterEyeAnchor").gameObject;
@@ -61,7 +76,7 @@ public class MummyIntroScript : IntroTutorialScript {
 
 		// walk around prompt
     else if (walkCanvas.activeSelf) {
-      if(Input.GetAxis("Vertical") != 0 && walkTime > 0)
+      if( walkTime > 0)
         walkTime -= Time.deltaTime;
       else
         FadeTo(walkCanvas, pivotCanvas);
@@ -84,9 +99,22 @@ public class MummyIntroScript : IntroTutorialScript {
 				runTime -= Time.deltaTime;
 
 			if(runTime < 0)
-				FadeTo(runCanvas, catchCanvas);
+				FadeTo(runCanvas, prepareCanvas);
 		}
 
+		else if(prepareCanvas.activeSelf){
+			if(completedPrompts < preparePrompts.Count){
+				if( prepareTime > 0)
+					prepareTime -= Time.deltaTime;
+				else {
+					completedPrompts++;
+					prepareCanvas.GetComponent<Text>().text = preparePrompts[completedPrompts];
+					prepareTime = 3;
+				}
+			}
+				else
+					FadeTo(prepareCanvas, catchCanvas);
+		}
 		else if (catchCanvas.activeSelf){
 			if(Input.GetButtonDown("Fire2")){
 				FadeTo(catchCanvas, echolocateCanvas);
@@ -176,5 +204,6 @@ public class MummyIntroScript : IntroTutorialScript {
     echolocateCanvas.SetActive(false);
 		runCanvas.SetActive(false);
 		catchCanvas.SetActive(false);
+		prepareCanvas.SetActive(false);
   }
 }
