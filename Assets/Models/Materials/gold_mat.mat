@@ -98,7 +98,7 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 0.52
+        second: 0.57
       data:
         first:
           name: _Parallax
