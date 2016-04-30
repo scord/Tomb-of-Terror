@@ -40,6 +40,7 @@ public class MummyIntroScript : IntroTutorialScript {
 	private int completedPrompts = 0;
 	private List<string> preparePrompts = new List<string>{"The following are just preparation for when you become blind.",
 																													"Your goal is to catch the explorer",
+                                                          "",
 																													"You will need to make sounds to be able to navigate",
 																													"You will also be able to 'see' fires, oppening doors and the explorer's heart and footsteps ",
 																													"Remember, if you don't see anything, trigger echolocation",
@@ -110,22 +111,28 @@ public class MummyIntroScript : IntroTutorialScript {
 				FadeTo(runCanvas, prepareCanvas);
 		}
 
-		else if(prepareCanvas.activeSelf){
-			if(completedPrompts < preparePrompts.Count){
-				if( prepareTime > 0)
-					prepareTime -= Time.deltaTime;
-				else {
-					completedPrompts++;
-					prepareCanvas.GetComponent<Text>().text = preparePrompts[completedPrompts];
-					prepareTime = preparePrompts[completedPrompts].Length / 8;
-				}
-			}
-				else
-					FadeTo(prepareCanvas, catchCanvas);
+		else if(prepareCanvas.activeSelf ){
+      if( completedPrompts == 2) {
+        FadeTo(prepareCanvas, catchCanvas);
+      }
+      else {
+        if(completedPrompts < preparePrompts.Count){
+          if( prepareTime > 0)
+          prepareTime -= Time.deltaTime;
+          else {
+            completedPrompts++;
+            prepareCanvas.GetComponent<Text>().text = preparePrompts[completedPrompts];
+            prepareTime = preparePrompts[completedPrompts].Length / 10;
+          }
+        }
+        else
+          FadeTo(prepareCanvas, echolocateCanvas);
+      }
 		}
 		else if (catchCanvas.activeSelf){
 			if(Input.GetButtonDown("Fire2")){
-				FadeTo(catchCanvas, echolocateCanvas);
+				FadeTo(catchCanvas, prepareCanvas);
+        completedPrompts++;
 			}
 		}
 
