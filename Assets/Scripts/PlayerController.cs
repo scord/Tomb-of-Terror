@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
         carrying = false;
         carriedObject = null;
         animator = GetComponent<Animator>();
-        audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
+        audio_source.clip = (AudioClip)Resources.Load("AudioClips/pickup_gold_00");
 
         if (player_tag == null)
         {
@@ -125,25 +125,4 @@ public class PlayerController : MonoBehaviour {
 
     protected virtual void ChangeLevel() {}
 
-    /*void OnTriggerEnter(Collider col)
-    {
-        Debug.Log("WAS HERE");
-        if (col.gameObject.tag == "Mummy")
-        {
-            //mummy wins
-            showText = true;
-            //wait a few seconds
-            //application.loadscene(menu); or something
-        }
-    }
-
-    void OnGUI()
-    {
-
-        if (showText)
-        {
-            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "Mummy winsXXX!");
-        }
-
-    }*/
 }
