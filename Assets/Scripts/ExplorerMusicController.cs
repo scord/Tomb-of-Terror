@@ -12,6 +12,7 @@ public class ExplorerMusicController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GameObject mummy = GameObject.FindGameObjectWithTag("Mummy");
+        GameObject explorer = GameObject.FindGameObjectWithTag("Explorer");
         GameObject background_audio = GameObject.FindGameObjectWithTag("Background_audio");
         AudioSource[] audio_array = background_audio.GetComponents<AudioSource>();
         //audio_array[5].volume = 1.0f;
@@ -44,7 +45,7 @@ public class ExplorerMusicController : MonoBehaviour {
             play_drama_music = true;
         }
 
-        if (!drama_music_playing && play_drama_music)
+        if (!drama_music_playing && play_drama_music && !audio_array[9].isPlaying)
         {
             audio_array[6].loop = true;
             audio_array[6].Play();
@@ -53,6 +54,20 @@ public class ExplorerMusicController : MonoBehaviour {
             audio_array[8].loop = true;
             audio_array[8].Play();
             drama_music_playing = true;
+        }
+
+        if ((Vector3.Distance(gameObject.transform.position, mummy.transform.position) < 24) && !audio_array[9].isPlaying)
+        {
+            audio_array[6].loop = false;
+            audio_array[6].Stop();
+            audio_array[7].loop = false;
+            audio_array[7].Stop();
+            audio_array[8].loop = false;
+            audio_array[8].Stop();
+            drama_music_playing = false;
+
+            audio_array[9].Play();
+
         }
 	}
 }
