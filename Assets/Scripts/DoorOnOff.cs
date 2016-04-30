@@ -16,7 +16,7 @@ public class DoorOnOff : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		doorBody.useGravity = false;
-		doorBody.velocity = transform.up * 3;
+		doorBody.velocity = transform.up * 2;
 
 		doorSound.clip = door.doorOn_sound;
 		doorSound.time = 1;
