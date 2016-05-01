@@ -123,15 +123,16 @@ public class SoundVision : MonoBehaviour
 
     public void EchoLocate(float charge)
     {
+
         echoCharge = charge;
         echoLocation = true;
 		echoTime[echoIndex] = 0.0f;
 	
-		Shader.SetGlobalFloat("_EchoPower" + echoIndex, charge);
+		Shader.SetGlobalVector("_EchoPower" + echoIndex, new Vector2(charge, 0));
 		// Debug.Log (charge);
         Shader.SetGlobalColor("_EchoColor", color);
         Shader.SetGlobalVector("_EchoSource" + echoIndex, transform.position);
-        Shader.SetGlobalFloat("_EchoTime" + echoIndex, 0);
+        Shader.SetGlobalVector("_EchoTime" + echoIndex, new Vector2(0,0));
 
 		echoIndex = (echoIndex + 1) % 4;
     }
@@ -160,7 +161,7 @@ public class SoundVision : MonoBehaviour
 
 
 
-				Shader.SetGlobalFloat ("_EchoTime"+x, echoTime[x]);
+				Shader.SetGlobalVector ("_EchoTime"+x, new Vector2(echoTime[x],0));
 			}
         }
 

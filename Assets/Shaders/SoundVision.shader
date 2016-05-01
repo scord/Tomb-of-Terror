@@ -37,12 +37,12 @@
 	float3 _SoundSource[64];
 	sampler2D _CameraDepthNormalsTexture;
 	float3 _EchoSource[4];
-	float _EchoTime[4];
+	float2 _EchoTime[4];
 	float4 _EchoColor;
 	sampler2D _Waves;
 	int _CurrentWave;
 	float _N;
-	float _EchoPower[4];
+	float2 _EchoPower[4];
 
 	fragmentInput vert(appdata_tan v)
 	{
@@ -80,14 +80,14 @@
 
 				half falloff = 1 - saturate(dot(normalize(i.viewDir), i.normal));
 				float4 base_color = _EchoColor*falloff;
-				for (int x = 0; x < 4; x++)
+				for (int y = 0; y < 4; y++)
 				{
-					float dist = distance(_EchoSource[x], i.worldPos);
+					float dist = distance(_EchoSource[y], i.worldPos);
 
 
-					float dist2 = dist - speed * 2 * _EchoTime[x] * (75.0f / 64.0f);
-					float enabled = max(0, sign(speed*2*_EchoTime[x] - dist));
-					color += 10*(_EchoPower[x]-1)*(1 - smoothstep(0, _EchoPower[x], _EchoTime[x]))*enabled*_EchoColor / pow(max(abs(dist2),_EchoTime[x]),2);
+					float dist2 = dist - speed * 2 * _EchoTime[y].x * (75.0f / 64.0f);
+					float enabled = max(0, sign(speed*2*_EchoTime[y].x - dist));
+					color += 10*(_EchoPower[y].x-1)*(1 - smoothstep(0, _EchoPower[y].x, _EchoTime[y].x))*enabled*_EchoColor / pow(max(abs(dist2),_EchoTime[y].x),2);
 
 					//color += enabled*base_color * (1 - smoothstep(0, 8, _EchoTime));
 				}
