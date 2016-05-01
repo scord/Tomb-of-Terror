@@ -92,7 +92,10 @@
 					//color += enabled*base_color * (1 - smoothstep(0, 8, _EchoTime));
 				}
 				color += 5/pow(dist3,2)*_EchoColor;
-				color.a = (color.r + color.b + color.g) * 8;
+				if (tex2D(_MainTex, i.uv).a <= 0.5)
+					color.a = tex2D(_MainTex, i.uv).a;
+				else
+					color.a = (color.r + color.b + color.g) * 8;
 				color.rgb = color.rgb* (1*(dist3/50) + (1-(tex2D(_MainTex, i.uv).r+ tex2D(_MainTex, i.uv).g+ tex2D(_MainTex, i.uv).b)/3))/((dist3/50)+1);
 
 
