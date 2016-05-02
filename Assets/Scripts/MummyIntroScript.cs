@@ -17,7 +17,7 @@ public class MummyIntroScript : IntroTutorialScript {
 
 	// walk variable
 	[SerializeField] private GameObject walkCanvas;
-	private float walkTime = 1;
+	private float walkTime = 2;
 
 	// run variables
 	[SerializeField] private GameObject runCanvas;
@@ -44,9 +44,12 @@ public class MummyIntroScript : IntroTutorialScript {
                                                           "Try it now in order to enter the blind vision",
                                                           "",
 																													// "You will also be able to 'see' fires, oppening doors and the explorer's heart and footsteps ",
-																													"Remember, if you don't see anything, press the shout button",
+
+                                                          "Your goal is to find the explorer before it steals the treasure",
+                                                          "There is a dummy explorer in a room next to you, try catching him",
+                                                          "Remember, if you don't see anything, press the shout button",
                                                           "A bigger interval between shouts will result in a louder shout, test this !"
-																													};
+                                                          };
 
 
   // Use this for initialization
@@ -83,7 +86,7 @@ public class MummyIntroScript : IntroTutorialScript {
 			if(lookAround > 0)
 				lookAround -= Time.deltaTime;
 			else
-				FadeToWalk();
+				FadeTo(headCanvas, walkCanvas);
 		}
 
 		// walk around prompt
@@ -103,7 +106,7 @@ public class MummyIntroScript : IntroTutorialScript {
 
 
 		else if(prepareCanvas.activeSelf ){
-      if( completedPrompts == 4 || completedPrompts == 7) {
+      if( completedPrompts == 4 || completedPrompts == 9) {
         FadeTo(prepareCanvas, echolocateCanvas);
       }
       else {
