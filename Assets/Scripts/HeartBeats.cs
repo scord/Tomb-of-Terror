@@ -33,7 +33,6 @@ public class HeartBeats {
           else{
             m_OpenValve.Stop();
             m_OpenValve.Play();
-            Debug.Log("play");
           }
           heartBeatTimer = 0.0f;
       }
@@ -50,7 +49,6 @@ public class HeartBeats {
           else{
             m_CloseValve.Stop();
             m_CloseValve.Play();
-            Debug.Log("play11");
           }
 
           heartBeatTimer = 0.0f;

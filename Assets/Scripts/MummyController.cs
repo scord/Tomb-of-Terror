@@ -28,7 +28,7 @@ public class MummyController : PlayerController {
     murmurTimer += Time.deltaTime;
 
 		base.Update();
-    if (Input.GetButtonDown("Fire1") && murmurTimer > 1f){
+    if (Input.GetButtonDown("Fire1") && murmurTimer > 0.5f){
 			if(!shout.isPlaying){
 				// shout.volume = 1.0f;
 				shout.Play();

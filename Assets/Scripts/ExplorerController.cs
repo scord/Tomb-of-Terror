@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using System;
+using UnityEngine.UI;
 
 public class ExplorerController : PlayerController {
 
@@ -21,7 +21,7 @@ public class ExplorerController : PlayerController {
         InstantiateTorch();
         StartConfig(m_GameParams.mainLevel);
         carryingTorch = false;
-        
+
 	}
 
 
@@ -52,7 +52,7 @@ public class ExplorerController : PlayerController {
                 torchManagerScript.Trigger();
             }
 
-        }   
+        }
         // deal with in-game interactions
         /*if (onTrigger && trig != null && trig.withKey){
             if(Input.GetKeyDown(m_TriggerKey)){
@@ -72,7 +72,7 @@ public class ExplorerController : PlayerController {
     protected override void OnDisable() {
         base.OnDisable();
         m_Torch.SetActive(false);
-        GetComponent<Explorer_HeartRate>().enabled = false;   
+        GetComponent<Explorer_HeartRate>().enabled = false;
     }
 
     protected override void ChangeLevel() {
@@ -148,7 +148,7 @@ public class ExplorerController : PlayerController {
             torchManagerScript = new TorchManager(m_Torch);
             torchManagerScript.Trigger(true);
         }
-        carryingTorch = true;  
+        carryingTorch = true;
     }
 
 }

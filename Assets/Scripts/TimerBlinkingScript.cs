@@ -5,11 +5,10 @@ public class TimerBlinkingScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-    StartCoroutine(Blinking());	
+    StartCoroutine(Blinking());
 	}
 
   IEnumerator Blinking () {
-    Debug.Log("blink");
     float increment;
     CanvasGroup cv = GetComponent<CanvasGroup>();
     float speed = 1.0F;
@@ -30,7 +29,7 @@ public class TimerBlinkingScript : MonoBehaviour {
       }
     }
   }
-	
+
 	// Update is called once per frame
 	void Update () {
     // StartCoroutine(Blinking());
