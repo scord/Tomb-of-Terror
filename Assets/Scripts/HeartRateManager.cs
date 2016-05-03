@@ -299,5 +299,7 @@ public class HeartRateManager : NetworkBehaviour {
 			SceneManager.LoadScene ("Scenes/endgame");
 
 		}
+
+		timer += Time.deltaTime;
 	}
 }
