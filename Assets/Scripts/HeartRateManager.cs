@@ -115,14 +115,20 @@ public class HeartRateManager : NetworkBehaviour {
 		thread = new Thread(new ParameterizedThreadStart(ProcessData));
 		thread.Start(path);
 
-		starting_point = HeartRate;
-		signal = starting_point;
-		min = starting_point;
-		max = starting_point;
-		// min = 300; max = 0; //
-
-		// add first reading to the log//
-		log.Add (starting_point);
+		if (HeartRate >= 40) {
+			
+			starting_point = HeartRate;
+			signal = starting_point;
+			min = starting_point;
+			max = starting_point;
+			// add first reading to the log//
+			log.Add (starting_point);
+		} 
+		else {
+			starting_point = 0;
+			min = 300;
+			max = 0;
+		}
 	}
     
     void UpdateLog() {
@@ -130,16 +136,24 @@ public class HeartRateManager : NetworkBehaviour {
 		int prev = signal;
 
 		signal = HeartRate;
-		log.Add (signal);
+		if (signal >= 40) {
 
-		if (signal < min)
-			min = signal;
-		else if (signal > max)
-			max = signal;
+			if (starting_point == 0) {
+				starting_point = signal;
+				min = starting_point;
+				max = starting_point;
+			}
 
-		if (prev >= signal + relevance) {		// we consider a relevant increase in BPM if it's at least 5 points over the previous measurement
-			//UpdateSpikes (signal);
-			times.Add ((double)timer);
+			log.Add (signal);
+
+			if (signal < min)
+				min = signal;
+			else if (signal > max)
+				max = signal;
+
+			if (prev >= signal + relevance) {		// we consider a relevant increase in BPM if it's at least 5 points over the previous measurement
+				times.Add ((double)timer);
+			}
 		}
 
 
