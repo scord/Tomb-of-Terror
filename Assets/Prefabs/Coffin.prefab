@@ -624,6 +624,7 @@ GameObject:
   - 33: {fileID: 3342604}
   - 23: {fileID: 2314908}
   - 95: {fileID: 9565638}
+  - 64: {fileID: 6404374}
   m_Layer: 0
   m_Name: sarcophagus_base
   m_TagString: Untagged
@@ -1200,7 +1201,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178928}
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5000001, w: 0.49999994}
-  m_LocalPosition: {x: 5.8851852, y: 4.206627, z: 7.7632446}
+  m_LocalPosition: {x: 5.8851852, y: 3.41, z: 7.7632446}
   m_LocalScale: {x: 0.03843258, y: 0.038432606, z: 0.038432606}
   m_Children:
   - {fileID: 461400}
@@ -1226,8 +1227,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 109.13481, y: 2.3433733, z: -233.45325}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 109.5, y: 2.0138, z: -233}
+  m_LocalScale: {x: 0.7696435, y: 0.7696435, z: 0.7696435}
   m_Children:
   - {fileID: 433752}
   - {fileID: 454620}
@@ -1434,8 +1435,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167446}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 6.3851852, y: -2.3081014, z: 7.7432404}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.012527732}
+  m_LocalPosition: {x: 6.3851852, y: -2.43, z: 7.7432404}
+  m_LocalScale: {x: 0.01, y: 0.008838713, z: 0.012527732}
   m_Children: []
   m_Father: {fileID: 433814}
   m_RootOrder: 1
@@ -3402,6 +3403,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133952}
   m_Mesh: {fileID: 4300060, guid: b289d0d345dd67c489334147422b91cd, type: 3}
+--- !u!64 &6404374
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300122, guid: 672595d5cdd1caf48a5dc54a181c03ad, type: 3}
 --- !u!95 &9514530
 Animator:
   serializedVersion: 3
