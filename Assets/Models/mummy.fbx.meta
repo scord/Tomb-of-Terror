@@ -1,96 +1,99 @@
 fileFormatVersion: 2
 guid: 43317eb466702774ab412bd1d02a8205
-timeCreated: 1462054396
+timeCreated: 1462294952
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: chin_joint
-    100002: hat_joint
-    100004: head_joint
-    100006: joint1
-    100008: joint2
-    100010: joint3
-    100012: L_ankle
-    100014: L_ankleIK
-    100016: L_armIK
-    100018: L_clavicle_joint
-    100020: L_elbow
-    100022: L_foot
-    100024: L_footContour
-    100026: L_group1
-    100028: L_hand
-    100030: L_hip
-    100032: L_knee
-    100034: L_shoulder
-    100036: L_toes
-    100038: locator1
-    100040: //RootNode
-    100042: Mummy_mesh
-    100044: neck_joint
-    100046: pelvis_joint
-    100048: R_ankle
-    100050: R_ankleIK
-    100052: R_armIK
-    100054: R_clavicle_joint
-    100056: R_elbow
-    100058: R_foot
-    100060: R_footContour
-    100062: R_group2
-    100064: R_hand
-    100066: R_hip
-    100068: R_knee
-    100070: R_shoulder
-    100072: R_toes
-    100074: skeleton_rig
-    100076: spine1_joint
-    100078: spine2_joint
-    100080: spine3_joint
-    100082: spine4_joint
-    400000: chin_joint
-    400002: hat_joint
-    400004: head_joint
-    400006: joint1
-    400008: joint2
-    400010: joint3
-    400012: L_ankle
-    400014: L_ankleIK
-    400016: L_armIK
-    400018: L_clavicle_joint
-    400020: L_elbow
-    400022: L_foot
-    400024: L_footContour
-    400026: L_group1
-    400028: L_hand
-    400030: L_hip
-    400032: L_knee
-    400034: L_shoulder
-    400036: L_toes
-    400038: locator1
-    400040: //RootNode
-    400042: Mummy_mesh
-    400044: neck_joint
-    400046: pelvis_joint
-    400048: R_ankle
-    400050: R_ankleIK
-    400052: R_armIK
-    400054: R_clavicle_joint
-    400056: R_elbow
-    400058: R_foot
-    400060: R_footContour
-    400062: R_group2
-    400064: R_hand
-    400066: R_hip
-    400068: R_knee
-    400070: R_shoulder
-    400072: R_toes
-    400074: skeleton_rig
-    400076: spine1_joint
-    400078: spine2_joint
-    400080: spine3_joint
-    400082: spine4_joint
+    100000: L_ankleIK
+    100002: L_armIK
+    100004: L_clavicle_joint
+    100006: L_elbow
+    100008: L_footContour
+    100010: L_group1
+    100012: L_hip
+    100014: L_knee
+    100016: L_shoulder
+    100018: //RootNode
+    100020: neck_joint
+    100022: pelvis_joint
+    100024: R_ankleIK
+    100026: R_armIK
+    100028: R_clavicle_joint
+    100030: R_elbow
+    100032: R_footContour
+    100034: R_group2
+    100036: R_hip
+    100038: R_knee
+    100040: R_shoulder
+    100042: skeleton_rig
+    100044: spine1_joint
+    100046: spine2_joint
+    100048: spine3_joint
+    100050: spine4_joint
+    100052: chin_joint
+    100054: hat_joint
+    100056: head_joint
+    100058: joint1
+    100060: joint2
+    100062: joint3
+    100064: L_ankle
+    100066: L_foot
+    100068: L_hand
+    100070: L_toes
+    100072: locator1
+    100074: Mummy_mesh
+    100076: R_ankle
+    100078: R_foot
+    100080: R_hand
+    100082: R_toes
+    400000: L_ankleIK
+    400002: L_armIK
+    400004: L_clavicle_joint
+    400006: L_elbow
+    400008: L_footContour
+    400010: L_group1
+    400012: L_hip
+    400014: L_knee
+    400016: L_shoulder
+    400018: //RootNode
+    400020: neck_joint
+    400022: pelvis_joint
+    400024: R_ankleIK
+    400026: R_armIK
+    400028: R_clavicle_joint
+    400030: R_elbow
+    400032: R_footContour
+    400034: R_group2
+    400036: R_hip
+    400038: R_knee
+    400040: R_shoulder
+    400042: skeleton_rig
+    400044: spine1_joint
+    400046: spine2_joint
+    400048: spine3_joint
+    400050: spine4_joint
+    400052: chin_joint
+    400054: hat_joint
+    400056: head_joint
+    400058: joint1
+    400060: joint2
+    400062: joint3
+    400064: L_ankle
+    400066: L_foot
+    400068: L_hand
+    400070: L_toes
+    400072: locator1
+    400074: Mummy_mesh
+    400076: R_ankle
+    400078: R_foot
+    400080: R_hand
+    400082: R_toes
     4300000: Mummy_mesh
-    7400000: limp
+    7400000: limping
+    7400002: walking
+    7400004: running
+    7400006: idle
     9500000: //RootNode
     13700000: Mummy_mesh
   materials:
@@ -115,10 +118,346 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: limp
+      name: limping
       takeName: Take 001
       firstFrame: 1
       lastFrame: 38
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Mummy_mesh
+        weight: 1
+      - path: skeleton_rig
+        weight: 1
+      - path: skeleton_rig/joint1
+        weight: 1
+      - path: skeleton_rig/joint1/joint2
+        weight: 1
+      - path: skeleton_rig/joint1/joint2/joint3
+        weight: 1
+      - path: skeleton_rig/L_armIK
+        weight: 1
+      - path: skeleton_rig/L_group1
+        weight: 1
+      - path: skeleton_rig/L_group1/L_footContour
+        weight: 1
+      - path: skeleton_rig/L_group1/L_footContour/L_ankleIK
+        weight: 1
+      - path: skeleton_rig/locator1
+        weight: 1
+      - path: skeleton_rig/R_armIK
+        weight: 1
+      - path: skeleton_rig/R_group2
+        weight: 1
+      - path: skeleton_rig/R_group2/R_footContour
+        weight: 1
+      - path: skeleton_rig/R_group2/R_footContour/R_ankleIK
+        weight: 1
+      - path: skeleton_rig/spine1_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee/L_ankle
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee/L_ankle/L_foot
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee/L_ankle/L_foot/L_toes
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee/R_ankle
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee/R_ankle/R_foot
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee/R_ankle/R_foot/R_toes
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/head_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/head_joint/chin_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/head_joint/hat_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint/L_shoulder
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint/L_shoulder/L_elbow
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint/L_shoulder/L_elbow/L_hand
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint/R_shoulder
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint/R_shoulder/R_elbow
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint/R_shoulder/R_elbow/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: walking
+      takeName: Take 001
+      firstFrame: 48
+      lastFrame: 105
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Mummy_mesh
+        weight: 1
+      - path: skeleton_rig
+        weight: 1
+      - path: skeleton_rig/joint1
+        weight: 1
+      - path: skeleton_rig/joint1/joint2
+        weight: 1
+      - path: skeleton_rig/joint1/joint2/joint3
+        weight: 1
+      - path: skeleton_rig/L_armIK
+        weight: 1
+      - path: skeleton_rig/L_group1
+        weight: 1
+      - path: skeleton_rig/L_group1/L_footContour
+        weight: 1
+      - path: skeleton_rig/L_group1/L_footContour/L_ankleIK
+        weight: 1
+      - path: skeleton_rig/locator1
+        weight: 1
+      - path: skeleton_rig/R_armIK
+        weight: 1
+      - path: skeleton_rig/R_group2
+        weight: 1
+      - path: skeleton_rig/R_group2/R_footContour
+        weight: 1
+      - path: skeleton_rig/R_group2/R_footContour/R_ankleIK
+        weight: 1
+      - path: skeleton_rig/spine1_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee/L_ankle
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee/L_ankle/L_foot
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee/L_ankle/L_foot/L_toes
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee/R_ankle
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee/R_ankle/R_foot
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee/R_ankle/R_foot/R_toes
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/head_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/head_joint/chin_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/head_joint/hat_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint/L_shoulder
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint/L_shoulder/L_elbow
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint/L_shoulder/L_elbow/L_hand
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint/R_shoulder
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint/R_shoulder/R_elbow
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint/R_shoulder/R_elbow/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: running
+      takeName: Take 001
+      firstFrame: 115
+      lastFrame: 159
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Mummy_mesh
+        weight: 1
+      - path: skeleton_rig
+        weight: 1
+      - path: skeleton_rig/joint1
+        weight: 1
+      - path: skeleton_rig/joint1/joint2
+        weight: 1
+      - path: skeleton_rig/joint1/joint2/joint3
+        weight: 1
+      - path: skeleton_rig/L_armIK
+        weight: 1
+      - path: skeleton_rig/L_group1
+        weight: 1
+      - path: skeleton_rig/L_group1/L_footContour
+        weight: 1
+      - path: skeleton_rig/L_group1/L_footContour/L_ankleIK
+        weight: 1
+      - path: skeleton_rig/locator1
+        weight: 1
+      - path: skeleton_rig/R_armIK
+        weight: 1
+      - path: skeleton_rig/R_group2
+        weight: 1
+      - path: skeleton_rig/R_group2/R_footContour
+        weight: 1
+      - path: skeleton_rig/R_group2/R_footContour/R_ankleIK
+        weight: 1
+      - path: skeleton_rig/spine1_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee/L_ankle
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee/L_ankle/L_foot
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/L_hip/L_knee/L_ankle/L_foot/L_toes
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee/R_ankle
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee/R_ankle/R_foot
+        weight: 1
+      - path: skeleton_rig/spine1_joint/pelvis_joint/R_hip/R_knee/R_ankle/R_foot/R_toes
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/head_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/head_joint/chin_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/head_joint/hat_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint/L_shoulder
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint/L_shoulder/L_elbow
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/L_clavicle_joint/L_shoulder/L_elbow/L_hand
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint/R_shoulder
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint/R_shoulder/R_elbow
+        weight: 1
+      - path: skeleton_rig/spine1_joint/spine2_joint/spine3_joint/spine4_joint/neck_joint/R_clavicle_joint/R_shoulder/R_elbow/R_hand
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 170
+      lastFrame: 180
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
