@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Player_SyncHealth : NetworkBehaviour {
 
@@ -8,6 +9,7 @@ public class Player_SyncHealth : NetworkBehaviour {
   [SerializeField] private Player_SyncPoints m_PlayerSyncPoints;
   private OVRPlayerController m_OVRPlayerController;
   private int localLives;
+	public Text lives; 
 
   public override void OnStartServer() {
     //m_Lives = m_PlayerSyncPoints.necessaryPoints/m_PlayerSyncPoints.defaultValuePoints + 1;
@@ -15,6 +17,7 @@ public class Player_SyncHealth : NetworkBehaviour {
 
   void Start() {
     localLives = m_Lives;
+		lives.text = m_Lives.ToString ();
     if (isLocalPlayer) {
       m_OVRPlayerController = gameObject.GetComponent<OVRPlayerController>();
     }
@@ -30,6 +33,7 @@ public class Player_SyncHealth : NetworkBehaviour {
   void OnLivesUpdated(int newValue) {
     m_Lives = newValue;
     if (isLocalPlayer) {
+			lives.text = m_Lives.ToString ();
       MultiplyRunningSpeed(6.0f);
       StartCoroutine(RelaxSpeed());
       //Do things like run faster
