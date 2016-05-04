@@ -28,11 +28,11 @@ public class Player_SyncPoints : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		m_PointsMessage.enabled = false;
 		timer = 0.0f;
     if (isServer && m_PickupManager != null) m_PickupManager.PrizePickedCallback += PrizePicked;
     if (isLocalPlayer && m_PointsCanvas != null && m_PointsCanvas.activeSelf) {
       m_PointsMessage = m_PointsCanvas.GetComponent<Text>();
+      m_PointsMessage.enabled = false;
       UpdateScoreTracker();
     }
   }

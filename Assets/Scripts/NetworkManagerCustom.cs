@@ -392,8 +392,10 @@ public class NetworkManagerCustom : NetworkManager {
 
   private IEnumerator SetupDisconnectButton() {
     yield return new WaitForSeconds(0.3f);
-    GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.RemoveAllListeners();
-    GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.AddListener(CloseGameConnection);
+    if (SceneManager.GetActiveScene().name == m_LoadingScene) {
+      GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.RemoveAllListeners();
+      GameObject.Find("ButtonDisconnect").GetComponent<Button>().onClick.AddListener(CloseGameConnection);
+    }
   }
 
   public void SetupManager() {
