@@ -5,35 +5,47 @@ using UnityEngine.UI;
 
 public class Player_SyncHealth : NetworkBehaviour {
 
-  [SerializeField] [SyncVar (hook = "OnLivesUpdated")] private int m_Lives = 3; //lives
+  [SyncVar (hook = "OnLivesUpdated")] public int m_Lives = 3; //lives
   [SerializeField] private Player_SyncPoints m_PlayerSyncPoints;
   private OVRPlayerController m_OVRPlayerController;
   private int localLives;
 	public Text lives; 
 
-  public override void OnStartServer() {
-    //m_Lives = m_PlayerSyncPoints.necessaryPoints/m_PlayerSyncPoints.defaultValuePoints + 1;
-  }
-
   void Start() {
-    localLives = m_Lives;
-		lives.text = m_Lives.ToString ();
+    //localLives = m_Lives;
     if (isLocalPlayer) {
+      CmdSyncLives();
       m_OVRPlayerController = gameObject.GetComponent<OVRPlayerController>();
     }
   }
 
+  [Command]
+  void CmdSyncLives() {
+    Debug.Log("First: " + m_Lives);
+    m_Lives = m_Lives++;
+    Debug.Log("Second: " + m_Lives);
+  }
 
   [Server]
   public void Swipe() {
     m_Lives--;
+    RpcSendSwipeReaction();
   }
+
 
   [Client]
   void OnLivesUpdated(int newValue) {
     m_Lives = newValue;
+    if(isLocalPlayer) {
+      lives.text = m_Lives.ToString();
+    }
+  }
+
+  [ClientRpc]
+  public void RpcSendSwipeReaction() {
+    Debug.Log("I get here");
     if (isLocalPlayer) {
-			lives.text = m_Lives.ToString ();
+      lives.text = m_Lives.ToString ();
       MultiplyRunningSpeed(6.0f);
       StartCoroutine(RelaxSpeed());
       //Do things like run faster

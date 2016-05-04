@@ -105,6 +105,7 @@ public class ExplorerController : PlayerController {
     protected override void PickUp()
     {
         RaycastHit hit = new RaycastHit();
+        Debug.Log("I try to pick, " + isServerChecking);
         if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16))
         {
             if (hit.collider.gameObject.tag == "PickUp")

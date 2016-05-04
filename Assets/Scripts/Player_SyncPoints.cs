@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Player_SyncPoints : NetworkBehaviour {
 
-  [SyncVar (hook="OnPointsEarnedUpdate")] private int m_PointsEarned = 0;
+  [SyncVar (hook="OnPointsEarnedUpdate")] public int m_PointsEarned = 0;
   [SerializeField] private int m_NecessaryPoints = 1000; //default
   [SerializeField] private int m_DefaultValuePoints = 400; //default
   [SerializeField] private Pickup_Manager m_PickupManager;

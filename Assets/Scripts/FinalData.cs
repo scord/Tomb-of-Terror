@@ -55,8 +55,8 @@ public class FinalData : MonoBehaviour {
 
 		for (i = 0; i < input.Count - 1; i++) {
 
-			min = (int)(input [i] / 60);
-			sec = (int)(input [i] % 60);
+			min = ((int)input [i] / 60);
+			sec = ((int)input [i] % 60);
 			result += min.ToString () + "m " + sec.ToString () + "s" + "; ";	// 3m 2s; 5m 10s
 		}
 

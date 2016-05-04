@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour {
 
     public virtual void CallbackServerChecking(bool success, string tag) {
         isServerChecking = false;
+        Debug.Log("Result was a success? " + success);
     }
 
     protected void CallEventPickUp(GameObject go) {
