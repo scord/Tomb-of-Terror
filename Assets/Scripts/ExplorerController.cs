@@ -129,10 +129,10 @@ public class ExplorerController : PlayerController {
         }
     }
 
-    public override void CallbackServerChecking(bool success) {
-        base.CallbackServerChecking(success);
+    public override void CallbackServerChecking(bool success, string tag) {
+        base.CallbackServerChecking(success, tag);
         if (success) {
-            if (!m_IsMainLevel) {
+            if (!m_IsMainLevel && tag == "Prize") {
                 InstantiateTorch();
             }
         }
