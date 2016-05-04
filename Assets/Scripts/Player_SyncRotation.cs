@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 public class Player_SyncRotation : NetworkBehaviour {
 
   [SyncVar (hook = "OnPlayerRotSynced")] private float syncPlayerRotation;
-  [SyncVar (hook = "OnCamRotSynced")] private float syncCamRotation;
+  [SyncVar (hook = "OnCamRotSynced")] private Vector3 syncCamRotation;
 
   [SerializeField] private Transform m_PlayerTransform;
   [SerializeField] private Transform m_CamTransform;
@@ -15,8 +15,9 @@ public class Player_SyncRotation : NetworkBehaviour {
   private float lerpRate = 20;
 
   private float lastPlayerRotation;
-  private float lastCameraRotation;
+  private Vector3 lastCameraRotation;
   private float threshold = 1;
+  private float thresholdCam = 0.3f;
   
   //private List<float> syncPlayerRotationList = new List<float>();
   //private List<float> syncCamRotationList = new List<float>();
@@ -27,7 +28,8 @@ public class Player_SyncRotation : NetworkBehaviour {
 	void Start () {
     if(isLocalPlayer) {
       lastPlayerRotation = m_PlayerTransform.localEulerAngles.y;
-      lastCameraRotation = m_CamTransform.localEulerAngles.x;
+      lastCameraRotation = m_CamTransform.localEulerAngles;
+      LerpRotations();
     }
 	}
 	
@@ -47,8 +49,8 @@ public class Player_SyncRotation : NetworkBehaviour {
     }
   }
 
-  void LerpCamRotation(float rot) {
-    Vector3 camNewRot = new Vector3(rot, 0, 0);
+  void LerpCamRotation(Vector3 rot) {
+    Vector3 camNewRot = rot;
     m_CamTransform.localRotation = Quaternion.Lerp(m_CamTransform.localRotation, Quaternion.Euler(camNewRot), lerpRate*Time.deltaTime);
   }
 
@@ -58,22 +60,26 @@ public class Player_SyncRotation : NetworkBehaviour {
   }
 
   [Command]
-  void CmdProvideRotationsToServer(float playerRot, float camRot) {
+  void CmdProvideRotationsToServer(float playerRot, Vector3 camRot) {
     syncPlayerRotation = playerRot;
     syncCamRotation = camRot;
   }
 
   [ClientCallback]
   void TransmitRotations() {
-    if (isLocalPlayer && (CheckIfBeyondThreshold(m_PlayerTransform.localEulerAngles.y, lastPlayerRotation) || CheckIfBeyondThreshold(m_CamTransform.localEulerAngles.x, lastCameraRotation))) {
+    if (isLocalPlayer && (CheckIfBeyondThreshold(m_PlayerTransform.localEulerAngles.y, lastPlayerRotation) || CheckIfBeyondThreshold(m_CamTransform.localEulerAngles, lastCameraRotation))) {
       lastPlayerRotation = m_PlayerTransform.localEulerAngles.y;
-      lastCameraRotation = m_CamTransform.localEulerAngles.x;
+      lastCameraRotation = m_CamTransform.localEulerAngles;
       CmdProvideRotationsToServer(lastPlayerRotation, lastCameraRotation);
     }
   }
 
   bool CheckIfBeyondThreshold(float rotation1, float rotation2) {
     return (Mathf.Abs(rotation1-rotation2) > threshold);
+  }
+
+  bool CheckIfBeyondThreshold(Vector3 rotation1, Vector3 rotation2) {
+    return ( Vector3.Distance(rotation1, rotation2) > thresholdCam);
   }
 
   [Client]
@@ -83,7 +89,7 @@ public class Player_SyncRotation : NetworkBehaviour {
   }
 
   [Client]
-  void OnCamRotSynced(float latestCamRot) {
+  void OnCamRotSynced(Vector3 latestCamRot) {
     syncCamRotation = latestCamRot;
     //syncCamRotationList.Add(syncCamRotation);
   }

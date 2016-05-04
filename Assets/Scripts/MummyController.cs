@@ -87,11 +87,25 @@ public class MummyController : PlayerController {
         RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16))
         {
-            if (hit.collider.gameObject.tag == "Explorer")
+            if (!isServerChecking && hit.collider.gameObject.tag == "Explorer")
             {
                 CallEventPickUp(hit.collider.gameObject);
+                isServerChecking = true;
             }
         }
+    }
+
+    public override void CallbackServerChecking(bool success, string tag) {
+        if (success) {
+            StartCoroutine(DelayedResponseServer(success, tag));
+        } else {
+            base.CallbackServerChecking(success, tag);
+        }
+    }
+
+    private IEnumerator DelayedResponseServer(bool success, string tag) {
+        yield return new WaitForSeconds(1.0f);
+        base.CallbackServerChecking(success, tag);
     }
 
 		public void FinishTutorial(){
@@ -117,8 +131,8 @@ public class MummyController : PlayerController {
         GameObject.Find("NetworkManager").GetComponent<NetworkManagerCustom>().ChangeLevel();
     }
 
-    public override string GetPrizeTag() {
-        return "Explorer";
+    public override string[] GetPrizeTags() {
+        return new string[] {"Explorer"};
     }
 
     public override void StartConfig(bool isMainLevel) {

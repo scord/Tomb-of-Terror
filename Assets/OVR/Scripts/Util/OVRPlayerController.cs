@@ -305,7 +305,7 @@ public class OVRPlayerController : MonoBehaviour
 		moveInfluence = SimulationRate * Time.deltaTime * Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
 
 #if !UNITY_ANDROID // LeftTrigger not avail on Android game pad
-		moveInfluence *= 1.0f + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) + Input.GetAxis("TriggerL");
+		moveInfluence *= 1.0f + Input.GetAxis("TriggerL");
 #endif
 
         if (Input.GetButtonDown("ResetHMD"))
@@ -314,7 +314,7 @@ public class OVRPlayerController : MonoBehaviour
         }
 
 
-        Vector2 primaryAxis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick) + new Vector2(0.0f, Input.GetAxis("Vertical"));
+        Vector2 primaryAxis = new Vector2(0.0f, Input.GetAxis("Vertical"));
 
 		if(primaryAxis.y > 0.0f)
             MoveThrottle += ort * (primaryAxis.y * transform.lossyScale.z * moveInfluence * Vector3.forward);

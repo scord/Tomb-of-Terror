@@ -1,0 +1,173 @@
+Initialize engine version: 5.3.4f1 (fdbb5133b820)
+[VRDevice] Initialization of device oculus failed.
+
+ 
+(Filename:  Line: 86)
+
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 740M    (ID=0xfdf)
+    Vendor:   NVIDIA
+    VRAM:     1991 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.164 seconds
+Platform assembly: C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.404418 ms
+[VRDevice] Initialization of device oculus failed.
+
+ 
+(Filename:  Line: 86)
+
+Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 10.986155 ms
+Crash!!!
+SymInit: Symbol-SearchPath: '.;C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror;C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror;C:\WINDOWS;C:\WINDOWS\system32;SRV*C:\websymbols*http://msdl.microsoft.com/download/symbols;', symOptions: 530, UserName: 'Andrei'
+OS-Version: 10.0.10586 () 0x300-0x1
+Starting
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+
+Unloading 60 unused Assets to reduce memory usage. Loaded Objects now: 12246.
+Total: 4.876669 ms (FindLiveObjects: 1.011952 ms CreateObjectMapping: 0.295580 ms MarkObjects: 3.378239 ms  DeleteObjects: 0.180632 ms)
+
+Unity v5.3.4f1, Oculus Utilities v0.1.3.0, OVRPlugin v0.1.4.0.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Creating volume controller...
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+Added/Removed payer in camera manager
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 37)
+
+C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att.exe:build_att.exe (00007FF783A80000), size: 21504000 (result: 0), SymType: 'PDB', PDB: '.\player_win_x64.pdb', fileVersion: 5.3.4.47953
+C:\WINDOWS\SYSTEM32\ntdll.dll:ntdll.dll (00007FFA8F770000), size: 1839104 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\ntdll.dll', fileVersion: 10.0.10586.122
+C:\WINDOWS\system32\KERNEL32.DLL:KERNEL32.DLL (00007FFA8EAD0000), size: 708608 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\KERNEL32.DLL', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\KERNELBASE.dll:KERNELBASE.dll (00007FFA8BFB0000), size: 1998848 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\KERNELBASE.dll', fileVersion: 10.0.10586.162
+C:\WINDOWS\system32\GDI32.dll:GDI32.dll (00007FFA8CBD0000), size: 1597440 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\GDI32.dll', fileVersion: 10.0.10586.63
+C:\WINDOWS\system32\USER32.dll:USER32.dll (00007FFA8F020000), size: 1400832 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\USER32.dll', fileVersion: 10.0.10586.20
+C:\WINDOWS\system32\ADVAPI32.dll:ADVAPI32.dll (00007FFA8F410000), size: 684032 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\ADVAPI32.dll', fileVersion: 10.0.10586.63
+C:\WINDOWS\system32\msvcrt.dll:msvcrt.dll (00007FFA8D190000), size: 643072 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\msvcrt.dll', fileVersion: 7.0.10586.0
+C:\WINDOWS\system32\sechost.dll:sechost.dll (00007FFA8F5D0000), size: 372736 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\sechost.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\RPCRT4.dll:RPCRT4.dll (00007FFA8F1F0000), size: 1163264 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\RPCRT4.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\WS2_32.dll:WS2_32.dll (00007FFA8F180000), size: 438272 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\WS2_32.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\HID.DLL:HID.DLL (00007FFA8A4C0000), size: 49152 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\HID.DLL', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\ole32.dll:ole32.dll (00007FFA8EEB0000), size: 1323008 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\ole32.dll', fileVersion: 10.0.10586.162
+C:\WINDOWS\system32\combase.dll:combase.dll (00007FFA8E850000), size: 2609152 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\combase.dll', fileVersion: 10.0.10586.103
+C:\WINDOWS\SYSTEM32\VERSION.dll:VERSION.dll (00007FFA8BC60000), size: 40960 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\VERSION.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\bcryptPrimitives.dll:bcryptPrimitives.dll (00007FFA8BE20000), size: 434176 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\bcryptPrimitives.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\SHLWAPI.dll:SHLWAPI.dll (00007FFA8CB70000), size: 335872 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\SHLWAPI.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\SHELL32.dll:SHELL32.dll (00007FFA8D230000), size: 22396928 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\SHELL32.dll', fileVersion: 10.0.10586.122
+C:\WINDOWS\system32\cfgmgr32.dll:cfgmgr32.dll (00007FFA8C420000), size: 274432 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\cfgmgr32.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\windows.storage.dll:windows.storage.dll (00007FFA8C470000), size: 6574080 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\windows.storage.dll', fileVersion: 10.0.10586.162
+C:\WINDOWS\system32\kernel.appcore.dll:kernel.appcore.dll (00007FFA8BDC0000), size: 61440 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\kernel.appcore.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\shcore.dll:shcore.dll (00007FFA8BE90000), size: 741376 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\shcore.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\powrprof.dll:powrprof.dll (00007FFA8BDD0000), size: 307200 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\powrprof.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\profapi.dll:profapi.dll (00007FFA8BD90000), size: 81920 (result: 0), SymType: '-nosymbols-', PDB: 'C:\WINDOWS\system32\profapi.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\OLEAUT32.dll:OLEAUT32.dll (00007FFA8F6A0000), size: 790528 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\OLEAUT32.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\IMM32.dll:IMM32.dll (00007FFA8F320000), size: 241664 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\IMM32.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\OPENGL32.dll:OPENGL32.dll (00007FFA6D7A0000), size: 1216512 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\OPENGL32.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\WINMM.dll:WINMM.dll (00007FFA89000000), size: 143360 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\WINMM.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\DNSAPI.dll:DNSAPI.dll (00007FFA89E30000), size: 696320 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\DNSAPI.dll', fileVersion: 10.0.10586.212
+C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL:IPHLPAPI.DLL (00007FFA88720000), size: 229376 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\MSACM32.dll:MSACM32.dll (00007FFA7D340000), size: 114688 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\MSACM32.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\NSI.dll:NSI.dll (00007FFA8F310000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\NSI.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\WINHTTP.dll:WINHTTP.dll (00007FFA88760000), size: 819200 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\WINHTTP.dll', fileVersion: 10.0.10586.71
+C:\WINDOWS\SYSTEM32\GLU32.dll:GLU32.dll (00007FFA7D6A0000), size: 188416 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\GLU32.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\DDRAW.dll:DDRAW.dll (00007FFA84240000), size: 1024000 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\DDRAW.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\WINMMBASE.dll:WINMMBASE.dll (0000000000A80000), size: 180224 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\WINMMBASE.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\DCIMAN32.dll:DCIMAN32.dll (00007FFA8A890000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\DCIMAN32.dll', fileVersion: 10.0.10586.3
+C:\Windows\system32\nvinitx.dll:nvinitx.dll (00007FFA8BC90000), size: 200704 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\system32\nvinitx.dll', fileVersion: 10.18.13.6472
+C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Mono\mono.dll:mono.dll (00007FFA62670000), size: 2994176 (result: 0), SymType: '-exported-', PDB: 'C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Mono\mono.dll', fileVersion: 1.0.0.1
+C:\WINDOWS\system32\PSAPI.DLL:PSAPI.DLL (00007FFA8EEA0000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\PSAPI.DLL', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\MSWSOCK.dll:MSWSOCK.dll (00007FFA8B300000), size: 376832 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\MSWSOCK.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\uxtheme.dll:uxtheme.dll (00007FFA89C80000), size: 614400 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\uxtheme.dll', fileVersion: 10.0.10586.0
+C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Plugins\AudioPluginOculusSpatializer.dll:AudioPluginOculusSpatializer.dll (00007FFA6D160000), size: 2371584 (result: 0), SymType: '-exported-', PDB: 'C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Plugins\AudioPluginOculusSpatializer.dll'
+C:\WINDOWS\system32\MSCTF.dll:MSCTF.dll (00007FFA8ED30000), size: 1417216 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\MSCTF.dll', fileVersion: 10.0.10586.71
+C:\WINDOWS\system32\dwmapi.dll:dwmapi.dll (00007FFA87730000), size: 139264 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\dwmapi.dll', fileVersion: 10.0.10586.0
+C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Plugins\OVRPlugin.dll:OVRPlugin.dll (00007FFA77330000), size: 376832 (result: 0), SymType: '-exported-', PDB: 'C:\Users\Andrei\Documents\GitHub\Tomb-of-Terror\build_att_Data\Plugins\OVRPlugin.dll'
+C:\WINDOWS\SYSTEM32\d3d11.dll:d3d11.dll (00007FFA87410000), size: 2785280 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\d3d11.dll', fileVersion: 10.0.10586.122
+C:\WINDOWS\SYSTEM32\dxgi.dll:dxgi.dll (00007FFA87360000), size: 667648 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\dxgi.dll', fileVersion: 10.0.10586.162
+C:\WINDOWS\SYSTEM32\nvwgf2umx.dll:nvwgf2umx.dll (00007FFA670D0000), size: 20025344 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\nvwgf2umx.dll', fileVersion: 10.18.13.6472
+C:\WINDOWS\SYSTEM32\bcrypt.dll:bcrypt.dll (00007FFA8BCD0000), size: 167936 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\bcrypt.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\nvspcap64.dll:nvspcap64.dll (00007FFA6A950000), size: 1798144 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\nvspcap64.dll', fileVersion: 2.11.2.55
+C:\WINDOWS\system32\SETUPAPI.dll:SETUPAPI.dll (00007FFA8CD60000), size: 4362240 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\SETUPAPI.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\nvapi64.dll:nvapi64.dll (00007FFA85B60000), size: 3887104 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\nvapi64.dll', fileVersion: 10.18.13.6472
+C:\WINDOWS\SYSTEM32\SspiCli.dll:SspiCli.dll (00007FFA8B6A0000), size: 184320 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\SspiCli.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\DEVOBJ.dll:DEVOBJ.dll (00007FFA8BB10000), size: 159744 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\DEVOBJ.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\WINTRUST.dll:WINTRUST.dll (00007FFA8BF50000), size: 348160 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\WINTRUST.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\MSASN1.dll:MSASN1.dll (00007FFA8BDB0000), size: 65536 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\MSASN1.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\CRYPT32.dll:CRYPT32.dll (00007FFA8C250000), size: 1863680 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\CRYPT32.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\MMDevAPI.DLL:MMDevAPI.DLL (00007FFA867A0000), size: 458752 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\MMDevAPI.DLL', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\PROPSYS.dll:PROPSYS.dll (00007FFA88DE0000), size: 1597440 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\PROPSYS.dll', fileVersion: 7.0.10586.0
+C:\WINDOWS\SYSTEM32\wdmaud.drv:wdmaud.drv (00007FFA77D50000), size: 270336 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\wdmaud.drv', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\ksuser.dll:ksuser.dll (00007FFA82560000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\ksuser.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\AVRT.dll:AVRT.dll (00007FFA858A0000), size: 45056 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\AVRT.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\AUDIOSES.DLL:AUDIOSES.DLL (00007FFA703F0000), size: 557056 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\AUDIOSES.DLL', fileVersion: 10.0.10586.122
+C:\WINDOWS\SYSTEM32\wintypes.dll:wintypes.dll (00007FFA880F0000), size: 1269760 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\wintypes.dll', fileVersion: 10.0.10586.103
+C:\WINDOWS\SYSTEM32\msacm32.drv:msacm32.drv (00007FFA82570000), size: 49152 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\msacm32.drv', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\midimap.dll:midimap.dll (00007FFA7F8A0000), size: 40960 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\midimap.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\SYSTEM32\dsound.dll:dsound.dll (00007FFA81F60000), size: 638976 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\dsound.dll', fileVersion: 10.0.10586.0
+C:\WINDOWS\system32\clbcatq.dll:clbcatq.dll (00007FFA8F360000), size: 684032 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\system32\clbcatq.dll', fileVersion: 2001.12.10941.16384
+C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.10586.0_none_8c15ae12515e1c22\comctl32.dll:comctl32.dll (00007FFA86B90000), size: 2572288 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.10586.0_none_8c15ae12515e1c22\comctl32.dll', fileVersion: 6.10.10586.0
+C:\WINDOWS\SYSTEM32\xinput1_3.dll:xinput1_3.dll (000000000E560000), size: 122880 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\xinput1_3.dll', fileVersion: 9.18.944.0
+C:\WINDOWS\SYSTEM32\dbghelp.dll:dbghelp.dll (00007FFA6A130000), size: 1622016 (result: 0), SymType: '-exported-', PDB: 'C:\WINDOWS\SYSTEM32\dbghelp.dll', fileVersion: 10.0.10586.0
+
+========== OUTPUTING STACK TRACE ==================
+
+0x00007FFA6D1679C4 (AudioPluginOculusSpatializer) OSP_ProcessAmbisonicStreamInterleaved
+0x00007FFA6D162700 (AudioPluginOculusSpatializer) OSP_ProcessAmbisonicStreamInterleaved
+0x00007FFA6D162B58 (AudioPluginOculusSpatializer) OSP_ProcessAmbisonicStreamInterleaved
+0x00007FFA6D165C98 (AudioPluginOculusSpatializer) OSP_ProcessAmbisonicStreamInterleaved
+0x00007FF783F2FE3C (build_att) [c:\buildslave\unity\build\runtime\audio\audioeffectinternal.cpp:111] UnityAudioEffect_InternalReadCallback 
+0x00007FF7847B2F0E (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:274] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF7847B2BFB (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_filter.cpp:132] FMOD::DSPFilter::read 
+0x00007FF78480769E (build_att) [c:\buildslave\fmod\build\src\fmod_dsp_soundcard.cpp:76] FMOD::DSPSoundCard::read 
+0x00007FF7847B1324 (build_att) [c:\buildslave\fmod\build\src\fmod_output.cpp:765] FMOD::Output::mix 
+0x00007FF7847B5DC8 (build_att) [c:\buildslave\fmod\build\src\fmod_output_polled.cpp:148] FMOD::OutputPolled::threadFunc 
+0x00007FF7847AA63B (build_att) [c:\buildslave\fmod\build\src\fmod_thread.cpp:54] FMOD::Thread::callback 
+0x00007FF7848E583B (build_att) [f:\dd\vctools\crt_bld\self_64_amd64\crt\src\threadex.c:314] _callthreadstartex 
+0x00007FF7848E58CF (build_att) [f:\dd\vctools\crt_bld\self_64_amd64\crt\src\threadex.c:292] _threadstartex 
+0x00007FFA8EAE8102 (KERNEL32) BaseThreadInitThunk
+
+========== END OF STACKTRACE ===========
+
+**** Crash! ****

@@ -202,6 +202,7 @@ GameObject:
   - 114: {fileID: 11441304}
   - 114: {fileID: 11469070}
   - 114: {fileID: 11469150}
+  - 114: {fileID: 11419304}
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Player
@@ -2183,6 +2184,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11419304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bdbcb4edb592f429d7ec322661a4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NecessaryPoints: 1000
+  m_DefaultValuePoints: 400
+  m_PickupManager: {fileID: 11469070}
+  m_PlayerController: {fileID: 0}
 --- !u!114 &11419578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2417,6 +2433,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_State: 1
   m_ShouldChangeOnTrigger: 0
+  m_PlayerSyncPoints: {fileID: 11419304}
   carryingPrize: 0
 --- !u!114 &11474274
 MonoBehaviour:
