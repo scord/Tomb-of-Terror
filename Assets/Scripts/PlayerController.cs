@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     public Renderer m_Renderer;
     public Shader standardShader;
     public Shader glowShader;
+    private AudioClip pick_up_gold;
 
     private bool m_PickupEnabled = true;
 
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour {
         carrying = false;
         carriedObject = null;
         animator = GetComponent<Animator>();
-        audio_source.clip = (AudioClip)Resources.Load("AudioClips/Footstep1");
+        pick_up_gold = (AudioClip)Resources.Load("AudioClips/pickup_gold_00");
 
         if (player_tag == null)
         {
@@ -97,6 +98,10 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("I call");
         if ( EventPickUp != null ) {
             EventPickUp(go);
+            if (go.tag == "Prize")
+            {
+                AudioSource.PlayClipAtPoint(pick_up_gold, transform.position);
+            }
         }
     }
 
@@ -153,3 +158,6 @@ public class PlayerController : MonoBehaviour {
 
     }*/
 }
+
+
+

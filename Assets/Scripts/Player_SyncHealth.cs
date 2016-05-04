@@ -9,11 +9,12 @@ public class Player_SyncHealth : NetworkBehaviour {
   [SerializeField] private Player_SyncPoints m_PlayerSyncPoints;
   private OVRPlayerController m_OVRPlayerController;
   private int localLives;
-	public Text lives; 
-
+	public Text lives;
+    private AudioClip swipe_sound;
   void Start() {
-    //localLives = m_Lives;
-    if (isLocalPlayer) {
+        //localLives = m_Lives;
+        swipe_sound = (AudioClip)Resources.Load("AudioClips/Mummy_swipe");
+        if (isLocalPlayer) {
       CmdSyncLives();
       m_OVRPlayerController = gameObject.GetComponent<OVRPlayerController>();
     }
@@ -50,7 +51,8 @@ public class Player_SyncHealth : NetworkBehaviour {
       StartCoroutine(RelaxSpeed());
       //Do things like run faster
       Debug.Log("I was swiped");
-    }
+            AudioSource.PlayClipAtPoint(swipe_sound, transform.position);
+        }
   }
 
   IEnumerator RelaxSpeed() {
