@@ -22,7 +22,12 @@ public class FinalData : MonoBehaviour {
 		if (go != null) {
 			my_stats = go.GetComponent<HeartRateManager> ();
 			average_hr.text = my_stats.GetAverage ().ToString();
-			range.text = my_stats.GetMin().ToString() + " - " + my_stats.GetMax().ToString();
+
+			if (my_stats.GetMin () != my_stats.GetMax ())
+				range.text = my_stats.GetMin ().ToString () + " - " + my_stats.GetMax ().ToString ();
+			else
+				range.text = "You had a constant heart rate of " +  my_stats.GetAverage ().ToString() + ".";
+
 			start_point.text = my_stats.GetStartPoint().ToString();
 
 			log = my_stats.GetLog ();
@@ -30,7 +35,7 @@ public class FinalData : MonoBehaviour {
 
 			if (times.Count == 0) {
 
-				times_placeholder = "Your heart rate didn't spike more than " + my_stats.relevance.ToString () + " points in a second";
+				times_placeholder = "Your heart rate didn't spike more than " + my_stats.relevance.ToString () + " points in a second.";
 			}
 
 			else {
@@ -46,11 +51,13 @@ public class FinalData : MonoBehaviour {
 	string turnToString(List<double> input) {
 
 		string result = "";
-		int i;
+		int i,min,sec;
 
 		for (i = 0; i < input.Count - 1; i++) {
 
-			result += input [i].ToString () + "; ";
+			min = (int)(input [i] / 60);
+			sec = (int)(input [i] % 60);
+			result += min.ToString () + "m " + sec.ToString () + "s" + "; ";	// 3m 2s; 5m 10s
 		}
 
 		result += input [i].ToString ();
