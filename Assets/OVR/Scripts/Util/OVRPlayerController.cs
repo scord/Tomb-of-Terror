@@ -225,8 +225,8 @@ public class OVRPlayerController : MonoBehaviour
 
 		if (OVRInput.Get(OVRInput.Button.DpadUp))
 		{
-			moveForward = true;
-			dpad_move   = true;
+			//moveForward = true;
+			//dpad_move   = true;
 
 		}
 
@@ -274,16 +274,16 @@ public class OVRPlayerController : MonoBehaviour
 
 		Vector3 euler = transform.rotation.eulerAngles;
 
-		bool curHatLeft = OVRInput.Get(OVRInput.Button.PrimaryShoulder);
+        bool curHatLeft = OVRInput.Get(OVRInput.Button.PrimaryShoulder) || Input.GetKey(KeyCode.Joystick1Button4);
 
 		if (curHatLeft && !prevHatLeft)
 			euler.y -= RotationRatchet;
 
 		prevHatLeft = curHatLeft;
 
-		bool curHatRight = OVRInput.Get(OVRInput.Button.SecondaryShoulder);
+		bool curHatRight = OVRInput.Get(OVRInput.Button.SecondaryShoulder) || Input.GetKey(KeyCode.Joystick1Button5);
 
-		if(curHatRight && !prevHatRight)
+        if (curHatRight && !prevHatRight)
 			euler.y += RotationRatchet;
 
 		prevHatRight = curHatRight;
@@ -305,7 +305,7 @@ public class OVRPlayerController : MonoBehaviour
 		moveInfluence = SimulationRate * Time.deltaTime * Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
 
 #if !UNITY_ANDROID // LeftTrigger not avail on Android game pad
-		moveInfluence *= 1.0f + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
+		moveInfluence *= 1.0f + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) + Input.GetAxis("TriggerL");
 #endif
 
         if (Input.GetButtonDown("ResetHMD"))
@@ -314,7 +314,7 @@ public class OVRPlayerController : MonoBehaviour
         }
 
 
-		Vector2 primaryAxis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
+        Vector2 primaryAxis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick) + new Vector2(0.0f, Input.GetAxis("Vertical"));
 
 		if(primaryAxis.y > 0.0f)
             MoveThrottle += ort * (primaryAxis.y * transform.lossyScale.z * moveInfluence * Vector3.forward);
