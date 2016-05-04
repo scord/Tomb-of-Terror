@@ -111,6 +111,7 @@ GameObject:
   - 114: {fileID: 11472770}
   - 114: {fileID: 11434736}
   - 65: {fileID: 6548160}
+  - 114: {fileID: 11419522}
   m_Layer: 0
   m_Name: tablet
   m_TagString: SmallPrize
@@ -518,6 +519,18 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11419522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe48668df5214f448b52b5abcd0c887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 121288}
 --- !u!114 &11434736
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -79,6 +79,7 @@ GameObject:
   - 114: {fileID: 11458950}
   - 114: {fileID: 11496596}
   - 65: {fileID: 6554118}
+  - 114: {fileID: 11482200}
   m_Layer: 0
   m_Name: bracelet
   m_TagString: SmallPrize
@@ -490,6 +491,18 @@ MonoBehaviour:
     i15: 105
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &11482200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe48668df5214f448b52b5abcd0c887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  light: {fileID: 144200}
 --- !u!114 &11496596
 MonoBehaviour:
   m_ObjectHideFlags: 1
