@@ -11,10 +11,11 @@ public class Player_SyncPoints : NetworkBehaviour {
   [SerializeField] private Pickup_Manager m_PickupManager;
   [SerializeField] private PlayerController m_PlayerController;
   [SerializeField] private GameObject m_PointsCanvas; //Put canvas in prefab
-  private Text m_PointsMessage; 
+  private Text m_PointsMessage;
 
   public int necessaryPoints { get { return m_NecessaryPoints;}}
   public int defaultValuePoints { get { return m_DefaultValuePoints;}}
+  public int pointsEarned {get { return m_PointsEarned;}}
 
   private bool already_enough = false;
 
@@ -44,7 +45,7 @@ public class Player_SyncPoints : NetworkBehaviour {
       }
     }
   }
-	
+
   [ClientCallback]
   void OnPointsEarnedUpdate(int newValue) {
     m_PointsEarned = newValue;
@@ -53,7 +54,7 @@ public class Player_SyncPoints : NetworkBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
   void ShowUpdatedCanvas() {

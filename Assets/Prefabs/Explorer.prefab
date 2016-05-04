@@ -5998,6 +5998,7 @@ MonoBehaviour:
   explorerController: {fileID: 0}
   cam: {fileID: 2095840}
   explorerObject: {fileID: 151886}
+  treasureCanvas: {fileID: 102616}
 --- !u!114 &11412218
 MonoBehaviour:
   m_ObjectHideFlags: 1

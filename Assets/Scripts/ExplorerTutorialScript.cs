@@ -10,6 +10,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
   [SerializeField] private ExplorerController explorerController;
   [SerializeField] private Camera cam;
   [SerializeField] private GameObject explorerObject;
+  private Player_SyncPoints points;
 
   // look around variable
   private float lookAround = 3;
@@ -26,6 +27,9 @@ public class ExplorerTutorialScript : IntroTutorialScript {
 
   // pivot variables
   private int pivotCount = 6;
+
+  // treaure variables
+  [SerializeField] private GameObject treasureCanvas;
 
   // Use this for initialization
   protected void Start () {
@@ -54,7 +58,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
 
     playerController = explorerObject.GetComponent<PlayerController>();
     explorerController = explorerObject.GetComponent<ExplorerController>();
-    // points = explorerObject.GetComponent<Player_SyncPoints>();
+    points = explorerObject.GetComponent<Player_SyncPoints>();
 
   }
 
@@ -93,7 +97,15 @@ public class ExplorerTutorialScript : IntroTutorialScript {
         runTime -= Time.deltaTime;
 
       if(runTime < 0)
-        FadeTo(runCanvas, toTombCanvas);
+        FadeTo(runCanvas, treasureCanvas);
+    }
+    else if (treasureCanvas.activeSelf){
+      if(points.pointsEarned >= points.necessaryPoints){
+        FadeTo(treasureCanvas, toTombCanvas);
+      }
+      else{
+        Debug.Log(points.pointsEarned);
+      }
     }
 
     else if (toTombCanvas.activeSelf ){

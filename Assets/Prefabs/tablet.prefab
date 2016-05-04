@@ -62,6 +62,7 @@ GameObject:
   - 114: {fileID: 11406592}
   - 114: {fileID: 11432650}
   - 114: {fileID: 11481964}
+  - 65: {fileID: 6561026}
   m_Layer: 0
   m_Name: tablet
   m_TagString: SmallPrize
@@ -214,7 +215,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164720}
   m_LocalRotation: {x: -0.6587036, y: 0.18741229, z: -0.07092133, w: 0.7252285}
-  m_LocalPosition: {x: 3.29, y: 0.59, z: -106.49}
+  m_LocalPosition: {x: 13.730408, y: 6.82, z: -66.6651}
   m_LocalScale: {x: 0.0031231362, y: 0.0031231362, z: 0.0031231362}
   m_Children:
   - {fileID: 474506}
@@ -368,6 +369,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151896}
   m_Mesh: {fileID: 4300000, guid: 2231780eafe18fc419b0e5557b71fa6f, type: 3}
+--- !u!65 &6561026
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164720}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1000, y: 1000, z: 500}
+  m_Center: {x: -0.0028451036, y: 0.0067455503, z: 3.6463728}
 --- !u!95 &9529884
 Animator:
   serializedVersion: 3
