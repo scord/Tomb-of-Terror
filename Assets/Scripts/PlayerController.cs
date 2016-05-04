@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour {
     {
     }
 
-    public virtual void CallbackServerChecking(bool success) {
+    public virtual void CallbackServerChecking(bool success, string tag) {
         isServerChecking = false;
     }
 

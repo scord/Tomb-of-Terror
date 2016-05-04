@@ -90,7 +90,7 @@ public class Pickup_Manager : NetworkBehaviour {
         if (PrizePickedCallback != null) PrizePickedCallback(go);
         UpdatePickedUpObjectStatus(go);
         DestroyPickedUpObject(go);
-        RpcStopThinking(true);
+        RpcStopThinking(true, hit.collider.gameObject.tag);
       }
     } else {
       RpcStopThinking(false);
@@ -110,9 +110,9 @@ public class Pickup_Manager : NetworkBehaviour {
   }
 
   [ClientRpc]
-  public void RpcStopThinking(bool success)
+  public void RpcStopThinking(bool success, string tag = "Untagged")
   {
-    if ( m_PlayerController.enabled ) m_PlayerController.CallbackServerChecking(success);
+    if ( isLocalPlayer && m_PlayerController.enabled ) m_PlayerController.CallbackServerChecking(success, tag);
   }
 
   void Update() {

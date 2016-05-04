@@ -95,17 +95,17 @@ public class MummyController : PlayerController {
         }
     }
 
-    public override void CallbackServerChecking(bool success) {
+    public override void CallbackServerChecking(bool success, string tag) {
         if (success) {
-            StartCoroutine(DelayedResponseServer(success));
+            StartCoroutine(DelayedResponseServer(success, tag));
         } else {
-            base.CallbackServerChecking(success);
+            base.CallbackServerChecking(success, tag);
         }
     }
 
-    private IEnumerator DelayedResponseServer(bool success) {
+    private IEnumerator DelayedResponseServer(bool success, string tag) {
         yield return new WaitForSeconds(1.0f);
-        base.CallbackServerChecking(success);
+        base.CallbackServerChecking(success, tag);
     }
 
 		public void FinishTutorial(){
