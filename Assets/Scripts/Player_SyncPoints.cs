@@ -13,8 +13,8 @@ public class Player_SyncPoints : NetworkBehaviour {
   [SerializeField] private GameObject m_PointsCanvas; //Put canvas in prefab
 //  private Text m_PointsMessage; 
 
-	public Text m_PointsMessage; 
-	public Text points; 		// score
+	[SerializeField] private Text m_PointsMessage; 
+	[SerializeField] private Text points; 		// score
 	private double timer;
 
   public int necessaryPoints { get { return m_NecessaryPoints;}}
@@ -31,7 +31,10 @@ public class Player_SyncPoints : NetworkBehaviour {
 		m_PointsMessage.enabled = false;
 		timer = 0.0f;
     if (isServer && m_PickupManager != null) m_PickupManager.PrizePickedCallback += PrizePicked;
-    if (isLocalPlayer && m_PointsCanvas != null && m_PointsCanvas.activeSelf) m_PointsMessage = m_PointsCanvas.GetComponent<Text>();
+    if (isLocalPlayer && m_PointsCanvas != null && m_PointsCanvas.activeSelf) {
+      m_PointsMessage = m_PointsCanvas.GetComponent<Text>();
+      UpdateScoreTracker();
+    }
   }
 
   void OnDisable() {
@@ -66,13 +69,9 @@ public class Player_SyncPoints : NetworkBehaviour {
 			timer += Time.deltaTime;
 
 			// After 3 seconds, hide text //
-
-			if(timer % 60 == 3){
-				
+			if((int) timer % 60 == 3){
 				m_PointsMessage.enabled = false;
 				timer = 0.0f;
-				Debug.Log ("3 seconds have passed for displaying points message");
-
 			}
 
 		}
@@ -85,14 +84,20 @@ public class Player_SyncPoints : NetworkBehaviour {
 			//m_PointsCanvas.GetComponent<Text>();
 
 			// update score in bottom right corner
-			points.text = m_PointsEarned.ToString ();
-			timer = 0.0f;
-
-			// display message (middle)
-			m_PointsMessage.text = "You now have " + m_PointsEarned.ToString () + " points!";
-			m_PointsMessage.enabled = true;
-			Debug.Log ("Display points message.");
-
+      UpdateScoreTracker();
+      ShowMessage();
     }
+  }
+
+  void UpdateScoreTracker() {
+    points.text = m_PointsEarned.ToString ();
+  }
+
+  void ShowMessage() {
+      timer = 0.0f;
+
+      // display message (middle)
+      m_PointsMessage.text = "You now have " + m_PointsEarned.ToString () + " points!";
+      m_PointsMessage.enabled = true;
   }
 }

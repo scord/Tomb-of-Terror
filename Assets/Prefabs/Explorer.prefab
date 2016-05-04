@@ -2475,7 +2475,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493796}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &403204
 Transform:
   m_ObjectHideFlags: 1
@@ -2783,7 +2783,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493796}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &418042
 Transform:
   m_ObjectHideFlags: 1
@@ -2964,7 +2964,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493796}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!4 &427476
 Transform:
   m_ObjectHideFlags: 1
@@ -3322,7 +3322,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 22460910}
   - {fileID: 481862}
   m_Father: {fileID: 470238}
   m_RootOrder: 0
@@ -3549,7 +3548,7 @@ Transform:
   m_Children:
   - {fileID: 455640}
   m_Father: {fileID: 493796}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &473020
 Transform:
   m_ObjectHideFlags: 1
@@ -3727,7 +3726,7 @@ Transform:
   - {fileID: 469996}
   - {fileID: 435214}
   m_Father: {fileID: 455640}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &481940
 Transform:
   m_ObjectHideFlags: 1
@@ -3813,7 +3812,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493796}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &490392
 Transform:
   m_ObjectHideFlags: 1
@@ -3857,7 +3856,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 493796}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!4 &492378
 Transform:
   m_ObjectHideFlags: 1
@@ -3949,6 +3948,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400892}
+  - {fileID: 22460910}
   - {fileID: 470238}
   - {fileID: 403088}
   - {fileID: 490290}
@@ -6952,7 +6952,7 @@ MonoBehaviour:
   m_DefaultValuePoints: 400
   m_PickupManager: {fileID: 11437566}
   m_PlayerController: {fileID: 0}
-  m_PointsCanvas: {fileID: 181312}
+  m_PointsCanvas: {fileID: 103252}
   m_PointsMessage: {fileID: 11492200}
   points: {fileID: 11457872}
 --- !u!114 &11483464
@@ -30416,7 +30416,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.85}
+  m_LocalPosition: {x: 0, y: 0, z: 0.85000044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22410386}
@@ -30437,8 +30437,8 @@ RectTransform:
   - {fileID: 22447856}
   - {fileID: 22413294}
   - {fileID: 22475538}
-  m_Father: {fileID: 455640}
-  m_RootOrder: 0
+  m_Father: {fileID: 493796}
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
