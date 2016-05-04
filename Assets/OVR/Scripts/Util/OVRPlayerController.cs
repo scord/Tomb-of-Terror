@@ -225,8 +225,8 @@ public class OVRPlayerController : MonoBehaviour
 
 		if (OVRInput.Get(OVRInput.Button.DpadUp))
 		{
-			moveForward = true;
-			dpad_move   = true;
+			//moveForward = true;
+			//dpad_move   = true;
 
 		}
 
