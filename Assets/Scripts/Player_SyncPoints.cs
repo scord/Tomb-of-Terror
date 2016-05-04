@@ -11,7 +11,11 @@ public class Player_SyncPoints : NetworkBehaviour {
   [SerializeField] private Pickup_Manager m_PickupManager;
   [SerializeField] private PlayerController m_PlayerController;
   [SerializeField] private GameObject m_PointsCanvas; //Put canvas in prefab
-  private Text m_PointsMessage;
+//  private Text m_PointsMessage; 
+
+	public Text m_PointsMessage; 
+	public Text points; 		// score
+	private double timer;
 
   public int necessaryPoints { get { return m_NecessaryPoints;}}
   public int defaultValuePoints { get { return m_DefaultValuePoints;}}
@@ -24,6 +28,8 @@ public class Player_SyncPoints : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		m_PointsMessage.enabled = false;
+		timer = 0.0f;
     if (isServer && m_PickupManager != null) m_PickupManager.PrizePickedCallback += PrizePicked;
     if (isLocalPlayer && m_PointsCanvas != null && m_PointsCanvas.activeSelf) m_PointsMessage = m_PointsCanvas.GetComponent<Text>();
   }
@@ -55,11 +61,41 @@ public class Player_SyncPoints : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+<<<<<<< HEAD
+=======
+		if (m_PointsMessage.enabled == true) {
+
+			timer += Time.deltaTime;
+
+			// After 3 seconds, hide text //
+
+			if(timer % 60 == 3){
+				
+				m_PointsMessage.enabled = false;
+				timer = 0.0f;
+				Debug.Log ("3 seconds have passed for displaying points message");
+
+			}
+
+		}
+			
+>>>>>>> score
 	}
 
   void ShowUpdatedCanvas() {
     if ( isLocalPlayer && m_PointsCanvas != null && m_PointsCanvas.activeSelf && m_PointsMessage != null) {
       // Update points on UI here
+			//m_PointsCanvas.GetComponent<Text>();
+
+			// update score in bottom right corner
+			points.text = m_PointsEarned.ToString ();
+			timer = 0.0f;
+
+			// display message (middle)
+			m_PointsMessage.text = "You now have " + m_PointsEarned.ToString () + " points!";
+			m_PointsMessage.enabled = true;
+			Debug.Log ("Display points message.");
+
     }
   }
 }
