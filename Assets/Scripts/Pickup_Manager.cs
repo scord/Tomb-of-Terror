@@ -54,6 +54,7 @@ public class Pickup_Manager : NetworkBehaviour {
     CmdProvideObjectIndex(GM_Ref.GetPickUpObjectIndex(carriedObject));
     CmdProvideChangingStateToServer(true);
     CmdProvideCarriedStateToServer(true);
+    RpcStopThinking(true, "Untagged");
   }
 
   void ThrowObject(GameObject go, Vector3 direction) {
@@ -93,7 +94,7 @@ public class Pickup_Manager : NetworkBehaviour {
         RpcStopThinking(true, hit.collider.gameObject.tag);
       }
     } else {
-      RpcStopThinking(false);
+      RpcStopThinking(false, "Untagged");
     }
   }
 
@@ -110,7 +111,7 @@ public class Pickup_Manager : NetworkBehaviour {
   }
 
   [ClientRpc]
-  public void RpcStopThinking(bool success, string tag = "Untagged")
+  public void RpcStopThinking(bool success, string tag)
   {
     if ( isLocalPlayer && m_PlayerController.enabled ) m_PlayerController.CallbackServerChecking(success, tag);
   }
