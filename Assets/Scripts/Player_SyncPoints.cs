@@ -61,8 +61,6 @@ public class Player_SyncPoints : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-<<<<<<< HEAD
-=======
 		if (m_PointsMessage.enabled == true) {
 
 			timer += Time.deltaTime;
@@ -79,7 +77,6 @@ public class Player_SyncPoints : NetworkBehaviour {
 
 		}
 			
->>>>>>> score
 	}
 
   void ShowUpdatedCanvas() {
