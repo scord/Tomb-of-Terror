@@ -16,7 +16,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
   private float lookAround = 3;
 
   // walk variable
-  private float walkTime = 2;
+  private float walkTime = 1;
 
   // torch variables
   private int torchPress = 2;
@@ -69,14 +69,14 @@ public class ExplorerTutorialScript : IntroTutorialScript {
       if(lookAround > 0)
         lookAround -= Time.deltaTime;
       else
-        FadeToWalk();
+        FadeTo(headCanvas, walkCanvas);
     }
 
     // walk around prompt
     else if (walkCanvas.activeSelf) {
       if(Input.GetAxis("Vertical") != 0 && walkTime > 0)
         walkTime -= Time.deltaTime;
-      else
+      if(walkTime <= 0)
         FadeTo(walkCanvas, pivotCanvas);
     }
 
