@@ -93,9 +93,8 @@ public class Pickup_Manager : NetworkBehaviour {
         DestroyPickedUpObject(go);
         RpcStopThinking(true, hit.collider.gameObject.tag);
       }
-    } else {
-      RpcStopThinking(false, "Untagged");
     }
+    RpcStopThinking(false, "Untagged");
   }
 
   [Server]
