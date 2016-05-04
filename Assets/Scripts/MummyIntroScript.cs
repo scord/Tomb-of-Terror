@@ -145,7 +145,7 @@ public class MummyIntroScript : IntroTutorialScript {
     }
     // if run canvas activated
     else if( runCanvas.activeSelf ) {
-      if( Input.GetKey(KeyCode.LeftShift) || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0 )
+      if (Input.GetKey(KeyCode.LeftShift) || Input.GetAxis("TriggerL") > 0 || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0)
         running = true;
       else
         running = false;
@@ -172,8 +172,8 @@ public class MummyIntroScript : IntroTutorialScript {
 
   private bool EndPivot(){
     if(pivotCount > 0){
-      if ( Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) || OVRInput.Get(OVRInput.Button.PrimaryShoulder) || OVRInput.Get(OVRInput.Button.SecondaryShoulder)  ){
-        pivotCount--;
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) || Input.GetKey(KeyCode.Joystick1Button4) || Input.GetKey(KeyCode.Joystick1Button5) || OVRInput.Get(OVRInput.Button.PrimaryShoulder) || OVRInput.Get(OVRInput.Button.SecondaryShoulder)) { 
+                pivotCount--;
       }
       return false;
     }
