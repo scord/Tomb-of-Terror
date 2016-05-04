@@ -64,7 +64,7 @@ public class Player_SyncPoints : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (m_PointsMessage.enabled == true) {
+		if (m_PointsMessage != null && m_PointsMessage.enabled == true) {
 
 			timer += Time.deltaTime;
 
