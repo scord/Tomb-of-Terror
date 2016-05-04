@@ -26,7 +26,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 467102}
   - 108: {fileID: 10872836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - 4: {fileID: 413178}
   - 198: {fileID: 19881860}
   - 199: {fileID: 19947556}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155270}
   m_LocalRotation: {x: 0.05458042, y: -0.6041732, z: 0.07152659, w: 0.79175735}
-  m_LocalPosition: {x: 15.69, y: 6.77, z: -48.8}
+  m_LocalPosition: {x: -5.5004263, y: 0.36702618, z: -110.94151}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 460730}
