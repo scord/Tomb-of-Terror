@@ -34,7 +34,10 @@ public class Explorer_SyncAir : NetworkBehaviour {
 			int min, sec;
 			min = m_AirLevel / 60;
 			sec = m_AirLevel % 60;
-			m_ForTimerText.text = min.ToString() + ":" + sec.ToString();
+      if(sec < 10)
+			 m_ForTimerText.text = min.ToString() + ":0" + sec.ToString();
+      else
+        m_ForTimerText.text = min.ToString() + ":" + sec.ToString();
 		}
 			
 	}
