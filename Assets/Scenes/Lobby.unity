@@ -670,7 +670,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 11483396, guid: ae59e0409ea0e77499fe99ef7cb44772, type: 2}
+    - target: {fileID: 22325478, guid: ae59e0409ea0e77499fe99ef7cb44772, type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 795587854}
+    - target: {fileID: 22321774, guid: ae59e0409ea0e77499fe99ef7cb44772, type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 795587854}
@@ -678,11 +682,7 @@ Prefab:
       propertyPath: m_MouseLookScript
       value: 
       objectReference: {fileID: 795587850}
-    - target: {fileID: 22325478, guid: ae59e0409ea0e77499fe99ef7cb44772, type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 795587854}
-    - target: {fileID: 22321774, guid: ae59e0409ea0e77499fe99ef7cb44772, type: 2}
+    - target: {fileID: 11483396, guid: ae59e0409ea0e77499fe99ef7cb44772, type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 795587854}
@@ -2857,7 +2857,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408940, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
       propertyPath: m_RootOrder
-      value: 41
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 122462, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
       propertyPath: m_Name
@@ -3225,7 +3225,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408940, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
       propertyPath: m_RootOrder
-      value: 31
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 122462, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
       propertyPath: m_Name
@@ -3433,7 +3433,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 408940, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
       propertyPath: m_RootOrder
-      value: 42
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: 122462, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
       propertyPath: m_Name
@@ -3868,7 +3868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1891211975
 MonoBehaviour:
   m_ObjectHideFlags: 0

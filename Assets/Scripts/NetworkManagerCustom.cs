@@ -317,7 +317,7 @@ public class NetworkManagerCustom : NetworkManager {
     if (level == 0) {
       SetupMenuSceneBUttons();
       ResetContext();
-    } else {
+    } else if ( level == 3 ){
       StartCoroutine(SetupDisconnectButton());
     }
   }
