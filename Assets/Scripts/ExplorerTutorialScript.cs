@@ -54,6 +54,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
 
     playerController = explorerObject.GetComponent<PlayerController>();
     explorerController = explorerObject.GetComponent<ExplorerController>();
+    // points = explorerObject.GetComponent<Player_SyncPoints>();
 
   }
 
