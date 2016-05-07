@@ -1392,6 +1392,7 @@ GameObject:
   - 114: {fileID: 11483348}
   - 114: {fileID: 11443358}
   - 114: {fileID: 11496336}
+  - 114: {fileID: 11434204}
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Explorer
@@ -6301,6 +6302,17 @@ MonoBehaviour:
   near: 1
   far: 1000
   disableRfl: 0
+--- !u!114 &11434204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d58bcdd9f164f4891a33d229039d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11435782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6577,6 +6589,7 @@ MonoBehaviour:
   glowShader: {fileID: 0}
   animator: {fileID: 0}
   m_IntroTutorialScript: {fileID: 11412036}
+  m_VibrationController: {fileID: 11434204}
   m_GameParams: {fileID: 0}
   m_Torch: {fileID: 108084}
   m_PointsCanvas: {fileID: 0}
@@ -7309,6 +7322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Lives: 3
   m_PlayerSyncPoints: {fileID: 11483348}
+  m_VibrationController: {fileID: 11434204}
   lives: {fileID: 11447094}
   swipe_sound: {fileID: 8300000, guid: d0d44decaf8db5c46afd05a5683d2184, type: 3}
 --- !u!114 &11498176

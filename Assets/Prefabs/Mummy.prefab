@@ -203,6 +203,7 @@ GameObject:
   - 114: {fileID: 11469070}
   - 114: {fileID: 11469150}
   - 114: {fileID: 11419304}
+  - 114: {fileID: 11481046}
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Player
@@ -2492,6 +2493,7 @@ MonoBehaviour:
   glowShader: {fileID: 0}
   animator: {fileID: 0}
   m_IntroTutorialScript: {fileID: 11482596}
+  m_VibrationController: {fileID: 11481046}
   m_GameParams: {fileID: 0}
   swipe_sound: {fileID: 8300000, guid: d0d44decaf8db5c46afd05a5683d2184, type: 3}
 --- !u!114 &11479070
@@ -2587,6 +2589,17 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: The following are just preparation for when you become blind. Your goal
     will be to catch the explorer.
+--- !u!114 &11481046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d58bcdd9f164f4891a33d229039d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11481080
 MonoBehaviour:
   m_ObjectHideFlags: 1
