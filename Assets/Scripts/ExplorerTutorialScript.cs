@@ -100,7 +100,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
         FadeTo(runCanvas, treasureCanvas);
     }
     else if (treasureCanvas.activeSelf){
-      if(points.pointsEarned >= points.necessaryPoints){
+      if(points.pointsEarned >= 400){
         FadeTo(treasureCanvas, toTombCanvas);
       }
       else{
