@@ -92,6 +92,7 @@ public class Pickup_Manager : NetworkBehaviour {
         UpdatePickedUpObjectStatus(go);
         DestroyPickedUpObject(go);
         RpcStopThinking(true, hit.collider.gameObject.tag);
+        return;
       }
     }
     RpcStopThinking(false, "Untagged");

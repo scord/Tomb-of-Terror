@@ -6936,6 +6936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2095840}
   m_Listener: {fileID: 8153660}
+  m_OVRCameraRig: {fileID: 11483100}
   isMainLevel: 0
   withPickupManager: 0
 --- !u!114 &11476460
@@ -30300,7 +30301,7 @@ RectTransform:
   m_RootOrder: 16
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000019669533, y: -0.000000834465}
+  m_AnchoredPosition: {x: -0.0000019669533, y: 0.4259249}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22418612
@@ -30419,7 +30420,7 @@ RectTransform:
   m_RootOrder: 13
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.074, y: -1.499}
   m_SizeDelta: {x: 1.746, y: 1.4759998}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22443454
@@ -30453,7 +30454,7 @@ RectTransform:
   m_RootOrder: 18
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.33, y: -1.4}
+  m_AnchoredPosition: {x: 0.295, y: -1.505939}
   m_SizeDelta: {x: 1.746, y: 1.4759998}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22447856
@@ -30470,7 +30471,7 @@ RectTransform:
   m_RootOrder: 15
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -1.4999998}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!224 &22451112
@@ -30540,7 +30541,7 @@ RectTransform:
   m_RootOrder: 14
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.053, y: 0}
+  m_AnchoredPosition: {x: -0.037, y: -1.497}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22475538
@@ -30557,7 +30558,7 @@ RectTransform:
   m_RootOrder: 17
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1.4}
+  m_AnchoredPosition: {x: 0, y: -1.498}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &22487564
