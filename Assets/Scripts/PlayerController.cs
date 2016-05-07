@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("I call");
         if ( EventPickUp != null ) {
             EventPickUp(go);
-            if (go.tag == "Prize")
+            if (go.tag == "Prize" || go.tag == "SmallPrize")
             {
                 AudioSource.PlayClipAtPoint(pick_up_gold, transform.position);
             }
