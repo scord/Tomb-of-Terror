@@ -2493,6 +2493,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   m_IntroTutorialScript: {fileID: 11482596}
   m_GameParams: {fileID: 0}
+  swipe_sound: {fileID: 8300000, guid: d0d44decaf8db5c46afd05a5683d2184, type: 3}
 --- !u!114 &11479070
 MonoBehaviour:
   m_ObjectHideFlags: 1
