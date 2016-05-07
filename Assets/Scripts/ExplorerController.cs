@@ -39,7 +39,11 @@ public class ExplorerController : PlayerController {
     }
 	protected override void Update(){
 		base.Update();
-
+		if (Input.GetButtonDown("Jump")){
+			ScreenFlashController sfc = GameObject.FindGameObjectWithTag ("ExplorerCanvas").GetComponent<ScreenFlashController>();
+			Debug.Log ("is nullll " + (sfc == null));
+			sfc.hit = true;
+		}
         if (pickupEnabled && Input.GetButtonDown("Fire2"))
             if (!carrying)
                 PickUp();
@@ -49,6 +53,7 @@ public class ExplorerController : PlayerController {
         if (torchManagerScript != null) {
             torchManagerScript.SetLight();
             if (Input.GetButtonDown("Fire1")) {
+
                 torchManagerScript.Trigger();
             }
 

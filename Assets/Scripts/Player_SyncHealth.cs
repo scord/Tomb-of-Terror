@@ -46,6 +46,7 @@ public class Player_SyncHealth : NetworkBehaviour {
   public void RpcSendSwipeReaction() {
     Debug.Log("I get here");
     if (isLocalPlayer) {
+
       lives.text = m_Lives.ToString ();
       MultiplyRunningSpeed(6.0f);
       StartCoroutine(RelaxSpeed());
