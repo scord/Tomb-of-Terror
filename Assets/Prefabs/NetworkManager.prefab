@@ -107,7 +107,7 @@ MonoBehaviour:
   shouldLoadMainLevel: 0
   m_MummyIntroScene: startscene-mummy
   m_ExplorerIntroScene: startscene
-  m_MainScene: endgame
+  m_MainScene: Sample
   m_LoadingScene: Loading
   m_LobbyScene: Lobby
   m_EndScene: endgame
