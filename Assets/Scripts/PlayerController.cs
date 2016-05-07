@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
     public Animator animator;
 
     [SerializeField] private IntroTutorialScript m_IntroTutorialScript;
-
+    [SerializeField] protected VibrationController m_VibrationController;
     public delegate void PickUpDelegate(GameObject go);
     public event PickUpDelegate EventPickUp;
 

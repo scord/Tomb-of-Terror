@@ -97,6 +97,7 @@ public class MummyController : PlayerController {
     }
 
     public override void CallbackServerChecking(bool success, string tag) {
+        m_VibrationController.VibrateFor(1.0f);
         if (success) {
             AudioSource.PlayClipAtPoint(swipe_sound, transform.position);
             StartCoroutine(DelayedResponseServer(success, tag));

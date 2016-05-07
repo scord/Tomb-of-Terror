@@ -7,6 +7,7 @@ public class Player_SyncHealth : NetworkBehaviour {
 
   [SyncVar (hook = "OnLivesUpdated")] public int m_Lives = 3; //lives
   [SerializeField] private Player_SyncPoints m_PlayerSyncPoints;
+  [SerializeField] private VibrationController m_VibrationController;
   private OVRPlayerController m_OVRPlayerController;
   private int localLives;
 	public Text lives;
@@ -42,6 +43,7 @@ public class Player_SyncHealth : NetworkBehaviour {
   [ClientRpc]
   public void RpcSendSwipeReaction() {
     if (isLocalPlayer) {
+      m_VibrationController.VibrateFor(1.0f);
       lives.text = m_Lives.ToString ();
       MultiplyRunningSpeed(6.0f);
       StartCoroutine(RelaxSpeed());
@@ -59,4 +61,5 @@ public class Player_SyncHealth : NetworkBehaviour {
   void MultiplyRunningSpeed(float scalingFactor) {
     if( m_OVRPlayerController != null ) m_OVRPlayerController.SetMoveScaleMultiplier(scalingFactor);
   }
+
 }
