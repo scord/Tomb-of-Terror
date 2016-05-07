@@ -2315,6 +2315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 2092708}
   m_Listener: {fileID: 8171602}
+  m_OVRCameraRig: {fileID: 11487152}
   isMainLevel: 0
   withPickupManager: 0
 --- !u!114 &11439400
