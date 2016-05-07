@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 34.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
   - {fileID: 149186, guid: 1af885962313eb841a7b640eaac18b7f, type: 2}
   - {fileID: 164720, guid: bb0e70ad38bca01459c9c387e4f62fa3, type: 2}
   - {fileID: 155270, guid: 0bba1f582eed7ed4491296733b05e169, type: 2}
+  - {fileID: 0}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
