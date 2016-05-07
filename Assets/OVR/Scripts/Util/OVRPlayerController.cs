@@ -306,7 +306,7 @@ public class OVRPlayerController : MonoBehaviour
 		//Debug.Log( OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger));
 #if !UNITY_ANDROID // LeftTrigger not avail on Android game pad
 
-		moveInfluence *= 0.0f + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
+		moveInfluence *= 1.0f + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);
 #endif
 
         if (Input.GetButtonDown("ResetHMD"))
@@ -314,14 +314,17 @@ public class OVRPlayerController : MonoBehaviour
             ResetOrientation();
         }
 
+        if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)))
+        {
+            Vector2 primaryAxis = new Vector2(0.0f, Input.GetAxis("Vertical"));
 
-        Vector2 primaryAxis = new Vector2(0.0f, Input.GetAxis("Vertical"));
-		//Debug.Log (primaryAxis);
-	/*	if(primaryAxis.y > 0.0f)
-            MoveThrottle += ort * (primaryAxis.y * transform.lossyScale.z * moveInfluence * Vector3.forward);
+            if (primaryAxis.y > 0.0f)
+                MoveThrottle += ort * (primaryAxis.y * transform.lossyScale.z * moveInfluence * Vector3.forward);
 
-		if(primaryAxis.y < 0.0f)*/
-            MoveThrottle += ort * (Mathf.Abs(primaryAxis.y) * transform.lossyScale.z * moveInfluence * BackAndSideDampen * Vector3.back);
+            if (primaryAxis.y < 0.0f)
+                MoveThrottle += ort * (Mathf.Abs(primaryAxis.y) * transform.lossyScale.z * moveInfluence * BackAndSideDampen * Vector3.back);
+
+        }
         /*
 		if(primaryAxis.x < 0.0f)
             MoveThrottle += ort * (Mathf.Abs(primaryAxis.x) * transform.lossyScale.x * moveInfluence * BackAndSideDampen * Vector3.left);
