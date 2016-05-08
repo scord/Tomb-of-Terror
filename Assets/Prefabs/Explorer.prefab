@@ -9365,6 +9365,7 @@ MonoBehaviour:
   m_Renderer: {fileID: 0}
   standardShader: {fileID: 0}
   glowShader: {fileID: 0}
+  pick_up_gold: {fileID: 8300000, guid: 99247661d42593e4880f44a0ccbab2f2, type: 3}
   animator: {fileID: 0}
   m_IntroTutorialScript: {fileID: 11413178}
   m_VibrationController: {fileID: 11434204}

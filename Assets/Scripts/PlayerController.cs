@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     public Renderer m_Renderer;
     public Shader standardShader;
     public Shader glowShader;
-    private AudioClip pick_up_gold;
+    [SerializeField] private AudioClip pick_up_gold;
 
     private bool m_PickupEnabled = true;
 
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour {
         carrying = false;
         carriedObject = null;
         animator = GetComponent<Animator>();
-        pick_up_gold = (AudioClip)Resources.Load("AudioClips/pickup_gold_00");
+        //pick_up_gold = (AudioClip)Resources.Load("AudioClips/pickup_gold_00");
 
         if (player_tag == null)
         {
