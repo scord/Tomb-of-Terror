@@ -18,8 +18,7 @@ public class ScreenFlashController : MonoBehaviour {
 	void Update() {
 		if (hit && flashing == false) {
 			flashing = true;
-			Debug.Log ("blaaah");
-			StartCoroutine (FadeIn (redCanvas, 10.0f));
+			StartCoroutine (FadeIn (redCanvas, 6.0f));
 		}
 
 	}
@@ -34,7 +33,9 @@ public class ScreenFlashController : MonoBehaviour {
 			else cv.alpha += speed * Time.deltaTime;
 			yield return null;
 		}
-		StartCoroutine (FadeOut (redCanvas, 9.0f));
+
+
+		StartCoroutine (FadeOut (redCanvas, 6.0f));
 	}
 
 	IEnumerator FadeOut (GameObject obj, float speed) {

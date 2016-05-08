@@ -50,6 +50,12 @@ public class Player_SyncHealth : NetworkBehaviour {
       lives.text = m_Lives.ToString ();
       MultiplyRunningSpeed(6.0f);
       StartCoroutine(RelaxSpeed());
+			GameObject canvas = GameObject.FindGameObjectWithTag ("ExplorerCanvas");
+			if (canvas != null){
+				ScreenFlashController sfc = canvas.GetComponent<ScreenFlashController>();
+				sfc.hit = true;
+			}
+
       //Do things like run faster
       Debug.Log("I was swiped");
             AudioSource.PlayClipAtPoint(swipe_sound, transform.position);
