@@ -40,7 +40,7 @@ public class FinalData : MonoBehaviour {
 
 			else {
 
-				times_placeholder = turnToString (times);
+				times_placeholder = turnToString(times);
 				times_text.text = times_placeholder;
 
 			}
@@ -60,7 +60,10 @@ public class FinalData : MonoBehaviour {
 			result += min.ToString () + "m " + sec.ToString () + "s" + "; ";	// 3m 2s; 5m 10s
 		}
 
-		result += input [i].ToString ();
+		min = ((int)input [i] / 60);
+		sec = ((int)input [i] % 60);
+
+		result += min.ToString () + "m " + sec.ToString () + "s" + "; ";
 
 		return result;
 
