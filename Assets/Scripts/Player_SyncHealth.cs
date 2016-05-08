@@ -45,7 +45,7 @@ public class Player_SyncHealth : NetworkBehaviour {
     if (isLocalPlayer) {
       m_VibrationController.VibrateFor(1.0f);
       lives.text = m_Lives.ToString ();
-      MultiplyRunningSpeed(6.0f);
+      MultiplyRunningSpeed(2.5f);
       StartCoroutine(RelaxSpeed());
 			GameObject canvas = GameObject.FindGameObjectWithTag ("ExplorerCanvas");
 			if (canvas != null){
