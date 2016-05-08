@@ -55,7 +55,7 @@ MonoBehaviour:
   m_OfflineScene: menu
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 131858, guid: bd17e05dd9de3fd438fc735190aee767, type: 2}
+  - {fileID: 128570, guid: c0fd4a53e2c5f1547815fb99ba1451b1, type: 2}
   - {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
   - {fileID: 135454, guid: f13752c6a3f99c843b177c1cef7b4669, type: 2}
   - {fileID: 177910, guid: 0769e278dd1b8af43b12a7c596807456, type: 2}
@@ -64,6 +64,7 @@ MonoBehaviour:
   - {fileID: 149186, guid: 1af885962313eb841a7b640eaac18b7f, type: 2}
   - {fileID: 164720, guid: bb0e70ad38bca01459c9c387e4f62fa3, type: 2}
   - {fileID: 155270, guid: 0bba1f582eed7ed4491296733b05e169, type: 2}
+  - {fileID: 152658, guid: 2a77bcc8f6199bf49afae7520d31b327, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_MenuScene: menu
   m_PlayerPrefabs:
   - {fileID: 151886, guid: 7458cd3439bdf704bb55dc786499cbe0, type: 2}
-  - {fileID: 131858, guid: bd17e05dd9de3fd438fc735190aee767, type: 2}
+  - {fileID: 128570, guid: c0fd4a53e2c5f1547815fb99ba1451b1, type: 2}
   m_PlayerSpawnName:
   - ExplorerSpawner
   - MummySpawner

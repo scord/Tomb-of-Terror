@@ -7,6 +7,7 @@ public class PlayerNetworkController : NetworkBehaviour {
 
     [SerializeField] private Camera m_Camera;
     [SerializeField] private AudioListener m_Listener;
+    [SerializeField] private OVRCameraRig m_OVRCameraRig;
     [SyncVar (hook="SyncIsMainLevel")] public bool isMainLevel;
     [SyncVar] public bool withPickupManager;
 
@@ -24,12 +25,13 @@ public class PlayerNetworkController : NetworkBehaviour {
         }
         if (!isLocalPlayer)
         {
-			ExplorerMusicController emc = GetComponent<ExplorerMusicController>();
-			if (emc != null){
-				emc.enabled = false;
-			}
+			       ExplorerMusicController emc = GetComponent<ExplorerMusicController>();
+      			if (emc != null){
+      				emc.enabled = false;
+      			}
             GetComponent<PlayerController>().enabled = false;
             GetComponent<OVRPlayerController>().enabled = false;
+            m_OVRCameraRig.enabled = false;
             m_Camera.enabled = false;
             m_Listener.enabled = false;
         }

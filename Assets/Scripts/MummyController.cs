@@ -7,6 +7,7 @@ public class MummyController : PlayerController {
 	private float murmurTimer;
 
     private AudioSource shout;
+    [SerializeField] private AudioClip swipe_sound;
 
     bool showText = false;
 		private bool finishedTutorial = false;
@@ -96,7 +97,9 @@ public class MummyController : PlayerController {
     }
 
     public override void CallbackServerChecking(bool success, string tag) {
+        m_VibrationController.VibrateFor(1.0f);
         if (success) {
+            AudioSource.PlayClipAtPoint(swipe_sound, transform.position);
             StartCoroutine(DelayedResponseServer(success, tag));
         } else {
             base.CallbackServerChecking(success, tag);

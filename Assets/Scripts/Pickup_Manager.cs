@@ -92,6 +92,7 @@ public class Pickup_Manager : NetworkBehaviour {
         UpdatePickedUpObjectStatus(go);
         DestroyPickedUpObject(go);
         RpcStopThinking(true, hit.collider.gameObject.tag);
+        return;
       }
     }
     RpcStopThinking(false, "Untagged");
@@ -112,6 +113,7 @@ public class Pickup_Manager : NetworkBehaviour {
   [ClientRpc]
   public void RpcStopThinking(bool success, string tag)
   {
+    Debug.Log("Sure?");
     if ( isLocalPlayer && m_PlayerController.enabled ) m_PlayerController.CallbackServerChecking(success, tag);
   }
 

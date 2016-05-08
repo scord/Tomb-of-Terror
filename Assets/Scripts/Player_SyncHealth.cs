@@ -7,14 +7,13 @@ public class Player_SyncHealth : NetworkBehaviour {
 
   [SyncVar (hook = "OnLivesUpdated")] public int m_Lives = 3; //lives
   [SerializeField] private Player_SyncPoints m_PlayerSyncPoints;
+  [SerializeField] private VibrationController m_VibrationController;
   private OVRPlayerController m_OVRPlayerController;
   private int localLives;
 	public Text lives;
-    private AudioClip swipe_sound;
+  [SerializeField] private AudioClip swipe_sound;
   void Start() {
-        //localLives = m_Lives;
-        swipe_sound = (AudioClip)Resources.Load("AudioClips/Mummy_swipe");
-        if (isLocalPlayer) {
+    if (isLocalPlayer) {
       CmdSyncLives();
       m_OVRPlayerController = gameObject.GetComponent<OVRPlayerController>();
     }
@@ -22,7 +21,6 @@ public class Player_SyncHealth : NetworkBehaviour {
 
   [Command]
   void CmdSyncLives() {
-    Debug.Log("First: " + m_Lives);
     m_Lives = m_Lives++;
     Debug.Log("Second: " + m_Lives);
   }
@@ -44,9 +42,8 @@ public class Player_SyncHealth : NetworkBehaviour {
 
   [ClientRpc]
   public void RpcSendSwipeReaction() {
-    Debug.Log("I get here");
     if (isLocalPlayer) {
-
+      m_VibrationController.VibrateFor(1.0f);
       lives.text = m_Lives.ToString ();
       MultiplyRunningSpeed(6.0f);
       StartCoroutine(RelaxSpeed());
@@ -58,8 +55,8 @@ public class Player_SyncHealth : NetworkBehaviour {
 
       //Do things like run faster
       Debug.Log("I was swiped");
-            AudioSource.PlayClipAtPoint(swipe_sound, transform.position);
-        }
+      AudioSource.PlayClipAtPoint(swipe_sound, transform.position);
+    }
   }
 
   IEnumerator RelaxSpeed() {
@@ -70,4 +67,5 @@ public class Player_SyncHealth : NetworkBehaviour {
   void MultiplyRunningSpeed(float scalingFactor) {
     if( m_OVRPlayerController != null ) m_OVRPlayerController.SetMoveScaleMultiplier(scalingFactor);
   }
+
 }

@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
     public Animator animator;
 
     [SerializeField] private IntroTutorialScript m_IntroTutorialScript;
-
+    [SerializeField] protected VibrationController m_VibrationController;
     public delegate void PickUpDelegate(GameObject go);
     public event PickUpDelegate EventPickUp;
 
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour {
         Debug.Log("I call");
         if ( EventPickUp != null ) {
             EventPickUp(go);
-            if (go.tag == "Prize")
+            if (go.tag == "Prize" || go.tag == "SmallPrize")
             {
                 AudioSource.PlayClipAtPoint(pick_up_gold, transform.position);
             }
