@@ -5786,7 +5786,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183854}
-  m_LocalRotation: {x: 0.25274494, y: 0, z: 0, w: 0.967533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9388,7 +9388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AirLevel: 0
-  m_ForTimerText: {fileID: 11464024}
+  m_ForTimerText: {fileID: 11464996}
 --- !u!114 &11444714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10202,9 +10202,9 @@ MonoBehaviour:
   m_DefaultValuePoints: 400
   m_PickupManager: {fileID: 11437566}
   m_PlayerController: {fileID: 0}
-  m_PointsCanvas: {fileID: 149264}
-  m_PointsMessage: {fileID: 11419282}
-  points: {fileID: 11412202}
+  m_PointsCanvas: {fileID: 103252}
+  m_PointsMessage: {fileID: 11492200}
+  points: {fileID: 11457872}
 --- !u!114 &11483464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10534,7 +10534,7 @@ MonoBehaviour:
   m_Lives: 3
   m_PlayerSyncPoints: {fileID: 11483348}
   m_VibrationController: {fileID: 11434204}
-  lives: {fileID: 11449652}
+  lives: {fileID: 11447094}
   swipe_sound: {fileID: 8300000, guid: d0d44decaf8db5c46afd05a5683d2184, type: 3}
 --- !u!114 &11498176
 MonoBehaviour:
