@@ -41,9 +41,9 @@ public class Player_SyncPosition : NetworkBehaviour {
   void LerpPosition() {
     if(!isLocalPlayer) {
       if ( m_Transform.position == syncPos ) {
-        m_Animator.SetBool("Movement", false);
+        //m_Animator.SetBool("Movement", false);
       } else {
-        m_Animator.SetBool("Movement", true);
+        //m_Animator.SetBool("Movement", true);
         m_Transform.position = Vector3.Lerp(m_Transform.position, syncPos, Time.deltaTime * lerpRate);
 
         if (footStep1.isPlaying == false && footStep2.isPlaying == false)// add more logic later such as, onground/jumping etc etc
