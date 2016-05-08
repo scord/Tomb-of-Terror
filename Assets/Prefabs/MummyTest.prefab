@@ -2728,7 +2728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69e2e8c9b4c8064c82910f8be144259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_State: 0
+  m_State: 1
   m_ShouldChangeOnTrigger: 0
   m_PlayerSyncPoints: {fileID: 11470706}
   carryingPrize: 0
