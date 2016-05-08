@@ -351,14 +351,7 @@ GameObject:
   - 95: {fileID: 9516596}
   - 114: {fileID: 11425938}
   - 114: {fileID: 11421468}
-  - 114: {fileID: 11474198}
-  - 114: {fileID: 11463562}
   - 114: {fileID: 11467670}
-  - 114: {fileID: 11424760}
-  - 114: {fileID: 11400550}
-  - 114: {fileID: 11462700}
-  - 114: {fileID: 11493354}
-  - 114: {fileID: 11466136}
   m_Layer: 0
   m_Name: MummyTest
   m_TagString: Player
@@ -2105,18 +2098,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11400550
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3b221b6929278643b6bae60ca464631, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerController: {fileID: 11463838}
 --- !u!114 &11404950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2249,17 +2230,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11424760
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4574252571141564a989184bf6ccc71e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11425938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2385,34 +2355,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11462700
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e69e2e8c9b4c8064c82910f8be144259, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_State: 1
-  m_ShouldChangeOnTrigger: 0
-  m_PlayerSyncPoints: {fileID: 11493354}
-  carryingPrize: 0
---- !u!114 &11463562
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bb46cef17fbd2146b262cf3515e362e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlayerTransform: {fileID: 457856}
-  m_CamTransform: {fileID: 479876}
 --- !u!114 &11463838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2435,7 +2377,7 @@ MonoBehaviour:
   glowShader: {fileID: 0}
   animator: {fileID: 0}
   m_IntroTutorialScript: {fileID: 11404950}
-  m_VibrationController: {fileID: 11466136}
+  m_VibrationController: {fileID: 0}
   m_GameParams: {fileID: 0}
   swipe_sound: {fileID: 8300000, guid: d0d44decaf8db5c46afd05a5683d2184, type: 3}
 --- !u!114 &11465642
@@ -2451,17 +2393,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 2
   fadeColor: {r: 0.01, g: 0.01, b: 0.01, a: 1}
---- !u!114 &11466136
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90d58bcdd9f164f4891a33d229039d9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11467668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2530,20 +2461,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 5
---- !u!114 &11474198
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b5ae375b110b54291291bfcb3e45e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Transform: {fileID: 457856}
-  footStep1: {fileID: 8298706}
-  footStep2: {fileID: 8296584}
 --- !u!114 &11474432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2713,25 +2630,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71d1996d67004241a3b69960856ffcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11493354
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2bdbcb4edb592f429d7ec322661a4ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PointsEarned: 0
-  m_NecessaryPoints: 1000
-  m_DefaultValuePoints: 400
-  m_PickupManager: {fileID: 11400550}
-  m_PlayerController: {fileID: 0}
-  m_PointsCanvas: {fileID: 0}
-  m_PointsMessage: {fileID: 0}
-  points: {fileID: 0}
 --- !u!114 &11496324
 MonoBehaviour:
   m_ObjectHideFlags: 1
