@@ -9082,7 +9082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8433a2976d04b43b9abde0338ae4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Torch: {fileID: 177436}
+  m_Torch: {fileID: 176304}
   m_Controller: {fileID: 11453372}
   isActive: 0
 --- !u!114 &11440386

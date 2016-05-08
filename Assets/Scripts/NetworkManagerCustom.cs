@@ -404,7 +404,7 @@ public class NetworkManagerCustom : NetworkManager {
 
   public void EscapeKeyPressed() {
     if ( SceneManager.GetActiveScene().name == m_MenuScene) {
-      Application.Quit();
+      //Application.Quit();
     } else {
       CloseGameConnection();
     }
