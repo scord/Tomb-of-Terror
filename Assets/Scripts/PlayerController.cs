@@ -65,17 +65,9 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	virtual protected void Update () {
-        move = false;
-        run = false;
-        if(Input.GetAxis("Vertical") != 0)
-          move = true;
-        if( Input.GetKey(KeyCode.LeftShift) || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0 )
-          run = true;
         if (canChangeLevel && Input.GetKeyDown(KeyCode.K)) {
             ChangeLevel();
         }
-        animator.SetBool("Run", run);
-        animator.SetBool("Movement", move);
 
         if (carrying){
             carriedObject.transform.position = cam.transform.position + cam.transform.TransformDirection(Vector3.forward)*2;

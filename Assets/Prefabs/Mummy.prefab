@@ -367,6 +367,7 @@ GameObject:
   - 114: {fileID: 11441304}
   - 114: {fileID: 11469070}
   - 114: {fileID: 11469150}
+  - 114: {fileID: 11406904}
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Player
@@ -1718,7 +1719,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151172}
-  m_LocalRotation: {x: 0.62622035, y: 0.7009297, z: -0.29358685, w: 0.17421986}
+  m_LocalRotation: {x: 0.6262203, y: 0.70092964, z: -0.29358682, w: 0.17421985}
   m_LocalPosition: {x: -0.010628547, y: 0.021276934, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2492,6 +2493,18 @@ MonoBehaviour:
   fadeInTexture: {fileID: 0}
   speedRotationIncrement: 0.05
   layerName: Default
+--- !u!114 &11406904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51cb43577a2bd4f4b997a2e02e89d85e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 9564370}
 --- !u!114 &11409794
 MonoBehaviour:
   m_ObjectHideFlags: 1
