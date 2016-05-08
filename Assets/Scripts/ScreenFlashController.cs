@@ -5,20 +5,21 @@ using System.Collections.Generic;
 
 public class ScreenFlashController : MonoBehaviour {
 
-	[SerializeField] private GameObject redCanvas;
+	[SerializeField] private GameObject redCanvasFront;
 
 	public bool hit = false;
 	bool flashing = false;
 
 	void Start() {
-		redCanvas.SetActive(false);
+		redCanvasFront.SetActive(false);
+
 	}
 		
 
 	void Update() {
 		if (hit && flashing == false) {
 			flashing = true;
-			StartCoroutine (FadeIn (redCanvas, 6.0f));
+			StartCoroutine (FadeIn (redCanvasFront, 6.0f));
 		}
 
 	}
@@ -33,9 +34,8 @@ public class ScreenFlashController : MonoBehaviour {
 			else cv.alpha += speed * Time.deltaTime;
 			yield return null;
 		}
-
-
-		StartCoroutine (FadeOut (redCanvas, 6.0f));
+						
+		StartCoroutine (FadeOut (redCanvasFront, 6.0f));
 	}
 
 	IEnumerator FadeOut (GameObject obj, float speed) {
@@ -53,6 +53,6 @@ public class ScreenFlashController : MonoBehaviour {
 	}
 
 	protected void OnDisable() {
-		redCanvas.SetActive (false);
+		redCanvasFront.SetActive(false);
 	}
 }
