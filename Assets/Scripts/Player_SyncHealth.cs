@@ -45,7 +45,7 @@ public class Player_SyncHealth : NetworkBehaviour {
     if (isLocalPlayer) {
       m_VibrationController.VibrateFor(1.0f);
       lives.text = m_Lives.ToString ();
-      MultiplyRunningSpeed(6.0f);
+      MultiplyRunningSpeed(3.0f);
       StartCoroutine(RelaxSpeed());
       //Do things like run faster
       Debug.Log("I was swiped");
