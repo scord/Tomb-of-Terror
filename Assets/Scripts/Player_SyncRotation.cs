@@ -28,6 +28,7 @@ public class Player_SyncRotation : NetworkBehaviour {
     if(isLocalPlayer) {
       lastPlayerRotation = m_PlayerTransform.localEulerAngles.y;
       lastCameraRotation = m_CamTransform.localEulerAngles.x;
+      LerpRotations();
     }
 	}
 	

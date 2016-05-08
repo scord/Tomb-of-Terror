@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 479082}
   - 108: {fileID: 10863442}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   - 4: {fileID: 431622}
   - 198: {fileID: 19828804}
   - 199: {fileID: 19918764}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,8 +66,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184526}
-  m_LocalRotation: {x: 0.026275584, y: 0.1741841, z: 0.14682995, w: 0.97335017}
-  m_LocalPosition: {x: 5.61, y: 18.45, z: -325.89}
+  m_LocalRotation: {x: 0.1224041, y: 0.81142926, z: 0.0852448, w: 0.5650957}
+  m_LocalPosition: {x: -24.890013, y: 18.45, z: -5.109997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 479082}
@@ -98,7 +98,7 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 163.1
-  m_SpotAngle: 48.37661
+  m_SpotAngle: 27
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -173,7 +173,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 141.8
+      scalar: 13.59
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -478,7 +478,7 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 1000
+    maxNumParticles: 400
     rotation3D: 0
   ShapeModule:
     serializedVersion: 2
@@ -505,7 +505,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 0.73
+      scalar: 5.1
       maxCurve:
         serializedVersion: 2
         m_Curve:

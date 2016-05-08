@@ -24,6 +24,9 @@ public class LobbyManager : MonoBehaviour {
     } else {
       m_MouseLookScript.enabled = false;
     }
+    if(Input.GetKey(KeyCode.Return)) {
+      StartGame();
+    }
 	}
 
   public void StartGame() {

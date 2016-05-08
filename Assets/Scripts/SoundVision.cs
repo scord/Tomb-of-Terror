@@ -12,7 +12,9 @@ public class SoundVision : MonoBehaviour
     private int maxWaves = 64; //number of possible simultaneous waves
 
     bool echoLocation = false;
-    private float echoTime = 0;
+	private float[] echoWaves = new float[4];
+	private int echoIndex = 0;
+	private float[] echoTime = new float[4];
     // float maxVolume = 50;
     public int maxLength = 32;
     public int numfree = 0;
@@ -121,14 +123,18 @@ public class SoundVision : MonoBehaviour
 
     public void EchoLocate(float charge)
     {
+
         echoCharge = charge;
         echoLocation = true;
-        echoTime = 0;
-		Shader.SetGlobalFloat("_EchoPower", charge);
+		echoTime[echoIndex] = 0.0f;
+	
+		Shader.SetGlobalVector("_EchoPower" + echoIndex, new Vector2(charge, 0));
 		// Debug.Log (charge);
         Shader.SetGlobalColor("_EchoColor", color);
-        Shader.SetGlobalVector("_EchoSource", transform.position);
-        Shader.SetGlobalFloat("_EchoTime", 0);
+        Shader.SetGlobalVector("_EchoSource" + echoIndex, transform.position);
+        Shader.SetGlobalVector("_EchoTime" + echoIndex, new Vector2(0,0));
+
+		echoIndex = (echoIndex + 1) % 4;
     }
 
     void Update()
@@ -148,16 +154,15 @@ public class SoundVision : MonoBehaviour
 			if (echoCharge > 7f)
 				echoCharge = 7f;
 
-            if (echoTime > echoCharge)
-            {
-                echoLocation = false;
-                echoTime = 0;
-            }
-            echoTime += dtime;
+			for (int x = 0; x < 4; x++) {
+
+		
+				echoTime[x] += dtime;
 
 
 
-            Shader.SetGlobalFloat("_EchoTime", echoTime);
+				Shader.SetGlobalVector ("_EchoTime"+x, new Vector2(echoTime[x],0));
+			}
         }
 
         int i = 0;
