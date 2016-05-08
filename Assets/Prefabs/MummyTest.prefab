@@ -2498,7 +2498,7 @@ MonoBehaviour:
   m_PointsEarned: 0
   m_NecessaryPoints: 1000
   m_DefaultValuePoints: 400
-  m_PickupManager: {fileID: 0}
+  m_PickupManager: {fileID: 11410654}
   m_PlayerController: {fileID: 0}
   m_PointsCanvas: {fileID: 0}
   m_PointsMessage: {fileID: 0}
