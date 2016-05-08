@@ -134,6 +134,10 @@ public class ExplorerController : PlayerController {
     public override void CallbackServerChecking(bool success, string tag) {
         base.CallbackServerChecking(success, tag);
         if (success) {
+            if (tag == "Prize" || tag == "SmallPrize")
+            {
+                AudioSource.PlayClipAtPoint(pick_up_gold, transform.position);
+            }
             if (!m_IsMainLevel && tag == "Prize") {
                 InstantiateTorch();
             }

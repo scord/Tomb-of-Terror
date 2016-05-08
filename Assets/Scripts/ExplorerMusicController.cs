@@ -10,10 +10,14 @@ public class ExplorerMusicController : MonoBehaviour {
     bool drama_music_playing = false;
     bool play_drama_music = false;
 	// Use this for initialization
+
+    AudioSource[] audio_array;
+    GameObject background_audio;
+    GameObject mummy;
 	void Start () {
-        GameObject mummy = GameObject.FindGameObjectWithTag("Mummy");
-        GameObject background_audio = GameObject.FindGameObjectWithTag("Background_audio");
-        AudioSource[] audio_array = background_audio.GetComponents<AudioSource>();
+        mummy = GameObject.FindGameObjectWithTag("Mummy");
+        background_audio = GameObject.FindGameObjectWithTag("Background_audio");
+        audio_array = background_audio.GetComponents<AudioSource>();
         //audio_array[5].volume = 1.0f;
         if (SceneManager.GetActiveScene().name == "Sample")
         {
@@ -27,9 +31,9 @@ public class ExplorerMusicController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GameObject background_audio = GameObject.FindGameObjectWithTag("Background_audio");
-        AudioSource[] audio_array = background_audio.GetComponents<AudioSource>();
-        GameObject mummy = GameObject.FindGameObjectWithTag("Mummy");
+        //GameObject background_audio = GameObject.FindGameObjectWithTag("Background_audio");
+        //AudioSource[] audio_array = background_audio.GetComponents<AudioSource>();
+        mummy = GameObject.FindGameObjectWithTag("Mummy");
         if (mummy != null){
             mummyRenderer = mummy.GetComponentInChildren<Renderer>();
         }

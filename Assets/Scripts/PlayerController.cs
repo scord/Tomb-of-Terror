@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     public Renderer m_Renderer;
     public Shader standardShader;
     public Shader glowShader;
-    [SerializeField] private AudioClip pick_up_gold;
+    [SerializeField] protected AudioClip pick_up_gold;
 
     private bool m_PickupEnabled = true;
 
