@@ -354,6 +354,9 @@ GameObject:
   - 114: {fileID: 11467670}
   - 114: {fileID: 11460034}
   - 114: {fileID: 11478962}
+  - 114: {fileID: 11467438}
+  - 114: {fileID: 11420142}
+  - 114: {fileID: 11447950}
   m_Layer: 0
   m_Name: MummyTest
   m_TagString: Player
@@ -2158,6 +2161,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11420142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b221b6929278643b6bae60ca464631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerController: {fileID: 11463838}
 --- !u!114 &11420490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2313,6 +2328,17 @@ MonoBehaviour:
   near: 1
   far: 10
   disableRfl: 0
+--- !u!114 &11447950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90d58bcdd9f164f4891a33d229039d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11451434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2393,7 +2419,7 @@ MonoBehaviour:
   glowShader: {fileID: 0}
   animator: {fileID: 0}
   m_IntroTutorialScript: {fileID: 11404950}
-  m_VibrationController: {fileID: 0}
+  m_VibrationController: {fileID: 11447950}
   m_GameParams: {fileID: 0}
   swipe_sound: {fileID: 8300000, guid: d0d44decaf8db5c46afd05a5683d2184, type: 3}
 --- !u!114 &11465642
@@ -2409,6 +2435,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 2
   fadeColor: {r: 0.01, g: 0.01, b: 0.01, a: 1}
+--- !u!114 &11467438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4574252571141564a989184bf6ccc71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11467668
 MonoBehaviour:
   m_ObjectHideFlags: 1
