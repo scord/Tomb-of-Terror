@@ -7,6 +7,7 @@ public class Game_Manager_References : MonoBehaviour {
 
   private List<InteractScript> interactObjects;
   private List<GameObject> pickableObjects;
+  private List<GameObject> smallPrizes;
 	// Use this for initialization
 	void Start () {
     GameObject[] tmp = GameObject.FindGameObjectsWithTag("Interaction");
@@ -22,6 +23,12 @@ public class Game_Manager_References : MonoBehaviour {
       pickableObjects.Add(go);
     }
     tmp = GameObject.FindGameObjectsWithTag("Prize");
+    foreach( GameObject go in tmp) {
+      pickableObjects.Add(go);
+    }
+
+    smallPrizes = new List<GameObject>();
+    tmp = GameObject.FindGameObjectsWithTag("SmallPrize");
     foreach( GameObject go in tmp) {
       pickableObjects.Add(go);
     }
@@ -45,6 +52,10 @@ public class Game_Manager_References : MonoBehaviour {
     if ( index != -1 && index < interactObjects.Count) {
       interactObjects[index] = o;
     }
+  }
+
+  public void RemovePickableAtIndex(GameObject o, int index) {
+    pickableObjects.RemoveAt(index);
   }
 
   public int GetPickUpObjectIndex(GameObject go) {

@@ -156,6 +156,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeartRate: 80
+  max_hr: 200
+  relevance: 5
+  refresh_time: 300
 --- !u!4 &186395308
 Transform:
   m_ObjectHideFlags: 0

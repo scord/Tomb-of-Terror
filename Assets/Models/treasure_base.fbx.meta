@@ -1,0 +1,434 @@
+fileFormatVersion: 2
+guid: a704cab12535f124a90e756796ad7e92
+timeCreated: 1462290008
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: base 1
+    100002: glyphs_row1
+    100004: glyphs_row2
+    100006: glyphs_row3
+    100008: glyphs_row4
+    100010: glyphs_row5
+    100012: glyphs_row6
+    100014: glyphs_row7
+    100016: glyphs_row8
+    100018: //RootNode
+    100020: Trim_Char_N_1_1
+    100022: Trim_Char_N_1_1 1
+    100024: Trim_Char_N_1_1 10
+    100026: Trim_Char_N_1_1 11
+    100028: Trim_Char_N_1_1 12
+    100030: Trim_Char_N_1_1 13
+    100032: Trim_Char_N_1_1 14
+    100034: Trim_Char_N_1_1 15
+    100036: Trim_Char_N_1_1 2
+    100038: Trim_Char_N_1_1 3
+    100040: Trim_Char_N_1_1 4
+    100042: Trim_Char_N_1_1 5
+    100044: Trim_Char_N_1_1 6
+    100046: Trim_Char_N_1_1 7
+    100048: Trim_Char_N_1_1 8
+    100050: Trim_Char_N_1_1 9
+    100052: Trim_Char_x_1_1
+    100054: Trim_Char_x_1_1 1
+    100056: Trim_Char_x_1_1 10
+    100058: Trim_Char_x_1_1 11
+    100060: Trim_Char_x_1_1 12
+    100062: Trim_Char_x_1_1 13
+    100064: Trim_Char_x_1_1 14
+    100066: Trim_Char_x_1_1 15
+    100068: Trim_Char_x_1_1 16
+    100070: Trim_Char_x_1_1 17
+    100072: Trim_Char_x_1_1 18
+    100074: Trim_Char_x_1_1 19
+    100076: Trim_Char_x_1_1 2
+    100078: Trim_Char_x_1_1 3
+    100080: Trim_Char_x_1_1 4
+    100082: Trim_Char_x_1_1 5
+    100084: Trim_Char_x_1_1 6
+    100086: Trim_Char_x_1_1 7
+    100088: Trim_Char_x_1_1 8
+    100090: Trim_Char_x_1_1 9
+    100092: Trim_Text_N_1_1
+    100094: Trim_Text_N_1_1 1
+    100096: Trim_Text_N_1_1 2
+    100098: Trim_Text_N_1_1 3
+    100100: Trim_Text_N_1_1 4
+    100102: Trim_Text_N_1_1 5
+    100104: Trim_Text_N_1_1 6
+    100106: Trim_Text_N_1_1 7
+    100108: Trim_Text_N_1_2
+    100110: Trim_Text_N_1_2 1
+    100112: Trim_Text_N_1_2 2
+    100114: Trim_Text_N_1_2 3
+    100116: Trim_Text_N_1_2 4
+    100118: Trim_Text_N_1_2 5
+    100120: Trim_Text_N_1_2 6
+    100122: Trim_Text_N_1_2 7
+    100124: Trim_Text_x_1_1
+    100126: Trim_Text_x_1_1 1
+    100128: Trim_Text_x_1_1 2
+    100130: Trim_Text_x_1_1 3
+    100132: Trim_Text_x_1_1 4
+    100134: Trim_Text_x_1_1 5
+    100136: Trim_Text_x_1_1 6
+    100138: Trim_Text_x_1_1 7
+    100140: Trim_Text_x_1_2
+    100142: Trim_Text_x_1_2 1
+    100144: Trim_Text_x_1_2 2
+    100146: Trim_Text_x_1_2 3
+    100148: Trim_Text_x_1_2 4
+    100150: Trim_Text_x_1_2 5
+    100152: Trim_Text_x_1_2 6
+    100154: Trim_Text_x_1_2 7
+    100156: Trim_Text_x_1_3
+    100158: Trim_Text_x_1_3 1
+    100160: Trim_Text_x_1_3 2
+    100162: Trim_Text_x_1_3 3
+    100164: base
+    100166: base1
+    100168: glyphs_row13
+    100170: glyphs_row15
+    100172: transform10
+    100174: transform11
+    100176: transform12
+    100178: transform3
+    100180: transform33
+    100182: transform34
+    100184: transform35
+    100186: transform36
+    100188: transform37
+    100190: transform38
+    100192: transform39
+    100194: transform4
+    100196: transform40
+    100198: transform41
+    100200: transform42
+    100202: transform43
+    100204: transform44
+    100206: transform45
+    100208: transform46
+    100210: transform47
+    100212: transform48
+    100214: transform49
+    100216: transform5
+    100218: transform50
+    100220: transform51
+    100222: transform52
+    100224: transform53
+    100226: transform54
+    100228: transform55
+    100230: transform56
+    100232: transform57
+    100234: transform58
+    100236: transform59
+    100238: transform6
+    100240: transform60
+    100242: transform61
+    100244: transform9
+    400000: base 1
+    400002: glyphs_row1
+    400004: glyphs_row2
+    400006: glyphs_row3
+    400008: glyphs_row4
+    400010: glyphs_row5
+    400012: glyphs_row6
+    400014: glyphs_row7
+    400016: glyphs_row8
+    400018: //RootNode
+    400020: Trim_Char_N_1_1
+    400022: Trim_Char_N_1_1 1
+    400024: Trim_Char_N_1_1 10
+    400026: Trim_Char_N_1_1 11
+    400028: Trim_Char_N_1_1 12
+    400030: Trim_Char_N_1_1 13
+    400032: Trim_Char_N_1_1 14
+    400034: Trim_Char_N_1_1 15
+    400036: Trim_Char_N_1_1 2
+    400038: Trim_Char_N_1_1 3
+    400040: Trim_Char_N_1_1 4
+    400042: Trim_Char_N_1_1 5
+    400044: Trim_Char_N_1_1 6
+    400046: Trim_Char_N_1_1 7
+    400048: Trim_Char_N_1_1 8
+    400050: Trim_Char_N_1_1 9
+    400052: Trim_Char_x_1_1
+    400054: Trim_Char_x_1_1 1
+    400056: Trim_Char_x_1_1 10
+    400058: Trim_Char_x_1_1 11
+    400060: Trim_Char_x_1_1 12
+    400062: Trim_Char_x_1_1 13
+    400064: Trim_Char_x_1_1 14
+    400066: Trim_Char_x_1_1 15
+    400068: Trim_Char_x_1_1 16
+    400070: Trim_Char_x_1_1 17
+    400072: Trim_Char_x_1_1 18
+    400074: Trim_Char_x_1_1 19
+    400076: Trim_Char_x_1_1 2
+    400078: Trim_Char_x_1_1 3
+    400080: Trim_Char_x_1_1 4
+    400082: Trim_Char_x_1_1 5
+    400084: Trim_Char_x_1_1 6
+    400086: Trim_Char_x_1_1 7
+    400088: Trim_Char_x_1_1 8
+    400090: Trim_Char_x_1_1 9
+    400092: Trim_Text_N_1_1
+    400094: Trim_Text_N_1_1 1
+    400096: Trim_Text_N_1_1 2
+    400098: Trim_Text_N_1_1 3
+    400100: Trim_Text_N_1_1 4
+    400102: Trim_Text_N_1_1 5
+    400104: Trim_Text_N_1_1 6
+    400106: Trim_Text_N_1_1 7
+    400108: Trim_Text_N_1_2
+    400110: Trim_Text_N_1_2 1
+    400112: Trim_Text_N_1_2 2
+    400114: Trim_Text_N_1_2 3
+    400116: Trim_Text_N_1_2 4
+    400118: Trim_Text_N_1_2 5
+    400120: Trim_Text_N_1_2 6
+    400122: Trim_Text_N_1_2 7
+    400124: Trim_Text_x_1_1
+    400126: Trim_Text_x_1_1 1
+    400128: Trim_Text_x_1_1 2
+    400130: Trim_Text_x_1_1 3
+    400132: Trim_Text_x_1_1 4
+    400134: Trim_Text_x_1_1 5
+    400136: Trim_Text_x_1_1 6
+    400138: Trim_Text_x_1_1 7
+    400140: Trim_Text_x_1_2
+    400142: Trim_Text_x_1_2 1
+    400144: Trim_Text_x_1_2 2
+    400146: Trim_Text_x_1_2 3
+    400148: Trim_Text_x_1_2 4
+    400150: Trim_Text_x_1_2 5
+    400152: Trim_Text_x_1_2 6
+    400154: Trim_Text_x_1_2 7
+    400156: Trim_Text_x_1_3
+    400158: Trim_Text_x_1_3 1
+    400160: Trim_Text_x_1_3 2
+    400162: Trim_Text_x_1_3 3
+    400164: base
+    400166: base1
+    400168: glyphs_row13
+    400170: glyphs_row15
+    400172: transform10
+    400174: transform11
+    400176: transform12
+    400178: transform3
+    400180: transform33
+    400182: transform34
+    400184: transform35
+    400186: transform36
+    400188: transform37
+    400190: transform38
+    400192: transform39
+    400194: transform4
+    400196: transform40
+    400198: transform41
+    400200: transform42
+    400202: transform43
+    400204: transform44
+    400206: transform45
+    400208: transform46
+    400210: transform47
+    400212: transform48
+    400214: transform49
+    400216: transform5
+    400218: transform50
+    400220: transform51
+    400222: transform52
+    400224: transform53
+    400226: transform54
+    400228: transform55
+    400230: transform56
+    400232: transform57
+    400234: transform58
+    400236: transform59
+    400238: transform6
+    400240: transform60
+    400242: transform61
+    400244: transform9
+    2300000: base 1
+    2300002: Trim_Char_N_1_1
+    2300004: Trim_Char_N_1_1 1
+    2300006: Trim_Char_N_1_1 10
+    2300008: Trim_Char_N_1_1 11
+    2300010: Trim_Char_N_1_1 12
+    2300012: Trim_Char_N_1_1 13
+    2300014: Trim_Char_N_1_1 14
+    2300016: Trim_Char_N_1_1 15
+    2300018: Trim_Char_N_1_1 2
+    2300020: Trim_Char_N_1_1 3
+    2300022: Trim_Char_N_1_1 4
+    2300024: Trim_Char_N_1_1 5
+    2300026: Trim_Char_N_1_1 6
+    2300028: Trim_Char_N_1_1 7
+    2300030: Trim_Char_N_1_1 8
+    2300032: Trim_Char_N_1_1 9
+    2300034: Trim_Char_x_1_1
+    2300036: Trim_Char_x_1_1 1
+    2300038: Trim_Char_x_1_1 10
+    2300040: Trim_Char_x_1_1 11
+    2300042: Trim_Char_x_1_1 12
+    2300044: Trim_Char_x_1_1 13
+    2300046: Trim_Char_x_1_1 14
+    2300048: Trim_Char_x_1_1 15
+    2300050: Trim_Char_x_1_1 16
+    2300052: Trim_Char_x_1_1 17
+    2300054: Trim_Char_x_1_1 18
+    2300056: Trim_Char_x_1_1 19
+    2300058: Trim_Char_x_1_1 2
+    2300060: Trim_Char_x_1_1 3
+    2300062: Trim_Char_x_1_1 4
+    2300064: Trim_Char_x_1_1 5
+    2300066: Trim_Char_x_1_1 6
+    2300068: Trim_Char_x_1_1 7
+    2300070: Trim_Char_x_1_1 8
+    2300072: Trim_Char_x_1_1 9
+    2300074: //RootNode
+    2300076: base1
+    3300000: base 1
+    3300002: Trim_Char_N_1_1
+    3300004: Trim_Char_N_1_1 1
+    3300006: Trim_Char_N_1_1 10
+    3300008: Trim_Char_N_1_1 11
+    3300010: Trim_Char_N_1_1 12
+    3300012: Trim_Char_N_1_1 13
+    3300014: Trim_Char_N_1_1 14
+    3300016: Trim_Char_N_1_1 15
+    3300018: Trim_Char_N_1_1 2
+    3300020: Trim_Char_N_1_1 3
+    3300022: Trim_Char_N_1_1 4
+    3300024: Trim_Char_N_1_1 5
+    3300026: Trim_Char_N_1_1 6
+    3300028: Trim_Char_N_1_1 7
+    3300030: Trim_Char_N_1_1 8
+    3300032: Trim_Char_N_1_1 9
+    3300034: Trim_Char_x_1_1
+    3300036: Trim_Char_x_1_1 1
+    3300038: Trim_Char_x_1_1 10
+    3300040: Trim_Char_x_1_1 11
+    3300042: Trim_Char_x_1_1 12
+    3300044: Trim_Char_x_1_1 13
+    3300046: Trim_Char_x_1_1 14
+    3300048: Trim_Char_x_1_1 15
+    3300050: Trim_Char_x_1_1 16
+    3300052: Trim_Char_x_1_1 17
+    3300054: Trim_Char_x_1_1 18
+    3300056: Trim_Char_x_1_1 19
+    3300058: Trim_Char_x_1_1 2
+    3300060: Trim_Char_x_1_1 3
+    3300062: Trim_Char_x_1_1 4
+    3300064: Trim_Char_x_1_1 5
+    3300066: Trim_Char_x_1_1 6
+    3300068: Trim_Char_x_1_1 7
+    3300070: Trim_Char_x_1_1 8
+    3300072: Trim_Char_x_1_1 9
+    3300074: //RootNode
+    3300076: base1
+    4300000: base
+    4300002: Trim_Char_x_1_1
+    4300004: Trim_Char_N_1_1
+    4300006: Trim_Char_x_1_1
+    4300008: Trim_Char_N_1_1
+    4300010: Trim_Char_x_1_1
+    4300012: Trim_Char_x_1_1
+    4300014: Trim_Char_N_1_1
+    4300016: Trim_Char_x_1_1
+    4300018: Trim_Char_N_1_1
+    4300020: Trim_Char_x_1_1
+    4300022: Trim_Char_x_1_1
+    4300024: Trim_Char_N_1_1
+    4300026: Trim_Char_x_1_1
+    4300028: Trim_Char_N_1_1
+    4300030: Trim_Char_x_1_1
+    4300032: Trim_Char_x_1_1
+    4300034: Trim_Char_N_1_1
+    4300036: Trim_Char_x_1_1
+    4300038: Trim_Char_N_1_1
+    4300040: Trim_Char_x_1_1
+    4300042: Trim_Char_x_1_1
+    4300044: Trim_Char_N_1_1
+    4300046: Trim_Char_x_1_1
+    4300048: Trim_Char_N_1_1
+    4300050: Trim_Char_x_1_1
+    4300052: Trim_Char_N_1_1
+    4300054: Trim_Char_x_1_1
+    4300056: Trim_Char_N_1_1
+    4300058: Trim_Char_x_1_1
+    4300060: Trim_Char_N_1_1
+    4300062: Trim_Char_x_1_1
+    4300064: Trim_Char_N_1_1
+    4300066: Trim_Char_x_1_1
+    4300068: Trim_Char_N_1_1
+    4300070: Trim_Char_x_1_1
+    4300072: Trim_Char_N_1_1
+    4300074: base1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

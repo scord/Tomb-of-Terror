@@ -13,7 +13,7 @@ public class MummyIntroScript : IntroTutorialScript {
 
 	// look around variable
 	[SerializeField] private GameObject headCanvas;
-	private float lookAround = 3;
+	private float lookAround = 2;
 
 	// walk variable
 	[SerializeField] private GameObject walkCanvas;
@@ -38,13 +38,19 @@ public class MummyIntroScript : IntroTutorialScript {
 	[SerializeField] private GameObject prepareCanvas;
 	private float prepareTime = 3;
 	private int completedPrompts = 0;
-	private List<string> preparePrompts = new List<string>{"The following are just preparation for when you become blind.",
-																													"Your goal is to catch the explorer",
+	private List<string> preparePrompts = new List<string>{"This is the world the way everyone perceives it",
+																													"Once you go blind, you will have to use sound waves to be able to navigate",
+                                                          "Shouting will be the main way in which you will be able to 'see' the surroundings",
+                                                          "Try it now in order to enter the blind vision",
                                                           "",
-																													"You will need to make sounds to be able to navigate",
-																													"You will also be able to 'see' fires, oppening doors and the explorer's heart and footsteps ",
-																													"Remember, if you don't see anything, trigger echolocation",
-																													"Do it now, to enter the soundvision and try and find the explorer"};
+																													// "You will also be able to 'see' fires, oppening doors and the explorer's heart and footsteps ",
+
+                                                          "Your goal is to find the explorer before it steals the treasure",
+                                                          "There is a dummy explorer in a room next to you, try catching him",
+                                                          "Remember, if you don't see anything, press the shout button",
+                                                          "A bigger interval between shouts will result in a louder shout, test this !"
+                                                          };
+
 
   // Use this for initialization
   protected void Start () {
@@ -80,7 +86,7 @@ public class MummyIntroScript : IntroTutorialScript {
 			if(lookAround > 0)
 				lookAround -= Time.deltaTime;
 			else
-				FadeToWalk();
+				FadeTo(headCanvas, walkCanvas);
 		}
 
 		// walk around prompt
@@ -94,26 +100,14 @@ public class MummyIntroScript : IntroTutorialScript {
 		// if pivot canvas activated
 		else if (pivotCanvas.activeSelf) {
 			if( EndPivot() )
-				FadeTo(pivotCanvas, runCanvas);
+				FadeTo(pivotCanvas, prepareCanvas);
 		}
 
-		// if run canvas activated
-		else if( runCanvas.activeSelf ) {
-			if( Input.GetKey(KeyCode.LeftShift) || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0 )
-				running = true;
-			else
-				running = false;
 
-			if(running && runTime > 0)
-				runTime -= Time.deltaTime;
-
-			if(runTime < 0)
-				FadeTo(runCanvas, prepareCanvas);
-		}
 
 		else if(prepareCanvas.activeSelf ){
-      if( completedPrompts == 2) {
-        FadeTo(prepareCanvas, catchCanvas);
+      if( completedPrompts == 4 || completedPrompts == 9) {
+        FadeTo(prepareCanvas, echolocateCanvas);
       }
       else {
         if(completedPrompts < preparePrompts.Count){
@@ -122,36 +116,64 @@ public class MummyIntroScript : IntroTutorialScript {
           else {
             completedPrompts++;
             prepareCanvas.GetComponent<Text>().text = preparePrompts[completedPrompts];
-            prepareTime = preparePrompts[completedPrompts].Length / 10;
+            prepareTime = preparePrompts[completedPrompts].Length / 13;
           }
         }
-        else
-          FadeTo(prepareCanvas, echolocateCanvas);
+        else{
+          Debug.Log("finish tutorial");
+          mummyController.FinishTutorial();
+          prepareCanvas.SetActive(false);
+
+        }
       }
 		}
-		else if (catchCanvas.activeSelf){
-			if(Input.GetButtonDown("Fire2")){
-				FadeTo(catchCanvas, prepareCanvas);
-        completedPrompts++;
-			}
-		}
 
-		else if(echolocateCanvas.activeSelf){
-			if((Input.GetButtonDown("Fire1"))){
-				TurnOnVision();
-				echolocateCanvas.SetActive(false);
-				mummyController.FinishTutorial();
-			}
+    else if(echolocateCanvas.activeSelf){
+      if((Input.GetButtonDown("Fire1"))){
+        if(!vision.enabled)
+          TurnOnVision();
+
+        completedPrompts++;
+        echolocateCanvas.SetActive(false);
+        StartCoroutine(FadeIn(prepareCanvas, 0.2F));
+
+        if(completedPrompts < preparePrompts.Count){
+          prepareCanvas.GetComponent<Text>().text = preparePrompts[completedPrompts];
+          prepareTime = preparePrompts[completedPrompts].Length / 13;
+        }
+      }
+    }
+    // if run canvas activated
+    else if( runCanvas.activeSelf ) {
+      if (Input.GetKey(KeyCode.LeftShift) || Input.GetAxis("TriggerL") > 0 || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0)
+        running = true;
+      else
+        running = false;
+
+      if(running && runTime > 0)
+        runTime -= Time.deltaTime;
+
+      if(runTime < 0)
+        StartCoroutine(FadeOut(runCanvas, 0.5F));
+    }
+
+    else if (catchCanvas.activeSelf){
+			if(Input.GetButtonDown("Fire2"))
+        catchCanvas.SetActive(false);
 		}
   }
 
+  public void Run(){
+    StartCoroutine(FadeIn(runCanvas, 0.5F));
+  }
+  public void Catch(){
+    StartCoroutine(FadeIn(catchCanvas, 0.5F));
+  }
 
   private bool EndPivot(){
-    Debug.Log(pivotCount);
     if(pivotCount > 0){
-      if ( Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) || OVRInput.Get(OVRInput.Button.PrimaryShoulder) || OVRInput.Get(OVRInput.Button.SecondaryShoulder)  ){
-        Debug.Log("pressed");
-        pivotCount--;
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) || Input.GetKey(KeyCode.Joystick1Button4) || Input.GetKey(KeyCode.Joystick1Button5) || OVRInput.Get(OVRInput.Button.PrimaryShoulder) || OVRInput.Get(OVRInput.Button.SecondaryShoulder)) { 
+                pivotCount--;
       }
       return false;
     }
@@ -200,7 +222,6 @@ public class MummyIntroScript : IntroTutorialScript {
   }
 
   IEnumerator FadeOut (GameObject obj, float speed) {
-    Debug.Log("fade " + obj);
     float increment;
     CanvasGroup cv = obj.GetComponent<CanvasGroup>();
     while (cv.alpha > 0) {

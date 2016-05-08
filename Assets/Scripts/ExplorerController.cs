@@ -7,6 +7,7 @@ public class ExplorerController : PlayerController {
 	//private Light torchIntensity;
 
     [SerializeField] private GameObject m_Torch;
+    [SerializeField] private GameObject m_PointsCanvas;
     private TorchManager torchManagerScript;
 
 	private float wheelDirection;
@@ -28,9 +29,10 @@ public class ExplorerController : PlayerController {
     public override void StartConfig(bool isMainLevel) {
         base.StartConfig(isMainLevel);
         if (isMainLevel) {
-            canChangeLevel = false;
+            m_IsMainLevel = true;
+            if ( m_PointsCanvas != null ) m_PointsCanvas.SetActive(true);
         } else {
-            canChangeLevel = true;
+            m_IsMainLevel = false;
             torchManagerScript = null;
             m_Torch.SetActive(false);
         }
@@ -47,6 +49,7 @@ public class ExplorerController : PlayerController {
         if (torchManagerScript != null) {
             torchManagerScript.SetLight();
             if (Input.GetButtonDown("Fire1")) {
+
                 torchManagerScript.Trigger();
             }
 
@@ -103,6 +106,7 @@ public class ExplorerController : PlayerController {
     protected override void PickUp()
     {
         RaycastHit hit = new RaycastHit();
+        Debug.Log("I try to pick, " + isServerChecking);
         if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, 16))
         {
             if (hit.collider.gameObject.tag == "PickUp")
@@ -120,18 +124,24 @@ public class ExplorerController : PlayerController {
                 carrying = true;
                 CallEventPickUp(carriedObject);
                 //carriedObject.GetComponent<Object_SyncPosition>().PickUp("something");
-            } else if ( hit.collider.gameObject.tag == "Prize") {
+            } else if ( !isServerChecking && (System.Array.IndexOf(GetPrizeTags(), hit.collider.gameObject.tag) != -1)) {
+                isServerChecking = true;
                 CallEventPickUp(hit.collider.gameObject);
-                if (canChangeLevel) {
-                    InstantiateTorch();
-                }
-                hit.collider.gameObject.tag = "Untagged";
             }
         }
     }
 
-    public override string GetPrizeTag() {
-        return "Prize";
+    public override void CallbackServerChecking(bool success, string tag) {
+        base.CallbackServerChecking(success, tag);
+        if (success) {
+            if (!m_IsMainLevel && tag == "Prize") {
+                InstantiateTorch();
+            }
+        }
+    }
+
+    public override string[] GetPrizeTags() {
+        return new string[] {"Prize", "SmallPrize"};
     }
 
     private void InstantiateTorch() {

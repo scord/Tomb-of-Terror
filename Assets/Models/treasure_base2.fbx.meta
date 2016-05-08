@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: f253f30a24583ea449ba8dd68053273b
+timeCreated: 1462710181
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: base
+    100002: base 1
+    100004: base1
+    100006: glyphs_row3
+    100008: glyphs_row4
+    100010: transform41
+    100012: transform42
+    100014: transform43
+    100016: transform44
+    100018: transform45
+    100020: transform46
+    100022: transform47
+    100024: transform48
+    100026: transform49
+    100028: transform50
+    100030: transform61
+    100032: //RootNode
+    100034: Trim_Char_N_1_1
+    100036: Trim_Char_N_1_1 1
+    100038: Trim_Char_N_1_1 2
+    100040: Trim_Char_N_1_1 3
+    100042: Trim_Char_x_1_1
+    100044: Trim_Char_x_1_1 1
+    100046: Trim_Char_x_1_1 2
+    100048: Trim_Char_x_1_1 3
+    100050: Trim_Char_x_1_1 4
+    100052: Trim_Char_x_1_1 5
+    100054: Trim_Text_N_1_1
+    100056: Trim_Text_N_1_1 1
+    100058: Trim_Text_N_1_2
+    100060: Trim_Text_N_1_2 1
+    100062: Trim_Text_x_1_1
+    100064: Trim_Text_x_1_1 1
+    100066: Trim_Text_x_1_2
+    100068: Trim_Text_x_1_2 1
+    100070: Trim_Text_x_1_3
+    100072: Trim_Text_x_1_3 1
+    400000: base
+    400002: base 1
+    400004: base1
+    400006: glyphs_row3
+    400008: glyphs_row4
+    400010: transform41
+    400012: transform42
+    400014: transform43
+    400016: transform44
+    400018: transform45
+    400020: transform46
+    400022: transform47
+    400024: transform48
+    400026: transform49
+    400028: transform50
+    400030: transform61
+    400032: //RootNode
+    400034: Trim_Char_N_1_1
+    400036: Trim_Char_N_1_1 1
+    400038: Trim_Char_N_1_1 2
+    400040: Trim_Char_N_1_1 3
+    400042: Trim_Char_x_1_1
+    400044: Trim_Char_x_1_1 1
+    400046: Trim_Char_x_1_1 2
+    400048: Trim_Char_x_1_1 3
+    400050: Trim_Char_x_1_1 4
+    400052: Trim_Char_x_1_1 5
+    400054: Trim_Text_N_1_1
+    400056: Trim_Text_N_1_1 1
+    400058: Trim_Text_N_1_2
+    400060: Trim_Text_N_1_2 1
+    400062: Trim_Text_x_1_1
+    400064: Trim_Text_x_1_1 1
+    400066: Trim_Text_x_1_2
+    400068: Trim_Text_x_1_2 1
+    400070: Trim_Text_x_1_3
+    400072: Trim_Text_x_1_3 1
+    2300000: base1
+    3300000: base1
+    4300000: base1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
