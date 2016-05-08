@@ -70,6 +70,14 @@ public class PlayerController : MonoBehaviour {
             ChangeLevel();
         }
 
+		if (Input.GetButtonDown ("Jump")) {
+			GameObject canvas = GameObject.FindGameObjectWithTag ("ExplorerCanvas");
+			if (canvas != null){
+				ScreenFlashController sfc = canvas.GetComponent<ScreenFlashController>();
+				sfc.hit = true;
+			}
+		}
+
         animator.SetBool("Movement", move);
 
         if (carrying)
