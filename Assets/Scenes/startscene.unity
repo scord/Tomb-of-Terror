@@ -509,7 +509,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 460020, guid: 0bba1f582eed7ed4491296733b05e169, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.77
+      value: 2.31
       objectReference: {fileID: 0}
     - target: {fileID: 460020, guid: 0bba1f582eed7ed4491296733b05e169, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3523,7 +3523,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487862, guid: bb0e70ad38bca01459c9c387e4f62fa3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.23
+      value: 2.01
       objectReference: {fileID: 0}
     - target: {fileID: 487862, guid: bb0e70ad38bca01459c9c387e4f62fa3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3547,7 +3547,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487862, guid: bb0e70ad38bca01459c9c387e4f62fa3, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 164720, guid: bb0e70ad38bca01459c9c387e4f62fa3, type: 2}
       propertyPath: m_Name
@@ -4830,7 +4830,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487862, guid: bb0e70ad38bca01459c9c387e4f62fa3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.21
+      value: 2.11
       objectReference: {fileID: 0}
     - target: {fileID: 487862, guid: bb0e70ad38bca01459c9c387e4f62fa3, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4990,7 +4990,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 460020, guid: 0bba1f582eed7ed4491296733b05e169, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.77
+      value: 2.34
       objectReference: {fileID: 0}
     - target: {fileID: 460020, guid: 0bba1f582eed7ed4491296733b05e169, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5014,7 +5014,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 460020, guid: 0bba1f582eed7ed4491296733b05e169, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 155270, guid: 0bba1f582eed7ed4491296733b05e169, type: 2}
       propertyPath: m_Name
