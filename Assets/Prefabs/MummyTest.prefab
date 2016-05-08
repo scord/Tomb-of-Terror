@@ -357,6 +357,7 @@ GameObject:
   - 114: {fileID: 11495118}
   - 114: {fileID: 11470706}
   - 114: {fileID: 11488760}
+  - 114: {fileID: 11422828}
   m_Layer: 0
   m_Name: MummyTest
   m_TagString: Player
@@ -2235,6 +2236,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11422828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4574252571141564a989184bf6ccc71e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11425938
 MonoBehaviour:
   m_ObjectHideFlags: 1
