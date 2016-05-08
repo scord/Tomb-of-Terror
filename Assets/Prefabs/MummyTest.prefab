@@ -352,6 +352,8 @@ GameObject:
   - 114: {fileID: 11425938}
   - 114: {fileID: 11421468}
   - 114: {fileID: 11467670}
+  - 114: {fileID: 11460034}
+  - 114: {fileID: 11478962}
   m_Layer: 0
   m_Name: MummyTest
   m_TagString: Player
@@ -2355,6 +2357,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11460034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b5ae375b110b54291291bfcb3e45e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Transform: {fileID: 457856}
+  footStep1: {fileID: 8298706}
+  footStep2: {fileID: 8296584}
 --- !u!114 &11463838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2499,6 +2515,19 @@ MonoBehaviour:
   near: 1
   far: 1000
   disableRfl: 0
+--- !u!114 &11478962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb46cef17fbd2146b262cf3515e362e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerTransform: {fileID: 457856}
+  m_CamTransform: {fileID: 479876}
 --- !u!114 &11481112
 MonoBehaviour:
   m_ObjectHideFlags: 1
