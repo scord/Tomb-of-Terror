@@ -87,6 +87,47 @@ ModelImporter:
     100158: Trim_Text_x_1_3 1
     100160: Trim_Text_x_1_3 2
     100162: Trim_Text_x_1_3 3
+    100164: base
+    100166: base1
+    100168: glyphs_row13
+    100170: glyphs_row15
+    100172: transform10
+    100174: transform11
+    100176: transform12
+    100178: transform3
+    100180: transform33
+    100182: transform34
+    100184: transform35
+    100186: transform36
+    100188: transform37
+    100190: transform38
+    100192: transform39
+    100194: transform4
+    100196: transform40
+    100198: transform41
+    100200: transform42
+    100202: transform43
+    100204: transform44
+    100206: transform45
+    100208: transform46
+    100210: transform47
+    100212: transform48
+    100214: transform49
+    100216: transform5
+    100218: transform50
+    100220: transform51
+    100222: transform52
+    100224: transform53
+    100226: transform54
+    100228: transform55
+    100230: transform56
+    100232: transform57
+    100234: transform58
+    100236: transform59
+    100238: transform6
+    100240: transform60
+    100242: transform61
+    100244: transform9
     400000: base 1
     400002: glyphs_row1
     400004: glyphs_row2
@@ -169,6 +210,47 @@ ModelImporter:
     400158: Trim_Text_x_1_3 1
     400160: Trim_Text_x_1_3 2
     400162: Trim_Text_x_1_3 3
+    400164: base
+    400166: base1
+    400168: glyphs_row13
+    400170: glyphs_row15
+    400172: transform10
+    400174: transform11
+    400176: transform12
+    400178: transform3
+    400180: transform33
+    400182: transform34
+    400184: transform35
+    400186: transform36
+    400188: transform37
+    400190: transform38
+    400192: transform39
+    400194: transform4
+    400196: transform40
+    400198: transform41
+    400200: transform42
+    400202: transform43
+    400204: transform44
+    400206: transform45
+    400208: transform46
+    400210: transform47
+    400212: transform48
+    400214: transform49
+    400216: transform5
+    400218: transform50
+    400220: transform51
+    400222: transform52
+    400224: transform53
+    400226: transform54
+    400228: transform55
+    400230: transform56
+    400232: transform57
+    400234: transform58
+    400236: transform59
+    400238: transform6
+    400240: transform60
+    400242: transform61
+    400244: transform9
     2300000: base 1
     2300002: Trim_Char_N_1_1
     2300004: Trim_Char_N_1_1 1
@@ -207,6 +289,7 @@ ModelImporter:
     2300070: Trim_Char_x_1_1 8
     2300072: Trim_Char_x_1_1 9
     2300074: //RootNode
+    2300076: base1
     3300000: base 1
     3300002: Trim_Char_N_1_1
     3300004: Trim_Char_N_1_1 1
@@ -245,6 +328,7 @@ ModelImporter:
     3300070: Trim_Char_x_1_1 8
     3300072: Trim_Char_x_1_1 9
     3300074: //RootNode
+    3300076: base1
     4300000: base
     4300002: Trim_Char_x_1_1
     4300004: Trim_Char_N_1_1

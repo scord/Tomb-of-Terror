@@ -5004,7 +5004,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126658}
   m_LocalRotation: {x: -0.071526594, y: -0.7917572, z: 0.05458041, w: -0.6041733}
-  m_LocalPosition: {x: 28.1, y: 6.3, z: 26.1}
+  m_LocalPosition: {x: 28.1, y: 0.6, z: 26.1}
   m_LocalScale: {x: 0.010000002, y: 0.009999995, z: 0.0100000035}
   m_Children:
   - {fileID: 435576}
@@ -5093,7 +5093,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101316}
   m_LocalRotation: {x: 0.070921436, y: -0.72522855, z: -0.6587036, w: 0.18741217}
-  m_LocalPosition: {x: 141.87, y: 6.44, z: -104.5}
+  m_LocalPosition: {x: 141.87, y: 0.43, z: -104.5}
   m_LocalScale: {x: 0.0031231353, y: 0.0031231358, z: 0.0031231355}
   m_Children:
   - {fileID: 491496}
@@ -5459,7 +5459,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126882}
   m_LocalRotation: {x: 0.070921436, y: -0.72522855, z: -0.6587036, w: 0.18741217}
-  m_LocalPosition: {x: -25.12, y: 6.26, z: 34.68}
+  m_LocalPosition: {x: -25.12, y: 0.25, z: 34.68}
   m_LocalScale: {x: 0.0031231353, y: 0.0031231355, z: 0.0031231355}
   m_Children:
   - {fileID: 479866}
@@ -5818,7 +5818,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109196}
   m_LocalRotation: {x: 0.070921436, y: -0.72522855, z: -0.6587036, w: 0.18741217}
-  m_LocalPosition: {x: 117.4, y: 6.44, z: -78}
+  m_LocalPosition: {x: 117.4, y: 0.43, z: -78}
   m_LocalScale: {x: 0.0031231353, y: 0.0031231355, z: 0.0031231355}
   m_Children:
   - {fileID: 442236}
@@ -6370,7 +6370,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150006}
   m_LocalRotation: {x: 0.070921436, y: -0.72522855, z: -0.6587036, w: 0.18741217}
-  m_LocalPosition: {x: -30.12, y: 6.76, z: -32.23}
+  m_LocalPosition: {x: -30.12, y: 0.75, z: -32.23}
   m_LocalScale: {x: 0.0031231353, y: 0.0031231355, z: 0.0031231355}
   m_Children:
   - {fileID: 437240}
@@ -14302,7 +14302,7 @@ Light:
     m_NormalBias: 0.4
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
+  m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
