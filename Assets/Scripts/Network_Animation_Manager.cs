@@ -10,8 +10,11 @@ public class Network_Animation_Manager : NetworkBehaviour {
   private bool lastRunValue;
   private bool lastMoveValue;
 
-	// Use this for initialization
-	void Start () {
+    public AudioSource footStep1;
+    public AudioSource footStep2;
+    bool leftFoot = true;
+    // Use this for initialization
+    void Start () {
 	 if(isLocalPlayer) {
     lastMoveValue = false;
     lastRunValue = false;
@@ -41,6 +44,7 @@ public class Network_Animation_Manager : NetworkBehaviour {
         lastMoveValue = isMoving;
         lastRunValue = isRunning;
         PlayAnimations();
+        PlayFootsteps();
       }
     }
 	}
@@ -62,4 +66,26 @@ public class Network_Animation_Manager : NetworkBehaviour {
     isRunning = newRunValue;
     isMoving = newMoveValue;
   }
+
+  void PlayFootsteps()
+    {
+        if ((isMoving || isRunning) && footStep1.isPlaying == false && footStep2.isPlaying == false)// add more logic later such as, onground/jumping etc etc
+        {
+            if (leftFoot)
+            {
+                // AudioSource.PlayClipAtPoint(footstep_Sound1, transform.position);
+                // footstep_playing = 1;
+                footStep1.pitch = Random.Range(0.7f, 0.9f);
+                footStep1.volume = Random.Range(0.7f, 0.9f);
+                footStep1.Play();
+            }
+            else
+            {
+                footStep2.pitch = Random.Range(0.7f, 0.9f);
+                footStep2.volume = Random.Range(0.7f, 0.9f);
+                footStep2.Play();
+            }
+            leftFoot = !leftFoot;
+        }
+    }
 }
