@@ -90,14 +90,14 @@ public class Player_SyncPoints : NetworkBehaviour {
   }
 
   void UpdateScoreTracker() {
-    points.text = m_PointsEarned.ToString ();
+    points.text = pointsEarned + "/" + necessaryPoints;
   }
 
   void ShowMessage() {
       timer = 0.0f;
 
       // display message (middle)
-      m_PointsMessage.text = "You now have " + m_PointsEarned.ToString () + " points!";
+      m_PointsMessage.text = "You now have " + pointsEarned + "/" + necessaryPoints + " points!";
       m_PointsMessage.enabled = true;
   }
 }
