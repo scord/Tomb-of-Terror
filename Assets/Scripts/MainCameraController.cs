@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class MainCameraController : MonoBehaviour {
@@ -11,7 +12,13 @@ public class MainCameraController : MonoBehaviour {
   private List<Transform> testPos = new List<Transform>();
   private int currentPlayer;
   private readonly Vector3 distance = new Vector3(0, 3, 0);
-	// Use this for initialization
+	private Player_SyncPoints points;
+  private Player_SyncHealth lives;
+  private Explorer_SyncAir air;
+
+  [SerializeField] private Text livesCanvas;
+  [SerializeField] private Text pointsCanvas;
+  [SerializeField] private Text timerCanvas;
 
   void Awake() {
     m_Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -25,6 +32,14 @@ public class MainCameraController : MonoBehaviour {
     testPos.Clear();
     foreach(PlayerController player in playerList){
       testPos.Add(player.transform);
+      if(pointsCanvas != null &&  player.GetComponent<Player_SyncPoints>() != null){
+        Debug.Log("points: " + player.GetComponent<Player_SyncPoints>().pointsEarned);
+        pointsCanvas.text = player.GetComponent<Player_SyncPoints>().pointsEarned.ToString();
+      }
+      if(livesCanvas != null &&  player.GetComponent<Player_SyncHealth>() != null){
+        Debug.Log("Lives " + player.GetComponent<Player_SyncHealth>().m_Lives);
+        livesCanvas.text = player.GetComponent<Player_SyncHealth>().m_Lives.ToString();
+      }
     }
   }
 
