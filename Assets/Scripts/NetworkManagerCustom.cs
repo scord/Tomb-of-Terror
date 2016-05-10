@@ -44,8 +44,10 @@ public class NetworkManagerCustom : NetworkManager {
   public override void OnServerRemovePlayer(NetworkConnection conn, UnityEngine.Networking.PlayerController player){
     base.OnServerRemovePlayer(conn, player);
     Debug.Log("SERVER REMOVE PLATTE");
-    if( null != AddedPlayerCallback )
+    if( null != AddedPlayerCallback ){
       AddedPlayerCallback();
+
+    }
   }
 
 
@@ -59,8 +61,10 @@ public class NetworkManagerCustom : NetworkManager {
     base.OnServerAddPlayer(netMsg.conn, msg.controllerId);
     UnRegisterStartPosition(spawnTransform);
 
-    if( null != AddedPlayerCallback )
+    if( null != AddedPlayerCallback ){
       AddedPlayerCallback();
+      Debug.Log("AICI MA INTAMPLU");
+    }
 
     if ( netMsg.conn != null  && netMsg.conn.clientOwnedObjects != null){
       foreach(NetworkInstanceId netId in netMsg.conn.clientOwnedObjects) {

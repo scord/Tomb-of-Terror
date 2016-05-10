@@ -14,7 +14,8 @@ public class MainCameraController : MonoBehaviour {
   private readonly Vector3 distance = new Vector3(0, 3, 0);
 	private Player_SyncPoints points;
   private Player_SyncHealth lives;
-  private Explorer_SyncAir air;
+  [SerializeField] private AirManager m_AirManager;
+
 
   [SerializeField] private Text livesCanvas;
   [SerializeField] private Text pointsCanvas;
@@ -22,22 +23,35 @@ public class MainCameraController : MonoBehaviour {
 
   void Awake() {
     m_Camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-
   }
+
+  void UpdateAir(int newAir){
+    timerCanvas.text = newAir.ToString();
+  }
+
 	void Start () {
     camTransform = m_Camera.transform;
+    if(m_AirManager != null)
+      m_AirManager.EventAirUpdate += UpdateAir;
 	}
+
+  void OnDisable(){
+    if(m_AirManager!=null)
+      m_AirManager.EventAirUpdate -= UpdateAir;
+  }
 
   public void SetCameras(PlayerController[] playerList){
     testPos.Clear();
     foreach(PlayerController player in playerList){
+      Debug.Log(player);
       testPos.Add(player.transform);
+      Debug.Log(testPos.Count);
+      Debug.Log("points canvas " + (pointsCanvas == null).ToString());
+      Debug.Log("sync points: "+  player.GetComponent<Player_SyncPoints>());
       if(pointsCanvas != null &&  player.GetComponent<Player_SyncPoints>() != null){
-        Debug.Log("points: " + player.GetComponent<Player_SyncPoints>().pointsEarned);
         pointsCanvas.text = player.GetComponent<Player_SyncPoints>().pointsEarned.ToString();
       }
       if(livesCanvas != null &&  player.GetComponent<Player_SyncHealth>() != null){
-        Debug.Log("Lives " + player.GetComponent<Player_SyncHealth>().m_Lives);
         livesCanvas.text = player.GetComponent<Player_SyncHealth>().m_Lives.ToString();
       }
     }
@@ -53,6 +67,7 @@ public class MainCameraController : MonoBehaviour {
   private void GotoCurrentPlayer(){
     if( currentPlayer >= testPos.Count )  currentPlayer = 0;
     SetPosition(testPos[currentPlayer]);
+    Debug.Log("orice");
   }
 
   private void GotoPreviousPlayer(){
