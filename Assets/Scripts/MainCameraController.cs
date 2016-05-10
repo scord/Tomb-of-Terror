@@ -9,6 +9,9 @@ public class MainCameraController : MonoBehaviour {
   private int speed = 20;
   private Transform camTransform;
   // public Transform[] players;
+  private GameObject m_Explorer;
+  private Player_SyncPoints m_SyncPointsScript;
+  private Player_SyncHealth m_SyncHealthScript;
   private List<Transform> testPos = new List<Transform>();
   private int currentPlayer;
   private readonly Vector3 distance = new Vector3(0, 3, 0);
@@ -43,16 +46,11 @@ public class MainCameraController : MonoBehaviour {
   public void SetCameras(PlayerController[] playerList){
     testPos.Clear();
     foreach(PlayerController player in playerList){
-      Debug.Log(player);
       testPos.Add(player.transform);
-      Debug.Log(testPos.Count);
-      Debug.Log("points canvas " + (pointsCanvas == null).ToString());
-      Debug.Log("sync points: "+  player.GetComponent<Player_SyncPoints>());
-      if(pointsCanvas != null &&  player.GetComponent<Player_SyncPoints>() != null){
-        pointsCanvas.text = player.GetComponent<Player_SyncPoints>().pointsEarned.ToString();
-      }
-      if(livesCanvas != null &&  player.GetComponent<Player_SyncHealth>() != null){
-        livesCanvas.text = player.GetComponent<Player_SyncHealth>().m_Lives.ToString();
+      if(player.gameObject.tag == "Explorer") {
+        m_Explorer = player.gameObject;
+        m_SyncHealthScript = player.GetComponent<Player_SyncHealth>();
+        m_SyncPointsScript = player.GetComponent<Player_SyncPoints>();
       }
     }
   }
@@ -95,6 +93,15 @@ public class MainCameraController : MonoBehaviour {
       if( Input.GetKeyDown(KeyCode.Alpha1)) GotoNextPlayer();
       if( Input.GetKeyDown(KeyCode.Alpha2)) GotoCurrentPlayer();
       if( Input.GetKeyDown(KeyCode.Alpha3)) GotoPreviousPlayer();
+    }
+
+    if(m_Explorer != null) {
+      if(pointsCanvas != null && m_SyncPointsScript != null){
+        pointsCanvas.text = m_SyncPointsScript.pointsEarned + "/" + m_SyncPointsScript.necessaryPoints;
+      }
+      if(livesCanvas != null &&  m_SyncHealthScript != null){
+        livesCanvas.text = m_SyncHealthScript.lives.ToString();
+      }   
     }
 	}
 

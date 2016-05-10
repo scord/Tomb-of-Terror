@@ -10534,10 +10534,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec6f7ef11177ae458cb9755161c2684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Lives: 3
   m_PlayerSyncPoints: {fileID: 11483348}
   m_VibrationController: {fileID: 11434204}
-  lives: {fileID: 11447094}
+  m_LivesText: {fileID: 11447094}
   swipe_sound: {fileID: 8300000, guid: d0d44decaf8db5c46afd05a5683d2184, type: 3}
 --- !u!114 &11498176
 MonoBehaviour:

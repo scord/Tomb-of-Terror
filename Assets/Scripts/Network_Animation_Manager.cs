@@ -67,10 +67,8 @@ public class Network_Animation_Manager : NetworkBehaviour {
         {
             if (leftFoot)
             {
-                //m_FootStep1.pitch = Random.Range(0.7f, 0.9f);
-                //m_FootStep1.volume = Random.Range(0.7f, 0.9f);
-                m_FootStep1.pitch = 1.0f;
-                m_FootStep1.volume = 1.0f;
+                m_FootStep1.pitch = Random.Range(0.7f, 0.9f);
+                m_FootStep1.volume = Random.Range(0.7f, 0.9f);
                 m_FootStep1.Play();
             }
             else

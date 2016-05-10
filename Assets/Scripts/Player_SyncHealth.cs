@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class Player_SyncHealth : NetworkBehaviour {
 
-  [SyncVar (hook = "OnLivesUpdated")] public int m_Lives = 3; //lives
+  [SyncVar (hook = "OnLivesUpdated")] private int m_Lives = 3; //lives
   [SerializeField] private Player_SyncPoints m_PlayerSyncPoints;
   [SerializeField] private VibrationController m_VibrationController;
   private OVRPlayerController m_OVRPlayerController;
   private int localLives;
-	public Text lives;
+	[SerializeField] private Text m_LivesText;
   [SerializeField] private AudioClip swipe_sound;
+  public int lives {get{ return m_Lives;}}
   void Start() {
     if (isLocalPlayer) {
       CmdSyncLives();
@@ -36,7 +37,7 @@ public class Player_SyncHealth : NetworkBehaviour {
   void OnLivesUpdated(int newValue) {
     m_Lives = newValue;
     if(isLocalPlayer) {
-      lives.text = m_Lives.ToString();
+      m_LivesText.text = m_Lives.ToString();
     }
   }
 
@@ -44,7 +45,7 @@ public class Player_SyncHealth : NetworkBehaviour {
   public void RpcSendSwipeReaction() {
     if (isLocalPlayer) {
       m_VibrationController.VibrateFor(1.0f);
-      lives.text = m_Lives.ToString ();
+      m_LivesText.text = m_Lives.ToString ();
       MultiplyRunningSpeed(2.5f);
       StartCoroutine(RelaxSpeed());
 			GameObject canvas = GameObject.FindGameObjectWithTag ("ExplorerCanvas");
