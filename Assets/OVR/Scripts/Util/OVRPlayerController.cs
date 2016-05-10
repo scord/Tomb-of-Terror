@@ -143,7 +143,7 @@ public class OVRPlayerController : MonoBehaviour
 		}
 	}
 
-	protected virtual void FixedUpdate()
+	protected virtual void Update()
 	{
 		if (useProfileData)
 		{

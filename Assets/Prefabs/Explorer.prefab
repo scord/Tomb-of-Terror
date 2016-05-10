@@ -2684,6 +2684,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &166134
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22456864}
+  - 222: {fileID: 22293360}
+  - 114: {fileID: 11459176}
+  - 225: {fileID: 22527768}
+  m_Layer: 5
+  m_Name: Controller-Torch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &166352
 GameObject:
   m_ObjectHideFlags: 1
@@ -3407,7 +3425,7 @@ GameObject:
   - 114: {fileID: 11483464}
   - 225: {fileID: 22559356}
   m_Layer: 5
-  m_Name: Controller-Torch
+  m_Name: Controller-Torch again
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8946,7 +8964,7 @@ MonoBehaviour:
   runCanvas: {fileID: 127560}
   extinguishCanvas: {fileID: 196616}
   toTombCanvas: {fileID: 143674}
-  torchCanvas: {fileID: 187012}
+  torchCanvas: {fileID: 166134}
   enterCanvas: {fileID: 190296}
   fireInfo: {fileID: 11495090}
   playerController: {fileID: 11453372}
@@ -8954,6 +8972,7 @@ MonoBehaviour:
   cam: {fileID: 2095840}
   explorerObject: {fileID: 151886}
   treasureCanvas: {fileID: 102616}
+  torchAgainCanvas: {fileID: 187012}
 --- !u!114 &11413358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9856,6 +9875,33 @@ MonoBehaviour:
   near: 1
   far: 1000
   disableRfl: 0
+--- !u!114 &11459176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: b3acddcc7f52ecb4baf4245916372b31, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &11459588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10279,7 +10325,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b3acddcc7f52ecb4baf4245916372b31, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 712338820f327eb4b93e419741c3da30, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -44216,6 +44262,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181082}
+--- !u!222 &22293360
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166134}
 --- !u!222 &22295190
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -44341,13 +44393,14 @@ RectTransform:
   - {fileID: 22429504}
   - {fileID: 22418612}
   - {fileID: 22434274}
-  - {fileID: 22429892}
+  - {fileID: 22456864}
   - {fileID: 22435644}
   - {fileID: 22422354}
   - {fileID: 22456424}
   - {fileID: 22428496}
   - {fileID: 22480988}
   - {fileID: 22415026}
+  - {fileID: 22429892}
   m_Father: {fileID: 400518}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -44502,7 +44555,7 @@ RectTransform:
   m_LocalScale: {x: 0.5829351, y: 0.5829356, z: 0.5829356}
   m_Children: []
   m_Father: {fileID: 22412906}
-  m_RootOrder: 12
+  m_RootOrder: 19
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -44685,6 +44738,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -1.4999998}
   m_SizeDelta: {x: 160, y: 50}
   m_Pivot: {x: 1, y: 1}
+--- !u!224 &22456864
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166134}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5829351, y: 0.5829356, z: 0.5829356}
+  m_Children: []
+  m_Father: {fileID: 22412906}
+  m_RootOrder: 12
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1.746, y: 1.476}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22460910
 RectTransform:
   m_ObjectHideFlags: 1
@@ -44861,6 +44931,17 @@ CanvasGroup:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172778}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!225 &22527768
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 166134}
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1

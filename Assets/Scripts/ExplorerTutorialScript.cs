@@ -22,7 +22,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
   private int torchPress = 2;
 
   // run variables
-  private float runTime = 3;   // seconds
+  private float runTime = 2;   // seconds
   private bool running = false;
 
   // pivot variables
@@ -30,6 +30,8 @@ public class ExplorerTutorialScript : IntroTutorialScript {
 
   // treaure variables
   [SerializeField] private GameObject treasureCanvas;
+    [SerializeField]
+    private GameObject torchAgainCanvas;
 
   // Use this for initialization
   protected void Start () {
@@ -44,6 +46,7 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     toTombCanvas.SetActive(false);
     enterCanvas.SetActive(false);
     torchCanvas.SetActive(false);
+    torchAgainCanvas.SetActive(false);
 
     walkCanvas.GetComponent<CanvasGroup>().alpha = 0;
     pivotCanvas.GetComponent<CanvasGroup>().alpha = 0;
@@ -55,8 +58,9 @@ public class ExplorerTutorialScript : IntroTutorialScript {
     toTombCanvas.GetComponent<CanvasGroup>().alpha = 0;
     enterCanvas.GetComponent<CanvasGroup>().alpha = 0;
     torchCanvas.GetComponent<CanvasGroup>().alpha = 0;
+    torchAgainCanvas.GetComponent<CanvasGroup>().alpha = 0;
 
-    playerController = explorerObject.GetComponent<PlayerController>();
+        playerController = explorerObject.GetComponent<PlayerController>();
     explorerController = explorerObject.GetComponent<ExplorerController>();
     points = explorerObject.GetComponent<Player_SyncPoints>();
 
@@ -64,72 +68,82 @@ public class ExplorerTutorialScript : IntroTutorialScript {
 
   // Update is called once per frame
   protected void Update () {
-    // rotate head prompt
-    if( headCanvas.activeSelf ){
-      if(lookAround > 0)
-        lookAround -= Time.deltaTime;
-      else
-        FadeTo(headCanvas, walkCanvas);
+        // rotate head prompt
+        if (headCanvas.activeSelf) {
+            if (lookAround > 0)
+                lookAround -= Time.deltaTime;
+            else
+                FadeTo(headCanvas, walkCanvas);
+        }
+
+        // walk around prompt
+        else if (walkCanvas.activeSelf) {
+            if (Input.GetAxis("Vertical") != 0 && walkTime > 0)
+                walkTime -= Time.deltaTime;
+            if (walkTime <= 0)
+                FadeTo(walkCanvas, pivotCanvas);
+        }
+
+        // if pivot canvas activated
+        else if (pivotCanvas.activeSelf) {
+            if (EndPivot())
+                FadeTo(pivotCanvas, runCanvas);
+        }
+
+        // if run canvas activated
+        else if (runCanvas.activeSelf) {
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetAxis("TriggerL") > 0 || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0)
+                running = true;
+            else
+                running = false;
+
+            if (running && runTime > 0)
+                runTime -= Time.deltaTime;
+
+            if (runTime < 0)
+                FadeTo(runCanvas, treasureCanvas);
+        }
+        else if (treasureCanvas.activeSelf) {
+            if (points.pointsEarned >= 400) {
+                FadeTo(treasureCanvas, toTombCanvas);
+            }
+            else {
+                Debug.Log(points.pointsEarned);
+            }
+        }
+
+        else if (toTombCanvas.activeSelf) {
+            if (explorerController.carryingTorch)
+                FadeTo(toTombCanvas, torchCanvas);
+        }
+
+        // if at the torch stage
+        else if (explorerController.carryingTorch && torchCanvas.activeSelf) {
+
+            if (Input.GetButtonDown("Fire1") && torchPress > 0) {
+                torchPress--;
+                FadeTo(torchCanvas, torchAgainCanvas);
+                }
+        }
+        else if (explorerController.carryingTorch && torchAgainCanvas.activeSelf)
+        {
+
+            if (Input.GetButtonDown("Fire1") && torchPress > 0)
+                torchPress--;
+
+            if (torchPress == 0)
+            {
+                GameObject.FindGameObjectWithTag("PyramidExit").GetComponent<Collider>().isTrigger = true;
+                FadeTo(torchAgainCanvas, enterCanvas);       
+            }
+         }
+
     }
 
-    // walk around prompt
-    else if (walkCanvas.activeSelf) {
-      if(Input.GetAxis("Vertical") != 0 && walkTime > 0)
-        walkTime -= Time.deltaTime;
-      if(walkTime <= 0)
-        FadeTo(walkCanvas, pivotCanvas);
-    }
-
-    // if pivot canvas activated
-    else if (pivotCanvas.activeSelf) {
-      if( EndPivot() )
-        FadeTo(pivotCanvas, runCanvas);
-    }
-
-    // if run canvas activated
-    else if( runCanvas.activeSelf ) {
-      if( Input.GetKey(KeyCode.LeftShift) || Input.GetAxis("TriggerL") > 0 || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0 )
-        running = true;
-      else
-        running = false;
-
-      if(running && runTime > 0)
-        runTime -= Time.deltaTime;
-
-      if(runTime < 0)
-        FadeTo(runCanvas, treasureCanvas);
-    }
-    else if (treasureCanvas.activeSelf){
-      if(points.pointsEarned >= 400){
-        FadeTo(treasureCanvas, toTombCanvas);
-      }
-      else{
-        Debug.Log(points.pointsEarned);
-      }
-    }
-
-    else if (toTombCanvas.activeSelf ){
-      if(explorerController.carryingTorch)
-        FadeTo(toTombCanvas, torchCanvas);
-    }
-
-    // if at the torch stage
-    else if(explorerController.carryingTorch && torchCanvas.activeSelf){
-
-      if(Input.GetButtonDown("Fire1") && torchPress > 0)
-        torchPress --;
-
-      if(torchPress == 0){
-        GameObject.FindGameObjectWithTag("PyramidExit").GetComponent<Collider>().isTrigger = true;
-        FadeTo(torchCanvas, enterCanvas);
-      }
-
-    }
-  }
 
   private bool EndPivot(){
     if(pivotCount > 0){
-      if ( Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) || Input.GetKey(KeyCode.Joystick1Button4) || Input.GetKey(KeyCode.Joystick1Button5) || OVRInput.Get(OVRInput.Button.PrimaryShoulder) || OVRInput.Get(OVRInput.Button.SecondaryShoulder)  )
+      if ( Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKeyDown(KeyCode.Joystick1Button5) )
         pivotCount--;
 
       return false;
