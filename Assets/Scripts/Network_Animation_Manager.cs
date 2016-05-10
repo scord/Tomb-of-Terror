@@ -31,27 +31,25 @@ public class Network_Animation_Manager : NetworkBehaviour {
       if( Input.GetKey(KeyCode.LeftShift) || OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger) > 0 ) {
         updateRunValue = true;
       }
-      SendAnimationState(updateMoveValue, updateRunValue);
+      SendAnimationState(updateRunValue, updateMoveValue);
       PlayAnimations();
       lastRunValue = updateRunValue;
       lastMoveValue = updateMoveValue;
     }
-  }	
+  }
 	// Update is called once per frame
 	void Update () {
     if (!isLocalPlayer) {
-      if ( (lastMoveValue != isMoving) && (lastRunValue != isRunning)) {
-        lastMoveValue = isMoving;
-        lastRunValue = isRunning;
-        PlayAnimations();
-        PlayFootsteps();
-      }
+      lastMoveValue = isMoving;
+      lastRunValue = isRunning;
+      PlayAnimations();
+      PlayFootsteps();
     }
 	}
 
   void PlayAnimations() {
-    m_Animator.SetBool("Run", isMoving);
-    m_Animator.SetBool("Movement", isRunning);
+    m_Animator.SetBool("Run", isRunning);
+    m_Animator.SetBool("Movement", isMoving);
   }
 
   [ClientCallback]
