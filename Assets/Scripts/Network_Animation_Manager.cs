@@ -7,22 +7,26 @@ public class Network_Animation_Manager : NetworkBehaviour {
   [SyncVar] private bool isRunning = false;
   [SyncVar] private bool isMoving = false;
   [SerializeField] private Animator m_Animator;
+  [SerializeField] private AudioSource m_FootStep1;
+  [SerializeField] private AudioSource m_FootStep2;
   private bool lastRunValue;
   private bool lastMoveValue;
 
-    public AudioSource footStep1;
-    public AudioSource footStep2;
-    bool leftFoot = true;
-    // Use this for initialization
-    void Start () {
-	 if(isLocalPlayer) {
-    lastMoveValue = false;
-    lastRunValue = false;
-   }
-	}
+  bool leftFoot = true;
+  // Use this for initialization
+  void Start () {
+    if(isLocalPlayer) {
+      lastMoveValue = false;
+      lastRunValue = false;
+    }
+  }
 
-  void FixedUpdate() {
-    if (isLocalPlayer) {
+	// Update is called once per frame
+	void Update () {
+    if (!isLocalPlayer) {
+      lastMoveValue = isMoving;
+      lastRunValue = isRunning;
+    } else {
       bool updateMoveValue = false;
       bool updateRunValue = false;
       if(Input.GetAxis("Vertical") != 0) {
@@ -32,19 +36,11 @@ public class Network_Animation_Manager : NetworkBehaviour {
         updateRunValue = true;
       }
       SendAnimationState(updateRunValue, updateMoveValue);
-      PlayAnimations();
       lastRunValue = updateRunValue;
       lastMoveValue = updateMoveValue;
     }
-  }
-	// Update is called once per frame
-	void Update () {
-    if (!isLocalPlayer) {
-      lastMoveValue = isMoving;
-      lastRunValue = isRunning;
-      PlayAnimations();
-      PlayFootsteps();
-    }
+    PlayAnimations();
+    PlayFootsteps();
 	}
 
   void PlayAnimations() {
@@ -67,21 +63,21 @@ public class Network_Animation_Manager : NetworkBehaviour {
 
   void PlayFootsteps()
     {
-        if ((isMoving || isRunning) && footStep1.isPlaying == false && footStep2.isPlaying == false)// add more logic later such as, onground/jumping etc etc
+        if ((isMoving || isRunning) && m_FootStep1.isPlaying == false && m_FootStep2.isPlaying == false)// add more logic later such as, onground/jumping etc etc
         {
             if (leftFoot)
             {
-                // AudioSource.PlayClipAtPoint(footstep_Sound1, transform.position);
-                // footstep_playing = 1;
-                footStep1.pitch = Random.Range(0.7f, 0.9f);
-                footStep1.volume = Random.Range(0.7f, 0.9f);
-                footStep1.Play();
+                //m_FootStep1.pitch = Random.Range(0.7f, 0.9f);
+                //m_FootStep1.volume = Random.Range(0.7f, 0.9f);
+                m_FootStep1.pitch = 1.0f;
+                m_FootStep1.volume = 1.0f;
+                m_FootStep1.Play();
             }
             else
             {
-                footStep2.pitch = Random.Range(0.7f, 0.9f);
-                footStep2.volume = Random.Range(0.7f, 0.9f);
-                footStep2.Play();
+                m_FootStep2.pitch = Random.Range(0.7f, 0.9f);
+                m_FootStep2.volume = Random.Range(0.7f, 0.9f);
+                m_FootStep2.Play();
             }
             leftFoot = !leftFoot;
         }

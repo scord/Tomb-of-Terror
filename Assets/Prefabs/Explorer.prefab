@@ -8905,6 +8905,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Animator: {fileID: 9581524}
+  m_FootStep1: {fileID: 8257194}
+  m_FootStep2: {fileID: 8245706}
 --- !u!114 &11413178
 MonoBehaviour:
   m_ObjectHideFlags: 1
