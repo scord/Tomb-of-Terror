@@ -43,5 +43,8 @@ public class Sync_HeartRate : NetworkBehaviour {
   [Client]
   void SyncHeartRate(int newHR) {
     HeartRate = newHR;
+    if (isLocalPlayer) {
+      m_HeartRateText.text = HeartRate.ToString();
+    }
   }
 }

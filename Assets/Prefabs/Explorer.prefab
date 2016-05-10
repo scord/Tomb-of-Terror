@@ -3224,7 +3224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &181312
 GameObject:
   m_ObjectHideFlags: 1
@@ -10588,6 +10588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerSyncPoints: {fileID: 11483348}
   m_VibrationController: {fileID: 11434204}
+  m_RedScreenCanvas: {fileID: 181312}
   m_LivesText: {fileID: 11425060}
   swipe_sound: {fileID: 8300000, guid: d0d44decaf8db5c46afd05a5683d2184, type: 3}
 --- !u!114 &11498176

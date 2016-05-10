@@ -8,6 +8,7 @@ public class Player_SyncHealth : NetworkBehaviour {
   [SyncVar (hook = "OnLivesUpdated")] private int m_Lives = 3; //lives
   [SerializeField] private Player_SyncPoints m_PlayerSyncPoints;
   [SerializeField] private VibrationController m_VibrationController;
+  [SerializeField] private GameObject m_RedScreenCanvas;
   private OVRPlayerController m_OVRPlayerController;
   private int localLives;
 	[SerializeField] private Text m_LivesText;
@@ -48,9 +49,8 @@ public class Player_SyncHealth : NetworkBehaviour {
       m_LivesText.text = m_Lives.ToString ();
       MultiplyRunningSpeed(2.5f);
       StartCoroutine(RelaxSpeed());
-			GameObject canvas = GameObject.FindGameObjectWithTag ("ExplorerCanvas");
-			if (canvas != null){
-				ScreenFlashController sfc = canvas.GetComponent<ScreenFlashController>();
+			if (m_RedScreenCanvas != null){
+				ScreenFlashController sfc = m_RedScreenCanvas.GetComponent<ScreenFlashController>();
 				sfc.hit = true;
 			}
 
