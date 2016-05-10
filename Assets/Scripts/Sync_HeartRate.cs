@@ -9,6 +9,7 @@ public class Sync_HeartRate : NetworkBehaviour {
   [SerializeField] private AudioSource m_OpenValve;
   [SerializeField] private AudioSource m_CloseValve;
   [SerializeField] private Explorer_HeartRate m_Explorer_HeartRate;
+  [SerializeField] private UnityEngine.UI.Text m_HeartRateText;
 
   private HeartBeats heartBeatsScript;
 
@@ -17,7 +18,12 @@ public class Sync_HeartRate : NetworkBehaviour {
   }
 
   void Update() {
-    if (isLocalPlayer) UpdateHeartRate(m_Explorer_HeartRate.GetHeartBeat());
+    if (isLocalPlayer) {
+      if ( Input.GetKeyDown(KeyCode.P) ) {
+        m_HeartRateText.gameObject.SetActive(!m_HeartRateText.gameObject.activeSelf);
+      }
+      UpdateHeartRate(m_Explorer_HeartRate.GetHeartBeat());
+    }
   }
 
   void FixedUpdate() {
@@ -31,6 +37,7 @@ public class Sync_HeartRate : NetworkBehaviour {
   [Command]
   void CmdUpdateHeartRate(int newHR) {
     HeartRate = newHR;
+    m_HeartRateText.text = HeartRate.ToString();
   }
 
   [Client]

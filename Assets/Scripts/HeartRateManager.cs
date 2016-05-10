@@ -95,7 +95,6 @@ public class HeartRateManager : NetworkBehaviour {
 		
 		HRProcess = new System.Diagnostics.Process();
 		HRProcess.StartInfo.FileName = path + "\\HR\\bglib_test_hr_collector.exe";
- 		Debug.Log(path);
 		HRProcess.StartInfo.UseShellExecute = false;
 		HRProcess.StartInfo.RedirectStandardOutput = true;
 		HRProcess.StartInfo.CreateNoWindow = true;
@@ -202,7 +201,6 @@ public class HeartRateManager : NetworkBehaviour {
         
         bool stopped = false;
         bluKillProcess.Start();
-        Debug.Log(bluKillProcess.StartInfo.Arguments);
         while(!stopped){
             String output = bluKillProcess.StandardOutput.ReadLine();
             stopped = output.Equals("done!");

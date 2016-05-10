@@ -12,7 +12,6 @@ public class ScreenFlashController : MonoBehaviour {
 
 	void Start() {
 		redCanvasFront.SetActive(false);
-
 	}
 		
 

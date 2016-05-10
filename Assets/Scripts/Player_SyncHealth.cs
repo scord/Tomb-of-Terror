@@ -13,6 +13,7 @@ public class Player_SyncHealth : NetworkBehaviour {
 	[SerializeField] private Text m_LivesText;
   [SerializeField] private AudioClip swipe_sound;
   public int lives {get{ return m_Lives;}}
+  
   void Start() {
     if (isLocalPlayer) {
       CmdSyncLives();
@@ -23,7 +24,6 @@ public class Player_SyncHealth : NetworkBehaviour {
   [Command]
   void CmdSyncLives() {
     m_Lives = m_Lives++;
-    Debug.Log("Second: " + m_Lives);
   }
 
   [Server]
@@ -55,7 +55,6 @@ public class Player_SyncHealth : NetworkBehaviour {
 			}
 
       //Do things like run faster
-      Debug.Log("I was swiped");
       AudioSource.PlayClipAtPoint(swipe_sound, transform.position);
     }
   }

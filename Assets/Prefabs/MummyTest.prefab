@@ -526,6 +526,7 @@ GameObject:
   - 114: {fileID: 11422828}
   - 114: {fileID: 11410654}
   - 114: {fileID: 11407366}
+  - 114: {fileID: 11450020}
   m_Layer: 0
   m_Name: MummyTest
   m_TagString: Player
@@ -2353,7 +2354,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112156}
-  m_LocalRotation: {x: 0.62622035, y: 0.7009297, z: -0.29358685, w: 0.17421986}
+  m_LocalRotation: {x: 0.6262203, y: 0.70092964, z: -0.29358682, w: 0.17421985}
   m_LocalPosition: {x: -0.010628547, y: 0.021276934, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3551,6 +3552,17 @@ MonoBehaviour:
   near: 1
   far: 10
   disableRfl: 0
+--- !u!114 &11450020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df47979c04638448a80486ab592530f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11451434
 MonoBehaviour:
   m_ObjectHideFlags: 1
