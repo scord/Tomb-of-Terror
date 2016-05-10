@@ -1,22 +1,31 @@
-﻿// Source:
-// Firoball code on
-// http://forum.unity3d.com/threads/spawning-players-via-networkmanager-ignores-rotation.349089/
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
  
 public class FixRotation : NetworkBehaviour
 {
-    [SyncVar] Vector3 rotation;
+    [SyncVar (hook = "UpdateInitialRotation")] Vector3 rotation;
+    private Vector3 initialRotation;
  
     public override void OnStartServer()      
     {
-      rotation = transform.rotation.eulerAngles;
+      initialRotation = transform.rotation.eulerAngles;
     }
- 
-    public override void OnStartClient()
-    {
+
+    public override void OnStartLocalPlayer() {
+      base.OnStartLocalPlayer();
+      CmdRequestRotationUpdate();
+    }
+
+    [Command]
+    void CmdRequestRotationUpdate() {
+      rotation = initialRotation;
+    }
+
+    [Client]
+    void UpdateInitialRotation(Vector3 newValue) {
+      rotation = newValue;
       transform.rotation = Quaternion.Euler(rotation);
     }
+
 }

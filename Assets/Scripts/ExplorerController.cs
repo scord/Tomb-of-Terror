@@ -8,6 +8,7 @@ public class ExplorerController : PlayerController {
 
     [SerializeField] private GameObject m_Torch;
     [SerializeField] private GameObject m_PointsCanvas;
+    [SerializeField] private GameObject m_InfoCanvas;
     private TorchManager torchManagerScript;
 
 	private float wheelDirection;
@@ -72,6 +73,7 @@ public class ExplorerController : PlayerController {
 
     protected override void OnDisable() {
         base.OnDisable();
+        m_InfoCanvas.SetActive(false);
         m_Torch.SetActive(false);
         GetComponent<Explorer_HeartRate>().enabled = false;
     }
