@@ -244,7 +244,7 @@ public class HeartRateManager : NetworkBehaviour {
 	}
 
 	public int GetStartPoint() {
-		return starting_point;
+		return log[0];
 	}
 
 	public int GetAverage() {
